@@ -33,7 +33,5 @@ it('retrieves events', function() {
 
     $response = $connector->repos()->listReleases('laravel', 'laravel', 1);
 
-
-    dd($response->json());
     expect($response->status())->toBe(200);
 });
