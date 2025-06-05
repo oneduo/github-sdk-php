@@ -31,10 +31,12 @@ class ActionsListSelfHostedRunnerGroupsForOrg extends Request {
     public function __construct(
         protected string $org,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $visibleToRepository = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'visible_to_repository' => $this->visibleToRepository]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'visible_to_repository' => $this->visibleToRepository]);
     }
 }

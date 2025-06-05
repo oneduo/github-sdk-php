@@ -68,6 +68,7 @@ class IssuesList extends Request {
         protected ?bool $owned = null,
         protected ?bool $pulls = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -83,6 +84,7 @@ class IssuesList extends Request {
             'owned' => $this->owned,
             'pulls' => $this->pulls,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

@@ -50,6 +50,7 @@ class ReposListCollaborators extends Request {
         protected ?string $affiliation = null,
         protected ?string $permission = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

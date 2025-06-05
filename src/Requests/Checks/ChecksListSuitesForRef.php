@@ -43,6 +43,7 @@ class ChecksListSuitesForRef extends Request {
         protected ?int $appId = null,
         protected ?string $checkName = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

@@ -36,6 +36,7 @@ class SearchIssuesAndPullRequests extends Request {
         protected ?string $sort = null,
         protected ?string $order = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $advancedSearch = null,
     ) {}
 
@@ -45,6 +46,7 @@ class SearchIssuesAndPullRequests extends Request {
             'sort' => $this->sort,
             'order' => $this->order,
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'advanced_search' => $this->advancedSearch,
         ]);
     }

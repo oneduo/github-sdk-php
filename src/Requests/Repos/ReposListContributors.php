@@ -38,6 +38,7 @@ class ReposListContributors extends Request {
         protected string $repo,
         protected ?string $anon = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

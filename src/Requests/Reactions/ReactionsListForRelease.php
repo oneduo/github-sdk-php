@@ -32,6 +32,7 @@ class ReactionsListForRelease extends Request {
         protected int $releaseId,
         protected ?string $content = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

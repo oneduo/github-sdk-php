@@ -44,6 +44,7 @@ class ReactionsListForTeamDiscussionCommentInOrg extends Request {
         protected int $commentNumber,
         protected ?string $content = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

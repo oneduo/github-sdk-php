@@ -32,6 +32,7 @@ class ReactionsListForIssue extends Request {
         protected int $issueNumber,
         protected ?string $content = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

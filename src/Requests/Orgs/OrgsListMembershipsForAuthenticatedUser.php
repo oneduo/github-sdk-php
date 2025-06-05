@@ -26,6 +26,7 @@ class OrgsListMembershipsForAuthenticatedUser extends Request {
     public function __construct(
         protected ?string $state = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

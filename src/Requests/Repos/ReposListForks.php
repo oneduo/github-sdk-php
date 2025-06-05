@@ -28,6 +28,7 @@ class ReposListForks extends Request {
         protected string $repo,
         protected ?string $sort = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

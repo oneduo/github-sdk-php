@@ -33,6 +33,7 @@ class ProjectsListCards extends Request {
         protected int $columnId,
         protected ?string $archivedState = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

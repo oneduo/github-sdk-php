@@ -44,6 +44,7 @@ class SearchCommits extends Request {
         protected ?string $sort = null,
         protected ?string $order = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

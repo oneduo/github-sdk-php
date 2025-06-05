@@ -33,11 +33,13 @@ class OrgsListPendingInvitations extends Request {
     public function __construct(
         protected string $org,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $role = null,
         protected ?string $invitationSource = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'role' => $this->role, 'invitation_source' => $this->invitationSource]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'role' => $this->role, 'invitation_source' => $this->invitationSource]);
     }
 }

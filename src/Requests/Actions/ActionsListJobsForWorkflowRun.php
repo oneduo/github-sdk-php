@@ -41,6 +41,7 @@ class ActionsListJobsForWorkflowRun extends Request {
         protected int $runId,
         protected ?string $filter = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

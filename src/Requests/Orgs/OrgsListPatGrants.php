@@ -37,6 +37,7 @@ class OrgsListPatGrants extends Request {
     public function __construct(
         protected string $org,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $sort = null,
         protected ?string $direction = null,
         protected ?array $owner = null,
@@ -50,6 +51,7 @@ class OrgsListPatGrants extends Request {
     public function defaultQuery(): array {
         return array_filter([
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'sort' => $this->sort,
             'direction' => $this->direction,
             'owner' => $this->owner,

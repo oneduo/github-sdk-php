@@ -51,6 +51,7 @@ class IssuesListComments extends Request {
         protected int $issueNumber,
         protected ?string $since = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

@@ -65,6 +65,7 @@ class PullsList extends Request {
         protected ?string $sort = null,
         protected ?string $direction = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -75,6 +76,7 @@ class PullsList extends Request {
             'sort' => $this->sort,
             'direction' => $this->direction,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

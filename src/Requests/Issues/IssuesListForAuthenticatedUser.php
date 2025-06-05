@@ -60,6 +60,7 @@ class IssuesListForAuthenticatedUser extends Request {
         protected ?string $direction = null,
         protected ?string $since = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -71,6 +72,7 @@ class IssuesListForAuthenticatedUser extends Request {
             'direction' => $this->direction,
             'since' => $this->since,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

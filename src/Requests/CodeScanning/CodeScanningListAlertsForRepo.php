@@ -35,6 +35,7 @@ class CodeScanningListAlertsForRepo extends Request {
      * @param  null|string  $toolName  The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both.
      * @param  null|string  $toolGuid  The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $ref  The Git reference for the results you want to list. The `ref` for a branch can be formatted either as `refs/heads/<branch name>` or simply `<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.
      * @param  null|int  $pr  The number of the pull request for the results you want to list.
      * @param  null|string  $direction  The direction to sort the results by.
@@ -49,6 +50,7 @@ class CodeScanningListAlertsForRepo extends Request {
         protected ?string $toolName = null,
         protected ?string $toolGuid = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $ref = null,
         protected ?int $pr = null,
         protected ?string $direction = null,
@@ -63,6 +65,7 @@ class CodeScanningListAlertsForRepo extends Request {
             'tool_name' => $this->toolName,
             'tool_guid' => $this->toolGuid,
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'ref' => $this->ref,
             'pr' => $this->pr,
             'direction' => $this->direction,

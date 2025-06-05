@@ -89,6 +89,7 @@ class ReposListCommits extends Request {
         protected ?string $since = null,
         protected ?string $until = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -100,6 +101,7 @@ class ReposListCommits extends Request {
             'since' => $this->since,
             'until' => $this->until,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

@@ -48,6 +48,7 @@ class SearchLabels extends Request {
         protected ?string $sort = null,
         protected ?string $order = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -57,6 +58,7 @@ class SearchLabels extends Request {
             'sort' => $this->sort,
             'order' => $this->order,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

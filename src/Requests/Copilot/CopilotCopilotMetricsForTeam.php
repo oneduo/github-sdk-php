@@ -55,6 +55,7 @@ class CopilotCopilotMetricsForTeam extends Request {
         protected ?string $since = null,
         protected ?string $until = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

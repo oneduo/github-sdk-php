@@ -29,10 +29,12 @@ class OrgsListCustomPropertiesValuesForRepos extends Request {
     public function __construct(
         protected string $org,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $repositoryQuery = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'repository_query' => $this->repositoryQuery]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'repository_query' => $this->repositoryQuery]);
     }
 }

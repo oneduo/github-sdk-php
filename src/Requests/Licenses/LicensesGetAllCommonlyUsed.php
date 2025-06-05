@@ -26,6 +26,7 @@ class LicensesGetAllCommonlyUsed extends Request {
     public function __construct(
         protected ?bool $featured = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

@@ -53,6 +53,7 @@ class ChecksListForRef extends Request {
         protected ?string $status = null,
         protected ?string $filter = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?int $appId = null,
     ) {}
 
@@ -62,6 +63,7 @@ class ChecksListForRef extends Request {
             'status' => $this->status,
             'filter' => $this->filter,
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'app_id' => $this->appId,
         ]);
     }

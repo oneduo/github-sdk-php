@@ -35,6 +35,7 @@ class ActionsGetActionsCacheList extends Request {
         protected string $owner,
         protected string $repo,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $ref = null,
         protected ?string $key = null,
         protected ?string $sort = null,
@@ -44,6 +45,7 @@ class ActionsGetActionsCacheList extends Request {
     public function defaultQuery(): array {
         return array_filter([
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'ref' => $this->ref,
             'key' => $this->key,
             'sort' => $this->sort,

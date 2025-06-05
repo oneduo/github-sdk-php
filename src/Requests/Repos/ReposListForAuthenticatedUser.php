@@ -44,6 +44,7 @@ class ReposListForAuthenticatedUser extends Request {
         protected ?string $sort = null,
         protected ?string $direction = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $since = null,
         protected ?string $before = null,
     ) {}
@@ -56,6 +57,7 @@ class ReposListForAuthenticatedUser extends Request {
             'sort' => $this->sort,
             'direction' => $this->direction,
             'page' => $this->page,
+            'per_page' => $this->perPage,
             'since' => $this->since,
             'before' => $this->before,
         ]);

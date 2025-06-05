@@ -45,6 +45,7 @@ class ChecksListForSuite extends Request {
         protected ?string $status = null,
         protected ?string $filter = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

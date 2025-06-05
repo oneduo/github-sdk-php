@@ -33,6 +33,7 @@ class TeamsListMembersInOrg extends Request {
         protected string $teamSlug,
         protected ?string $role = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

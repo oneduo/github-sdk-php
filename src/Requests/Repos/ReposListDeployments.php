@@ -36,6 +36,7 @@ class ReposListDeployments extends Request {
         protected ?string $task = null,
         protected ?string $environment = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -45,6 +46,7 @@ class ReposListDeployments extends Request {
             'task' => $this->task,
             'environment' => $this->environment,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

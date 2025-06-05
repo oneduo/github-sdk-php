@@ -38,6 +38,7 @@ class PackagesListPackagesForOrganization extends Request {
         protected string $packageType,
         protected ?string $visibility = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

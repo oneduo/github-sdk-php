@@ -36,6 +36,7 @@ class ActivityListRepoNotificationsForAuthenticatedUser extends Request {
         protected ?string $since = null,
         protected ?string $before = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -45,6 +46,7 @@ class ActivityListRepoNotificationsForAuthenticatedUser extends Request {
             'since' => $this->since,
             'before' => $this->before,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

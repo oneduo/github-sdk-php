@@ -33,6 +33,7 @@ class ProjectsListForOrg extends Request {
         protected string $org,
         protected ?string $state = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

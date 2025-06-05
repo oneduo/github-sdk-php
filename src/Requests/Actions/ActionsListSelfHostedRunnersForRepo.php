@@ -36,6 +36,7 @@ class ActionsListSelfHostedRunnersForRepo extends Request {
         protected string $repo,
         protected ?string $name = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

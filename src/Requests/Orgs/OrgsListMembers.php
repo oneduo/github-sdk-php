@@ -31,6 +31,7 @@ class OrgsListMembers extends Request {
         protected ?string $filter = null,
         protected ?string $role = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

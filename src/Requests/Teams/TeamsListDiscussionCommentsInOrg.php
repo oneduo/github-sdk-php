@@ -40,6 +40,7 @@ class TeamsListDiscussionCommentsInOrg extends Request {
         protected int $discussionNumber,
         protected ?string $direction = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

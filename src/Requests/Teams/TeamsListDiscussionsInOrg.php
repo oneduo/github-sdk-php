@@ -38,10 +38,12 @@ class TeamsListDiscussionsInOrg extends Request {
         protected string $teamSlug,
         protected ?string $direction = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $pinned = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['direction' => $this->direction, 'page' => $this->page, 'pinned' => $this->pinned]);
+        return array_filter(['direction' => $this->direction, 'page' => $this->page,
+            'per_page' => $this->perPage, 'pinned' => $this->pinned]);
     }
 }

@@ -41,6 +41,7 @@ class ReposGetOrgRuleSuites extends Request {
         protected ?string $actorName = null,
         protected ?string $ruleSuiteResult = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
@@ -51,6 +52,7 @@ class ReposGetOrgRuleSuites extends Request {
             'actor_name' => $this->actorName,
             'rule_suite_result' => $this->ruleSuiteResult,
             'page' => $this->page,
+            'per_page' => $this->perPage,
         ]);
     }
 }

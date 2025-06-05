@@ -33,6 +33,7 @@ class ProjectsListCollaborators extends Request {
         protected int $projectId,
         protected ?string $affiliation = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

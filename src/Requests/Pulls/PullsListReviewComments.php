@@ -55,6 +55,7 @@ class PullsListReviewComments extends Request {
         protected ?string $direction = null,
         protected ?string $since = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

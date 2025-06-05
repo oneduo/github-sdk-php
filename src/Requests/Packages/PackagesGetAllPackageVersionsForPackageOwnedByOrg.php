@@ -36,10 +36,12 @@ class PackagesGetAllPackageVersionsForPackageOwnedByOrg extends Request {
         protected string $packageName,
         protected string $org,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $state = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'state' => $this->state]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'state' => $this->state]);
     }
 }

@@ -41,9 +41,10 @@ class ActionsListJobsForWorkflowRunAttempt extends Request {
         protected int $runId,
         protected int $attemptNumber,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page]);
+        return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

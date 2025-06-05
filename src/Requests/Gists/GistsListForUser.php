@@ -28,6 +28,7 @@ class GistsListForUser extends Request {
         protected string $username,
         protected ?string $since = null,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

@@ -44,6 +44,7 @@ class SearchTopics extends Request {
     public function __construct(
         protected string $q,
         protected ?int $page = null,
+        protected ?int $perPage = null,
     ) {}
 
     public function defaultQuery(): array {

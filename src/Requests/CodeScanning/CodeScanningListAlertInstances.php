@@ -36,11 +36,13 @@ class CodeScanningListAlertInstances extends Request {
         protected string $repo,
         protected int $alertNumber,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $ref = null,
         protected ?int $pr = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'ref' => $this->ref, 'pr' => $this->pr]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'ref' => $this->ref, 'pr' => $this->pr]);
     }
 }

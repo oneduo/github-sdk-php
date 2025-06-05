@@ -37,10 +37,12 @@ class ActionsListWorkflowRunArtifacts extends Request {
         protected string $repo,
         protected int $runId,
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $name = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'name' => $this->name]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'name' => $this->name]);
     }
 }

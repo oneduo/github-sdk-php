@@ -29,11 +29,13 @@ class AppsListInstallations extends Request {
      */
     public function __construct(
         protected ?int $page = null,
+        protected ?int $perPage = null,
         protected ?string $since = null,
         protected ?string $outdated = null,
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['page' => $this->page, 'since' => $this->since, 'outdated' => $this->outdated]);
+        return array_filter(['page' => $this->page,
+            'per_page' => $this->perPage, 'since' => $this->since, 'outdated' => $this->outdated]);
     }
 }
