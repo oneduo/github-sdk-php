@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oneduo\GitHubSdk\Requests\Codespaces;
+
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+
+/**
+ * codespaces/list-for-authenticated-user
+ *
+ * Lists the authenticated user's codespaces.
+ *
+ * OAuth app tokens and personal access tokens (classic)
+ * need the `codespace` scope to use this endpoint.
+ */
+class CodespacesListForAuthenticatedUser extends Request {
+    protected Method $method = Method::GET;
+
+    public function resolveEndpoint(): string {
+        return '/user/codespaces';
+    }
+
+    /**
+     * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $repositoryId  ID of the Repository to filter on
+     */
+    public function __construct(
+        protected ?int $page = null,
+        protected ?int $repositoryId = null,
+    ) {}
+
+    public function defaultQuery(): array {
+        return array_filter(['page' => $this->page, 'repository_id' => $this->repositoryId]);
+    }
+}

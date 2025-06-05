@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oneduo\GitHubSdk\Requests\Migrations;
+
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+
+/**
+ * migrations/list-for-authenticated-user
+ *
+ * Lists all migrations a user has started.
+ */
+class MigrationsListForAuthenticatedUser extends Request {
+    protected Method $method = Method::GET;
+
+    public function resolveEndpoint(): string {
+        return '/user/migrations';
+    }
+
+    /**
+     * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     */
+    public function __construct(
+        protected ?int $page = null,
+    ) {}
+
+    public function defaultQuery(): array {
+        return array_filter(['page' => $this->page]);
+    }
+}

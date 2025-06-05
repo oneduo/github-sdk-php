@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oneduo\GitHubSdk\Requests\Gists;
+
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+
+/**
+ * gists/list-forks
+ */
+class GistsListForks extends Request {
+    protected Method $method = Method::GET;
+
+    public function resolveEndpoint(): string {
+        return "/gists/{$this->gistId}/forks";
+    }
+
+    /**
+     * @param  string  $gistId  The unique identifier of the gist.
+     * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     */
+    public function __construct(
+        protected string $gistId,
+        protected ?int $page = null,
+    ) {}
+
+    public function defaultQuery(): array {
+        return array_filter(['page' => $this->page]);
+    }
+}
