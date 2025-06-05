@@ -13,26 +13,26 @@ use Oneduo\GitHubSdk\Requests\Meta\MetaRoot;
 use Saloon\Http\Response;
 
 class Meta extends GitHubResource {
-    public function metaRoot(): Response {
+    public function root(): Response {
         return $this->connector->send(new MetaRoot);
     }
 
-    public function metaGet(): Response {
+    public function get(): Response {
         return $this->connector->send(new MetaGet);
     }
 
     /**
      * @param  string  $s  The words to show in Octocat's speech bubble
      */
-    public function metaGetOctocat(?string $s): Response {
+    public function getOctocat(?string $s): Response {
         return $this->connector->send(new MetaGetOctocat($s));
     }
 
-    public function metaGetAllVersions(): Response {
+    public function getAllVersions(): Response {
         return $this->connector->send(new MetaGetAllVersions);
     }
 
-    public function metaGetZen(): Response {
+    public function getZen(): Response {
         return $this->connector->send(new MetaGetZen);
     }
 }

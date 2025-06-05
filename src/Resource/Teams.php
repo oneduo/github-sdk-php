@@ -72,14 +72,14 @@ class Teams extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsList(string $org, ?int $page): Response {
+    public function list(string $org, ?int $page): Response {
         return $this->connector->send(new TeamsList($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function teamsCreate(string $org): Response {
+    public function create(string $org): Response {
         return $this->connector->send(new TeamsCreate($org));
     }
 
@@ -87,7 +87,7 @@ class Teams extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function teamsGetByName(string $org, string $teamSlug): Response {
+    public function getByName(string $org, string $teamSlug): Response {
         return $this->connector->send(new TeamsGetByName($org, $teamSlug));
     }
 
@@ -95,7 +95,7 @@ class Teams extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function teamsDeleteInOrg(string $org, string $teamSlug): Response {
+    public function deleteInOrg(string $org, string $teamSlug): Response {
         return $this->connector->send(new TeamsDeleteInOrg($org, $teamSlug));
     }
 
@@ -103,7 +103,7 @@ class Teams extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function teamsUpdateInOrg(string $org, string $teamSlug): Response {
+    public function updateInOrg(string $org, string $teamSlug): Response {
         return $this->connector->send(new TeamsUpdateInOrg($org, $teamSlug));
     }
 
@@ -114,7 +114,7 @@ class Teams extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $pinned  Pinned discussions only filter
      */
-    public function teamsListDiscussionsInOrg(
+    public function listDiscussionsInOrg(
         string $org,
         string $teamSlug,
         ?string $direction,
@@ -128,7 +128,7 @@ class Teams extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function teamsCreateDiscussionInOrg(string $org, string $teamSlug): Response {
+    public function createDiscussionInOrg(string $org, string $teamSlug): Response {
         return $this->connector->send(new TeamsCreateDiscussionInOrg($org, $teamSlug));
     }
 
@@ -137,7 +137,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsGetDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function getDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
         return $this->connector->send(new TeamsGetDiscussionInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -146,7 +146,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsDeleteDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function deleteDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
         return $this->connector->send(new TeamsDeleteDiscussionInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -155,7 +155,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsUpdateDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function updateDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
         return $this->connector->send(new TeamsUpdateDiscussionInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -166,7 +166,7 @@ class Teams extends GitHubResource {
      * @param  string  $direction  The direction to sort the results by.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListDiscussionCommentsInOrg(
+    public function listDiscussionCommentsInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -181,7 +181,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsCreateDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function createDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
         return $this->connector->send(new TeamsCreateDiscussionCommentInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -191,7 +191,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsGetDiscussionCommentInOrg(
+    public function getDiscussionCommentInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -206,7 +206,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsDeleteDiscussionCommentInOrg(
+    public function deleteDiscussionCommentInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -221,7 +221,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsUpdateDiscussionCommentInOrg(
+    public function updateDiscussionCommentInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -235,7 +235,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListPendingInvitationsInOrg(string $org, string $teamSlug, ?int $page): Response {
+    public function listPendingInvitationsInOrg(string $org, string $teamSlug, ?int $page): Response {
         return $this->connector->send(new TeamsListPendingInvitationsInOrg($org, $teamSlug, $page));
     }
 
@@ -245,7 +245,7 @@ class Teams extends GitHubResource {
      * @param  string  $role  Filters members returned by their role in the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListMembersInOrg(string $org, string $teamSlug, ?string $role, ?int $page): Response {
+    public function listMembersInOrg(string $org, string $teamSlug, ?string $role, ?int $page): Response {
         return $this->connector->send(new TeamsListMembersInOrg($org, $teamSlug, $role, $page));
     }
 
@@ -254,7 +254,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsGetMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
+    public function getMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
         return $this->connector->send(new TeamsGetMembershipForUserInOrg($org, $teamSlug, $username));
     }
 
@@ -263,7 +263,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsAddOrUpdateMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
+    public function addOrUpdateMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
         return $this->connector->send(new TeamsAddOrUpdateMembershipForUserInOrg($org, $teamSlug, $username));
     }
 
@@ -272,7 +272,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsRemoveMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
+    public function removeMembershipForUserInOrg(string $org, string $teamSlug, string $username): Response {
         return $this->connector->send(new TeamsRemoveMembershipForUserInOrg($org, $teamSlug, $username));
     }
 
@@ -281,7 +281,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListProjectsInOrg(string $org, string $teamSlug, ?int $page): Response {
+    public function listProjectsInOrg(string $org, string $teamSlug, ?int $page): Response {
         return $this->connector->send(new TeamsListProjectsInOrg($org, $teamSlug, $page));
     }
 
@@ -290,7 +290,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsCheckPermissionsForProjectInOrg(string $org, string $teamSlug, int $projectId): Response {
+    public function checkPermissionsForProjectInOrg(string $org, string $teamSlug, int $projectId): Response {
         return $this->connector->send(new TeamsCheckPermissionsForProjectInOrg($org, $teamSlug, $projectId));
     }
 
@@ -299,7 +299,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsAddOrUpdateProjectPermissionsInOrg(string $org, string $teamSlug, int $projectId): Response {
+    public function addOrUpdateProjectPermissionsInOrg(string $org, string $teamSlug, int $projectId): Response {
         return $this->connector->send(new TeamsAddOrUpdateProjectPermissionsInOrg($org, $teamSlug, $projectId));
     }
 
@@ -308,7 +308,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsRemoveProjectInOrg(string $org, string $teamSlug, int $projectId): Response {
+    public function removeProjectInOrg(string $org, string $teamSlug, int $projectId): Response {
         return $this->connector->send(new TeamsRemoveProjectInOrg($org, $teamSlug, $projectId));
     }
 
@@ -317,7 +317,7 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListReposInOrg(string $org, string $teamSlug, ?int $page): Response {
+    public function listReposInOrg(string $org, string $teamSlug, ?int $page): Response {
         return $this->connector->send(new TeamsListReposInOrg($org, $teamSlug, $page));
     }
 
@@ -327,7 +327,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsCheckPermissionsForRepoInOrg(
+    public function checkPermissionsForRepoInOrg(
         string $org,
         string $teamSlug,
         string $owner,
@@ -342,7 +342,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsAddOrUpdateRepoPermissionsInOrg(
+    public function addOrUpdateRepoPermissionsInOrg(
         string $org,
         string $teamSlug,
         string $owner,
@@ -357,7 +357,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsRemoveRepoInOrg(string $org, string $teamSlug, string $owner, string $repo): Response {
+    public function removeRepoInOrg(string $org, string $teamSlug, string $owner, string $repo): Response {
         return $this->connector->send(new TeamsRemoveRepoInOrg($org, $teamSlug, $owner, $repo));
     }
 
@@ -366,28 +366,28 @@ class Teams extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListChildInOrg(string $org, string $teamSlug, ?int $page): Response {
+    public function listChildInOrg(string $org, string $teamSlug, ?int $page): Response {
         return $this->connector->send(new TeamsListChildInOrg($org, $teamSlug, $page));
     }
 
     /**
      * @param  int  $teamId  The unique identifier of the team.
      */
-    public function teamsGetLegacy(int $teamId): Response {
+    public function getLegacy(int $teamId): Response {
         return $this->connector->send(new TeamsGetLegacy($teamId));
     }
 
     /**
      * @param  int  $teamId  The unique identifier of the team.
      */
-    public function teamsDeleteLegacy(int $teamId): Response {
+    public function deleteLegacy(int $teamId): Response {
         return $this->connector->send(new TeamsDeleteLegacy($teamId));
     }
 
     /**
      * @param  int  $teamId  The unique identifier of the team.
      */
-    public function teamsUpdateLegacy(int $teamId): Response {
+    public function updateLegacy(int $teamId): Response {
         return $this->connector->send(new TeamsUpdateLegacy($teamId));
     }
 
@@ -396,14 +396,14 @@ class Teams extends GitHubResource {
      * @param  string  $direction  The direction to sort the results by.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListDiscussionsLegacy(int $teamId, ?string $direction, ?int $page): Response {
+    public function listDiscussionsLegacy(int $teamId, ?string $direction, ?int $page): Response {
         return $this->connector->send(new TeamsListDiscussionsLegacy($teamId, $direction, $page));
     }
 
     /**
      * @param  int  $teamId  The unique identifier of the team.
      */
-    public function teamsCreateDiscussionLegacy(int $teamId): Response {
+    public function createDiscussionLegacy(int $teamId): Response {
         return $this->connector->send(new TeamsCreateDiscussionLegacy($teamId));
     }
 
@@ -411,7 +411,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsGetDiscussionLegacy(int $teamId, int $discussionNumber): Response {
+    public function getDiscussionLegacy(int $teamId, int $discussionNumber): Response {
         return $this->connector->send(new TeamsGetDiscussionLegacy($teamId, $discussionNumber));
     }
 
@@ -419,7 +419,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsDeleteDiscussionLegacy(int $teamId, int $discussionNumber): Response {
+    public function deleteDiscussionLegacy(int $teamId, int $discussionNumber): Response {
         return $this->connector->send(new TeamsDeleteDiscussionLegacy($teamId, $discussionNumber));
     }
 
@@ -427,7 +427,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsUpdateDiscussionLegacy(int $teamId, int $discussionNumber): Response {
+    public function updateDiscussionLegacy(int $teamId, int $discussionNumber): Response {
         return $this->connector->send(new TeamsUpdateDiscussionLegacy($teamId, $discussionNumber));
     }
 
@@ -437,7 +437,7 @@ class Teams extends GitHubResource {
      * @param  string  $direction  The direction to sort the results by.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListDiscussionCommentsLegacy(
+    public function listDiscussionCommentsLegacy(
         int $teamId,
         int $discussionNumber,
         ?string $direction,
@@ -450,7 +450,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function teamsCreateDiscussionCommentLegacy(int $teamId, int $discussionNumber): Response {
+    public function createDiscussionCommentLegacy(int $teamId, int $discussionNumber): Response {
         return $this->connector->send(new TeamsCreateDiscussionCommentLegacy($teamId, $discussionNumber));
     }
 
@@ -459,7 +459,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsGetDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
+    public function getDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
         return $this->connector->send(new TeamsGetDiscussionCommentLegacy($teamId, $discussionNumber, $commentNumber));
     }
 
@@ -468,7 +468,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsDeleteDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
+    public function deleteDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
         return $this->connector->send(new TeamsDeleteDiscussionCommentLegacy($teamId, $discussionNumber, $commentNumber));
     }
 
@@ -477,7 +477,7 @@ class Teams extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function teamsUpdateDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
+    public function updateDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): Response {
         return $this->connector->send(new TeamsUpdateDiscussionCommentLegacy($teamId, $discussionNumber, $commentNumber));
     }
 
@@ -485,7 +485,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListPendingInvitationsLegacy(int $teamId, ?int $page): Response {
+    public function listPendingInvitationsLegacy(int $teamId, ?int $page): Response {
         return $this->connector->send(new TeamsListPendingInvitationsLegacy($teamId, $page));
     }
 
@@ -494,7 +494,7 @@ class Teams extends GitHubResource {
      * @param  string  $role  Filters members returned by their role in the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListMembersLegacy(int $teamId, ?string $role, ?int $page): Response {
+    public function listMembersLegacy(int $teamId, ?string $role, ?int $page): Response {
         return $this->connector->send(new TeamsListMembersLegacy($teamId, $role, $page));
     }
 
@@ -502,7 +502,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsGetMemberLegacy(int $teamId, string $username): Response {
+    public function getMemberLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsGetMemberLegacy($teamId, $username));
     }
 
@@ -510,7 +510,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsAddMemberLegacy(int $teamId, string $username): Response {
+    public function addMemberLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsAddMemberLegacy($teamId, $username));
     }
 
@@ -518,7 +518,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsRemoveMemberLegacy(int $teamId, string $username): Response {
+    public function removeMemberLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsRemoveMemberLegacy($teamId, $username));
     }
 
@@ -526,7 +526,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsGetMembershipForUserLegacy(int $teamId, string $username): Response {
+    public function getMembershipForUserLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsGetMembershipForUserLegacy($teamId, $username));
     }
 
@@ -534,7 +534,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsAddOrUpdateMembershipForUserLegacy(int $teamId, string $username): Response {
+    public function addOrUpdateMembershipForUserLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsAddOrUpdateMembershipForUserLegacy($teamId, $username));
     }
 
@@ -542,7 +542,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function teamsRemoveMembershipForUserLegacy(int $teamId, string $username): Response {
+    public function removeMembershipForUserLegacy(int $teamId, string $username): Response {
         return $this->connector->send(new TeamsRemoveMembershipForUserLegacy($teamId, $username));
     }
 
@@ -550,7 +550,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListProjectsLegacy(int $teamId, ?int $page): Response {
+    public function listProjectsLegacy(int $teamId, ?int $page): Response {
         return $this->connector->send(new TeamsListProjectsLegacy($teamId, $page));
     }
 
@@ -558,7 +558,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsCheckPermissionsForProjectLegacy(int $teamId, int $projectId): Response {
+    public function checkPermissionsForProjectLegacy(int $teamId, int $projectId): Response {
         return $this->connector->send(new TeamsCheckPermissionsForProjectLegacy($teamId, $projectId));
     }
 
@@ -566,7 +566,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsAddOrUpdateProjectPermissionsLegacy(int $teamId, int $projectId): Response {
+    public function addOrUpdateProjectPermissionsLegacy(int $teamId, int $projectId): Response {
         return $this->connector->send(new TeamsAddOrUpdateProjectPermissionsLegacy($teamId, $projectId));
     }
 
@@ -574,7 +574,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $projectId  The unique identifier of the project.
      */
-    public function teamsRemoveProjectLegacy(int $teamId, int $projectId): Response {
+    public function removeProjectLegacy(int $teamId, int $projectId): Response {
         return $this->connector->send(new TeamsRemoveProjectLegacy($teamId, $projectId));
     }
 
@@ -582,7 +582,7 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListReposLegacy(int $teamId, ?int $page): Response {
+    public function listReposLegacy(int $teamId, ?int $page): Response {
         return $this->connector->send(new TeamsListReposLegacy($teamId, $page));
     }
 
@@ -591,7 +591,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsCheckPermissionsForRepoLegacy(int $teamId, string $owner, string $repo): Response {
+    public function checkPermissionsForRepoLegacy(int $teamId, string $owner, string $repo): Response {
         return $this->connector->send(new TeamsCheckPermissionsForRepoLegacy($teamId, $owner, $repo));
     }
 
@@ -600,7 +600,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsAddOrUpdateRepoPermissionsLegacy(int $teamId, string $owner, string $repo): Response {
+    public function addOrUpdateRepoPermissionsLegacy(int $teamId, string $owner, string $repo): Response {
         return $this->connector->send(new TeamsAddOrUpdateRepoPermissionsLegacy($teamId, $owner, $repo));
     }
 
@@ -609,7 +609,7 @@ class Teams extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function teamsRemoveRepoLegacy(int $teamId, string $owner, string $repo): Response {
+    public function removeRepoLegacy(int $teamId, string $owner, string $repo): Response {
         return $this->connector->send(new TeamsRemoveRepoLegacy($teamId, $owner, $repo));
     }
 
@@ -617,14 +617,14 @@ class Teams extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListChildLegacy(int $teamId, ?int $page): Response {
+    public function listChildLegacy(int $teamId, ?int $page): Response {
         return $this->connector->send(new TeamsListChildLegacy($teamId, $page));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function teamsListForAuthenticatedUser(?int $page): Response {
+    public function listForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new TeamsListForAuthenticatedUser($page));
     }
 }

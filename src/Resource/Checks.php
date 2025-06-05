@@ -24,7 +24,7 @@ class Checks extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checksCreate(string $owner, string $repo): Response {
+    public function create(string $owner, string $repo): Response {
         return $this->connector->send(new ChecksCreate($owner, $repo));
     }
 
@@ -33,7 +33,7 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function checksGet(string $owner, string $repo, int $checkRunId): Response {
+    public function get(string $owner, string $repo, int $checkRunId): Response {
         return $this->connector->send(new ChecksGet($owner, $repo, $checkRunId));
     }
 
@@ -42,7 +42,7 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function checksUpdate(string $owner, string $repo, int $checkRunId): Response {
+    public function update(string $owner, string $repo, int $checkRunId): Response {
         return $this->connector->send(new ChecksUpdate($owner, $repo, $checkRunId));
     }
 
@@ -52,7 +52,7 @@ class Checks extends GitHubResource {
      * @param  int  $checkRunId  The unique identifier of the check run.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function checksListAnnotations(string $owner, string $repo, int $checkRunId, ?int $page): Response {
+    public function listAnnotations(string $owner, string $repo, int $checkRunId, ?int $page): Response {
         return $this->connector->send(new ChecksListAnnotations($owner, $repo, $checkRunId, $page));
     }
 
@@ -61,7 +61,7 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function checksRerequestRun(string $owner, string $repo, int $checkRunId): Response {
+    public function rerequestRun(string $owner, string $repo, int $checkRunId): Response {
         return $this->connector->send(new ChecksRerequestRun($owner, $repo, $checkRunId));
     }
 
@@ -69,7 +69,7 @@ class Checks extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checksCreateSuite(string $owner, string $repo): Response {
+    public function createSuite(string $owner, string $repo): Response {
         return $this->connector->send(new ChecksCreateSuite($owner, $repo));
     }
 
@@ -77,7 +77,7 @@ class Checks extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checksSetSuitesPreferences(string $owner, string $repo): Response {
+    public function setSuitesPreferences(string $owner, string $repo): Response {
         return $this->connector->send(new ChecksSetSuitesPreferences($owner, $repo));
     }
 
@@ -86,7 +86,7 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkSuiteId  The unique identifier of the check suite.
      */
-    public function checksGetSuite(string $owner, string $repo, int $checkSuiteId): Response {
+    public function getSuite(string $owner, string $repo, int $checkSuiteId): Response {
         return $this->connector->send(new ChecksGetSuite($owner, $repo, $checkSuiteId));
     }
 
@@ -99,7 +99,7 @@ class Checks extends GitHubResource {
      * @param  string  $filter  Filters check runs by their `completed_at` timestamp. `latest` returns the most recent check runs.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function checksListForSuite(
+    public function listForSuite(
         string $owner,
         string $repo,
         int $checkSuiteId,
@@ -116,7 +116,7 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkSuiteId  The unique identifier of the check suite.
      */
-    public function checksRerequestSuite(string $owner, string $repo, int $checkSuiteId): Response {
+    public function rerequestSuite(string $owner, string $repo, int $checkSuiteId): Response {
         return $this->connector->send(new ChecksRerequestSuite($owner, $repo, $checkSuiteId));
     }
 
@@ -129,7 +129,7 @@ class Checks extends GitHubResource {
      * @param  string  $filter  Filters check runs by their `completed_at` timestamp. `latest` returns the most recent check runs.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function checksListForRef(
+    public function listForRef(
         string $owner,
         string $repo,
         string $ref,
@@ -150,7 +150,7 @@ class Checks extends GitHubResource {
      * @param  string  $checkName  Returns check runs with the specified `name`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function checksListSuitesForRef(
+    public function listSuitesForRef(
         string $owner,
         string $repo,
         string $ref,

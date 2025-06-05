@@ -10,11 +10,11 @@ use Oneduo\GitHubSdk\Requests\Gitignore\GitignoreGetTemplate;
 use Saloon\Http\Response;
 
 class Gitignore extends GitHubResource {
-    public function gitignoreGetAllTemplates(): Response {
+    public function getAllTemplates(): Response {
         return $this->connector->send(new GitignoreGetAllTemplates);
     }
 
-    public function gitignoreGetTemplate(string $name): Response {
+    public function getTemplate(string $name): Response {
         return $this->connector->send(new GitignoreGetTemplate($name));
     }
 }

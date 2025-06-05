@@ -29,7 +29,7 @@ class SecretScanning extends GitHubResource {
      * @param  bool  $isMultiRepo  A boolean value representing whether or not to filter alerts by the multi-repo tag being present.
      * @param  bool  $hideSecret  A boolean value representing whether or not to hide literal secrets in the results.
      */
-    public function secretScanningListAlertsForEnterprise(
+    public function listAlertsForEnterprise(
         string $enterprise,
         ?string $state,
         ?string $secretType,
@@ -59,7 +59,7 @@ class SecretScanning extends GitHubResource {
      * @param  bool  $isMultiRepo  A boolean value representing whether or not to filter alerts by the multi-repo tag being present.
      * @param  bool  $hideSecret  A boolean value representing whether or not to hide literal secrets in the results.
      */
-    public function secretScanningListAlertsForOrg(
+    public function listAlertsForOrg(
         string $org,
         ?string $state,
         ?string $secretType,
@@ -91,7 +91,7 @@ class SecretScanning extends GitHubResource {
      * @param  bool  $isMultiRepo  A boolean value representing whether or not to filter alerts by the multi-repo tag being present.
      * @param  bool  $hideSecret  A boolean value representing whether or not to hide literal secrets in the results.
      */
-    public function secretScanningListAlertsForRepo(
+    public function listAlertsForRepo(
         string $owner,
         string $repo,
         ?string $state,
@@ -115,7 +115,7 @@ class SecretScanning extends GitHubResource {
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      * @param  bool  $hideSecret  A boolean value representing whether or not to hide literal secrets in the results.
      */
-    public function secretScanningGetAlert(string $owner, string $repo, int $alertNumber, ?bool $hideSecret): Response {
+    public function getAlert(string $owner, string $repo, int $alertNumber, ?bool $hideSecret): Response {
         return $this->connector->send(new SecretScanningGetAlert($owner, $repo, $alertNumber, $hideSecret));
     }
 
@@ -124,7 +124,7 @@ class SecretScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function secretScanningUpdateAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function updateAlert(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new SecretScanningUpdateAlert($owner, $repo, $alertNumber));
     }
 
@@ -134,7 +134,7 @@ class SecretScanning extends GitHubResource {
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function secretScanningListLocationsForAlert(
+    public function listLocationsForAlert(
         string $owner,
         string $repo,
         int $alertNumber,
@@ -147,7 +147,7 @@ class SecretScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function secretScanningCreatePushProtectionBypass(string $owner, string $repo): Response {
+    public function createPushProtectionBypass(string $owner, string $repo): Response {
         return $this->connector->send(new SecretScanningCreatePushProtectionBypass($owner, $repo));
     }
 
@@ -155,7 +155,7 @@ class SecretScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function secretScanningGetScanHistory(string $owner, string $repo): Response {
+    public function getScanHistory(string $owner, string $repo): Response {
         return $this->connector->send(new SecretScanningGetScanHistory($owner, $repo));
     }
 }

@@ -40,7 +40,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $sort  The property by which to sort the results.
      * @param  string  $severity  If specified, only code scanning alerts with this severity will be returned.
      */
-    public function codeScanningListAlertsForOrg(
+    public function listAlertsForOrg(
         string $org,
         ?string $toolName,
         ?string $toolGuid,
@@ -68,7 +68,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $state  If specified, only code scanning alerts with this state will be returned.
      * @param  string  $severity  If specified, only code scanning alerts with this severity will be returned.
      */
-    public function codeScanningListAlertsForRepo(
+    public function listAlertsForRepo(
         string $owner,
         string $repo,
         ?string $toolName,
@@ -90,7 +90,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function codeScanningGetAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function getAlert(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new CodeScanningGetAlert($owner, $repo, $alertNumber));
     }
 
@@ -99,7 +99,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function codeScanningUpdateAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function updateAlert(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new CodeScanningUpdateAlert($owner, $repo, $alertNumber));
     }
 
@@ -108,7 +108,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function codeScanningGetAutofix(string $owner, string $repo, int $alertNumber): Response {
+    public function getAutofix(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new CodeScanningGetAutofix($owner, $repo, $alertNumber));
     }
 
@@ -117,7 +117,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function codeScanningCreateAutofix(string $owner, string $repo, int $alertNumber): Response {
+    public function createAutofix(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new CodeScanningCreateAutofix($owner, $repo, $alertNumber));
     }
 
@@ -126,7 +126,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function codeScanningCommitAutofix(string $owner, string $repo, int $alertNumber): Response {
+    public function commitAutofix(string $owner, string $repo, int $alertNumber): Response {
         return $this->connector->send(new CodeScanningCommitAutofix($owner, $repo, $alertNumber));
     }
 
@@ -138,7 +138,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $ref  The Git reference for the results you want to list. The `ref` for a branch can be formatted either as `refs/heads/<branch name>` or simply `<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.
      * @param  int  $pr  The number of the pull request for the results you want to list.
      */
-    public function codeScanningListAlertInstances(
+    public function listAlertInstances(
         string $owner,
         string $repo,
         int $alertNumber,
@@ -161,7 +161,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $direction  The direction to sort the results by.
      * @param  string  $sort  The property by which to sort the results.
      */
-    public function codeScanningListRecentAnalyses(
+    public function listRecentAnalyses(
         string $owner,
         string $repo,
         ?string $toolName,
@@ -181,7 +181,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $analysisId  The ID of the analysis, as returned from the `GET /repos/{owner}/{repo}/code-scanning/analyses` operation.
      */
-    public function codeScanningGetAnalysis(string $owner, string $repo, int $analysisId): Response {
+    public function getAnalysis(string $owner, string $repo, int $analysisId): Response {
         return $this->connector->send(new CodeScanningGetAnalysis($owner, $repo, $analysisId));
     }
 
@@ -191,7 +191,7 @@ class CodeScanning extends GitHubResource {
      * @param  int  $analysisId  The ID of the analysis, as returned from the `GET /repos/{owner}/{repo}/code-scanning/analyses` operation.
      * @param  string  $confirmDelete  Allow deletion if the specified analysis is the last in a set. If you attempt to delete the final analysis in a set without setting this parameter to `true`, you'll get a 400 response with the message: `Analysis is last of its type and deletion may result in the loss of historical alert data. Please specify confirm_delete.`
      */
-    public function codeScanningDeleteAnalysis(
+    public function deleteAnalysis(
         string $owner,
         string $repo,
         int $analysisId,
@@ -204,7 +204,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeScanningListCodeqlDatabases(string $owner, string $repo): Response {
+    public function listCodeqlDatabases(string $owner, string $repo): Response {
         return $this->connector->send(new CodeScanningListCodeqlDatabases($owner, $repo));
     }
 
@@ -213,7 +213,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $language  The language of the CodeQL database.
      */
-    public function codeScanningGetCodeqlDatabase(string $owner, string $repo, string $language): Response {
+    public function getCodeqlDatabase(string $owner, string $repo, string $language): Response {
         return $this->connector->send(new CodeScanningGetCodeqlDatabase($owner, $repo, $language));
     }
 
@@ -222,7 +222,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $language  The language of the CodeQL database.
      */
-    public function codeScanningDeleteCodeqlDatabase(string $owner, string $repo, string $language): Response {
+    public function deleteCodeqlDatabase(string $owner, string $repo, string $language): Response {
         return $this->connector->send(new CodeScanningDeleteCodeqlDatabase($owner, $repo, $language));
     }
 
@@ -230,7 +230,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeScanningCreateVariantAnalysis(string $owner, string $repo): Response {
+    public function createVariantAnalysis(string $owner, string $repo): Response {
         return $this->connector->send(new CodeScanningCreateVariantAnalysis($owner, $repo));
     }
 
@@ -239,7 +239,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $codeqlVariantAnalysisId  The unique identifier of the variant analysis.
      */
-    public function codeScanningGetVariantAnalysis(string $owner, string $repo, int $codeqlVariantAnalysisId): Response {
+    public function getVariantAnalysis(string $owner, string $repo, int $codeqlVariantAnalysisId): Response {
         return $this->connector->send(new CodeScanningGetVariantAnalysis($owner, $repo, $codeqlVariantAnalysisId));
     }
 
@@ -250,7 +250,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repoOwner  The account owner of the variant analysis repository. The name is not case sensitive.
      * @param  string  $repoName  The name of the variant analysis repository.
      */
-    public function codeScanningGetVariantAnalysisRepoTask(
+    public function getVariantAnalysisRepoTask(
         string $owner,
         string $repo,
         int $codeqlVariantAnalysisId,
@@ -264,7 +264,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeScanningGetDefaultSetup(string $owner, string $repo): Response {
+    public function getDefaultSetup(string $owner, string $repo): Response {
         return $this->connector->send(new CodeScanningGetDefaultSetup($owner, $repo));
     }
 
@@ -272,7 +272,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeScanningUpdateDefaultSetup(string $owner, string $repo): Response {
+    public function updateDefaultSetup(string $owner, string $repo): Response {
         return $this->connector->send(new CodeScanningUpdateDefaultSetup($owner, $repo));
     }
 
@@ -280,7 +280,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeScanningUploadSarif(string $owner, string $repo): Response {
+    public function uploadSarif(string $owner, string $repo): Response {
         return $this->connector->send(new CodeScanningUploadSarif($owner, $repo));
     }
 
@@ -289,7 +289,7 @@ class CodeScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $sarifId  The SARIF ID obtained after uploading.
      */
-    public function codeScanningGetSarif(string $owner, string $repo, string $sarifId): Response {
+    public function getSarif(string $owner, string $repo, string $sarifId): Response {
         return $this->connector->send(new CodeScanningGetSarif($owner, $repo, $sarifId));
     }
 }

@@ -20,7 +20,7 @@ class Copilot extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function copilotGetCopilotOrganizationDetails(string $org): Response {
+    public function getCopilotOrganizationDetails(string $org): Response {
         return $this->connector->send(new CopilotGetCopilotOrganizationDetails($org));
     }
 
@@ -28,35 +28,35 @@ class Copilot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function copilotListCopilotSeats(string $org, ?int $page): Response {
+    public function listCopilotSeats(string $org, ?int $page): Response {
         return $this->connector->send(new CopilotListCopilotSeats($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function copilotAddCopilotSeatsForTeams(string $org): Response {
+    public function addCopilotSeatsForTeams(string $org): Response {
         return $this->connector->send(new CopilotAddCopilotSeatsForTeams($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function copilotCancelCopilotSeatAssignmentForTeams(string $org): Response {
+    public function cancelCopilotSeatAssignmentForTeams(string $org): Response {
         return $this->connector->send(new CopilotCancelCopilotSeatAssignmentForTeams($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function copilotAddCopilotSeatsForUsers(string $org): Response {
+    public function addCopilotSeatsForUsers(string $org): Response {
         return $this->connector->send(new CopilotAddCopilotSeatsForUsers($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function copilotCancelCopilotSeatAssignmentForUsers(string $org): Response {
+    public function cancelCopilotSeatAssignmentForUsers(string $org): Response {
         return $this->connector->send(new CopilotCancelCopilotSeatAssignmentForUsers($org));
     }
 
@@ -66,7 +66,7 @@ class Copilot extends GitHubResource {
      * @param  string  $until  Show usage metrics until this date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:MM:SSZ`) and should not preceed the `since` date if it is passed.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function copilotCopilotMetricsForOrganization(
+    public function metricsForOrganization(
         string $org,
         ?string $since,
         ?string $until,
@@ -79,7 +79,7 @@ class Copilot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function copilotGetCopilotSeatDetailsForUser(string $org, string $username): Response {
+    public function getCopilotSeatDetailsForUser(string $org, string $username): Response {
         return $this->connector->send(new CopilotGetCopilotSeatDetailsForUser($org, $username));
     }
 
@@ -90,7 +90,7 @@ class Copilot extends GitHubResource {
      * @param  string  $until  Show usage metrics until this date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:MM:SSZ`) and should not preceed the `since` date if it is passed.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function copilotCopilotMetricsForTeam(
+    public function metricsForTeam(
         string $org,
         string $teamSlug,
         ?string $since,

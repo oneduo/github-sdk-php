@@ -49,7 +49,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $direction  The direction to sort the results by.
      * @param  string  $sort  The property to sort the results by.
      */
-    public function securityAdvisoriesListGlobalAdvisories(
+    public function listGlobalAdvisories(
         ?string $ghsaId,
         ?string $type,
         ?string $cveId,
@@ -73,7 +73,7 @@ class SecurityAdvisories extends GitHubResource {
     /**
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function securityAdvisoriesGetGlobalAdvisory(string $ghsaId): Response {
+    public function getGlobalAdvisory(string $ghsaId): Response {
         return $this->connector->send(new SecurityAdvisoriesGetGlobalAdvisory($ghsaId));
     }
 
@@ -84,7 +84,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $state  Filter by the state of the repository advisories. Only advisories of this state will be returned.
      */
-    public function securityAdvisoriesListOrgRepositoryAdvisories(
+    public function listOrgRepositoryAdvisories(
         string $org,
         ?string $direction,
         ?string $sort,
@@ -102,7 +102,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $state  Filter by state of the repository advisories. Only advisories of this state will be returned.
      */
-    public function securityAdvisoriesListRepositoryAdvisories(
+    public function listRepositoryAdvisories(
         string $owner,
         string $repo,
         ?string $direction,
@@ -117,7 +117,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function securityAdvisoriesCreateRepositoryAdvisory(string $owner, string $repo): Response {
+    public function createRepositoryAdvisory(string $owner, string $repo): Response {
         return $this->connector->send(new SecurityAdvisoriesCreateRepositoryAdvisory($owner, $repo));
     }
 
@@ -125,7 +125,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function securityAdvisoriesCreatePrivateVulnerabilityReport(string $owner, string $repo): Response {
+    public function createPrivateVulnerabilityReport(string $owner, string $repo): Response {
         return $this->connector->send(new SecurityAdvisoriesCreatePrivateVulnerabilityReport($owner, $repo));
     }
 
@@ -134,7 +134,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function securityAdvisoriesGetRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
+    public function getRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
         return $this->connector->send(new SecurityAdvisoriesGetRepositoryAdvisory($owner, $repo, $ghsaId));
     }
 
@@ -143,7 +143,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function securityAdvisoriesUpdateRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
+    public function updateRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
         return $this->connector->send(new SecurityAdvisoriesUpdateRepositoryAdvisory($owner, $repo, $ghsaId));
     }
 
@@ -152,7 +152,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function securityAdvisoriesCreateRepositoryAdvisoryCveRequest(
+    public function createRepositoryAdvisoryCveRequest(
         string $owner,
         string $repo,
         string $ghsaId,
@@ -165,7 +165,7 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function securityAdvisoriesCreateFork(string $owner, string $repo, string $ghsaId): Response {
+    public function createFork(string $owner, string $repo, string $ghsaId): Response {
         return $this->connector->send(new SecurityAdvisoriesCreateFork($owner, $repo, $ghsaId));
     }
 }

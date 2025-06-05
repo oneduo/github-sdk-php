@@ -61,7 +61,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesList(
+    public function list(
         ?string $filter,
         ?string $state,
         ?string $labels,
@@ -88,7 +88,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListForOrg(
+    public function listForOrg(
         string $org,
         ?string $filter,
         ?string $state,
@@ -107,7 +107,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListAssignees(string $owner, string $repo, ?int $page): Response {
+    public function listAssignees(string $owner, string $repo, ?int $page): Response {
         return $this->connector->send(new IssuesListAssignees($owner, $repo, $page));
     }
 
@@ -115,7 +115,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesCheckUserCanBeAssigned(string $owner, string $repo, string $assignee): Response {
+    public function checkUserCanBeAssigned(string $owner, string $repo, string $assignee): Response {
         return $this->connector->send(new IssuesCheckUserCanBeAssigned($owner, $repo, $assignee));
     }
 
@@ -134,7 +134,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListForRepo(
+    public function listForRepo(
         string $owner,
         string $repo,
         ?string $milestone,
@@ -156,7 +156,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesCreate(string $owner, string $repo): Response {
+    public function create(string $owner, string $repo): Response {
         return $this->connector->send(new IssuesCreate($owner, $repo));
     }
 
@@ -168,7 +168,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListCommentsForRepo(
+    public function listCommentsForRepo(
         string $owner,
         string $repo,
         ?string $sort,
@@ -184,7 +184,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function issuesGetComment(string $owner, string $repo, int $commentId): Response {
+    public function getComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new IssuesGetComment($owner, $repo, $commentId));
     }
 
@@ -193,7 +193,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function issuesDeleteComment(string $owner, string $repo, int $commentId): Response {
+    public function deleteComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new IssuesDeleteComment($owner, $repo, $commentId));
     }
 
@@ -202,7 +202,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function issuesUpdateComment(string $owner, string $repo, int $commentId): Response {
+    public function updateComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new IssuesUpdateComment($owner, $repo, $commentId));
     }
 
@@ -211,7 +211,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListEventsForRepo(string $owner, string $repo, ?int $page): Response {
+    public function listEventsForRepo(string $owner, string $repo, ?int $page): Response {
         return $this->connector->send(new IssuesListEventsForRepo($owner, $repo, $page));
     }
 
@@ -219,7 +219,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesGetEvent(string $owner, string $repo, int $eventId): Response {
+    public function getEvent(string $owner, string $repo, int $eventId): Response {
         return $this->connector->send(new IssuesGetEvent($owner, $repo, $eventId));
     }
 
@@ -228,7 +228,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesGet(string $owner, string $repo, int $issueNumber): Response {
+    public function get(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesGet($owner, $repo, $issueNumber));
     }
 
@@ -237,7 +237,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesUpdate(string $owner, string $repo, int $issueNumber): Response {
+    public function update(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesUpdate($owner, $repo, $issueNumber));
     }
 
@@ -246,7 +246,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesAddAssignees(string $owner, string $repo, int $issueNumber): Response {
+    public function addAssignees(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesAddAssignees($owner, $repo, $issueNumber));
     }
 
@@ -255,7 +255,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesRemoveAssignees(string $owner, string $repo, int $issueNumber): Response {
+    public function removeAssignees(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesRemoveAssignees($owner, $repo, $issueNumber));
     }
 
@@ -264,7 +264,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesCheckUserCanBeAssignedToIssue(
+    public function checkUserCanBeAssignedToIssue(
         string $owner,
         string $repo,
         int $issueNumber,
@@ -280,7 +280,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListComments(
+    public function listComments(
         string $owner,
         string $repo,
         int $issueNumber,
@@ -295,7 +295,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesCreateComment(string $owner, string $repo, int $issueNumber): Response {
+    public function createComment(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesCreateComment($owner, $repo, $issueNumber));
     }
 
@@ -305,7 +305,7 @@ class Issues extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListEvents(string $owner, string $repo, int $issueNumber, ?int $page): Response {
+    public function listEvents(string $owner, string $repo, int $issueNumber, ?int $page): Response {
         return $this->connector->send(new IssuesListEvents($owner, $repo, $issueNumber, $page));
     }
 
@@ -315,7 +315,7 @@ class Issues extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListLabelsOnIssue(string $owner, string $repo, int $issueNumber, ?int $page): Response {
+    public function listLabelsOnIssue(string $owner, string $repo, int $issueNumber, ?int $page): Response {
         return $this->connector->send(new IssuesListLabelsOnIssue($owner, $repo, $issueNumber, $page));
     }
 
@@ -324,7 +324,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesSetLabels(string $owner, string $repo, int $issueNumber): Response {
+    public function setLabels(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesSetLabels($owner, $repo, $issueNumber));
     }
 
@@ -333,7 +333,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesAddLabels(string $owner, string $repo, int $issueNumber): Response {
+    public function addLabels(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesAddLabels($owner, $repo, $issueNumber));
     }
 
@@ -342,7 +342,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesRemoveAllLabels(string $owner, string $repo, int $issueNumber): Response {
+    public function removeAllLabels(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesRemoveAllLabels($owner, $repo, $issueNumber));
     }
 
@@ -351,7 +351,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesRemoveLabel(string $owner, string $repo, int $issueNumber, string $name): Response {
+    public function removeLabel(string $owner, string $repo, int $issueNumber, string $name): Response {
         return $this->connector->send(new IssuesRemoveLabel($owner, $repo, $issueNumber, $name));
     }
 
@@ -360,7 +360,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesLock(string $owner, string $repo, int $issueNumber): Response {
+    public function lock(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesLock($owner, $repo, $issueNumber));
     }
 
@@ -369,7 +369,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesUnlock(string $owner, string $repo, int $issueNumber): Response {
+    public function unlock(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesUnlock($owner, $repo, $issueNumber));
     }
 
@@ -378,7 +378,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesRemoveSubIssue(string $owner, string $repo, int $issueNumber): Response {
+    public function removeSubIssue(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesRemoveSubIssue($owner, $repo, $issueNumber));
     }
 
@@ -388,7 +388,7 @@ class Issues extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListSubIssues(string $owner, string $repo, int $issueNumber, ?int $page): Response {
+    public function listSubIssues(string $owner, string $repo, int $issueNumber, ?int $page): Response {
         return $this->connector->send(new IssuesListSubIssues($owner, $repo, $issueNumber, $page));
     }
 
@@ -397,7 +397,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesAddSubIssue(string $owner, string $repo, int $issueNumber): Response {
+    public function addSubIssue(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesAddSubIssue($owner, $repo, $issueNumber));
     }
 
@@ -406,7 +406,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function issuesReprioritizeSubIssue(string $owner, string $repo, int $issueNumber): Response {
+    public function reprioritizeSubIssue(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new IssuesReprioritizeSubIssue($owner, $repo, $issueNumber));
     }
 
@@ -416,7 +416,7 @@ class Issues extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListEventsForTimeline(string $owner, string $repo, int $issueNumber, ?int $page): Response {
+    public function listEventsForTimeline(string $owner, string $repo, int $issueNumber, ?int $page): Response {
         return $this->connector->send(new IssuesListEventsForTimeline($owner, $repo, $issueNumber, $page));
     }
 
@@ -425,7 +425,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListLabelsForRepo(string $owner, string $repo, ?int $page): Response {
+    public function listLabelsForRepo(string $owner, string $repo, ?int $page): Response {
         return $this->connector->send(new IssuesListLabelsForRepo($owner, $repo, $page));
     }
 
@@ -433,7 +433,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesCreateLabel(string $owner, string $repo): Response {
+    public function createLabel(string $owner, string $repo): Response {
         return $this->connector->send(new IssuesCreateLabel($owner, $repo));
     }
 
@@ -441,7 +441,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesGetLabel(string $owner, string $repo, string $name): Response {
+    public function getLabel(string $owner, string $repo, string $name): Response {
         return $this->connector->send(new IssuesGetLabel($owner, $repo, $name));
     }
 
@@ -449,7 +449,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesDeleteLabel(string $owner, string $repo, string $name): Response {
+    public function deleteLabel(string $owner, string $repo, string $name): Response {
         return $this->connector->send(new IssuesDeleteLabel($owner, $repo, $name));
     }
 
@@ -457,7 +457,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesUpdateLabel(string $owner, string $repo, string $name): Response {
+    public function updateLabel(string $owner, string $repo, string $name): Response {
         return $this->connector->send(new IssuesUpdateLabel($owner, $repo, $name));
     }
 
@@ -469,7 +469,7 @@ class Issues extends GitHubResource {
      * @param  string  $direction  The direction of the sort. Either `asc` or `desc`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListMilestones(
+    public function listMilestones(
         string $owner,
         string $repo,
         ?string $state,
@@ -484,7 +484,7 @@ class Issues extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function issuesCreateMilestone(string $owner, string $repo): Response {
+    public function createMilestone(string $owner, string $repo): Response {
         return $this->connector->send(new IssuesCreateMilestone($owner, $repo));
     }
 
@@ -493,7 +493,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $milestoneNumber  The number that identifies the milestone.
      */
-    public function issuesGetMilestone(string $owner, string $repo, int $milestoneNumber): Response {
+    public function getMilestone(string $owner, string $repo, int $milestoneNumber): Response {
         return $this->connector->send(new IssuesGetMilestone($owner, $repo, $milestoneNumber));
     }
 
@@ -502,7 +502,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $milestoneNumber  The number that identifies the milestone.
      */
-    public function issuesDeleteMilestone(string $owner, string $repo, int $milestoneNumber): Response {
+    public function deleteMilestone(string $owner, string $repo, int $milestoneNumber): Response {
         return $this->connector->send(new IssuesDeleteMilestone($owner, $repo, $milestoneNumber));
     }
 
@@ -511,7 +511,7 @@ class Issues extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $milestoneNumber  The number that identifies the milestone.
      */
-    public function issuesUpdateMilestone(string $owner, string $repo, int $milestoneNumber): Response {
+    public function updateMilestone(string $owner, string $repo, int $milestoneNumber): Response {
         return $this->connector->send(new IssuesUpdateMilestone($owner, $repo, $milestoneNumber));
     }
 
@@ -521,7 +521,7 @@ class Issues extends GitHubResource {
      * @param  int  $milestoneNumber  The number that identifies the milestone.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListLabelsForMilestone(string $owner, string $repo, int $milestoneNumber, ?int $page): Response {
+    public function listLabelsForMilestone(string $owner, string $repo, int $milestoneNumber, ?int $page): Response {
         return $this->connector->send(new IssuesListLabelsForMilestone($owner, $repo, $milestoneNumber, $page));
     }
 
@@ -534,7 +534,7 @@ class Issues extends GitHubResource {
      * @param  string  $since  Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function issuesListForAuthenticatedUser(
+    public function listForAuthenticatedUser(
         ?string $filter,
         ?string $state,
         ?string $labels,

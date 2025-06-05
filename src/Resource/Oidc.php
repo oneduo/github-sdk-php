@@ -13,14 +13,14 @@ class Oidc extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function oidcGetOidcCustomSubTemplateForOrg(string $org): Response {
+    public function getOidcCustomSubTemplateForOrg(string $org): Response {
         return $this->connector->send(new OidcGetOidcCustomSubTemplateForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function oidcUpdateOidcCustomSubTemplateForOrg(string $org): Response {
+    public function updateOidcCustomSubTemplateForOrg(string $org): Response {
         return $this->connector->send(new OidcUpdateOidcCustomSubTemplateForOrg($org));
     }
 }

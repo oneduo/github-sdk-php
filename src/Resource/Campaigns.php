@@ -20,7 +20,7 @@ class Campaigns extends GitHubResource {
      * @param  string  $state  If specified, only campaigns with this state will be returned.
      * @param  string  $sort  The property by which to sort the results.
      */
-    public function campaignsListOrgCampaigns(
+    public function listOrgCampaigns(
         string $org,
         ?int $page,
         ?string $direction,
@@ -33,7 +33,7 @@ class Campaigns extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function campaignsCreateCampaign(string $org): Response {
+    public function createCampaign(string $org): Response {
         return $this->connector->send(new CampaignsCreateCampaign($org));
     }
 
@@ -41,7 +41,7 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function campaignsGetCampaignSummary(string $org, int $campaignNumber): Response {
+    public function getCampaignSummary(string $org, int $campaignNumber): Response {
         return $this->connector->send(new CampaignsGetCampaignSummary($org, $campaignNumber));
     }
 
@@ -49,7 +49,7 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function campaignsDeleteCampaign(string $org, int $campaignNumber): Response {
+    public function deleteCampaign(string $org, int $campaignNumber): Response {
         return $this->connector->send(new CampaignsDeleteCampaign($org, $campaignNumber));
     }
 
@@ -57,7 +57,7 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function campaignsUpdateCampaign(string $org, int $campaignNumber): Response {
+    public function updateCampaign(string $org, int $campaignNumber): Response {
         return $this->connector->send(new CampaignsUpdateCampaign($org, $campaignNumber));
     }
 }

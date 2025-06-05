@@ -18,21 +18,21 @@ class PrivateRegistries extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function privateRegistriesListOrgPrivateRegistries(string $org, ?int $page): Response {
+    public function listOrgPrivateRegistries(string $org, ?int $page): Response {
         return $this->connector->send(new PrivateRegistriesListOrgPrivateRegistries($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function privateRegistriesCreateOrgPrivateRegistry(string $org): Response {
+    public function createOrgPrivateRegistry(string $org): Response {
         return $this->connector->send(new PrivateRegistriesCreateOrgPrivateRegistry($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function privateRegistriesGetOrgPublicKey(string $org): Response {
+    public function getOrgPublicKey(string $org): Response {
         return $this->connector->send(new PrivateRegistriesGetOrgPublicKey($org));
     }
 
@@ -40,7 +40,7 @@ class PrivateRegistries extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function privateRegistriesGetOrgPrivateRegistry(string $org, string $secretName): Response {
+    public function getOrgPrivateRegistry(string $org, string $secretName): Response {
         return $this->connector->send(new PrivateRegistriesGetOrgPrivateRegistry($org, $secretName));
     }
 
@@ -48,7 +48,7 @@ class PrivateRegistries extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function privateRegistriesDeleteOrgPrivateRegistry(string $org, string $secretName): Response {
+    public function deleteOrgPrivateRegistry(string $org, string $secretName): Response {
         return $this->connector->send(new PrivateRegistriesDeleteOrgPrivateRegistry($org, $secretName));
     }
 
@@ -56,7 +56,7 @@ class PrivateRegistries extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function privateRegistriesUpdateOrgPrivateRegistry(string $org, string $secretName): Response {
+    public function updateOrgPrivateRegistry(string $org, string $secretName): Response {
         return $this->connector->send(new PrivateRegistriesUpdateOrgPrivateRegistry($org, $secretName));
     }
 }

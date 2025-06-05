@@ -38,7 +38,7 @@ class Packages extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function packagesListDockerMigrationConflictingPackagesForOrganization(string $org): Response {
+    public function listDockerMigrationConflictingPackagesForOrganization(string $org): Response {
         return $this->connector->send(new PackagesListDockerMigrationConflictingPackagesForOrganization($org));
     }
 
@@ -51,7 +51,7 @@ class Packages extends GitHubResource {
      * For the list of GitHub Packages registries that support granular permissions, see "[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function packagesListPackagesForOrganization(
+    public function listPackagesForOrganization(
         string $org,
         string $packageType,
         ?string $visibility,
@@ -65,7 +65,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function packagesGetPackageForOrganization(string $packageType, string $packageName, string $org): Response {
+    public function getPackageForOrganization(string $packageType, string $packageName, string $org): Response {
         return $this->connector->send(new PackagesGetPackageForOrganization($packageType, $packageName, $org));
     }
 
@@ -74,7 +74,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function packagesDeletePackageForOrg(string $packageType, string $packageName, string $org): Response {
+    public function deletePackageForOrg(string $packageType, string $packageName, string $org): Response {
         return $this->connector->send(new PackagesDeletePackageForOrg($packageType, $packageName, $org));
     }
 
@@ -84,7 +84,7 @@ class Packages extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $token  package token
      */
-    public function packagesRestorePackageForOrg(
+    public function restorePackageForOrg(
         string $packageType,
         string $packageName,
         string $org,
@@ -100,7 +100,7 @@ class Packages extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $state  The state of the package, either active or deleted.
      */
-    public function packagesGetAllPackageVersionsForPackageOwnedByOrg(
+    public function getAllPackageVersionsForPackageOwnedByOrg(
         string $packageType,
         string $packageName,
         string $org,
@@ -116,7 +116,7 @@ class Packages extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesGetPackageVersionForOrganization(
+    public function getPackageVersionForOrganization(
         string $packageType,
         string $packageName,
         string $org,
@@ -131,7 +131,7 @@ class Packages extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesDeletePackageVersionForOrg(
+    public function deletePackageVersionForOrg(
         string $packageType,
         string $packageName,
         string $org,
@@ -146,7 +146,7 @@ class Packages extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesRestorePackageVersionForOrg(
+    public function restorePackageVersionForOrg(
         string $packageType,
         string $packageName,
         string $org,
@@ -155,7 +155,7 @@ class Packages extends GitHubResource {
         return $this->connector->send(new PackagesRestorePackageVersionForOrg($packageType, $packageName, $org, $packageVersionId));
     }
 
-    public function packagesListDockerMigrationConflictingPackagesForAuthenticatedUser(): Response {
+    public function listDockerMigrationConflictingPackagesForAuthenticatedUser(): Response {
         return $this->connector->send(new PackagesListDockerMigrationConflictingPackagesForAuthenticatedUser);
     }
 
@@ -167,7 +167,7 @@ class Packages extends GitHubResource {
      * For the list of GitHub Packages registries that support granular permissions, see "[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function packagesListPackagesForAuthenticatedUser(
+    public function listPackagesForAuthenticatedUser(
         string $packageType,
         ?string $visibility,
         ?int $page,
@@ -179,7 +179,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageType  The type of supported package. Packages in GitHub's Gradle registry have the type `maven`. Docker images pushed to GitHub's Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub's Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.
      * @param  string  $packageName  The name of the package.
      */
-    public function packagesGetPackageForAuthenticatedUser(string $packageType, string $packageName): Response {
+    public function getPackageForAuthenticatedUser(string $packageType, string $packageName): Response {
         return $this->connector->send(new PackagesGetPackageForAuthenticatedUser($packageType, $packageName));
     }
 
@@ -187,7 +187,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageType  The type of supported package. Packages in GitHub's Gradle registry have the type `maven`. Docker images pushed to GitHub's Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub's Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.
      * @param  string  $packageName  The name of the package.
      */
-    public function packagesDeletePackageForAuthenticatedUser(string $packageType, string $packageName): Response {
+    public function deletePackageForAuthenticatedUser(string $packageType, string $packageName): Response {
         return $this->connector->send(new PackagesDeletePackageForAuthenticatedUser($packageType, $packageName));
     }
 
@@ -196,7 +196,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $token  package token
      */
-    public function packagesRestorePackageForAuthenticatedUser(
+    public function restorePackageForAuthenticatedUser(
         string $packageType,
         string $packageName,
         ?string $token,
@@ -210,7 +210,7 @@ class Packages extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $state  The state of the package, either active or deleted.
      */
-    public function packagesGetAllPackageVersionsForPackageOwnedByAuthenticatedUser(
+    public function getAllPackageVersionsForPackageOwnedByAuthenticatedUser(
         string $packageType,
         string $packageName,
         ?int $page,
@@ -224,7 +224,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesGetPackageVersionForAuthenticatedUser(
+    public function getPackageVersionForAuthenticatedUser(
         string $packageType,
         string $packageName,
         int $packageVersionId,
@@ -237,7 +237,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesDeletePackageVersionForAuthenticatedUser(
+    public function deletePackageVersionForAuthenticatedUser(
         string $packageType,
         string $packageName,
         int $packageVersionId,
@@ -250,7 +250,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesRestorePackageVersionForAuthenticatedUser(
+    public function restorePackageVersionForAuthenticatedUser(
         string $packageType,
         string $packageName,
         int $packageVersionId,
@@ -261,7 +261,7 @@ class Packages extends GitHubResource {
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function packagesListDockerMigrationConflictingPackagesForUser(string $username): Response {
+    public function listDockerMigrationConflictingPackagesForUser(string $username): Response {
         return $this->connector->send(new PackagesListDockerMigrationConflictingPackagesForUser($username));
     }
 
@@ -274,7 +274,7 @@ class Packages extends GitHubResource {
      * For the list of GitHub Packages registries that support granular permissions, see "[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function packagesListPackagesForUser(
+    public function listPackagesForUser(
         string $username,
         string $packageType,
         ?string $visibility,
@@ -288,7 +288,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function packagesGetPackageForUser(string $packageType, string $packageName, string $username): Response {
+    public function getPackageForUser(string $packageType, string $packageName, string $username): Response {
         return $this->connector->send(new PackagesGetPackageForUser($packageType, $packageName, $username));
     }
 
@@ -297,7 +297,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function packagesDeletePackageForUser(string $packageType, string $packageName, string $username): Response {
+    public function deletePackageForUser(string $packageType, string $packageName, string $username): Response {
         return $this->connector->send(new PackagesDeletePackageForUser($packageType, $packageName, $username));
     }
 
@@ -307,7 +307,7 @@ class Packages extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  string  $token  package token
      */
-    public function packagesRestorePackageForUser(
+    public function restorePackageForUser(
         string $packageType,
         string $packageName,
         string $username,
@@ -321,7 +321,7 @@ class Packages extends GitHubResource {
      * @param  string  $packageName  The name of the package.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function packagesGetAllPackageVersionsForPackageOwnedByUser(
+    public function getAllPackageVersionsForPackageOwnedByUser(
         string $packageType,
         string $packageName,
         string $username,
@@ -335,7 +335,7 @@ class Packages extends GitHubResource {
      * @param  int  $packageVersionId  Unique identifier of the package version.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function packagesGetPackageVersionForUser(
+    public function getPackageVersionForUser(
         string $packageType,
         string $packageName,
         int $packageVersionId,
@@ -350,7 +350,7 @@ class Packages extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesDeletePackageVersionForUser(
+    public function deletePackageVersionForUser(
         string $packageType,
         string $packageName,
         string $username,
@@ -365,7 +365,7 @@ class Packages extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $packageVersionId  Unique identifier of the package version.
      */
-    public function packagesRestorePackageVersionForUser(
+    public function restorePackageVersionForUser(
         string $packageType,
         string $packageName,
         string $username,

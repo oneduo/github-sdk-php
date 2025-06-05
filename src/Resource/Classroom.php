@@ -17,7 +17,7 @@ class Classroom extends GitHubResource {
     /**
      * @param  int  $assignmentId  The unique identifier of the classroom assignment.
      */
-    public function classroomGetAnAssignment(int $assignmentId): Response {
+    public function getAnAssignment(int $assignmentId): Response {
         return $this->connector->send(new ClassroomGetAnAssignment($assignmentId));
     }
 
@@ -25,28 +25,28 @@ class Classroom extends GitHubResource {
      * @param  int  $assignmentId  The unique identifier of the classroom assignment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function classroomListAcceptedAssignmentsForAnAssignment(int $assignmentId, ?int $page): Response {
+    public function listAcceptedAssignmentsForAnAssignment(int $assignmentId, ?int $page): Response {
         return $this->connector->send(new ClassroomListAcceptedAssignmentsForAnAssignment($assignmentId, $page));
     }
 
     /**
      * @param  int  $assignmentId  The unique identifier of the classroom assignment.
      */
-    public function classroomGetAssignmentGrades(int $assignmentId): Response {
+    public function getAssignmentGrades(int $assignmentId): Response {
         return $this->connector->send(new ClassroomGetAssignmentGrades($assignmentId));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function classroomListClassrooms(?int $page): Response {
+    public function listClassrooms(?int $page): Response {
         return $this->connector->send(new ClassroomListClassrooms($page));
     }
 
     /**
      * @param  int  $classroomId  The unique identifier of the classroom.
      */
-    public function classroomGetAclassroom(int $classroomId): Response {
+    public function getAclassroom(int $classroomId): Response {
         return $this->connector->send(new ClassroomGetAClassroom($classroomId));
     }
 
@@ -54,7 +54,7 @@ class Classroom extends GitHubResource {
      * @param  int  $classroomId  The unique identifier of the classroom.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function classroomListAssignmentsForAclassroom(int $classroomId, ?int $page): Response {
+    public function listAssignmentsForAclassroom(int $classroomId, ?int $page): Response {
         return $this->connector->send(new ClassroomListAssignmentsForAClassroom($classroomId, $page));
     }
 }

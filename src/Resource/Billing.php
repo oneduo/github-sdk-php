@@ -23,7 +23,7 @@ class Billing extends GitHubResource {
      * @param  int  $day  If specified, only return results for a single day. The value of `day` is an integer between `1` and `31`. If no `year` or `month` is specified, the default `year` and `month` are used.
      * @param  int  $hour  If specified, only return results for a single hour. The value of `hour` is an integer between `0` and `23`. If no `year`, `month`, or `day` is specified, the default `year`, `month`, and `day` are used.
      */
-    public function billingGetGithubBillingUsageReportOrg(
+    public function getGithubBillingUsageReportOrg(
         string $org,
         ?int $year,
         ?int $month,
@@ -36,42 +36,42 @@ class Billing extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function billingGetGithubActionsBillingOrg(string $org): Response {
+    public function getGithubActionsBillingOrg(string $org): Response {
         return $this->connector->send(new BillingGetGithubActionsBillingOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function billingGetGithubPackagesBillingOrg(string $org): Response {
+    public function getGithubPackagesBillingOrg(string $org): Response {
         return $this->connector->send(new BillingGetGithubPackagesBillingOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function billingGetSharedStorageBillingOrg(string $org): Response {
+    public function getSharedStorageBillingOrg(string $org): Response {
         return $this->connector->send(new BillingGetSharedStorageBillingOrg($org));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function billingGetGithubActionsBillingUser(string $username): Response {
+    public function getGithubActionsBillingUser(string $username): Response {
         return $this->connector->send(new BillingGetGithubActionsBillingUser($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function billingGetGithubPackagesBillingUser(string $username): Response {
+    public function getGithubPackagesBillingUser(string $username): Response {
         return $this->connector->send(new BillingGetGithubPackagesBillingUser($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function billingGetSharedStorageBillingUser(string $username): Response {
+    public function getSharedStorageBillingUser(string $username): Response {
         return $this->connector->send(new BillingGetSharedStorageBillingUser($username));
     }
 
@@ -82,7 +82,7 @@ class Billing extends GitHubResource {
      * @param  int  $day  If specified, only return results for a single day. The value of `day` is an integer between `1` and `31`. If no `year` or `month` is specified, the default `year` and `month` are used.
      * @param  int  $hour  If specified, only return results for a single hour. The value of `hour` is an integer between `0` and `23`. If no `year`, `month`, or `day` is specified, the default `year`, `month`, and `day` are used.
      */
-    public function billingGetGithubBillingUsageReportUser(
+    public function getGithubBillingUsageReportUser(
         string $username,
         ?int $year,
         ?int $month,

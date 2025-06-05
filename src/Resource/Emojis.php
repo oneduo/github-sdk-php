@@ -9,7 +9,7 @@ use Oneduo\GitHubSdk\Requests\Emojis\EmojisGet;
 use Saloon\Http\Response;
 
 class Emojis extends GitHubResource {
-    public function emojisGet(): Response {
+    public function get(): Response {
         return $this->connector->send(new EmojisGet);
     }
 }

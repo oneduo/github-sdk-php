@@ -41,7 +41,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a team discussion comment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForTeamDiscussionCommentInOrg(
+    public function listForTeamDiscussionCommentInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -58,7 +58,7 @@ class Reactions extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function reactionsCreateForTeamDiscussionCommentInOrg(
+    public function createForTeamDiscussionCommentInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -74,7 +74,7 @@ class Reactions extends GitHubResource {
      * @param  int  $commentNumber  The number that identifies the comment.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForTeamDiscussionComment(
+    public function deleteForTeamDiscussionComment(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -91,7 +91,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a team discussion.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForTeamDiscussionInOrg(
+    public function listForTeamDiscussionInOrg(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -106,7 +106,7 @@ class Reactions extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function reactionsCreateForTeamDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function createForTeamDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
         return $this->connector->send(new ReactionsCreateForTeamDiscussionInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -116,7 +116,7 @@ class Reactions extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForTeamDiscussion(
+    public function deleteForTeamDiscussion(
         string $org,
         string $teamSlug,
         int $discussionNumber,
@@ -132,7 +132,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a commit comment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForCommitComment(
+    public function listForCommitComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -147,7 +147,7 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function reactionsCreateForCommitComment(string $owner, string $repo, int $commentId): Response {
+    public function createForCommitComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new ReactionsCreateForCommitComment($owner, $repo, $commentId));
     }
 
@@ -157,7 +157,7 @@ class Reactions extends GitHubResource {
      * @param  int  $commentId  The unique identifier of the comment.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForCommitComment(
+    public function deleteForCommitComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -173,7 +173,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to an issue comment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForIssueComment(
+    public function listForIssueComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -188,7 +188,7 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function reactionsCreateForIssueComment(string $owner, string $repo, int $commentId): Response {
+    public function createForIssueComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new ReactionsCreateForIssueComment($owner, $repo, $commentId));
     }
 
@@ -198,7 +198,7 @@ class Reactions extends GitHubResource {
      * @param  int  $commentId  The unique identifier of the comment.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForIssueComment(
+    public function deleteForIssueComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -214,7 +214,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to an issue.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForIssue(
+    public function listForIssue(
         string $owner,
         string $repo,
         int $issueNumber,
@@ -229,7 +229,7 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function reactionsCreateForIssue(string $owner, string $repo, int $issueNumber): Response {
+    public function createForIssue(string $owner, string $repo, int $issueNumber): Response {
         return $this->connector->send(new ReactionsCreateForIssue($owner, $repo, $issueNumber));
     }
 
@@ -239,7 +239,7 @@ class Reactions extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForIssue(string $owner, string $repo, int $issueNumber, int $reactionId): Response {
+    public function deleteForIssue(string $owner, string $repo, int $issueNumber, int $reactionId): Response {
         return $this->connector->send(new ReactionsDeleteForIssue($owner, $repo, $issueNumber, $reactionId));
     }
 
@@ -250,7 +250,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a pull request review comment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForPullRequestReviewComment(
+    public function listForPullRequestReviewComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -265,7 +265,7 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function reactionsCreateForPullRequestReviewComment(string $owner, string $repo, int $commentId): Response {
+    public function createForPullRequestReviewComment(string $owner, string $repo, int $commentId): Response {
         return $this->connector->send(new ReactionsCreateForPullRequestReviewComment($owner, $repo, $commentId));
     }
 
@@ -275,7 +275,7 @@ class Reactions extends GitHubResource {
      * @param  int  $commentId  The unique identifier of the comment.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForPullRequestComment(
+    public function deleteForPullRequestComment(
         string $owner,
         string $repo,
         int $commentId,
@@ -291,7 +291,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a release.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForRelease(
+    public function listForRelease(
         string $owner,
         string $repo,
         int $releaseId,
@@ -306,7 +306,7 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $releaseId  The unique identifier of the release.
      */
-    public function reactionsCreateForRelease(string $owner, string $repo, int $releaseId): Response {
+    public function createForRelease(string $owner, string $repo, int $releaseId): Response {
         return $this->connector->send(new ReactionsCreateForRelease($owner, $repo, $releaseId));
     }
 
@@ -316,7 +316,7 @@ class Reactions extends GitHubResource {
      * @param  int  $releaseId  The unique identifier of the release.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function reactionsDeleteForRelease(string $owner, string $repo, int $releaseId, int $reactionId): Response {
+    public function deleteForRelease(string $owner, string $repo, int $releaseId, int $reactionId): Response {
         return $this->connector->send(new ReactionsDeleteForRelease($owner, $repo, $releaseId, $reactionId));
     }
 
@@ -327,7 +327,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a team discussion comment.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForTeamDiscussionCommentLegacy(
+    public function listForTeamDiscussionCommentLegacy(
         int $teamId,
         int $discussionNumber,
         int $commentNumber,
@@ -342,7 +342,7 @@ class Reactions extends GitHubResource {
      * @param  int  $discussionNumber  The number that identifies the discussion.
      * @param  int  $commentNumber  The number that identifies the comment.
      */
-    public function reactionsCreateForTeamDiscussionCommentLegacy(
+    public function createForTeamDiscussionCommentLegacy(
         int $teamId,
         int $discussionNumber,
         int $commentNumber,
@@ -356,7 +356,7 @@ class Reactions extends GitHubResource {
      * @param  string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to a team discussion.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function reactionsListForTeamDiscussionLegacy(
+    public function listForTeamDiscussionLegacy(
         int $teamId,
         int $discussionNumber,
         ?string $content,
@@ -369,7 +369,7 @@ class Reactions extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function reactionsCreateForTeamDiscussionLegacy(int $teamId, int $discussionNumber): Response {
+    public function createForTeamDiscussionLegacy(int $teamId, int $discussionNumber): Response {
         return $this->connector->send(new ReactionsCreateForTeamDiscussionLegacy($teamId, $discussionNumber));
     }
 }

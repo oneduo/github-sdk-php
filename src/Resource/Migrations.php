@@ -35,14 +35,14 @@ class Migrations extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  array  $exclude  Exclude attributes from the API response to improve performance
      */
-    public function migrationsListForOrg(string $org, ?int $page, ?array $exclude): Response {
+    public function listForOrg(string $org, ?int $page, ?array $exclude): Response {
         return $this->connector->send(new MigrationsListForOrg($org, $page, $exclude));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function migrationsStartForOrg(string $org): Response {
+    public function startForOrg(string $org): Response {
         return $this->connector->send(new MigrationsStartForOrg($org));
     }
 
@@ -51,7 +51,7 @@ class Migrations extends GitHubResource {
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  array  $exclude  Exclude attributes from the API response to improve performance
      */
-    public function migrationsGetStatusForOrg(string $org, int $migrationId, ?array $exclude): Response {
+    public function getStatusForOrg(string $org, int $migrationId, ?array $exclude): Response {
         return $this->connector->send(new MigrationsGetStatusForOrg($org, $migrationId, $exclude));
     }
 
@@ -59,7 +59,7 @@ class Migrations extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $migrationId  The unique identifier of the migration.
      */
-    public function migrationsDownloadArchiveForOrg(string $org, int $migrationId): Response {
+    public function downloadArchiveForOrg(string $org, int $migrationId): Response {
         return $this->connector->send(new MigrationsDownloadArchiveForOrg($org, $migrationId));
     }
 
@@ -67,7 +67,7 @@ class Migrations extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $migrationId  The unique identifier of the migration.
      */
-    public function migrationsDeleteArchiveForOrg(string $org, int $migrationId): Response {
+    public function deleteArchiveForOrg(string $org, int $migrationId): Response {
         return $this->connector->send(new MigrationsDeleteArchiveForOrg($org, $migrationId));
     }
 
@@ -76,7 +76,7 @@ class Migrations extends GitHubResource {
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  string  $repoName  repo_name parameter
      */
-    public function migrationsUnlockRepoForOrg(string $org, int $migrationId, string $repoName): Response {
+    public function unlockRepoForOrg(string $org, int $migrationId, string $repoName): Response {
         return $this->connector->send(new MigrationsUnlockRepoForOrg($org, $migrationId, $repoName));
     }
 
@@ -85,7 +85,7 @@ class Migrations extends GitHubResource {
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function migrationsListReposForOrg(string $org, int $migrationId, ?int $page): Response {
+    public function listReposForOrg(string $org, int $migrationId, ?int $page): Response {
         return $this->connector->send(new MigrationsListReposForOrg($org, $migrationId, $page));
     }
 
@@ -93,7 +93,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsGetImportStatus(string $owner, string $repo): Response {
+    public function getImportStatus(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsGetImportStatus($owner, $repo));
     }
 
@@ -101,7 +101,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsStartImport(string $owner, string $repo): Response {
+    public function startImport(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsStartImport($owner, $repo));
     }
 
@@ -109,7 +109,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsCancelImport(string $owner, string $repo): Response {
+    public function cancelImport(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsCancelImport($owner, $repo));
     }
 
@@ -117,7 +117,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsUpdateImport(string $owner, string $repo): Response {
+    public function updateImport(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsUpdateImport($owner, $repo));
     }
 
@@ -126,7 +126,7 @@ class Migrations extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $since  A user ID. Only return users with an ID greater than this ID.
      */
-    public function migrationsGetCommitAuthors(string $owner, string $repo, ?int $since): Response {
+    public function getCommitAuthors(string $owner, string $repo, ?int $since): Response {
         return $this->connector->send(new MigrationsGetCommitAuthors($owner, $repo, $since));
     }
 
@@ -134,7 +134,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsMapCommitAuthor(string $owner, string $repo, int $authorId): Response {
+    public function mapCommitAuthor(string $owner, string $repo, int $authorId): Response {
         return $this->connector->send(new MigrationsMapCommitAuthor($owner, $repo, $authorId));
     }
 
@@ -142,7 +142,7 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsGetLargeFiles(string $owner, string $repo): Response {
+    public function getLargeFiles(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsGetLargeFiles($owner, $repo));
     }
 
@@ -150,39 +150,39 @@ class Migrations extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function migrationsSetLfsPreference(string $owner, string $repo): Response {
+    public function setLfsPreference(string $owner, string $repo): Response {
         return $this->connector->send(new MigrationsSetLfsPreference($owner, $repo));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function migrationsListForAuthenticatedUser(?int $page): Response {
+    public function listForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new MigrationsListForAuthenticatedUser($page));
     }
 
-    public function migrationsStartForAuthenticatedUser(): Response {
+    public function startForAuthenticatedUser(): Response {
         return $this->connector->send(new MigrationsStartForAuthenticatedUser);
     }
 
     /**
      * @param  int  $migrationId  The unique identifier of the migration.
      */
-    public function migrationsGetStatusForAuthenticatedUser(int $migrationId, ?array $exclude): Response {
+    public function getStatusForAuthenticatedUser(int $migrationId, ?array $exclude): Response {
         return $this->connector->send(new MigrationsGetStatusForAuthenticatedUser($migrationId, $exclude));
     }
 
     /**
      * @param  int  $migrationId  The unique identifier of the migration.
      */
-    public function migrationsGetArchiveForAuthenticatedUser(int $migrationId): Response {
+    public function getArchiveForAuthenticatedUser(int $migrationId): Response {
         return $this->connector->send(new MigrationsGetArchiveForAuthenticatedUser($migrationId));
     }
 
     /**
      * @param  int  $migrationId  The unique identifier of the migration.
      */
-    public function migrationsDeleteArchiveForAuthenticatedUser(int $migrationId): Response {
+    public function deleteArchiveForAuthenticatedUser(int $migrationId): Response {
         return $this->connector->send(new MigrationsDeleteArchiveForAuthenticatedUser($migrationId));
     }
 
@@ -190,7 +190,7 @@ class Migrations extends GitHubResource {
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  string  $repoName  repo_name parameter
      */
-    public function migrationsUnlockRepoForAuthenticatedUser(int $migrationId, string $repoName): Response {
+    public function unlockRepoForAuthenticatedUser(int $migrationId, string $repoName): Response {
         return $this->connector->send(new MigrationsUnlockRepoForAuthenticatedUser($migrationId, $repoName));
     }
 
@@ -198,7 +198,7 @@ class Migrations extends GitHubResource {
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function migrationsListReposForAuthenticatedUser(int $migrationId, ?int $page): Response {
+    public function listReposForAuthenticatedUser(int $migrationId, ?int $page): Response {
         return $this->connector->send(new MigrationsListReposForAuthenticatedUser($migrationId, $page));
     }
 }

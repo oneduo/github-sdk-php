@@ -9,7 +9,7 @@ use Oneduo\GitHubSdk\Requests\RateLimit\RateLimitGet;
 use Saloon\Http\Response;
 
 class RateLimit extends GitHubResource {
-    public function rateLimitGet(): Response {
+    public function get(): Response {
         return $this->connector->send(new RateLimitGet);
     }
 }

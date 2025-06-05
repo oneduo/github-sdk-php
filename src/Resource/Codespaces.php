@@ -60,28 +60,28 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListInOrganization(string $org, ?int $page): Response {
+    public function listInOrganization(string $org, ?int $page): Response {
         return $this->connector->send(new CodespacesListInOrganization($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codespacesSetCodespacesAccess(string $org): Response {
+    public function setCodespacesAccess(string $org): Response {
         return $this->connector->send(new CodespacesSetCodespacesAccess($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codespacesSetCodespacesAccessUsers(string $org): Response {
+    public function setCodespacesAccessUsers(string $org): Response {
         return $this->connector->send(new CodespacesSetCodespacesAccessUsers($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codespacesDeleteCodespacesAccessUsers(string $org): Response {
+    public function deleteCodespacesAccessUsers(string $org): Response {
         return $this->connector->send(new CodespacesDeleteCodespacesAccessUsers($org));
     }
 
@@ -89,14 +89,14 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListOrgSecrets(string $org, ?int $page): Response {
+    public function listOrgSecrets(string $org, ?int $page): Response {
         return $this->connector->send(new CodespacesListOrgSecrets($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codespacesGetOrgPublicKey(string $org): Response {
+    public function getOrgPublicKey(string $org): Response {
         return $this->connector->send(new CodespacesGetOrgPublicKey($org));
     }
 
@@ -104,7 +104,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesGetOrgSecret(string $org, string $secretName): Response {
+    public function getOrgSecret(string $org, string $secretName): Response {
         return $this->connector->send(new CodespacesGetOrgSecret($org, $secretName));
     }
 
@@ -112,7 +112,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesCreateOrUpdateOrgSecret(string $org, string $secretName): Response {
+    public function createOrUpdateOrgSecret(string $org, string $secretName): Response {
         return $this->connector->send(new CodespacesCreateOrUpdateOrgSecret($org, $secretName));
     }
 
@@ -120,7 +120,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesDeleteOrgSecret(string $org, string $secretName): Response {
+    public function deleteOrgSecret(string $org, string $secretName): Response {
         return $this->connector->send(new CodespacesDeleteOrgSecret($org, $secretName));
     }
 
@@ -129,7 +129,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $secretName  The name of the secret.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response {
+    public function listSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response {
         return $this->connector->send(new CodespacesListSelectedReposForOrgSecret($org, $secretName, $page));
     }
 
@@ -137,7 +137,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesSetSelectedReposForOrgSecret(string $org, string $secretName): Response {
+    public function setSelectedReposForOrgSecret(string $org, string $secretName): Response {
         return $this->connector->send(new CodespacesSetSelectedReposForOrgSecret($org, $secretName));
     }
 
@@ -145,7 +145,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesAddSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response {
+    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response {
         return $this->connector->send(new CodespacesAddSelectedRepoToOrgSecret($org, $secretName, $repositoryId));
     }
 
@@ -153,7 +153,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesRemoveSelectedRepoFromOrgSecret(
+    public function removeSelectedRepoFromOrgSecret(
         string $org,
         string $secretName,
         int $repositoryId,
@@ -166,7 +166,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesGetCodespacesForUserInOrg(string $org, string $username, ?int $page): Response {
+    public function getCodespacesForUserInOrg(string $org, string $username, ?int $page): Response {
         return $this->connector->send(new CodespacesGetCodespacesForUserInOrg($org, $username, $page));
     }
 
@@ -175,7 +175,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesDeleteFromOrganization(string $org, string $username, string $codespaceName): Response {
+    public function deleteFromOrganization(string $org, string $username, string $codespaceName): Response {
         return $this->connector->send(new CodespacesDeleteFromOrganization($org, $username, $codespaceName));
     }
 
@@ -184,7 +184,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesStopInOrganization(string $org, string $username, string $codespaceName): Response {
+    public function stopInOrganization(string $org, string $username, string $codespaceName): Response {
         return $this->connector->send(new CodespacesStopInOrganization($org, $username, $codespaceName));
     }
 
@@ -193,7 +193,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListInRepositoryForAuthenticatedUser(string $owner, string $repo, ?int $page): Response {
+    public function listInRepositoryForAuthenticatedUser(string $owner, string $repo, ?int $page): Response {
         return $this->connector->send(new CodespacesListInRepositoryForAuthenticatedUser($owner, $repo, $page));
     }
 
@@ -201,7 +201,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codespacesCreateWithRepoForAuthenticatedUser(string $owner, string $repo): Response {
+    public function createWithRepoForAuthenticatedUser(string $owner, string $repo): Response {
         return $this->connector->send(new CodespacesCreateWithRepoForAuthenticatedUser($owner, $repo));
     }
 
@@ -210,7 +210,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListDevcontainersInRepositoryForAuthenticatedUser(
+    public function listDevcontainersInRepositoryForAuthenticatedUser(
         string $owner,
         string $repo,
         ?int $page,
@@ -225,7 +225,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $clientIp  IP for location auto-detection when proxying a request
      * @param  string  $ref  The branch or commit to check for prebuild availability and devcontainer restrictions.
      */
-    public function codespacesRepoMachinesForAuthenticatedUser(
+    public function repoMachinesForAuthenticatedUser(
         string $owner,
         string $repo,
         ?string $location,
@@ -241,7 +241,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $ref  The branch or commit to check for a default devcontainer path. If not specified, the default branch will be checked.
      * @param  string  $clientIp  An alternative IP for default location auto-detection, such as when proxying a request.
      */
-    public function codespacesPreFlightWithRepoForAuthenticatedUser(
+    public function preFlightWithRepoForAuthenticatedUser(
         string $owner,
         string $repo,
         ?string $ref,
@@ -256,7 +256,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $ref  The git reference that points to the location of the devcontainer configuration to use for the permission check. The value of `ref` will typically be a branch name (`heads/BRANCH_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      * @param  string  $devcontainerPath  Path to the devcontainer.json configuration to use for the permission check.
      */
-    public function codespacesCheckPermissionsForDevcontainer(
+    public function checkPermissionsForDevcontainer(
         string $owner,
         string $repo,
         string $ref,
@@ -270,7 +270,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListRepoSecrets(string $owner, string $repo, ?int $page): Response {
+    public function listRepoSecrets(string $owner, string $repo, ?int $page): Response {
         return $this->connector->send(new CodespacesListRepoSecrets($owner, $repo, $page));
     }
 
@@ -278,7 +278,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codespacesGetRepoPublicKey(string $owner, string $repo): Response {
+    public function getRepoPublicKey(string $owner, string $repo): Response {
         return $this->connector->send(new CodespacesGetRepoPublicKey($owner, $repo));
     }
 
@@ -287,7 +287,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesGetRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function getRepoSecret(string $owner, string $repo, string $secretName): Response {
         return $this->connector->send(new CodespacesGetRepoSecret($owner, $repo, $secretName));
     }
 
@@ -296,7 +296,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesCreateOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response {
         return $this->connector->send(new CodespacesCreateOrUpdateRepoSecret($owner, $repo, $secretName));
     }
 
@@ -305,7 +305,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesDeleteRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function deleteRepoSecret(string $owner, string $repo, string $secretName): Response {
         return $this->connector->send(new CodespacesDeleteRepoSecret($owner, $repo, $secretName));
     }
 
@@ -314,7 +314,7 @@ class Codespaces extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function codespacesCreateWithPrForAuthenticatedUser(string $owner, string $repo, int $pullNumber): Response {
+    public function createWithPrForAuthenticatedUser(string $owner, string $repo, int $pullNumber): Response {
         return $this->connector->send(new CodespacesCreateWithPrForAuthenticatedUser($owner, $repo, $pullNumber));
     }
 
@@ -322,71 +322,71 @@ class Codespaces extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  int  $repositoryId  ID of the Repository to filter on
      */
-    public function codespacesListForAuthenticatedUser(?int $page, ?int $repositoryId): Response {
+    public function listForAuthenticatedUser(?int $page, ?int $repositoryId): Response {
         return $this->connector->send(new CodespacesListForAuthenticatedUser($page, $repositoryId));
     }
 
-    public function codespacesCreateForAuthenticatedUser(): Response {
+    public function createForAuthenticatedUser(): Response {
         return $this->connector->send(new CodespacesCreateForAuthenticatedUser);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codespacesListSecretsForAuthenticatedUser(?int $page): Response {
+    public function listSecretsForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new CodespacesListSecretsForAuthenticatedUser($page));
     }
 
-    public function codespacesGetPublicKeyForAuthenticatedUser(): Response {
+    public function getPublicKeyForAuthenticatedUser(): Response {
         return $this->connector->send(new CodespacesGetPublicKeyForAuthenticatedUser);
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesGetSecretForAuthenticatedUser(string $secretName): Response {
+    public function getSecretForAuthenticatedUser(string $secretName): Response {
         return $this->connector->send(new CodespacesGetSecretForAuthenticatedUser($secretName));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesCreateOrUpdateSecretForAuthenticatedUser(string $secretName): Response {
+    public function createOrUpdateSecretForAuthenticatedUser(string $secretName): Response {
         return $this->connector->send(new CodespacesCreateOrUpdateSecretForAuthenticatedUser($secretName));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesDeleteSecretForAuthenticatedUser(string $secretName): Response {
+    public function deleteSecretForAuthenticatedUser(string $secretName): Response {
         return $this->connector->send(new CodespacesDeleteSecretForAuthenticatedUser($secretName));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesListRepositoriesForSecretForAuthenticatedUser(string $secretName): Response {
+    public function listRepositoriesForSecretForAuthenticatedUser(string $secretName): Response {
         return $this->connector->send(new CodespacesListRepositoriesForSecretForAuthenticatedUser($secretName));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesSetRepositoriesForSecretForAuthenticatedUser(string $secretName): Response {
+    public function setRepositoriesForSecretForAuthenticatedUser(string $secretName): Response {
         return $this->connector->send(new CodespacesSetRepositoriesForSecretForAuthenticatedUser($secretName));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesAddRepositoryForSecretForAuthenticatedUser(string $secretName, int $repositoryId): Response {
+    public function addRepositoryForSecretForAuthenticatedUser(string $secretName, int $repositoryId): Response {
         return $this->connector->send(new CodespacesAddRepositoryForSecretForAuthenticatedUser($secretName, $repositoryId));
     }
 
     /**
      * @param  string  $secretName  The name of the secret.
      */
-    public function codespacesRemoveRepositoryForSecretForAuthenticatedUser(
+    public function removeRepositoryForSecretForAuthenticatedUser(
         string $secretName,
         int $repositoryId,
     ): Response {
@@ -396,28 +396,28 @@ class Codespaces extends GitHubResource {
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesGetForAuthenticatedUser(string $codespaceName): Response {
+    public function getForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesGetForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesDeleteForAuthenticatedUser(string $codespaceName): Response {
+    public function deleteForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesDeleteForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesUpdateForAuthenticatedUser(string $codespaceName): Response {
+    public function updateForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesUpdateForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesExportForAuthenticatedUser(string $codespaceName): Response {
+    public function exportForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesExportForAuthenticatedUser($codespaceName));
     }
 
@@ -425,35 +425,35 @@ class Codespaces extends GitHubResource {
      * @param  string  $codespaceName  The name of the codespace.
      * @param  string  $exportId  The ID of the export operation, or `latest`. Currently only `latest` is currently supported.
      */
-    public function codespacesGetExportDetailsForAuthenticatedUser(string $codespaceName, string $exportId): Response {
+    public function getExportDetailsForAuthenticatedUser(string $codespaceName, string $exportId): Response {
         return $this->connector->send(new CodespacesGetExportDetailsForAuthenticatedUser($codespaceName, $exportId));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesCodespaceMachinesForAuthenticatedUser(string $codespaceName): Response {
+    public function codespaceMachinesForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesCodespaceMachinesForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesPublishForAuthenticatedUser(string $codespaceName): Response {
+    public function publishForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesPublishForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesStartForAuthenticatedUser(string $codespaceName): Response {
+    public function startForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesStartForAuthenticatedUser($codespaceName));
     }
 
     /**
      * @param  string  $codespaceName  The name of the codespace.
      */
-    public function codespacesStopForAuthenticatedUser(string $codespaceName): Response {
+    public function stopForAuthenticatedUser(string $codespaceName): Response {
         return $this->connector->send(new CodespacesStopForAuthenticatedUser($codespaceName));
     }
 }

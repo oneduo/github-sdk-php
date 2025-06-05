@@ -51,211 +51,211 @@ use Oneduo\GitHubSdk\Requests\Users\UsersUpdateAuthenticated;
 use Saloon\Http\Response;
 
 class Users extends GitHubResource {
-    public function usersGetAuthenticated(): Response {
+    public function getAuthenticated(): Response {
         return $this->connector->send(new UsersGetAuthenticated);
     }
 
-    public function usersUpdateAuthenticated(): Response {
+    public function updateAuthenticated(): Response {
         return $this->connector->send(new UsersUpdateAuthenticated);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListBlockedByAuthenticatedUser(?int $page): Response {
+    public function listBlockedByAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListBlockedByAuthenticatedUser($page));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersCheckBlocked(string $username): Response {
+    public function checkBlocked(string $username): Response {
         return $this->connector->send(new UsersCheckBlocked($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersBlock(string $username): Response {
+    public function block(string $username): Response {
         return $this->connector->send(new UsersBlock($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersUnblock(string $username): Response {
+    public function unblock(string $username): Response {
         return $this->connector->send(new UsersUnblock($username));
     }
 
-    public function usersSetPrimaryEmailVisibilityForAuthenticatedUser(): Response {
+    public function setPrimaryEmailVisibilityForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersSetPrimaryEmailVisibilityForAuthenticatedUser);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListEmailsForAuthenticatedUser(?int $page): Response {
+    public function listEmailsForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListEmailsForAuthenticatedUser($page));
     }
 
-    public function usersAddEmailForAuthenticatedUser(): Response {
+    public function addEmailForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersAddEmailForAuthenticatedUser);
     }
 
-    public function usersDeleteEmailForAuthenticatedUser(): Response {
+    public function deleteEmailForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersDeleteEmailForAuthenticatedUser);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListFollowersForAuthenticatedUser(?int $page): Response {
+    public function listFollowersForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListFollowersForAuthenticatedUser($page));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListFollowedByAuthenticatedUser(?int $page): Response {
+    public function listFollowedByAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListFollowedByAuthenticatedUser($page));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersCheckPersonIsFollowedByAuthenticated(string $username): Response {
+    public function checkPersonIsFollowedByAuthenticated(string $username): Response {
         return $this->connector->send(new UsersCheckPersonIsFollowedByAuthenticated($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersFollow(string $username): Response {
+    public function follow(string $username): Response {
         return $this->connector->send(new UsersFollow($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersUnfollow(string $username): Response {
+    public function unfollow(string $username): Response {
         return $this->connector->send(new UsersUnfollow($username));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListGpgKeysForAuthenticatedUser(?int $page): Response {
+    public function listGpgKeysForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListGpgKeysForAuthenticatedUser($page));
     }
 
-    public function usersCreateGpgKeyForAuthenticatedUser(): Response {
+    public function createGpgKeyForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersCreateGpgKeyForAuthenticatedUser);
     }
 
     /**
      * @param  int  $gpgKeyId  The unique identifier of the GPG key.
      */
-    public function usersGetGpgKeyForAuthenticatedUser(int $gpgKeyId): Response {
+    public function getGpgKeyForAuthenticatedUser(int $gpgKeyId): Response {
         return $this->connector->send(new UsersGetGpgKeyForAuthenticatedUser($gpgKeyId));
     }
 
     /**
      * @param  int  $gpgKeyId  The unique identifier of the GPG key.
      */
-    public function usersDeleteGpgKeyForAuthenticatedUser(int $gpgKeyId): Response {
+    public function deleteGpgKeyForAuthenticatedUser(int $gpgKeyId): Response {
         return $this->connector->send(new UsersDeleteGpgKeyForAuthenticatedUser($gpgKeyId));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListPublicSshKeysForAuthenticatedUser(?int $page): Response {
+    public function listPublicSshKeysForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListPublicSshKeysForAuthenticatedUser($page));
     }
 
-    public function usersCreatePublicSshKeyForAuthenticatedUser(): Response {
+    public function createPublicSshKeyForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersCreatePublicSshKeyForAuthenticatedUser);
     }
 
     /**
      * @param  int  $keyId  The unique identifier of the key.
      */
-    public function usersGetPublicSshKeyForAuthenticatedUser(int $keyId): Response {
+    public function getPublicSshKeyForAuthenticatedUser(int $keyId): Response {
         return $this->connector->send(new UsersGetPublicSshKeyForAuthenticatedUser($keyId));
     }
 
     /**
      * @param  int  $keyId  The unique identifier of the key.
      */
-    public function usersDeletePublicSshKeyForAuthenticatedUser(int $keyId): Response {
+    public function deletePublicSshKeyForAuthenticatedUser(int $keyId): Response {
         return $this->connector->send(new UsersDeletePublicSshKeyForAuthenticatedUser($keyId));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListPublicEmailsForAuthenticatedUser(?int $page): Response {
+    public function listPublicEmailsForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListPublicEmailsForAuthenticatedUser($page));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListSocialAccountsForAuthenticatedUser(?int $page): Response {
+    public function listSocialAccountsForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListSocialAccountsForAuthenticatedUser($page));
     }
 
-    public function usersAddSocialAccountForAuthenticatedUser(): Response {
+    public function addSocialAccountForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersAddSocialAccountForAuthenticatedUser);
     }
 
-    public function usersDeleteSocialAccountForAuthenticatedUser(): Response {
+    public function deleteSocialAccountForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersDeleteSocialAccountForAuthenticatedUser);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListSshSigningKeysForAuthenticatedUser(?int $page): Response {
+    public function listSshSigningKeysForAuthenticatedUser(?int $page): Response {
         return $this->connector->send(new UsersListSshSigningKeysForAuthenticatedUser($page));
     }
 
-    public function usersCreateSshSigningKeyForAuthenticatedUser(): Response {
+    public function createSshSigningKeyForAuthenticatedUser(): Response {
         return $this->connector->send(new UsersCreateSshSigningKeyForAuthenticatedUser);
     }
 
     /**
      * @param  int  $sshSigningKeyId  The unique identifier of the SSH signing key.
      */
-    public function usersGetSshSigningKeyForAuthenticatedUser(int $sshSigningKeyId): Response {
+    public function getSshSigningKeyForAuthenticatedUser(int $sshSigningKeyId): Response {
         return $this->connector->send(new UsersGetSshSigningKeyForAuthenticatedUser($sshSigningKeyId));
     }
 
     /**
      * @param  int  $sshSigningKeyId  The unique identifier of the SSH signing key.
      */
-    public function usersDeleteSshSigningKeyForAuthenticatedUser(int $sshSigningKeyId): Response {
+    public function deleteSshSigningKeyForAuthenticatedUser(int $sshSigningKeyId): Response {
         return $this->connector->send(new UsersDeleteSshSigningKeyForAuthenticatedUser($sshSigningKeyId));
     }
 
     /**
      * @param  int  $accountId  account_id parameter
      */
-    public function usersGetById(int $accountId): Response {
+    public function getById(int $accountId): Response {
         return $this->connector->send(new UsersGetById($accountId));
     }
 
     /**
      * @param  int  $since  A user ID. Only return users with an ID greater than this ID.
      */
-    public function usersList(?int $since): Response {
+    public function list(?int $since): Response {
         return $this->connector->send(new UsersList($since));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersGetByUsername(string $username): Response {
+    public function getByUsername(string $username): Response {
         return $this->connector->send(new UsersGetByUsername($username));
     }
 
@@ -266,7 +266,7 @@ class Users extends GitHubResource {
      * @param  string  $predicateType  Optional filter for fetching attestations with a given predicate type.
      *                                 This option accepts `provenance`, `sbom`, or freeform text for custom predicate types.
      */
-    public function usersListAttestations(
+    public function listAttestations(
         string $username,
         string $subjectDigest,
         ?string $before,
@@ -279,7 +279,7 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListFollowersForUser(string $username, ?int $page): Response {
+    public function listFollowersForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListFollowersForUser($username, $page));
     }
 
@@ -287,14 +287,14 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListFollowingForUser(string $username, ?int $page): Response {
+    public function listFollowingForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListFollowingForUser($username, $page));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function usersCheckFollowingForUser(string $username, string $targetUser): Response {
+    public function checkFollowingForUser(string $username, string $targetUser): Response {
         return $this->connector->send(new UsersCheckFollowingForUser($username, $targetUser));
     }
 
@@ -302,7 +302,7 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListGpgKeysForUser(string $username, ?int $page): Response {
+    public function listGpgKeysForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListGpgKeysForUser($username, $page));
     }
 
@@ -311,7 +311,7 @@ class Users extends GitHubResource {
      * @param  string  $subjectType  Identifies which additional information you'd like to receive about the person's hovercard. Can be `organization`, `repository`, `issue`, `pull_request`. **Required** when using `subject_id`.
      * @param  string  $subjectId  Uses the ID for the `subject_type` you specified. **Required** when using `subject_type`.
      */
-    public function usersGetContextForUser(string $username, ?string $subjectType, ?string $subjectId): Response {
+    public function getContextForUser(string $username, ?string $subjectType, ?string $subjectId): Response {
         return $this->connector->send(new UsersGetContextForUser($username, $subjectType, $subjectId));
     }
 
@@ -319,7 +319,7 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListPublicKeysForUser(string $username, ?int $page): Response {
+    public function listPublicKeysForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListPublicKeysForUser($username, $page));
     }
 
@@ -327,7 +327,7 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListSocialAccountsForUser(string $username, ?int $page): Response {
+    public function listSocialAccountsForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListSocialAccountsForUser($username, $page));
     }
 
@@ -335,7 +335,7 @@ class Users extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function usersListSshSigningKeysForUser(string $username, ?int $page): Response {
+    public function listSshSigningKeysForUser(string $username, ?int $page): Response {
         return $this->connector->send(new UsersListSshSigningKeysForUser($username, $page));
     }
 }

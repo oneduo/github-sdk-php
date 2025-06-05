@@ -10,11 +10,11 @@ use Oneduo\GitHubSdk\Requests\Markdown\MarkdownRenderRaw;
 use Saloon\Http\Response;
 
 class Markdown extends GitHubResource {
-    public function markdownRender(): Response {
+    public function render(): Response {
         return $this->connector->send(new MarkdownRender);
     }
 
-    public function markdownRenderRaw(): Response {
+    public function renderRaw(): Response {
         return $this->connector->send(new MarkdownRenderRaw);
     }
 }

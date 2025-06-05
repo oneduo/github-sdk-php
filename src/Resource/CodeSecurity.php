@@ -32,21 +32,21 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codeSecurityGetConfigurationsForEnterprise(string $enterprise, ?string $before): Response {
+    public function getConfigurationsForEnterprise(string $enterprise, ?string $before): Response {
         return $this->connector->send(new CodeSecurityGetConfigurationsForEnterprise($enterprise, $before));
     }
 
     /**
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      */
-    public function codeSecurityCreateConfigurationForEnterprise(string $enterprise): Response {
+    public function createConfigurationForEnterprise(string $enterprise): Response {
         return $this->connector->send(new CodeSecurityCreateConfigurationForEnterprise($enterprise));
     }
 
     /**
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      */
-    public function codeSecurityGetDefaultConfigurationsForEnterprise(string $enterprise): Response {
+    public function getDefaultConfigurationsForEnterprise(string $enterprise): Response {
         return $this->connector->send(new CodeSecurityGetDefaultConfigurationsForEnterprise($enterprise));
     }
 
@@ -54,7 +54,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityGetSingleConfigurationForEnterprise(string $enterprise, int $configurationId): Response {
+    public function getSingleConfigurationForEnterprise(string $enterprise, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityGetSingleConfigurationForEnterprise($enterprise, $configurationId));
     }
 
@@ -62,7 +62,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityDeleteConfigurationForEnterprise(string $enterprise, int $configurationId): Response {
+    public function deleteConfigurationForEnterprise(string $enterprise, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityDeleteConfigurationForEnterprise($enterprise, $configurationId));
     }
 
@@ -70,7 +70,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityUpdateEnterpriseConfiguration(string $enterprise, int $configurationId): Response {
+    public function updateEnterpriseConfiguration(string $enterprise, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityUpdateEnterpriseConfiguration($enterprise, $configurationId));
     }
 
@@ -78,7 +78,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityAttachEnterpriseConfiguration(string $enterprise, int $configurationId): Response {
+    public function attachEnterpriseConfiguration(string $enterprise, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityAttachEnterpriseConfiguration($enterprise, $configurationId));
     }
 
@@ -86,7 +86,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecuritySetConfigurationAsDefaultForEnterprise(
+    public function setConfigurationAsDefaultForEnterprise(
         string $enterprise,
         int $configurationId,
     ): Response {
@@ -101,7 +101,7 @@ class CodeSecurity extends GitHubResource {
      *
      * Can be: `all`, `attached`, `attaching`, `removed`, `enforced`, `failed`, `updating`, `removed_by_enterprise`
      */
-    public function codeSecurityGetRepositoriesForEnterpriseConfiguration(
+    public function getRepositoriesForEnterpriseConfiguration(
         string $enterprise,
         int $configurationId,
         ?string $before,
@@ -115,28 +115,28 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $targetType  The target type of the code security configuration
      * @param  string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function codeSecurityGetConfigurationsForOrg(string $org, ?string $targetType, ?string $before): Response {
+    public function getConfigurationsForOrg(string $org, ?string $targetType, ?string $before): Response {
         return $this->connector->send(new CodeSecurityGetConfigurationsForOrg($org, $targetType, $before));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codeSecurityCreateConfiguration(string $org): Response {
+    public function createConfiguration(string $org): Response {
         return $this->connector->send(new CodeSecurityCreateConfiguration($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codeSecurityGetDefaultConfigurations(string $org): Response {
+    public function getDefaultConfigurations(string $org): Response {
         return $this->connector->send(new CodeSecurityGetDefaultConfigurations($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function codeSecurityDetachConfiguration(string $org): Response {
+    public function detachConfiguration(string $org): Response {
         return $this->connector->send(new CodeSecurityDetachConfiguration($org));
     }
 
@@ -144,7 +144,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityGetConfiguration(string $org, int $configurationId): Response {
+    public function getConfiguration(string $org, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityGetConfiguration($org, $configurationId));
     }
 
@@ -152,7 +152,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityDeleteConfiguration(string $org, int $configurationId): Response {
+    public function deleteConfiguration(string $org, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityDeleteConfiguration($org, $configurationId));
     }
 
@@ -160,7 +160,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityUpdateConfiguration(string $org, int $configurationId): Response {
+    public function updateConfiguration(string $org, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityUpdateConfiguration($org, $configurationId));
     }
 
@@ -168,7 +168,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecurityAttachConfiguration(string $org, int $configurationId): Response {
+    public function attachConfiguration(string $org, int $configurationId): Response {
         return $this->connector->send(new CodeSecurityAttachConfiguration($org, $configurationId));
     }
 
@@ -176,7 +176,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $configurationId  The unique identifier of the code security configuration.
      */
-    public function codeSecuritySetConfigurationAsDefault(string $org, int $configurationId): Response {
+    public function setConfigurationAsDefault(string $org, int $configurationId): Response {
         return $this->connector->send(new CodeSecuritySetConfigurationAsDefault($org, $configurationId));
     }
 
@@ -188,7 +188,7 @@ class CodeSecurity extends GitHubResource {
      *
      * Can be: `all`, `attached`, `attaching`, `detached`, `removed`, `enforced`, `failed`, `updating`, `removed_by_enterprise`
      */
-    public function codeSecurityGetRepositoriesForConfiguration(
+    public function getRepositoriesForConfiguration(
         string $org,
         int $configurationId,
         ?string $before,
@@ -201,7 +201,7 @@ class CodeSecurity extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function codeSecurityGetConfigurationForRepository(string $owner, string $repo): Response {
+    public function getConfigurationForRepository(string $owner, string $repo): Response {
         return $this->connector->send(new CodeSecurityGetConfigurationForRepository($owner, $repo));
     }
 }
