@@ -132,7 +132,6 @@ The `AppAuthenticator` supports:
 - **Key content**: Raw private key content as a string
 - **OpenSSL resources**: `OpenSSLAsymmetricKey` objects (PHP 8.0+)
 - **Passphrases**: Optional encryption passphrase for protected keys
-```
 
 For more authentication strategies (query, certificate, header, multiple, custom, etc.), see
 the [Saloon Authentication Documentation](https://docs.saloon.dev/the-basics/authentication).
@@ -178,7 +177,8 @@ $response = $github->send(new MyCustomRequest());
 $data = $response->json();
 ```
 
-> **Tip:** Explore [Saloon's documentation](https://docs.saloon.dev/) for more on custom requests, plugins, and advanced
+> [!TIP]
+> Explore [Saloon's documentation](https://docs.saloon.dev/) for more on custom requests, plugins, and advanced
 > features.
 
 ## More Examples
