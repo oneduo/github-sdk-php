@@ -8,6 +8,9 @@ use DateInterval;
 use DateTimeImmutable;
 use InvalidArgumentException;
 use Lcobucci\JWT\Configuration;
+use Lcobucci\JWT\Encoding\ChainedFormatter;
+use Lcobucci\JWT\Encoding\UnifyAudience;
+use Lcobucci\JWT\Encoding\UnixTimestampDates;
 use Lcobucci\JWT\Signer\Key\InMemory;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 use OpenSSLAsymmetricKey;
@@ -45,7 +48,9 @@ class AppAuthenticator implements Authenticator {
 
         $expiresAt = $now->add(new DateInterval('PT10M'));
 
-        $token = $configuration->builder()
+        $formatter = new ChainedFormatter(new UnifyAudience(), new UnixTimestampDates());
+        
+        $token = $configuration->builder($formatter)
             ->issuedBy($this->appId)
             ->issuedAt($issuedAt)
             ->expiresAt($expiresAt)
