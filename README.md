@@ -85,6 +85,55 @@ $response = $github->users()->getAuthenticated();
 $user = $response->json();
 ```
 
+### GitHub App Authentication
+
+For GitHub Apps, you can use the included `AppAuthenticator` that generates JWT tokens:
+
+```php
+use Oneduo\GitHubSdk\Authenticators\AppAuthenticator;
+
+// Using a private key file path
+$github = new GitHubConnector();
+$github->authenticate(new AppAuthenticator(
+    appId: 'your-app-id',
+    key: '/path/to/your/private-key.pem'
+));
+
+// Or using key content directly  
+$github = new GitHubConnector();
+$github->authenticate(new AppAuthenticator(
+    appId: 'your-app-id',
+    key: '-----BEGIN RSA PRIVATE KEY-----...'
+));
+
+// With passphrase if your key is encrypted
+$github = new GitHubConnector();
+$github->authenticate(new AppAuthenticator(
+    appId: 'your-app-id',
+    key: '/path/to/your/private-key.pem',
+    passphrase: 'your-passphrase'
+));
+
+// Using an existing OpenSSLAsymmetricKey resource (PHP 8.0+)
+$keyResource = openssl_pkey_get_private(file_get_contents('/path/to/key.pem'));
+$github = new GitHubConnector();
+$github->authenticate(new AppAuthenticator(
+    appId: 'your-app-id',
+    key: $keyResource
+));
+
+// Now you can access GitHub App endpoints
+$response = $github->apps()->getAuthenticated();
+$app = $response->json();
+```
+
+The `AppAuthenticator` supports:
+- **File paths**: String path to your private key file
+- **Key content**: Raw private key content as a string
+- **OpenSSL resources**: `OpenSSLAsymmetricKey` objects (PHP 8.0+)
+- **Passphrases**: Optional encryption passphrase for protected keys
+```
+
 For more authentication strategies (query, certificate, header, multiple, custom, etc.), see
 the [Saloon Authentication Documentation](https://docs.saloon.dev/the-basics/authentication).
 
