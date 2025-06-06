@@ -1,6 +1,5 @@
 {
   "name": "oneduo/github-sdk-php",
-  "version": "0.1.0",
   "description": "PHP SDK for the GitHub REST API – OpenAPI based and fully typed for seamless integration",
   "keywords": [
     "oneduo",
