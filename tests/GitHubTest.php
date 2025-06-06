@@ -28,7 +28,7 @@ it('retrieves dummy organization', function () {
     expect($response->status())->toBe(200);
 });
 
-it('retrieves events', function () {
+it('retrieves dummy releases', function () {
     $connector = new GitHubConnector;
 
     $response = $connector->repos()->listReleases('laravel', 'laravel', 1);

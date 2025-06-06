@@ -1,60 +1,141 @@
-# PHP client for the GitHub REST API – OpenAPI-compliant and fully typed for seamless integration.
+# GitHub SDK for PHP
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rezrazi/github-sdk-php.svg?style=flat-square)](https://packagist.org/packages/rezrazi/github-sdk-php)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rezrazi/github-sdk-php/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rezrazi/github-sdk-php/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rezrazi/github-sdk-php/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rezrazi/github-sdk-php/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/rezrazi/github-sdk-php.svg?style=flat-square)](https://packagist.org/packages/rezrazi/github-sdk-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/oneduo/github-sdk-php.svg?style=flat-square)](https://packagist.org/packages/oneduo/github-sdk-php)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/oneduo/github-sdk-php/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/oneduo/github-sdk-php/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/oneduo/github-sdk-php/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/oneduo/github-sdk-php/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/oneduo/github-sdk-php.svg?style=flat-square)](https://packagist.org/packages/oneduo/github-sdk-php)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/github-sdk-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/github-sdk-php)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+A fully typed, modern PHP client for the [GitHub REST API v3](https://docs.github.com/en/rest), built on top
+of [Saloon](https://docs.saloon.dev/). This SDK provides a clean, intuitive, and fluent interface for interacting with
+all GitHub API endpoints, leveraging Saloon's powerful features for authentication, request building, and extensibility.
 
 ## Installation
 
-You can install the package via composer:
+Install via Composer:
 
 ```bash
-composer require rezrazi/github-sdk-php
+composer require oneduo/github-sdk-php
 ```
 
-You can publish and run the migrations with:
+## Documentation
 
-```bash
-php artisan vendor:publish --tag="github-sdk-php-migrations"
-php artisan migrate
-```
+- **GitHub REST API:** [https://docs.github.com/en/rest](https://docs.github.com/en/rest)
+- **Saloon Documentation:** [https://docs.saloon.dev/](https://docs.saloon.dev/)
 
-You can publish the config file with:
+## Basic Usage
 
-```bash
-php artisan vendor:publish --tag="github-sdk-php-config"
-```
-
-This is the contents of the published config file:
+### Initialize the Connector
 
 ```php
-return [
-];
+use Oneduo\GitHubSdk\GitHubConnector;
+
+$github = new GitHubConnector();
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="github-sdk-php-views"
-```
-
-## Usage
+### Example: Fetch a Public Repository (No Authentication Required)
 
 ```php
-$gitHubSdk = new Oneduo\GitHubSdk();
-echo $gitHubSdk->echoPhrase('Hello, Oneduo!');
+$response = $github->repos()->get('octocat', 'hello-world');
+$repository = $response->json();
 ```
+
+### Example: List Public Users (No Authentication Required)
+
+```php
+$response = $github->users()->list();
+$users = $response->json();
+```
+
+### Example: Get User Information (No Authentication Required)
+
+```php
+$response = $github->users()->getByUsername('octocat');
+$user = $response->json();
+```
+
+## Authentication
+
+This SDK supports the most common authentication methods for the GitHub API using Saloon authenticators:
+
+### Bearer Token Authentication (Recommended for GitHub)
+
+The `TokenAuthenticator` class adds an `Authorization: Bearer` header to requests:
+
+```php
+use Saloon\Http\Auth\TokenAuthenticator;
+
+$github = new GitHubConnector();
+$github->authenticate(new TokenAuthenticator('your-github-token'));
+
+// Now you can access authenticated endpoints
+$response = $github->users()->getAuthenticated();
+$user = $response->json();
+```
+
+### Basic Auth (Base64 Encoded)
+
+```php
+use Saloon\Http\Auth\BasicAuthenticator;
+
+$github = new GitHubConnector();
+$github->authenticate(new BasicAuthenticator('your-username', 'your-password'));
+
+// Now you can access authenticated endpoints
+$response = $github->users()->getAuthenticated();
+$user = $response->json();
+```
+
+For more authentication strategies (query, certificate, header, multiple, custom, etc.), see
+the [Saloon Authentication Documentation](https://docs.saloon.dev/the-basics/authentication).
+
+## Advanced Usage
+
+### Example: List Repositories for an Organization
+
+```php
+$github->authenticate(new TokenAuthenticator('your-github-token'));
+$response = $github->repos()->listForOrg('oneduo');
+$repos = $response->json();
+```
+
+### Example: Create a Repository (Authenticated)
+
+```php
+$github->authenticate(new TokenAuthenticator('your-github-token'));
+$response = $github->repos()->createForAuthenticatedUser([
+    'name' => 'my-new-repo',
+    'private' => true,
+]);
+$newRepo = $response->json();
+```
+
+## Custom Requests
+
+You can send custom requests using Saloon's request system. For example, to call an undocumented or custom endpoint:
+
+```php
+use Saloon\Http\Request;
+use Saloon\Enums\Method;
+
+class MyCustomRequest extends Request {
+    protected Method $method = Method::GET;
+    
+    public function resolveEndpoint(): string {
+        return '/rate_limit';
+    }
+}
+
+$response = $github->send(new MyCustomRequest());
+$data = $response->json();
+```
+
+> **Tip:** Explore [Saloon's documentation](https://docs.saloon.dev/) for more on custom requests, plugins, and advanced
+> features.
+
+## More Examples
+
+- [GitHub REST API Reference](https://docs.github.com/en/rest)
+- [Saloon Usage Examples](https://docs.saloon.dev/)
 
 ## Testing
 
@@ -68,7 +149,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Contributions are welcome! Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 

@@ -34,11 +34,6 @@
       "Oneduo\\GitHubSdk\\": "src/"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "Oneduo\\GitHubSdk\\Tests\\": "tests/"
-    }
-  },
   "scripts": {
     "test": "vendor/bin/pest",
     "test-coverage": "vendor/bin/pest --coverage",
