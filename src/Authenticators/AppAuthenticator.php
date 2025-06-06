@@ -48,8 +48,8 @@ class AppAuthenticator implements Authenticator {
 
         $expiresAt = $now->add(new DateInterval('PT10M'));
 
-        $formatter = new ChainedFormatter(new UnifyAudience(), new UnixTimestampDates());
-        
+        $formatter = new ChainedFormatter(new UnifyAudience, new UnixTimestampDates);
+
         $token = $configuration->builder($formatter)
             ->issuedBy($this->appId)
             ->issuedAt($issuedAt)
