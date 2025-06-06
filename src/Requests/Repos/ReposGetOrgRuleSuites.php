@@ -32,6 +32,7 @@ class ReposGetOrgRuleSuites extends Request {
      * @param  null|string  $actorName  The handle for the GitHub user account to filter on. When specified, only rule evaluations triggered by this actor will be returned.
      * @param  null|string  $ruleSuiteResult  The rule results to filter on. When specified, only suites with this result will be returned.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $org,

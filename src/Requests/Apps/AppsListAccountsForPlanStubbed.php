@@ -33,6 +33,7 @@ class AppsListAccountsForPlanStubbed extends Request {
      * @param  null|string  $sort  The property to sort the results by.
      * @param  null|string  $direction  To return the oldest accounts first, set to `asc`. Ignored without the `sort` parameter.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected int $planId,
@@ -43,6 +44,6 @@ class AppsListAccountsForPlanStubbed extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page]);
+        return array_filter(['sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

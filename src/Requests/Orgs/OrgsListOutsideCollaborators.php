@@ -23,6 +23,7 @@ class OrgsListOutsideCollaborators extends Request {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  null|string  $filter  Filter the list of outside collaborators. `2fa_disabled` means that only outside collaborators without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled will be returned. `2fa_insecure` means that only outside collaborators with [insecure 2FA methods](https://docs.github.com/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization#requiring-secure-methods-of-two-factor-authentication-in-your-organization) will be returned.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $org,
@@ -32,6 +33,6 @@ class OrgsListOutsideCollaborators extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['filter' => $this->filter, 'page' => $this->page]);
+        return array_filter(['filter' => $this->filter, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

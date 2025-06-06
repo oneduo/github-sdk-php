@@ -55,6 +55,7 @@ class PullsList extends Request {
      * @param  null|string  $sort  What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.
      * @param  null|string  $direction  The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,

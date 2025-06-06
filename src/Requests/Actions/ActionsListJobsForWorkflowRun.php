@@ -34,6 +34,7 @@ class ActionsListJobsForWorkflowRun extends Request {
      * @param  int  $runId  The unique identifier of the workflow run.
      * @param  null|string  $filter  Filters jobs by their `completed_at` timestamp. `latest` returns jobs from the most recent execution of the workflow run. `all` returns all jobs for a workflow run, including from old executions of the workflow run.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,
@@ -45,6 +46,6 @@ class ActionsListJobsForWorkflowRun extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['filter' => $this->filter, 'page' => $this->page]);
+        return array_filter(['filter' => $this->filter, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

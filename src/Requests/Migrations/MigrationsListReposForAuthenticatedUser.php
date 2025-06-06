@@ -22,6 +22,7 @@ class MigrationsListReposForAuthenticatedUser extends Request {
     /**
      * @param  int  $migrationId  The unique identifier of the migration.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected int $migrationId,

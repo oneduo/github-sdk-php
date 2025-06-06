@@ -26,6 +26,7 @@ class IssuesListMilestones extends Request {
      * @param  null|string  $sort  What to sort results by. Either `due_on` or `completeness`.
      * @param  null|string  $direction  The direction of the sort. Either `asc` or `desc`.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,
@@ -38,6 +39,6 @@ class IssuesListMilestones extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['state' => $this->state, 'sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page]);
+        return array_filter(['state' => $this->state, 'sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

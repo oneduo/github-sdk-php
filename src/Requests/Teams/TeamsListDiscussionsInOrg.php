@@ -31,6 +31,7 @@ class TeamsListDiscussionsInOrg extends Request {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  null|string  $direction  The direction to sort the results by.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $pinned  Pinned discussions only filter
      */
     public function __construct(

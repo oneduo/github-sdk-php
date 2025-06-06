@@ -32,6 +32,7 @@ class PackagesListPackagesForOrganization extends Request {
      * The `internal` visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems `internal` is synonymous with `private`.
      * For the list of GitHub Packages registries that support granular permissions, see "[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $org,
@@ -42,6 +43,6 @@ class PackagesListPackagesForOrganization extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['package_type' => $this->packageType, 'visibility' => $this->visibility, 'page' => $this->page]);
+        return array_filter(['package_type' => $this->packageType, 'visibility' => $this->visibility, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

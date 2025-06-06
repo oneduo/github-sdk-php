@@ -35,6 +35,7 @@ class SecretScanningListAlertsForOrg extends Request {
      * @param  null|string  $sort  The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.
      * @param  null|string  $direction  The direction to sort the results by.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for events before this cursor. To receive an initial cursor on your first request, include an empty "before" query string.
      * @param  null|string  $validity  A comma-separated list of validities that, when present, will return alerts that match the validities in this list. Valid options are `active`, `inactive`, and `unknown`.
      * @param  null|bool  $isPubliclyLeaked  A boolean value representing whether or not to filter alerts by the publicly-leaked tag being present.

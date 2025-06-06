@@ -27,6 +27,7 @@ class OrgsListPendingInvitations extends Request {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $role  Filter invitations by their member role.
      * @param  null|string  $invitationSource  Filter invitations by their invitation source.
      */

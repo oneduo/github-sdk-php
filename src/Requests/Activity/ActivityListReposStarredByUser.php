@@ -31,6 +31,7 @@ class ActivityListReposStarredByUser extends Request {
      * @param  null|string  $sort  The property to sort the results by. `created` means when the repository was starred. `updated` means when the repository was last pushed to.
      * @param  null|string  $direction  The direction to sort the results by.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $username,
@@ -41,6 +42,6 @@ class ActivityListReposStarredByUser extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page]);
+        return array_filter(['sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

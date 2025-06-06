@@ -29,6 +29,7 @@ class TeamsListMembersLegacy extends Request {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  null|string  $role  Filters members returned by their role in the team.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected int $teamId,
@@ -38,6 +39,6 @@ class TeamsListMembersLegacy extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['role' => $this->role, 'page' => $this->page]);
+        return array_filter(['role' => $this->role, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

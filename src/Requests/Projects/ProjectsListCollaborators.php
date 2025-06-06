@@ -28,6 +28,7 @@ class ProjectsListCollaborators extends Request {
      * @param  int  $projectId  The unique identifier of the project.
      * @param  null|string  $affiliation  Filters the collaborators by their affiliation. `outside` means outside collaborators of a project that are not a member of the project's organization. `direct` means collaborators with permissions to a project, regardless of organization membership status. `all` means all collaborators the authenticated user can see.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected int $projectId,
@@ -37,6 +38,6 @@ class ProjectsListCollaborators extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['affiliation' => $this->affiliation, 'page' => $this->page]);
+        return array_filter(['affiliation' => $this->affiliation, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

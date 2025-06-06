@@ -24,6 +24,7 @@ class ClassroomListAcceptedAssignmentsForAnAssignment extends Request {
     /**
      * @param  int  $assignmentId  The unique identifier of the classroom assignment.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected int $assignmentId,

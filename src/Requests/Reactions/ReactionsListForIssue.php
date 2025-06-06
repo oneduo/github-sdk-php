@@ -25,6 +25,7 @@ class ReactionsListForIssue extends Request {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  null|string  $content  Returns a single [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions). Omit this parameter to list all reactions to an issue.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,
@@ -36,6 +37,6 @@ class ReactionsListForIssue extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['content' => $this->content, 'page' => $this->page]);
+        return array_filter(['content' => $this->content, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

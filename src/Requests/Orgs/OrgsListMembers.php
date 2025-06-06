@@ -25,6 +25,7 @@ class OrgsListMembers extends Request {
      * @param  null|string  $filter  Filter members returned in the list. `2fa_disabled` means that only members without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled will be returned. `2fa_insecure` means that only members with [insecure 2FA methods](https://docs.github.com/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization#requiring-secure-methods-of-two-factor-authentication-in-your-organization) will be returned. These options are only available for organization owners.
      * @param  null|string  $role  Filter members returned by their role.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $org,
@@ -35,6 +36,6 @@ class OrgsListMembers extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['filter' => $this->filter, 'role' => $this->role, 'page' => $this->page]);
+        return array_filter(['filter' => $this->filter, 'role' => $this->role, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

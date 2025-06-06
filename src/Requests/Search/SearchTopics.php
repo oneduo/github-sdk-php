@@ -40,6 +40,7 @@ class SearchTopics extends Request {
     /**
      * @param  string  $q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as the web interface for GitHub. To learn more about the format of the query, see [Constructing a search query](https://docs.github.com/rest/search/search#constructing-a-search-query).
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $q,
@@ -48,6 +49,6 @@ class SearchTopics extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['q' => $this->q, 'page' => $this->page]);
+        return array_filter(['q' => $this->q, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -43,6 +43,7 @@ class ReposListCollaborators extends Request {
      * @param  null|string  $affiliation  Filter collaborators returned by their affiliation. `outside` means all outside collaborators of an organization-owned repository. `direct` means all collaborators with permissions to an organization-owned repository, regardless of organization membership status. `all` means all collaborators the authenticated user can see.
      * @param  null|string  $permission  Filter collaborators by the permissions they have on the repository. If not specified, all collaborators will be returned.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,
@@ -54,6 +55,6 @@ class ReposListCollaborators extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['affiliation' => $this->affiliation, 'permission' => $this->permission, 'page' => $this->page]);
+        return array_filter(['affiliation' => $this->affiliation, 'permission' => $this->permission, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

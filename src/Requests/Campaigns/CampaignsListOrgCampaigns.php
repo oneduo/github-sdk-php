@@ -28,6 +28,7 @@ class CampaignsListOrgCampaigns extends Request {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $direction  The direction to sort the results by.
      * @param  null|string  $state  If specified, only campaigns with this state will be returned.
      * @param  null|string  $sort  The property by which to sort the results.

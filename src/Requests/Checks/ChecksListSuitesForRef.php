@@ -35,6 +35,7 @@ class ChecksListSuitesForRef extends Request {
      * @param  null|int  $appId  Filters check suites by GitHub App `id`.
      * @param  null|string  $checkName  Returns check runs with the specified `name`.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $owner,
@@ -47,6 +48,6 @@ class ChecksListSuitesForRef extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['app_id' => $this->appId, 'check_name' => $this->checkName, 'page' => $this->page]);
+        return array_filter(['app_id' => $this->appId, 'check_name' => $this->checkName, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

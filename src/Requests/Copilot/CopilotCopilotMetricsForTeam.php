@@ -48,6 +48,7 @@ class CopilotCopilotMetricsForTeam extends Request {
      * @param  null|string  $since  Show usage metrics since this date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:MM:SSZ`). Maximum value is 28 days ago.
      * @param  null|string  $until  Show usage metrics until this date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:MM:SSZ`) and should not preceed the `since` date if it is passed.
      * @param  null|int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
     public function __construct(
         protected string $org,
@@ -59,6 +60,6 @@ class CopilotCopilotMetricsForTeam extends Request {
     ) {}
 
     public function defaultQuery(): array {
-        return array_filter(['since' => $this->since, 'until' => $this->until, 'page' => $this->page]);
+        return array_filter(['since' => $this->since, 'until' => $this->until, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

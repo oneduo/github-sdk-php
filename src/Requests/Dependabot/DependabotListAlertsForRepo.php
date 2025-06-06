@@ -50,11 +50,12 @@ class DependabotListAlertsForRepo extends Request {
      *                             `epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.
      * @param  null|string  $direction  The direction to sort the results by.
      * @param  null|int  $page  **Closing down notice**. Page number of the results to fetch. Use cursor-based pagination with `before` or `after` instead.
+     * @param  null|int  $perPage  The number of results per page. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  null|string  $before  A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
-     * @param  null|int  $first  **Deprecated**. The number of results per page (max 100), starting from the first matching result.
+     * @param  null|int  $first  **Deprecated**. The number of results per page , starting from the first matching result.
      *                           This parameter must not be used in combination with `last`.
      *                           Instead, use `per_page` in combination with `after` to fetch the first page of results.
-     * @param  null|int  $last  **Deprecated**. The number of results per page (max 100), starting from the last matching result.
+     * @param  null|int  $last  **Deprecated**. The number of results per page , starting from the last matching result.
      *                          This parameter must not be used in combination with `first`.
      *                          Instead, use `per_page` in combination with `before` to fetch the last page of results.
      */
