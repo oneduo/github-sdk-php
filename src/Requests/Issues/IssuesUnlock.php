@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Users with push access can unlock an issue's conversation.
  */
-class IssuesUnlock extends Request {
+class IssuesUnlock extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/lock";
     }
 

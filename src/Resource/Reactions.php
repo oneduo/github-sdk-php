@@ -32,7 +32,8 @@ use Oneduo\GitHubSdk\Requests\Reactions\ReactionsListForTeamDiscussionInOrg;
 use Oneduo\GitHubSdk\Requests\Reactions\ReactionsListForTeamDiscussionLegacy;
 use Saloon\Http\Response;
 
-class Reactions extends GitHubResource {
+class Reactions extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
@@ -106,7 +107,8 @@ class Reactions extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function createForTeamDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response {
+    public function createForTeamDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): Response
+    {
         return $this->connector->send(new ReactionsCreateForTeamDiscussionInOrg($org, $teamSlug, $discussionNumber));
     }
 
@@ -147,7 +149,8 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function createForCommitComment(string $owner, string $repo, int $commentId): Response {
+    public function createForCommitComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReactionsCreateForCommitComment($owner, $repo, $commentId));
     }
 
@@ -188,7 +191,8 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function createForIssueComment(string $owner, string $repo, int $commentId): Response {
+    public function createForIssueComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReactionsCreateForIssueComment($owner, $repo, $commentId));
     }
 
@@ -229,7 +233,8 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $issueNumber  The number that identifies the issue.
      */
-    public function createForIssue(string $owner, string $repo, int $issueNumber): Response {
+    public function createForIssue(string $owner, string $repo, int $issueNumber): Response
+    {
         return $this->connector->send(new ReactionsCreateForIssue($owner, $repo, $issueNumber));
     }
 
@@ -239,7 +244,8 @@ class Reactions extends GitHubResource {
      * @param  int  $issueNumber  The number that identifies the issue.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function deleteForIssue(string $owner, string $repo, int $issueNumber, int $reactionId): Response {
+    public function deleteForIssue(string $owner, string $repo, int $issueNumber, int $reactionId): Response
+    {
         return $this->connector->send(new ReactionsDeleteForIssue($owner, $repo, $issueNumber, $reactionId));
     }
 
@@ -265,7 +271,8 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function createForPullRequestReviewComment(string $owner, string $repo, int $commentId): Response {
+    public function createForPullRequestReviewComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReactionsCreateForPullRequestReviewComment($owner, $repo, $commentId));
     }
 
@@ -306,7 +313,8 @@ class Reactions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $releaseId  The unique identifier of the release.
      */
-    public function createForRelease(string $owner, string $repo, int $releaseId): Response {
+    public function createForRelease(string $owner, string $repo, int $releaseId): Response
+    {
         return $this->connector->send(new ReactionsCreateForRelease($owner, $repo, $releaseId));
     }
 
@@ -316,7 +324,8 @@ class Reactions extends GitHubResource {
      * @param  int  $releaseId  The unique identifier of the release.
      * @param  int  $reactionId  The unique identifier of the reaction.
      */
-    public function deleteForRelease(string $owner, string $repo, int $releaseId, int $reactionId): Response {
+    public function deleteForRelease(string $owner, string $repo, int $releaseId, int $reactionId): Response
+    {
         return $this->connector->send(new ReactionsDeleteForRelease($owner, $repo, $releaseId, $reactionId));
     }
 
@@ -369,7 +378,8 @@ class Reactions extends GitHubResource {
      * @param  int  $teamId  The unique identifier of the team.
      * @param  int  $discussionNumber  The number that identifies the discussion.
      */
-    public function createForTeamDiscussionLegacy(int $teamId, int $discussionNumber): Response {
+    public function createForTeamDiscussionLegacy(int $teamId, int $discussionNumber): Response
+    {
         return $this->connector->send(new ReactionsCreateForTeamDiscussionLegacy($teamId, $discussionNumber));
     }
 }

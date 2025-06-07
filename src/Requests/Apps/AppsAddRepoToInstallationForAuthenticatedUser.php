@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  *
  * This endpoint only works for PATs (classic) with the `repo` scope.
  */
-class AppsAddRepoToInstallationForAuthenticatedUser extends Request {
+class AppsAddRepoToInstallationForAuthenticatedUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/installations/{$this->installationId}/repositories/{$this->repositoryId}";
     }
 

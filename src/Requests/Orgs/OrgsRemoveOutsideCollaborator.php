@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removing a user from this list will remove them from all the organization's repositories.
  */
-class OrgsRemoveOutsideCollaborator extends Request {
+class OrgsRemoveOutsideCollaborator extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/outside_collaborators/{$this->username}";
     }
 

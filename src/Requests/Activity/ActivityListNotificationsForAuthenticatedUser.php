@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List all notifications for the current user, sorted by most recently updated.
  */
-class ActivityListNotificationsForAuthenticatedUser extends Request {
+class ActivityListNotificationsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/notifications';
     }
 
@@ -36,7 +38,8 @@ class ActivityListNotificationsForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'all' => $this->all,
             'participating' => $this->participating,

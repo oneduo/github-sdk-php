@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  * [our guide on how to use artifact attestations to establish a build's
  * provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
  */
-class UsersListAttestations extends Request {
+class UsersListAttestations extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/users/{$this->username}/attestations/{$this->subjectDigest}";
     }
 
@@ -47,7 +49,8 @@ class UsersListAttestations extends Request {
         protected ?string $predicateType = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['before' => $this->before, 'predicate_type' => $this->predicateType]);
     }
 }

@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Lists languages for the specified repository. The value shown for each language is the number of
  * bytes of code written in that language.
  */
-class ReposListLanguages extends Request {
+class ReposListLanguages extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/languages";
     }
 

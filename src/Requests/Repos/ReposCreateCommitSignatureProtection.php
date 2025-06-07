@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * use this endpoint to require signed commits on a branch. You must enable branch protection to
  * require signed commits.
  */
-class ReposCreateCommitSignatureProtection extends Request implements HasBody {
+class ReposCreateCommitSignatureProtection extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_signatures";
     }
 

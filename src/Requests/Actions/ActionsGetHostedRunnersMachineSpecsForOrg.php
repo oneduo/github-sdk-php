@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the list of machine specs available for GitHub-hosted runners for an organization.
  */
-class ActionsGetHostedRunnersMachineSpecsForOrg extends Request {
+class ActionsGetHostedRunnersMachineSpecsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/machine-sizes";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removes any previous labels and sets the new labels for an issue.
  */
-class IssuesSetLabels extends Request {
+class IssuesSetLabels extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/labels";
     }
 

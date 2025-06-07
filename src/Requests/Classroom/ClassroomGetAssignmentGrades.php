@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Gets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is
  * an administrator of the GitHub Classroom for the assignment.
  */
-class ClassroomGetAssignmentGrades extends Request {
+class ClassroomGetAssignmentGrades extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/assignments/{$this->assignmentId}/grades";
     }
 

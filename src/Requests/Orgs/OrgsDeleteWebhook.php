@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * webhooks that they did not create and users cannot list, view,
  * or edit webhooks that were created by OAuth apps.
  */
-class OrgsDeleteWebhook extends Request {
+class OrgsDeleteWebhook extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/hooks/{$this->hookId}";
     }
 

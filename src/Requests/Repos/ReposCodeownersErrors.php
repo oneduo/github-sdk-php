@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * see "[About code
  * owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
  */
-class ReposCodeownersErrors extends Request {
+class ReposCodeownersErrors extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/codeowners/errors";
     }
 
@@ -36,7 +38,8 @@ class ReposCodeownersErrors extends Request {
         protected ?string $ref = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['ref' => $this->ref]);
     }
 }

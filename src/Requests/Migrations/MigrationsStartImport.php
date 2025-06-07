@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * UTC on April 12, 2024. For more details and alternatives, see the
  * [changelog](https://gh.io/source-imports-api-deprecation).
  */
-class MigrationsStartImport extends Request {
+class MigrationsStartImport extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import";
     }
 

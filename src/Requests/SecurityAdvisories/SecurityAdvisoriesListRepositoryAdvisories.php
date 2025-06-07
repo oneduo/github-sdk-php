@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * advisory in a private repository, or any unpublished security advisory that the authenticated user
  * has access to.
  */
-class SecurityAdvisoriesListRepositoryAdvisories extends Request {
+class SecurityAdvisoriesListRepositoryAdvisories extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/security-advisories";
     }
 
@@ -45,7 +47,8 @@ class SecurityAdvisoriesListRepositoryAdvisories extends Request {
         protected ?string $state = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['direction' => $this->direction, 'sort' => $this->sort, 'before' => $this->before, 'state' => $this->state]);
     }
 }

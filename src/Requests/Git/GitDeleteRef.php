@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deletes the provided reference.
  */
-class GitDeleteRef extends Request {
+class GitDeleteRef extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/refs/{$this->ref}";
     }
 

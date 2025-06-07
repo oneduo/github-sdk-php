@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removes all labels from an issue.
  */
-class IssuesRemoveAllLabels extends Request {
+class IssuesRemoveAllLabels extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/labels";
     }
 

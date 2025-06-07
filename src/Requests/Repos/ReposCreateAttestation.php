@@ -23,12 +23,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * [using artifact attestations to establish a build's
  * provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
  */
-class ReposCreateAttestation extends Request implements HasBody {
+class ReposCreateAttestation extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/attestations";
     }
 

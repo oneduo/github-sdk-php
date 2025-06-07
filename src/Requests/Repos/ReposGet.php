@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * repository. For more information, see "[Managing security managers in your
  * organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
  */
-class ReposGet extends Request {
+class ReposGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}";
     }
 

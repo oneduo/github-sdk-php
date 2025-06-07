@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * Returns all branches where the given commit SHA is the HEAD, or latest commit
  * for the branch.
  */
-class ReposListBranchesForHeadCommit extends Request {
+class ReposListBranchesForHeadCommit extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/commits/{$this->commitSha}/branches-where-head";
     }
 

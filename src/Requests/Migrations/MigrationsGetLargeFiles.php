@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * and will no longer be available from 00:00 UTC on April 12, 2024. For more details and alternatives,
  * see the [changelog](https://gh.io/source-imports-api-deprecation).
  */
-class MigrationsGetLargeFiles extends Request {
+class MigrationsGetLargeFiles extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import/large_files";
     }
 

@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * tokens (classic) need the `repo` scope to use this endpoint with private or public repositories, or
  * the `public_repo` scope to use this endpoint with only public repositories.
  */
-class CodeScanningDeleteCodeqlDatabase extends Request {
+class CodeScanningDeleteCodeqlDatabase extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/code-scanning/codeql/databases/{$this->language}";
     }
 

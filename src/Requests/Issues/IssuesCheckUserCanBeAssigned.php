@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * Otherwise
  * a `404` status code is returned.
  */
-class IssuesCheckUserCanBeAssigned extends Request {
+class IssuesCheckUserCanBeAssigned extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/assignees/{$this->assignee}";
     }
 

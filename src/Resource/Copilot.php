@@ -16,11 +16,13 @@ use Oneduo\GitHubSdk\Requests\Copilot\CopilotGetCopilotSeatDetailsForUser;
 use Oneduo\GitHubSdk\Requests\Copilot\CopilotListCopilotSeats;
 use Saloon\Http\Response;
 
-class Copilot extends GitHubResource {
+class Copilot extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getCopilotOrganizationDetails(string $org): Response {
+    public function getCopilotOrganizationDetails(string $org): Response
+    {
         return $this->connector->send(new CopilotGetCopilotOrganizationDetails($org));
     }
 
@@ -28,35 +30,40 @@ class Copilot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listCopilotSeats(string $org, ?int $page): Response {
+    public function listCopilotSeats(string $org, ?int $page): Response
+    {
         return $this->connector->send(new CopilotListCopilotSeats($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function addCopilotSeatsForTeams(string $org): Response {
+    public function addCopilotSeatsForTeams(string $org): Response
+    {
         return $this->connector->send(new CopilotAddCopilotSeatsForTeams($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function cancelCopilotSeatAssignmentForTeams(string $org): Response {
+    public function cancelCopilotSeatAssignmentForTeams(string $org): Response
+    {
         return $this->connector->send(new CopilotCancelCopilotSeatAssignmentForTeams($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function addCopilotSeatsForUsers(string $org): Response {
+    public function addCopilotSeatsForUsers(string $org): Response
+    {
         return $this->connector->send(new CopilotAddCopilotSeatsForUsers($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function cancelCopilotSeatAssignmentForUsers(string $org): Response {
+    public function cancelCopilotSeatAssignmentForUsers(string $org): Response
+    {
         return $this->connector->send(new CopilotCancelCopilotSeatAssignmentForUsers($org));
     }
 
@@ -79,7 +86,8 @@ class Copilot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getCopilotSeatDetailsForUser(string $org, string $username): Response {
+    public function getCopilotSeatDetailsForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new CopilotGetCopilotSeatDetailsForUser($org, $username));
     }
 

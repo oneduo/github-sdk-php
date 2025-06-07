@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the list of GitHub-owned images available for GitHub-hosted runners for an organization.
  */
-class ActionsGetHostedRunnersGithubOwnedImagesForOrg extends Request {
+class ActionsGetHostedRunnersGithubOwnedImagesForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/images/github-owned";
     }
 

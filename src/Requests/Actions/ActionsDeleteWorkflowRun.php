@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * If the repository is private, OAuth tokens and personal access tokens (classic) need the
  * `repo` scope to use this endpoint.
  */
-class ActionsDeleteWorkflowRun extends Request {
+class ActionsDeleteWorkflowRun extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/runs/{$this->runId}";
     }
 

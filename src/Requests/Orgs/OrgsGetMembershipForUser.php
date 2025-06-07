@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * organization member. The `state` parameter in the response can be used to identify the user's
  * membership status.
  */
-class OrgsGetMembershipForUser extends Request {
+class OrgsGetMembershipForUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/memberships/{$this->username}";
     }
 

@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * (classic) need the `repo` scope to use this endpoint with private or public repositories, or the
  * `public_repo` scope to use this endpoint with only public repositories.
  */
-class CodeScanningUpdateDefaultSetup extends Request implements HasBody {
+class CodeScanningUpdateDefaultSetup extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/code-scanning/default-setup";
     }
 

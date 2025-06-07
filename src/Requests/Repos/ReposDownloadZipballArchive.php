@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * > For private repositories, these links are temporary and expire after five
  * minutes. If the repository is empty, you will receive a 404 when you follow the redirect.
  */
-class ReposDownloadZipballArchive extends Request {
+class ReposDownloadZipballArchive extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/zipball/{$this->ref}";
     }
 

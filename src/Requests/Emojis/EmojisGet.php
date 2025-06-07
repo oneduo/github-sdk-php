@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Lists all the emojis available to use on GitHub.
  */
-class EmojisGet extends Request {
+class EmojisGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/emojis';
     }
 

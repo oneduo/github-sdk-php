@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * own, repositories where they are a collaborator, and repositories that they can access through an
  * organization membership.
  */
-class ReposListForAuthenticatedUser extends Request {
+class ReposListForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/repos';
     }
 
@@ -50,7 +52,8 @@ class ReposListForAuthenticatedUser extends Request {
         protected ?string $before = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'visibility' => $this->visibility,
             'affiliation' => $this->affiliation,

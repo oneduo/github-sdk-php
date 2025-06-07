@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * The authenticated user must have write
  * permission to the repository.
  */
-class ReposCreatePagesDeployment extends Request implements HasBody {
+class ReposCreatePagesDeployment extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pages/deployments";
     }
 

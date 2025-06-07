@@ -28,10 +28,12 @@ use Saloon\Http\Request;
  * see "[HTTP
  * method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method)."
  */
-class TeamsAddOrUpdateRepoPermissionsLegacy extends Request {
+class TeamsAddOrUpdateRepoPermissionsLegacy extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/repos/{$this->owner}/{$this->repo}";
     }
 

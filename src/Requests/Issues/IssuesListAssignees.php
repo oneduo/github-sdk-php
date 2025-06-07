@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * assignees](https://docs.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/)
  * for issues in a repository.
  */
-class IssuesListAssignees extends Request {
+class IssuesListAssignees extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/assignees";
     }
 
@@ -34,7 +36,8 @@ class IssuesListAssignees extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

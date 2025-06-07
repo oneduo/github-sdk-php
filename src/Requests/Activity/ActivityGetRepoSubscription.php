@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Gets information about whether the authenticated user is subscribed to the repository.
  */
-class ActivityGetRepoSubscription extends Request {
+class ActivityGetRepoSubscription extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/subscription";
     }
 

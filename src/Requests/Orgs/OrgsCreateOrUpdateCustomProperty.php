@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * user, or a user on a team, with the fine-grained permission of
  * `custom_properties_org_definitions_manager` in the organization.
  */
-class OrgsCreateOrUpdateCustomProperty extends Request {
+class OrgsCreateOrUpdateCustomProperty extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/properties/schema/{$this->customPropertyName}";
     }
 

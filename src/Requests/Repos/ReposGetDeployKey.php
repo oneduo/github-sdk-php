@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/get-deploy-key
  */
-class ReposGetDeployKey extends Request {
+class ReposGetDeployKey extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/keys/{$this->keyId}";
     }
 

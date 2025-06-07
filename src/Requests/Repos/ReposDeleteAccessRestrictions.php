@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  *
  * Disables the ability to restrict who can push to this branch.
  */
-class ReposDeleteAccessRestrictions extends Request {
+class ReposDeleteAccessRestrictions extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions";
     }
 

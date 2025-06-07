@@ -28,10 +28,12 @@ use Saloon\Http\Request;
  * The labels that best match
  * the query appear first in the search results.
  */
-class SearchLabels extends Request {
+class SearchLabels extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/search/labels';
     }
 
@@ -52,7 +54,8 @@ class SearchLabels extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'repository_id' => $this->repositoryId,
             'q' => $this->q,

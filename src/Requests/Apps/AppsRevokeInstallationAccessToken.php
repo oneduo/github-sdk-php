@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * app](https://docs.github.com/rest/apps/apps#create-an-installation-access-token-for-an-app)"
  * endpoint.
  */
-class AppsRevokeInstallationAccessToken extends Request {
+class AppsRevokeInstallationAccessToken extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/installation/token';
     }
 

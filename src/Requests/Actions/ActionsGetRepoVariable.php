@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the
  * `repo` scope to use this endpoint.
  */
-class ActionsGetRepoVariable extends Request {
+class ActionsGetRepoVariable extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/variables/{$this->name}";
     }
 

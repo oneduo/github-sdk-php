@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access
  * tokens (classic) need the `read:org` and `repo` scopes to use this endpoint.
  */
-class ReposCheckCollaborator extends Request {
+class ReposCheckCollaborator extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/collaborators/{$this->username}";
     }
 

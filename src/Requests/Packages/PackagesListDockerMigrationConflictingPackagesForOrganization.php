@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens
  * (classic) need the `read:packages` scope to use this endpoint.
  */
-class PackagesListDockerMigrationConflictingPackagesForOrganization extends Request {
+class PackagesListDockerMigrationConflictingPackagesForOrganization extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/docker/conflicts";
     }
 

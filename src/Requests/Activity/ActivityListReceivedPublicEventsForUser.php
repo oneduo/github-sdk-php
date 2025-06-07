@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * > This API is not built to serve real-time use cases. Depending on the time of day, event
  * latency can be anywhere from 30s to 6h.
  */
-class ActivityListReceivedPublicEventsForUser extends Request {
+class ActivityListReceivedPublicEventsForUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/users/{$this->username}/received_events/public";
     }
 
@@ -32,7 +34,8 @@ class ActivityListReceivedPublicEventsForUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

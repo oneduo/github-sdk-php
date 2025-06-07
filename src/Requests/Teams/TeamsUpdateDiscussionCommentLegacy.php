@@ -24,12 +24,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access tokens
  * (classic) need the `write:discussion` scope to use this endpoint.
  */
-class TeamsUpdateDiscussionCommentLegacy extends Request implements HasBody {
+class TeamsUpdateDiscussionCommentLegacy extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/discussions/{$this->discussionNumber}/comments/{$this->commentNumber}";
     }
 

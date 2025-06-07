@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint if the
  * repository is private.
  */
-class DependabotGetRepoPublicKey extends Request {
+class DependabotGetRepoPublicKey extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/dependabot/secrets/public-key";
     }
 

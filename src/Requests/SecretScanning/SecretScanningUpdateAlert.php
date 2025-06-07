@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * `security_events` scope to use this endpoint. If this endpoint is only used with public
  * repositories, the token can use the `public_repo` scope instead.
  */
-class SecretScanningUpdateAlert extends Request implements HasBody {
+class SecretScanningUpdateAlert extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/secret-scanning/alerts/{$this->alertNumber}";
     }
 

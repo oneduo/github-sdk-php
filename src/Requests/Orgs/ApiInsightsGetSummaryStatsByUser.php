@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get overall statistics of API requests within the organization for a user.
  */
-class ApiInsightsGetSummaryStatsByUser extends Request {
+class ApiInsightsGetSummaryStatsByUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/summary-stats/users/{$this->userId}";
     }
 
@@ -32,7 +34,8 @@ class ApiInsightsGetSummaryStatsByUser extends Request {
         protected ?string $maxTimestamp = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['min_timestamp' => $this->minTimestamp, 'max_timestamp' => $this->maxTimestamp]);
     }
 }

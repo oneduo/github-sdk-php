@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also
  * required.
  */
-class ActionsRemoveAllCustomLabelsFromSelfHostedRunnerForOrg extends Request {
+class ActionsRemoveAllCustomLabelsFromSelfHostedRunnerForOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/runners/{$this->runnerId}/labels";
     }
 

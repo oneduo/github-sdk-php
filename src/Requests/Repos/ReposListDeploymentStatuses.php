@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Users with pull access can view deployment statuses for a deployment:
  */
-class ReposListDeploymentStatuses extends Request {
+class ReposListDeploymentStatuses extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/deployments/{$this->deploymentId}/statuses";
     }
 
@@ -34,7 +36,8 @@ class ReposListDeploymentStatuses extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

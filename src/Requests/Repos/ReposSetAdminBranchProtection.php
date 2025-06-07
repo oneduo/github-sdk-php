@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Adding admin enforcement requires admin or owner permissions to the repository
  * and branch protection to be enabled.
  */
-class ReposSetAdminBranchProtection extends Request implements HasBody {
+class ReposSetAdminBranchProtection extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/enforce_admins";
     }
 

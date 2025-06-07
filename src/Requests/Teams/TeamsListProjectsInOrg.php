@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more
  * information.
  */
-class TeamsListProjectsInOrg extends Request {
+class TeamsListProjectsInOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/projects";
     }
 
@@ -37,7 +39,8 @@ class TeamsListProjectsInOrg extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

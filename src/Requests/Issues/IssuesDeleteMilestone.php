@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deletes a milestone using the given milestone number.
  */
-class IssuesDeleteMilestone extends Request {
+class IssuesDeleteMilestone extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/milestones/{$this->milestoneNumber}";
     }
 

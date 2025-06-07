@@ -43,10 +43,12 @@ use Saloon\Http\Request;
  * > You can also specify a team by `org_id` and `team_id` using the route `PUT
  * /organizations/{org_id}/team/{team_id}/memberships/{username}`.
  */
-class TeamsAddOrUpdateMembershipForUserInOrg extends Request {
+class TeamsAddOrUpdateMembershipForUserInOrg extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/memberships/{$this->username}";
     }
 

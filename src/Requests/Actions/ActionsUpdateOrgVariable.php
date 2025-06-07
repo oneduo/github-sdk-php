@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the
  * repository is private, the `repo` scope is also required.
  */
-class ActionsUpdateOrgVariable extends Request implements HasBody {
+class ActionsUpdateOrgVariable extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/variables/{$this->name}";
     }
 

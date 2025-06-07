@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesDeletePackageForAuthenticatedUser extends Request {
+class PackagesDeletePackageForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/packages/{$this->packageType}/{$this->packageName}";
     }
 

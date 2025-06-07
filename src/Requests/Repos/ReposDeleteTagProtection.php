@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * This endpoint is only available to
  * repository administrators.
  */
-class ReposDeleteTagProtection extends Request {
+class ReposDeleteTagProtection extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/tags/protection/{$this->tagProtectionId}";
     }
 

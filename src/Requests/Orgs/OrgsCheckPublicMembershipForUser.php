@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Check if the provided user is a public member of the organization.
  */
-class OrgsCheckPublicMembershipForUser extends Request {
+class OrgsCheckPublicMembershipForUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/public_members/{$this->username}";
     }
 

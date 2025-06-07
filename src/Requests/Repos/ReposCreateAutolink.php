@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Users with admin access to the repository can create an autolink.
  */
-class ReposCreateAutolink extends Request implements HasBody {
+class ReposCreateAutolink extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/autolinks";
     }
 

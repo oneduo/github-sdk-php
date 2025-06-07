@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access
  * tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ReposDeleteDeploymentBranchPolicy extends Request {
+class ReposDeleteDeploymentBranchPolicy extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/environments/{$this->environmentName}/deployment-branch-policies/{$this->branchPolicyId}";
     }
 

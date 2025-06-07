@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Get API request statistics for all subjects within an organization within a specified time frame.
  * Subjects can be users or GitHub Apps.
  */
-class ApiInsightsGetSubjectStats extends Request {
+class ApiInsightsGetSubjectStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/subject-stats";
     }
 
@@ -41,7 +43,8 @@ class ApiInsightsGetSubjectStats extends Request {
         protected ?string $subjectNameSubstring = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'min_timestamp' => $this->minTimestamp,
             'max_timestamp' => $this->maxTimestamp,

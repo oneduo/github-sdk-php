@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * Removing admin enforcement requires admin or owner permissions to the
  * repository and branch protection to be enabled.
  */
-class ReposDeleteAdminBranchProtection extends Request {
+class ReposDeleteAdminBranchProtection extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/enforce_admins";
     }
 

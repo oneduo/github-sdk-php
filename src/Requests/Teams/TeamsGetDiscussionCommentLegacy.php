@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens
  * (classic) need the `read:discussion` scope to use this endpoint.
  */
-class TeamsGetDiscussionCommentLegacy extends Request {
+class TeamsGetDiscussionCommentLegacy extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/discussions/{$this->discussionNumber}/comments/{$this->commentNumber}";
     }
 

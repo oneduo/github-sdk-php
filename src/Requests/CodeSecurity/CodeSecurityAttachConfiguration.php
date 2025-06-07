@@ -25,12 +25,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access tokens (classic) need
  * the `write:org` scope to use this endpoint.
  */
-class CodeSecurityAttachConfiguration extends Request implements HasBody {
+class CodeSecurityAttachConfiguration extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/code-security/configurations/{$this->configurationId}/attach";
     }
 

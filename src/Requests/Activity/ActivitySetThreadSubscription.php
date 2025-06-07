@@ -24,10 +24,12 @@ use Saloon\Http\Request;
  * subscription](https://docs.github.com/rest/activity/notifications#delete-a-thread-subscription)
  * endpoint.
  */
-class ActivitySetThreadSubscription extends Request {
+class ActivitySetThreadSubscription extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}/subscription";
     }
 

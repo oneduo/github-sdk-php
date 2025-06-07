@@ -23,12 +23,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth
  * app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class CodespacesSetCodespacesAccessUsers extends Request implements HasBody {
+class CodespacesSetCodespacesAccessUsers extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/codespaces/access/selected_users";
     }
 

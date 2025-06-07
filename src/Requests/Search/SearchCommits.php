@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  *
  * `q=repo:octocat/Spoon-Knife+css`
  */
-class SearchCommits extends Request {
+class SearchCommits extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/search/commits';
     }
 
@@ -48,7 +50,8 @@ class SearchCommits extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['q' => $this->q, 'sort' => $this->sort, 'order' => $this->order, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

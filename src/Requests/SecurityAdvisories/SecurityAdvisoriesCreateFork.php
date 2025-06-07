@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > Forking a repository happens asynchronously. You may have to wait up to 5
  * minutes before you can access the fork.
  */
-class SecurityAdvisoriesCreateFork extends Request implements HasBody {
+class SecurityAdvisoriesCreateFork extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/security-advisories/{$this->ghsaId}/forks";
     }
 

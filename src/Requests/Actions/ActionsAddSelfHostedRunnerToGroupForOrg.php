@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth tokens and
  * personal access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class ActionsAddSelfHostedRunnerToGroupForOrg extends Request {
+class ActionsAddSelfHostedRunnerToGroupForOrg extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/runner-groups/{$this->runnerGroupId}/runners/{$this->runnerId}";
     }
 

@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.
  */
-class IssuesAddAssignees extends Request implements HasBody {
+class IssuesAddAssignees extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/assignees";
     }
 

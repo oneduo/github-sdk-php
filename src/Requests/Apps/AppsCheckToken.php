@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Authentication works differently with this particular endpoint. Invalid tokens will return `404 NOT
  * FOUND`.
  */
-class AppsCheckToken extends Request implements HasBody {
+class AppsCheckToken extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/applications/{$this->clientId}/token";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Gets a single event by the event id.
  */
-class IssuesGetEvent extends Request {
+class IssuesGetEvent extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/events/{$this->eventId}";
     }
 

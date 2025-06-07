@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Members of an organization can choose to have their membership publicized or not.
  */
-class OrgsListPublicMembers extends Request {
+class OrgsListPublicMembers extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/public_members";
     }
 
@@ -30,7 +32,8 @@ class OrgsListPublicMembers extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

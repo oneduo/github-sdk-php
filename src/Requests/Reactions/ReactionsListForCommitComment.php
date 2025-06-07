@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * List the reactions to a [commit
  * comment](https://docs.github.com/rest/commits/comments#get-a-commit-comment).
  */
-class ReactionsListForCommitComment extends Request {
+class ReactionsListForCommitComment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/comments/{$this->commentId}/reactions";
     }
 
@@ -37,7 +39,8 @@ class ReactionsListForCommitComment extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['content' => $this->content, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

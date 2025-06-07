@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removes review requests from a pull request for a given set of users and/or teams.
  */
-class PullsRemoveRequestedReviewers extends Request {
+class PullsRemoveRequestedReviewers extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/requested_reviewers";
     }
 

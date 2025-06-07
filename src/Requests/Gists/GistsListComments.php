@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * - **`application/vnd.github.base64+json`**: Returns the base64-encoded
  * contents. This can be useful if your gist contains any invalid UTF-8 sequences.
  */
-class GistsListComments extends Request {
+class GistsListComments extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/comments";
     }
 
@@ -40,7 +42,8 @@ class GistsListComments extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

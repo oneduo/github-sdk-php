@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * user is not blocked by the authenticated user, or if the given user account has been identified as
  * spam by GitHub.
  */
-class UsersCheckBlocked extends Request {
+class UsersCheckBlocked extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/blocks/{$this->username}";
     }
 

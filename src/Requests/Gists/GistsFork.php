@@ -12,12 +12,14 @@ use Saloon\Traits\Body\HasJsonBody;
 /**
  * gists/fork
  */
-class GistsFork extends Request implements HasBody {
+class GistsFork extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/forks";
     }
 

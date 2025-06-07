@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `user` scope in order for the
  * response to include private profile information.
  */
-class UsersGetAuthenticated extends Request {
+class UsersGetAuthenticated extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user';
     }
 

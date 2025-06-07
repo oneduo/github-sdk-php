@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this
  * endpoint with a private repository.
  */
-class ActionsGetWorkflowRunAttempt extends Request {
+class ActionsGetWorkflowRunAttempt extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/runs/{$this->runId}/attempts/{$this->attemptNumber}";
     }
 
@@ -40,7 +42,8 @@ class ActionsGetWorkflowRunAttempt extends Request {
         protected ?bool $excludePullRequests = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['exclude_pull_requests' => $this->excludePullRequests]);
     }
 }

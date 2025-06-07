@@ -24,12 +24,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > With
  * nested teams, the `privacy` for parent teams cannot be `secret`.
  */
-class TeamsUpdateLegacy extends Request implements HasBody {
+class TeamsUpdateLegacy extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}";
     }
 

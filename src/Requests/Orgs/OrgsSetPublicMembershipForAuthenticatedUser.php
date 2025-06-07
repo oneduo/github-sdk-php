@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * more information, see "[HTTP
  * method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method)."
  */
-class OrgsSetPublicMembershipForAuthenticatedUser extends Request {
+class OrgsSetPublicMembershipForAuthenticatedUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/public_members/{$this->username}";
     }
 

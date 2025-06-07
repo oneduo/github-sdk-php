@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * The authenticated user must be a repository owner, or have
  * admin access in the repository, to delete the webhook.
  */
-class ReposDeleteWebhook extends Request {
+class ReposDeleteWebhook extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}";
     }
 

@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the
  * `codespace` scope to use this endpoint.
  */
-class CodespacesDeleteForAuthenticatedUser extends Request {
+class CodespacesDeleteForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/codespaces/{$this->codespaceName}";
     }
 

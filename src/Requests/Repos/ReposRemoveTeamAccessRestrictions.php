@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * Removes the ability of a team to push to this branch. You can also remove push
  * access for child teams.
  */
-class ReposRemoveTeamAccessRestrictions extends Request {
+class ReposRemoveTeamAccessRestrictions extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/teams";
     }
 

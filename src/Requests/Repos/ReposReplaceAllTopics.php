@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/replace-all-topics
  */
-class ReposReplaceAllTopics extends Request {
+class ReposReplaceAllTopics extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/topics";
     }
 

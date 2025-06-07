@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Returns a delivery for a webhook configured in a repository.
  */
-class ReposGetWebhookDelivery extends Request {
+class ReposGetWebhookDelivery extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/deliveries/{$this->deliveryId}";
     }
 

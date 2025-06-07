@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Users with pull access can view a deployment status for a deployment:
  */
-class ReposGetDeploymentStatus extends Request {
+class ReposGetDeploymentStatus extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/deployments/{$this->deploymentId}/statuses/{$this->statusId}";
     }
 

@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * -
  * **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.
  */
-class GitignoreGetTemplate extends Request {
+class GitignoreGetTemplate extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gitignore/templates/{$this->name}";
     }
 

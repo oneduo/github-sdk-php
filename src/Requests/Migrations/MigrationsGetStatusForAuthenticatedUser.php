@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * Once the migration has been `exported` you can [download the migration
  * archive](https://docs.github.com/rest/migrations/users#download-a-user-migration-archive).
  */
-class MigrationsGetStatusForAuthenticatedUser extends Request {
+class MigrationsGetStatusForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/migrations/{$this->migrationId}";
     }
 
@@ -38,7 +40,8 @@ class MigrationsGetStatusForAuthenticatedUser extends Request {
         protected ?array $exclude = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['exclude' => $this->exclude]);
     }
 }

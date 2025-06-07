@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/get-deployment
  */
-class ReposGetDeployment extends Request {
+class ReposGetDeployment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/deployments/{$this->deploymentId}";
     }
 

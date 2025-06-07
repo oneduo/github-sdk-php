@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  * | `array` | Usernames of the people who should no longer have push access. **Note**: The list of
  * users, apps, and teams in total is limited to 100 items. |
  */
-class ReposRemoveUserAccessRestrictions extends Request {
+class ReposRemoveUserAccessRestrictions extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/users";
     }
 

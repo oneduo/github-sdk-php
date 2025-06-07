@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Removes the public membership for the authenticated user from the specified organization, unless
  * public visibility is enforced by default.
  */
-class OrgsRemovePublicMembershipForAuthenticatedUser extends Request {
+class OrgsRemovePublicMembershipForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/public_members/{$this->username}";
     }
 

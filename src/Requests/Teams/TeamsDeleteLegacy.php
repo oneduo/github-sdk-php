@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * If you are an organization
  * owner, deleting a parent team will delete all of its child teams as well.
  */
-class TeamsDeleteLegacy extends Request {
+class TeamsDeleteLegacy extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}";
     }
 

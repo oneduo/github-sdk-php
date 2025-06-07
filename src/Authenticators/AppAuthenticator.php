@@ -17,7 +17,8 @@ use OpenSSLAsymmetricKey;
 use Saloon\Contracts\Authenticator;
 use Saloon\Http\PendingRequest;
 
-class AppAuthenticator implements Authenticator {
+class AppAuthenticator implements Authenticator
+{
     /**
      * @param  string  $appId  GitHub App ID
      * @param  OpenSSLAsymmetricKey|string  $key  OpenSSL key object, key string content or key file path.
@@ -29,13 +30,15 @@ class AppAuthenticator implements Authenticator {
         private readonly ?string $passphrase = null
     ) {}
 
-    public function set(PendingRequest $pendingRequest): void {
+    public function set(PendingRequest $pendingRequest): void
+    {
         $jwt = $this->generateJwt();
 
         $pendingRequest->headers()->add('Authorization', "Bearer $jwt");
     }
 
-    private function generateJwt(): string {
+    private function generateJwt(): string
+    {
         $configuration = Configuration::forAsymmetricSigner(
             new Sha256,
             $this->getSigningKey(),
@@ -59,9 +62,10 @@ class AppAuthenticator implements Authenticator {
         return $token->toString();
     }
 
-    private function getSigningKey(): InMemory {
+    private function getSigningKey(): InMemory
+    {
         if ($this->key instanceof OpenSSLAsymmetricKey) {
-            if (!openssl_pkey_export($this->key, $keyContent, $this->passphrase)) {
+            if (! openssl_pkey_export($this->key, $keyContent, $this->passphrase)) {
                 throw new InvalidArgumentException('Failed to export OpenSSL key to PEM format');
             }
 

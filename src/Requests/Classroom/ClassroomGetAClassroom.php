@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Gets a GitHub Classroom classroom for the current user. Classroom will only be returned if the
  * current user is an administrator of the GitHub Classroom.
  */
-class ClassroomGetAClassroom extends Request {
+class ClassroomGetAClassroom extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/classrooms/{$this->classroomId}";
     }
 

@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * endpoint. If this endpoint is only used with public repositories, the token can use the
  * `public_repo` scope instead.
  */
-class DependabotUpdateAlert extends Request implements HasBody {
+class DependabotUpdateAlert extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/dependabot/alerts/{$this->alertNumber}";
     }
 

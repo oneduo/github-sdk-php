@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * them from the organization. If the specified user has been invited to the organization, this will
  * cancel their invitation. The specified user will receive an email notification in both cases.
  */
-class OrgsRemoveMembershipForUser extends Request {
+class OrgsRemoveMembershipForUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/memberships/{$this->username}";
     }
 

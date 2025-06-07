@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * List all users who are members of an organization. If the authenticated user is also a member of
  * this organization then both concealed and public members will be returned.
  */
-class OrgsListMembers extends Request {
+class OrgsListMembers extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/members";
     }
 
@@ -35,7 +37,8 @@ class OrgsListMembers extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['filter' => $this->filter, 'role' => $this->role, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

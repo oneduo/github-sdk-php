@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  *
  * The most recent week is seven days ago at UTC midnight to today at UTC midnight.
  */
-class ReposGetParticipationStats extends Request {
+class ReposGetParticipationStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/stats/participation";
     }
 

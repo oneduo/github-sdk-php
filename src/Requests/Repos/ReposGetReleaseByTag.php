@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get a published release with the specified tag.
  */
-class ReposGetReleaseByTag extends Request {
+class ReposGetReleaseByTag extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/tags/{$this->tag}";
     }
 

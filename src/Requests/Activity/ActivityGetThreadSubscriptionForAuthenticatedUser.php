@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  *
  * they've replied to the thread, were **@mentioned**, or manually subscribe to a thread.
  */
-class ActivityGetThreadSubscriptionForAuthenticatedUser extends Request {
+class ActivityGetThreadSubscriptionForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}/subscription";
     }
 

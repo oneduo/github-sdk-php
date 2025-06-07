@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * need the `security_events` scope to use this endpoint with private or public repositories, or the
  * `public_repo` scope to use this endpoint with only public repositories.
  */
-class CodeScanningListAlertsForRepo extends Request {
+class CodeScanningListAlertsForRepo extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/code-scanning/alerts";
     }
 
@@ -60,7 +62,8 @@ class CodeScanningListAlertsForRepo extends Request {
         protected ?string $severity = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'tool_name' => $this->toolName,
             'tool_guid' => $this->toolGuid,

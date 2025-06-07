@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * Delete a reaction to an
  * [issue](https://docs.github.com/rest/issues/issues#get-an-issue).
  */
-class ReactionsDeleteForIssue extends Request {
+class ReactionsDeleteForIssue extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/reactions/{$this->reactionId}";
     }
 

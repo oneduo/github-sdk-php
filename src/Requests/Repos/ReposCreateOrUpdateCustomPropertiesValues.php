@@ -20,12 +20,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * and other users with the repository-level "edit custom property values" fine-grained permission can
  * use this endpoint.
  */
-class ReposCreateOrUpdateCustomPropertiesValues extends Request implements HasBody {
+class ReposCreateOrUpdateCustomPropertiesValues extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/properties/values";
     }
 

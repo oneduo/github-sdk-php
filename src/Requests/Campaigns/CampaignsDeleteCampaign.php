@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic)
  * need the `security_events` scope to use this endpoint.
  */
-class CampaignsDeleteCampaign extends Request {
+class CampaignsDeleteCampaign extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/campaigns/{$this->campaignNumber}";
     }
 

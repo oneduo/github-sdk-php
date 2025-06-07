@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `codespace`
  * scope to use this endpoint.
  */
-class CodespacesCheckPermissionsForDevcontainer extends Request {
+class CodespacesCheckPermissionsForDevcontainer extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/codespaces/permissions_check";
     }
 
@@ -36,7 +38,8 @@ class CodespacesCheckPermissionsForDevcontainer extends Request {
         protected string $devcontainerPath,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['ref' => $this->ref, 'devcontainer_path' => $this->devcontainerPath]);
     }
 }

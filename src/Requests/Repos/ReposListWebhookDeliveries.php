@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Returns a list of webhook deliveries for a webhook configured in a repository.
  */
-class ReposListWebhookDeliveries extends Request {
+class ReposListWebhookDeliveries extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/deliveries";
     }
 
@@ -32,7 +34,8 @@ class ReposListWebhookDeliveries extends Request {
         protected ?string $cursor = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['cursor' => $this->cursor]);
     }
 }

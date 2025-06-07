@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Sync a branch of a forked repository to keep it up-to-date with the upstream repository.
  */
-class ReposMergeUpstream extends Request implements HasBody {
+class ReposMergeUpstream extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/merge-upstream";
     }
 

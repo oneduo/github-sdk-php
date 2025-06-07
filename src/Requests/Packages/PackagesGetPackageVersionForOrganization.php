@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * permissions for GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesGetPackageVersionForOrganization extends Request {
+class PackagesGetPackageVersionForOrganization extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/packages/{$this->packageType}/{$this->packageName}/versions/{$this->packageVersionId}";
     }
 

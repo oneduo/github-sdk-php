@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * tokens (classic) need the`admin:org` scope to use this endpoint. If the repository is private, OAuth
  * tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsDeleteSelfHostedRunnerFromOrg extends Request {
+class ActionsDeleteSelfHostedRunnerFromOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/runners/{$this->runnerId}";
     }
 

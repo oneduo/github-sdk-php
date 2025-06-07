@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Only GitHub Apps can use this endpoint.
  */
-class OrgsReviewPatGrantRequest extends Request implements HasBody {
+class OrgsReviewPatGrantRequest extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/personal-access-token-requests/{$this->patRequestId}";
     }
 

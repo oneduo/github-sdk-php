@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Gets a GitHub Classroom assignment. Assignment will only be returned if the current user is an
  * administrator of the GitHub Classroom for the assignment.
  */
-class ClassroomGetAnAssignment extends Request {
+class ClassroomGetAnAssignment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/assignments/{$this->assignmentId}";
     }
 

@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * and personal access tokens (classic) need the `codespace` or `codespace:secrets` scope to use this
  * endpoint.
  */
-class CodespacesListRepositoriesForSecretForAuthenticatedUser extends Request {
+class CodespacesListRepositoriesForSecretForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/codespaces/secrets/{$this->secretName}/repositories";
     }
 

@@ -74,10 +74,12 @@ use Saloon\Http\Request;
  * is corrupt, contact us through the [GitHub Support portal](https://support.github.com/). Include the
  * repository name and pull request ID in your message.
  */
-class PullsGet extends Request {
+class PullsGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}";
     }
 

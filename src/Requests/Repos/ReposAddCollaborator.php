@@ -69,10 +69,12 @@ use Saloon\Http\Request;
  * period. Note there is no limit if you are inviting organization members to an organization
  * repository.
  */
-class ReposAddCollaborator extends Request {
+class ReposAddCollaborator extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/collaborators/{$this->username}";
     }
 

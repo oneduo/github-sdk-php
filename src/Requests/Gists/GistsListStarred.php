@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List the authenticated user's starred gists:
  */
-class GistsListStarred extends Request {
+class GistsListStarred extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/gists/starred';
     }
 
@@ -30,7 +32,8 @@ class GistsListStarred extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['since' => $this->since, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

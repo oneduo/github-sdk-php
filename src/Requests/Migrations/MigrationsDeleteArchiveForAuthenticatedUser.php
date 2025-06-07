@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * migration status](https://docs.github.com/rest/migrations/users#get-a-user-migration-status)
  * endpoints, will continue to be available even after an archive is deleted.
  */
-class MigrationsDeleteArchiveForAuthenticatedUser extends Request {
+class MigrationsDeleteArchiveForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/migrations/{$this->migrationId}/archive";
     }
 

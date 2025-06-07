@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List the reactions to an [issue](https://docs.github.com/rest/issues/issues#get-an-issue).
  */
-class ReactionsListForIssue extends Request {
+class ReactionsListForIssue extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/reactions";
     }
 
@@ -36,7 +38,8 @@ class ReactionsListForIssue extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['content' => $this->content, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

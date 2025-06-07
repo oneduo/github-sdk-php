@@ -69,10 +69,12 @@ use Saloon\Http\Request;
  *   - Greater than 100 MB: This endpoint is
  * not supported.
  */
-class ReposGetContent extends Request {
+class ReposGetContent extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/contents/{$this->path}";
     }
 
@@ -89,7 +91,8 @@ class ReposGetContent extends Request {
         protected ?string $ref = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['ref' => $this->ref]);
     }
 }

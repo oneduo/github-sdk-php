@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * to the optional array of `maintainers`. For more information, see "[About
  * teams](https://docs.github.com/github/setting-up-and-managing-organizations-and-teams/about-teams)".
  */
-class TeamsCreate extends Request implements HasBody {
+class TeamsCreate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams";
     }
 

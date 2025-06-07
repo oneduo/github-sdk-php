@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Unstar a repository that the authenticated user has previously starred.
  */
-class ActivityUnstarRepoForAuthenticatedUser extends Request {
+class ActivityUnstarRepoForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/starred/{$this->owner}/{$this->repo}";
     }
 

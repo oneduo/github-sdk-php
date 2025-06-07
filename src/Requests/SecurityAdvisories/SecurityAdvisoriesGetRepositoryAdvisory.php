@@ -25,10 +25,12 @@ use Saloon\Http\Request;
  * published security advisory in a private repository, or any unpublished security advisory that the
  * authenticated user has access to.
  */
-class SecurityAdvisoriesGetRepositoryAdvisory extends Request {
+class SecurityAdvisoriesGetRepositoryAdvisory extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/security-advisories/{$this->ghsaId}";
     }
 

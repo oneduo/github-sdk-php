@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `codespace` or
  * `codespace:secrets` scope to use this endpoint.
  */
-class CodespacesListSecretsForAuthenticatedUser extends Request {
+class CodespacesListSecretsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/codespaces/secrets';
     }
 
@@ -36,7 +38,8 @@ class CodespacesListSecretsForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * > You can also specify a team by `org_id` and `team_id` using the route `GET
  * /organizations/{org_id}/team/{team_id}/invitations`.
  */
-class TeamsListPendingInvitationsInOrg extends Request {
+class TeamsListPendingInvitationsInOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/invitations";
     }
 
@@ -39,7 +41,8 @@ class TeamsListPendingInvitationsInOrg extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth
  * app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class CodespacesGetOrgSecret extends Request {
+class CodespacesGetOrgSecret extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/codespaces/secrets/{$this->secretName}";
     }
 

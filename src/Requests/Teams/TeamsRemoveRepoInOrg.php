@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * a team by `org_id` and `team_id` using the route `DELETE
  * /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}`.
  */
-class TeamsRemoveRepoInOrg extends Request {
+class TeamsRemoveRepoInOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/repos/{$this->owner}/{$this->repo}";
     }
 

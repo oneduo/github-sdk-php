@@ -23,12 +23,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * `public_repo` or `repo` scope to create a public repository, and `repo` scope to create a private
  * repository.
  */
-class ReposCreateUsingTemplate extends Request implements HasBody {
+class ReposCreateUsingTemplate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->templateOwner}/{$this->templateRepo}/generate";
     }
 

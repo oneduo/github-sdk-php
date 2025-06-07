@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List repositories that an app installation can access.
  */
-class AppsListReposAccessibleToInstallation extends Request {
+class AppsListReposAccessibleToInstallation extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/installation/repositories';
     }
 
@@ -28,7 +30,8 @@ class AppsListReposAccessibleToInstallation extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

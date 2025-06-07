@@ -28,10 +28,12 @@ use Saloon\Http\Request;
  * To see information about an organization's GitHub plan, GitHub
  * Apps need the `Organization plan` permission.
  */
-class OrgsGet extends Request {
+class OrgsGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}";
     }
 

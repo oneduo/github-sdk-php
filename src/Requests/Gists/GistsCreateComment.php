@@ -24,12 +24,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * - **`application/vnd.github.base64+json`**: Returns the base64-encoded
  * contents. This can be useful if your gist contains any invalid UTF-8 sequences.
  */
-class GistsCreateComment extends Request implements HasBody {
+class GistsCreateComment extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/comments";
     }
 

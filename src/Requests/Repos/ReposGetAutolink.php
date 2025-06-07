@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  *
  * Information about autolinks are only available to repository administrators.
  */
-class ReposGetAutolink extends Request {
+class ReposGetAutolink extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/autolinks/{$this->autolinkId}";
     }
 

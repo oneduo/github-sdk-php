@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Lists the most commonly used licenses on GitHub. For more information, see "[Licensing a repository
  * ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
  */
-class LicensesGetAllCommonlyUsed extends Request {
+class LicensesGetAllCommonlyUsed extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/licenses';
     }
 
@@ -30,7 +32,8 @@ class LicensesGetAllCommonlyUsed extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['featured' => $this->featured, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

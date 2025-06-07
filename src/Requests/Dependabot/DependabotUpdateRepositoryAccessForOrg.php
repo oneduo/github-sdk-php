@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Unauthorized
  * users will not see the existence of this endpoint.
  */
-class DependabotUpdateRepositoryAccessForOrg extends Request implements HasBody {
+class DependabotUpdateRepositoryAccessForOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/organizations/{$this->org}/dependabot/repository-access";
     }
 

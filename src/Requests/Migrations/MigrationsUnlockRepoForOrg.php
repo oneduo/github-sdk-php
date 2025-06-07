@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * [delete them](https://docs.github.com/rest/repos/repos#delete-a-repository) when the migration is
  * complete and you no longer need the source data.
  */
-class MigrationsUnlockRepoForOrg extends Request {
+class MigrationsUnlockRepoForOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/migrations/{$this->migrationId}/repos/{$this->repoName}/lock";
     }
 

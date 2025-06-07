@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the
  * `write:org` scope to use this endpoint.
  */
-class CodeSecurityDeleteConfiguration extends Request {
+class CodeSecurityDeleteConfiguration extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/code-security/configurations/{$this->configurationId}";
     }
 

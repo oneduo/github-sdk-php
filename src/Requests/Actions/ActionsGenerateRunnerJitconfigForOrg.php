@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * tokens (classic) need the`admin:org` scope to use this endpoint. If the repository is private, OAuth
  * tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsGenerateRunnerJitconfigForOrg extends Request implements HasBody {
+class ActionsGenerateRunnerJitconfigForOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/runners/generate-jitconfig";
     }
 

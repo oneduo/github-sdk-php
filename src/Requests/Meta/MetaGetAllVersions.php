@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get all supported GitHub API versions.
  */
-class MetaGetAllVersions extends Request {
+class MetaGetAllVersions extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/versions';
     }
 

@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * installed on the repository and that have been granted write access to the repository contents can
  * be added as authorized actors on a protected branch.
  */
-class ReposRemoveAppAccessRestrictions extends Request {
+class ReposRemoveAppAccessRestrictions extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/apps";
     }
 

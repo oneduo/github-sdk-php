@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * individual webhook `config` properties, use "[Update a webhook configuration for a
  * repository](/rest/webhooks/repo-config#update-a-webhook-configuration-for-a-repository)."
  */
-class ReposUpdateWebhook extends Request implements HasBody {
+class ReposUpdateWebhook extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}";
     }
 

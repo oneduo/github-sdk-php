@@ -30,12 +30,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will
  * include `body`, `body_text`, and `body_html`.
  */
-class IssuesUpdate extends Request implements HasBody {
+class IssuesUpdate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}";
     }
 

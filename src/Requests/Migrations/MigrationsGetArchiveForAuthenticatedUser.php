@@ -38,10 +38,12 @@ use Saloon\Http\Request;
  * will also contain an `attachments` directory that includes all attachment files uploaded to
  * GitHub.com and a `repositories` directory that contains the repository's Git data.
  */
-class MigrationsGetArchiveForAuthenticatedUser extends Request {
+class MigrationsGetArchiveForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/migrations/{$this->migrationId}/archive";
     }
 

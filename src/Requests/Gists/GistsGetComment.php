@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * - **`application/vnd.github.base64+json`**: Returns the base64-encoded
  * contents. This can be useful if your gist contains any invalid UTF-8 sequences.
  */
-class GistsGetComment extends Request {
+class GistsGetComment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/comments/{$this->commentId}";
     }
 

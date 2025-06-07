@@ -25,10 +25,12 @@ use Saloon\Http\Request;
  * > You
  * must enable branch protection to require signed commits.
  */
-class ReposGetCommitSignatureProtection extends Request {
+class ReposGetCommitSignatureProtection extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_signatures";
     }
 

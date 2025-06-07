@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  *
  * Information about autolinks are only available to repository administrators.
  */
-class ReposDeleteAutolink extends Request {
+class ReposDeleteAutolink extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/autolinks/{$this->autolinkId}";
     }
 

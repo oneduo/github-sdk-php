@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * subscription](https://docs.github.com/rest/activity/watching#delete-a-repository-subscription)
  * completely.
  */
-class ActivitySetRepoSubscription extends Request {
+class ActivitySetRepoSubscription extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/subscription";
     }
 

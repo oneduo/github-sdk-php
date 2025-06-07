@@ -46,10 +46,12 @@ use Saloon\Http\Request;
  * more information on fork permissions, see "[About permissions and visibility of
  * forks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)".
  */
-class ReposRemoveCollaborator extends Request {
+class ReposRemoveCollaborator extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/collaborators/{$this->username}";
     }
 

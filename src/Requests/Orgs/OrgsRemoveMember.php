@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Removing a user from this list will remove them from all teams and they will no longer have any
  * access to the organization's repositories.
  */
-class OrgsRemoveMember extends Request {
+class OrgsRemoveMember extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/members/{$this->username}";
     }
 

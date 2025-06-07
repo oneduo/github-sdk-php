@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * > For private repositories, these links are temporary and expire after five
  * minutes.
  */
-class ReposDownloadTarballArchive extends Request {
+class ReposDownloadTarballArchive extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/tarball/{$this->ref}";
     }
 

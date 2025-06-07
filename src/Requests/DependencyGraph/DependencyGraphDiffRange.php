@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Gets the diff of the dependency changes between two commits of a repository, based on the changes to
  * the dependency manifests made in those commits.
  */
-class DependencyGraphDiffRange extends Request {
+class DependencyGraphDiffRange extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/dependency-graph/compare/{$this->basehead}";
     }
 
@@ -33,7 +35,8 @@ class DependencyGraphDiffRange extends Request {
         protected ?string $name = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['name' => $this->name]);
     }
 }

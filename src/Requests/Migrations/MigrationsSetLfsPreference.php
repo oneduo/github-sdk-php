@@ -28,12 +28,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * 12, 2024. For more details and alternatives, see the
  * [changelog](https://gh.io/source-imports-api-deprecation).
  */
-class MigrationsSetLfsPreference extends Request implements HasBody {
+class MigrationsSetLfsPreference extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import/lfs";
     }
 

@@ -28,12 +28,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesRestorePackageForAuthenticatedUser extends Request implements HasBody {
+class PackagesRestorePackageForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/packages/{$this->packageType}/{$this->packageName}/restore";
     }
 
@@ -48,7 +50,8 @@ class PackagesRestorePackageForAuthenticatedUser extends Request implements HasB
         protected ?string $token = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['token' => $this->token]);
     }
 }

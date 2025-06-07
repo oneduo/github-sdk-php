@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * > Users, apps, and
  * teams `restrictions` are only available for organization-owned repositories.
  */
-class ReposGetAccessRestrictions extends Request {
+class ReposGetAccessRestrictions extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions";
     }
 

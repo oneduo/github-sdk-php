@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Returns array of all GitHub's codes of conduct.
  */
-class CodesOfConductGetAllCodesOfConduct extends Request {
+class CodesOfConductGetAllCodesOfConduct extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/codes_of_conduct';
     }
 

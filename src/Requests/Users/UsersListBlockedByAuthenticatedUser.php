@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List the users you've blocked on your personal account.
  */
-class UsersListBlockedByAuthenticatedUser extends Request {
+class UsersListBlockedByAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/blocks';
     }
 
@@ -28,7 +30,8 @@ class UsersListBlockedByAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

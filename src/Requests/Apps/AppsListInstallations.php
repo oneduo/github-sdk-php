@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsListInstallations extends Request {
+class AppsListInstallations extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/app/installations';
     }
 
@@ -35,7 +37,8 @@ class AppsListInstallations extends Request {
         protected ?string $outdated = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'since' => $this->since, 'outdated' => $this->outdated]);
     }

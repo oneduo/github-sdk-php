@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * share the same `config` as long as those webhooks do not have any `events`
  * that overlap.
  */
-class ReposCreateWebhook extends Request implements HasBody {
+class ReposCreateWebhook extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks";
     }
 

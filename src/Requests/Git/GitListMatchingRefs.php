@@ -31,10 +31,12 @@ use Saloon\Http\Request;
  * the response can still include other matching head refs that start with the word `feature`, such as
  * `featureA` and `featureB`.
  */
-class GitListMatchingRefs extends Request {
+class GitListMatchingRefs extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/matching-refs/{$this->ref}";
     }
 

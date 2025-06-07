@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * user or organization that owns this repository, you will receive a `409 Conflict` response and will
  * not be able to use this endpoint to change the interaction limit for a single repository.
  */
-class InteractionsSetRestrictionsForRepo extends Request {
+class InteractionsSetRestrictionsForRepo extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/interaction-limits";
     }
 

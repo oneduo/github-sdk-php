@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsUpdateWebhookConfigForApp extends Request implements HasBody {
+class AppsUpdateWebhookConfigForApp extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/app/hook/config';
     }
 

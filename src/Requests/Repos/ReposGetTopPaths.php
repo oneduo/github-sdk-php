@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the top 10 popular contents over the last 14 days.
  */
-class ReposGetTopPaths extends Request {
+class ReposGetTopPaths extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/traffic/popular/paths";
     }
 

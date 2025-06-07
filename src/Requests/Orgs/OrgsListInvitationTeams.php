@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * List all teams associated with an invitation. In order to see invitations in an organization, the
  * authenticated user must be an organization owner.
  */
-class OrgsListInvitationTeams extends Request {
+class OrgsListInvitationTeams extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/invitations/{$this->invitationId}/teams";
     }
 
@@ -33,7 +35,8 @@ class OrgsListInvitationTeams extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

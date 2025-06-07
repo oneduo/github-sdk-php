@@ -12,12 +12,14 @@ use Saloon\Traits\Body\HasJsonBody;
 /**
  * repos/merge
  */
-class ReposMerge extends Request implements HasBody {
+class ReposMerge extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/merges";
     }
 

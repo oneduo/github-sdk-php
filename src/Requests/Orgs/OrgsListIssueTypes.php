@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Lists all issue types for an organization. OAuth app tokens and personal access tokens (classic)
  * need the read:org scope to use this endpoint.
  */
-class OrgsListIssueTypes extends Request {
+class OrgsListIssueTypes extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/issue-types";
     }
 

@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * gists/delete-comment
  */
-class GistsDeleteComment extends Request {
+class GistsDeleteComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/comments/{$this->commentId}";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List the reactions to a [release](https://docs.github.com/rest/releases/releases#get-a-release).
  */
-class ReactionsListForRelease extends Request {
+class ReactionsListForRelease extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/{$this->releaseId}/reactions";
     }
 
@@ -36,7 +38,8 @@ class ReactionsListForRelease extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['content' => $this->content, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Redeliver a webhook delivery for a webhook configured in a repository.
  */
-class ReposRedeliverWebhookDelivery extends Request implements HasBody {
+class ReposRedeliverWebhookDelivery extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/deliveries/{$this->deliveryId}/attempts";
     }
 

@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Marks a thread as "read." Marking a thread as "read" is equivalent to clicking a notification in
  * your notification inbox on GitHub: https://github.com/notifications.
  */
-class ActivityMarkThreadAsRead extends Request implements HasBody {
+class ActivityMarkThreadAsRead extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}";
     }
 

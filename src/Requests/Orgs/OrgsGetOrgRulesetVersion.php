@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get a version of an organization ruleset.
  */
-class OrgsGetOrgRulesetVersion extends Request {
+class OrgsGetOrgRulesetVersion extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets/{$this->rulesetId}/history/{$this->versionId}";
     }
 

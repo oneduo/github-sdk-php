@@ -27,10 +27,12 @@ use Saloon\Http\Request;
  * There is presently not a way to differentiate between an organization
  * level grant and a repository level grant from this endpoint response.
  */
-class ReposGetCollaboratorPermissionLevel extends Request {
+class ReposGetCollaboratorPermissionLevel extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/collaborators/{$this->username}/permission";
     }
 

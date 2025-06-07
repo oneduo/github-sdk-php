@@ -12,7 +12,8 @@ use Oneduo\GitHubSdk\Requests\Campaigns\CampaignsListOrgCampaigns;
 use Oneduo\GitHubSdk\Requests\Campaigns\CampaignsUpdateCampaign;
 use Saloon\Http\Response;
 
-class Campaigns extends GitHubResource {
+class Campaigns extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
@@ -33,7 +34,8 @@ class Campaigns extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createCampaign(string $org): Response {
+    public function createCampaign(string $org): Response
+    {
         return $this->connector->send(new CampaignsCreateCampaign($org));
     }
 
@@ -41,7 +43,8 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function getCampaignSummary(string $org, int $campaignNumber): Response {
+    public function getCampaignSummary(string $org, int $campaignNumber): Response
+    {
         return $this->connector->send(new CampaignsGetCampaignSummary($org, $campaignNumber));
     }
 
@@ -49,7 +52,8 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function deleteCampaign(string $org, int $campaignNumber): Response {
+    public function deleteCampaign(string $org, int $campaignNumber): Response
+    {
         return $this->connector->send(new CampaignsDeleteCampaign($org, $campaignNumber));
     }
 
@@ -57,7 +61,8 @@ class Campaigns extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $campaignNumber  The campaign number.
      */
-    public function updateCampaign(string $org, int $campaignNumber): Response {
+    public function updateCampaign(string $org, int $campaignNumber): Response
+    {
         return $this->connector->send(new CampaignsUpdateCampaign($org, $campaignNumber));
     }
 }

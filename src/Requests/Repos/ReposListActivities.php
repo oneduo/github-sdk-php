@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * see "[Viewing activity and data for your
  * repository](https://docs.github.com/repositories/viewing-activity-and-data-for-your-repository)."
  */
-class ReposListActivities extends Request {
+class ReposListActivities extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/activity";
     }
 
@@ -52,7 +54,8 @@ class ReposListActivities extends Request {
         protected ?string $activityType = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'direction' => $this->direction,
             'before' => $this->before,

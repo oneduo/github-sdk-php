@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsUnsuspendInstallation extends Request {
+class AppsUnsuspendInstallation extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/app/installations/{$this->installationId}/suspended";
     }
 

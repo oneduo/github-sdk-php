@@ -25,10 +25,12 @@ use Saloon\Http\Request;
  * **Note** This endpoint
  * supports blobs up to 100 megabytes in size.
  */
-class GitGetBlob extends Request {
+class GitGetBlob extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/blobs/{$this->fileSha}";
     }
 

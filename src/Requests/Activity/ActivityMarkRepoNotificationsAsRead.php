@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * user](https://docs.github.com/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user)
  * endpoint and pass the query parameter `all=false`.
  */
-class ActivityMarkRepoNotificationsAsRead extends Request {
+class ActivityMarkRepoNotificationsAsRead extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/notifications";
     }
 

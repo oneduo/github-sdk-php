@@ -31,10 +31,12 @@ use Saloon\Http\Request;
  * > You can also specify a team by `org_id` and `team_id` using the route `GET
  * /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}`.
  */
-class TeamsCheckPermissionsForRepoInOrg extends Request {
+class TeamsCheckPermissionsForRepoInOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/repos/{$this->owner}/{$this->repo}";
     }
 

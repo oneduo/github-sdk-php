@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deletes a review comment.
  */
-class PullsDeleteReviewComment extends Request {
+class PullsDeleteReviewComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/comments/{$this->commentId}";
     }
 

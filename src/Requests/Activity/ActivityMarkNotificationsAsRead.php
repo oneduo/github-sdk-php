@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * user](https://docs.github.com/rest/activity/notifications#list-notifications-for-the-authenticated-user)
  * endpoint and pass the query parameter `all=false`.
  */
-class ActivityMarkNotificationsAsRead extends Request {
+class ActivityMarkNotificationsAsRead extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/notifications';
     }
 

@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  *
  * Lists the people who have push access to this branch.
  */
-class ReposGetUsersWithAccessToProtectedBranch extends Request {
+class ReposGetUsersWithAccessToProtectedBranch extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/users";
     }
 

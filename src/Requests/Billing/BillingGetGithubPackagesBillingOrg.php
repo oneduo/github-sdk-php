@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * app tokens and personal access tokens (classic) need the `repo` or `admin:org` scope to use this
  * endpoint.
  */
-class BillingGetGithubPackagesBillingOrg extends Request {
+class BillingGetGithubPackagesBillingOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/settings/billing/packages";
     }
 

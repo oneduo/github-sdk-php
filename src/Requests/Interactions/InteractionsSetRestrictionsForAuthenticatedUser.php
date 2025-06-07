@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * the interaction limit at the user level will overwrite any interaction limits that are set for
  * individual repositories owned by the user.
  */
-class InteractionsSetRestrictionsForAuthenticatedUser extends Request {
+class InteractionsSetRestrictionsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/interaction-limits';
     }
 

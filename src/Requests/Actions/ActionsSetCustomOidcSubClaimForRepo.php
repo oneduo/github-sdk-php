@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `repo` scope
  * to use this endpoint.
  */
-class ActionsSetCustomOidcSubClaimForRepo extends Request {
+class ActionsSetCustomOidcSubClaimForRepo extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/oidc/customization/sub";
     }
 

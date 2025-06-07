@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * on a team, with the fine-grained permission of `custom_properties_org_definitions_manager` in the
  * organization.
  */
-class OrgsRemoveCustomProperty extends Request {
+class OrgsRemoveCustomProperty extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/properties/schema/{$this->customPropertyName}";
     }
 

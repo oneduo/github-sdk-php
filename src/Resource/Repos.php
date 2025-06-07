@@ -209,7 +209,8 @@ use Oneduo\GitHubSdk\Requests\Repos\ReposUpdateWebhookConfigForRepo;
 use Oneduo\GitHubSdk\Requests\Repos\ReposUploadReleaseAsset;
 use Saloon\Http\Response;
 
-class Repos extends GitHubResource {
+class Repos extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $type  Specifies the types of repositories you want returned.
@@ -217,14 +218,16 @@ class Repos extends GitHubResource {
      * @param  string  $direction  The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listForOrg(string $org, ?string $type, ?string $sort, ?string $direction, ?int $page): Response {
+    public function listForOrg(string $org, ?string $type, ?string $sort, ?string $direction, ?int $page): Response
+    {
         return $this->connector->send(new ReposListForOrg($org, $type, $sort, $direction, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createInOrg(string $org): Response {
+    public function createInOrg(string $org): Response
+    {
         return $this->connector->send(new ReposCreateInOrg($org));
     }
 
@@ -235,14 +238,16 @@ class Repos extends GitHubResource {
      *                           If provided, only rulesets that apply to the specified targets will be returned.
      *                           For example, `branch,tag,push`.
      */
-    public function getOrgRulesets(string $org, ?int $page, ?string $targets): Response {
+    public function getOrgRulesets(string $org, ?int $page, ?string $targets): Response
+    {
         return $this->connector->send(new ReposGetOrgRulesets($org, $page, $targets));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createOrgRuleset(string $org): Response {
+    public function createOrgRuleset(string $org): Response
+    {
         return $this->connector->send(new ReposCreateOrgRuleset($org));
     }
 
@@ -276,7 +281,8 @@ class Repos extends GitHubResource {
      *                            for repositories and [GET /orgs/{org}/rulesets/rule-suites](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites)
      *                            for organizations.
      */
-    public function getOrgRuleSuite(string $org, int $ruleSuiteId): Response {
+    public function getOrgRuleSuite(string $org, int $ruleSuiteId): Response
+    {
         return $this->connector->send(new ReposGetOrgRuleSuite($org, $ruleSuiteId));
     }
 
@@ -284,7 +290,8 @@ class Repos extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $rulesetId  The ID of the ruleset.
      */
-    public function getOrgRuleset(string $org, int $rulesetId): Response {
+    public function getOrgRuleset(string $org, int $rulesetId): Response
+    {
         return $this->connector->send(new ReposGetOrgRuleset($org, $rulesetId));
     }
 
@@ -292,7 +299,8 @@ class Repos extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $rulesetId  The ID of the ruleset.
      */
-    public function updateOrgRuleset(string $org, int $rulesetId): Response {
+    public function updateOrgRuleset(string $org, int $rulesetId): Response
+    {
         return $this->connector->send(new ReposUpdateOrgRuleset($org, $rulesetId));
     }
 
@@ -300,7 +308,8 @@ class Repos extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $rulesetId  The ID of the ruleset.
      */
-    public function deleteOrgRuleset(string $org, int $rulesetId): Response {
+    public function deleteOrgRuleset(string $org, int $rulesetId): Response
+    {
         return $this->connector->send(new ReposDeleteOrgRuleset($org, $rulesetId));
     }
 
@@ -308,14 +317,16 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function get(string $owner, string $repo): Response {
+    public function get(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGet($owner, $repo));
     }
 
     /**
      * @param  int  $id  The unique identifier of the repository
      */
-    public function getById(int $id): Response {
+    public function getById(int $id): Response
+    {
         return $this->connector->send(new ReposGetById($id));
     }
 
@@ -323,7 +334,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function delete(string $owner, string $repo): Response {
+    public function delete(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposDelete($owner, $repo));
     }
 
@@ -331,7 +343,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function update(string $owner, string $repo): Response {
+    public function update(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposUpdate($owner, $repo));
     }
 
@@ -368,7 +381,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createAttestation(string $owner, string $repo): Response {
+    public function createAttestation(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateAttestation($owner, $repo));
     }
 
@@ -394,7 +408,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function listAutolinks(string $owner, string $repo): Response {
+    public function listAutolinks(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposListAutolinks($owner, $repo));
     }
 
@@ -402,7 +417,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createAutolink(string $owner, string $repo): Response {
+    public function createAutolink(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateAutolink($owner, $repo));
     }
 
@@ -411,7 +427,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $autolinkId  The unique identifier of the autolink.
      */
-    public function getAutolink(string $owner, string $repo, int $autolinkId): Response {
+    public function getAutolink(string $owner, string $repo, int $autolinkId): Response
+    {
         return $this->connector->send(new ReposGetAutolink($owner, $repo, $autolinkId));
     }
 
@@ -420,7 +437,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $autolinkId  The unique identifier of the autolink.
      */
-    public function deleteAutolink(string $owner, string $repo, int $autolinkId): Response {
+    public function deleteAutolink(string $owner, string $repo, int $autolinkId): Response
+    {
         return $this->connector->send(new ReposDeleteAutolink($owner, $repo, $autolinkId));
     }
 
@@ -428,7 +446,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checkAutomatedSecurityFixes(string $owner, string $repo): Response {
+    public function checkAutomatedSecurityFixes(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCheckAutomatedSecurityFixes($owner, $repo));
     }
 
@@ -436,7 +455,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function enableAutomatedSecurityFixes(string $owner, string $repo): Response {
+    public function enableAutomatedSecurityFixes(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposEnableAutomatedSecurityFixes($owner, $repo));
     }
 
@@ -444,7 +464,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function disableAutomatedSecurityFixes(string $owner, string $repo): Response {
+    public function disableAutomatedSecurityFixes(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposDisableAutomatedSecurityFixes($owner, $repo));
     }
 
@@ -454,7 +475,8 @@ class Repos extends GitHubResource {
      * @param  bool  $protected  Setting to `true` returns only branches protected by branch protections or rulesets. When set to `false`, only unprotected branches are returned. Omitting this parameter returns all branches.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listBranches(string $owner, string $repo, ?bool $protected, ?int $page): Response {
+    public function listBranches(string $owner, string $repo, ?bool $protected, ?int $page): Response
+    {
         return $this->connector->send(new ReposListBranches($owner, $repo, $protected, $page));
     }
 
@@ -463,7 +485,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getBranch(string $owner, string $repo, string $branch): Response {
+    public function getBranch(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetBranch($owner, $repo, $branch));
     }
 
@@ -472,7 +495,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function getBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetBranchProtection($owner, $repo, $branch));
     }
 
@@ -481,7 +505,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function updateBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function updateBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposUpdateBranchProtection($owner, $repo, $branch));
     }
 
@@ -490,7 +515,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function deleteBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function deleteBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposDeleteBranchProtection($owner, $repo, $branch));
     }
 
@@ -499,7 +525,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getAdminBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function getAdminBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetAdminBranchProtection($owner, $repo, $branch));
     }
 
@@ -508,7 +535,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function setAdminBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function setAdminBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposSetAdminBranchProtection($owner, $repo, $branch));
     }
 
@@ -517,7 +545,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function deleteAdminBranchProtection(string $owner, string $repo, string $branch): Response {
+    public function deleteAdminBranchProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposDeleteAdminBranchProtection($owner, $repo, $branch));
     }
 
@@ -526,7 +555,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getPullRequestReviewProtection(string $owner, string $repo, string $branch): Response {
+    public function getPullRequestReviewProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetPullRequestReviewProtection($owner, $repo, $branch));
     }
 
@@ -535,7 +565,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function deletePullRequestReviewProtection(string $owner, string $repo, string $branch): Response {
+    public function deletePullRequestReviewProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposDeletePullRequestReviewProtection($owner, $repo, $branch));
     }
 
@@ -544,7 +575,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function updatePullRequestReviewProtection(string $owner, string $repo, string $branch): Response {
+    public function updatePullRequestReviewProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposUpdatePullRequestReviewProtection($owner, $repo, $branch));
     }
 
@@ -553,7 +585,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getCommitSignatureProtection(string $owner, string $repo, string $branch): Response {
+    public function getCommitSignatureProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetCommitSignatureProtection($owner, $repo, $branch));
     }
 
@@ -562,7 +595,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function createCommitSignatureProtection(string $owner, string $repo, string $branch): Response {
+    public function createCommitSignatureProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposCreateCommitSignatureProtection($owner, $repo, $branch));
     }
 
@@ -571,7 +605,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function deleteCommitSignatureProtection(string $owner, string $repo, string $branch): Response {
+    public function deleteCommitSignatureProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposDeleteCommitSignatureProtection($owner, $repo, $branch));
     }
 
@@ -580,7 +615,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getStatusChecksProtection(string $owner, string $repo, string $branch): Response {
+    public function getStatusChecksProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetStatusChecksProtection($owner, $repo, $branch));
     }
 
@@ -589,7 +625,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function removeStatusCheckProtection(string $owner, string $repo, string $branch): Response {
+    public function removeStatusCheckProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRemoveStatusCheckProtection($owner, $repo, $branch));
     }
 
@@ -598,7 +635,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function updateStatusCheckProtection(string $owner, string $repo, string $branch): Response {
+    public function updateStatusCheckProtection(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposUpdateStatusCheckProtection($owner, $repo, $branch));
     }
 
@@ -607,7 +645,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getAllStatusCheckContexts(string $owner, string $repo, string $branch): Response {
+    public function getAllStatusCheckContexts(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetAllStatusCheckContexts($owner, $repo, $branch));
     }
 
@@ -616,7 +655,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function setStatusCheckContexts(string $owner, string $repo, string $branch): Response {
+    public function setStatusCheckContexts(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposSetStatusCheckContexts($owner, $repo, $branch));
     }
 
@@ -625,7 +665,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function addStatusCheckContexts(string $owner, string $repo, string $branch): Response {
+    public function addStatusCheckContexts(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposAddStatusCheckContexts($owner, $repo, $branch));
     }
 
@@ -634,7 +675,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function removeStatusCheckContexts(string $owner, string $repo, string $branch): Response {
+    public function removeStatusCheckContexts(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRemoveStatusCheckContexts($owner, $repo, $branch));
     }
 
@@ -643,7 +685,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function getAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -652,7 +695,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function deleteAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function deleteAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposDeleteAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -661,7 +705,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getAppsWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response {
+    public function getAppsWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetAppsWithAccessToProtectedBranch($owner, $repo, $branch));
     }
 
@@ -670,7 +715,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function setAppAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function setAppAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposSetAppAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -679,7 +725,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function addAppAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function addAppAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposAddAppAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -688,7 +735,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function removeAppAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function removeAppAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRemoveAppAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -697,7 +745,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getTeamsWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response {
+    public function getTeamsWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetTeamsWithAccessToProtectedBranch($owner, $repo, $branch));
     }
 
@@ -706,7 +755,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function setTeamAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function setTeamAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposSetTeamAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -715,7 +765,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function addTeamAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function addTeamAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposAddTeamAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -724,7 +775,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function removeTeamAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function removeTeamAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRemoveTeamAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -733,7 +785,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function getUsersWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response {
+    public function getUsersWithAccessToProtectedBranch(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposGetUsersWithAccessToProtectedBranch($owner, $repo, $branch));
     }
 
@@ -742,7 +795,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function setUserAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function setUserAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposSetUserAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -751,7 +805,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function addUserAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function addUserAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposAddUserAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -760,7 +815,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function removeUserAccessRestrictions(string $owner, string $repo, string $branch): Response {
+    public function removeUserAccessRestrictions(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRemoveUserAccessRestrictions($owner, $repo, $branch));
     }
 
@@ -769,7 +825,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      */
-    public function renameBranch(string $owner, string $repo, string $branch): Response {
+    public function renameBranch(string $owner, string $repo, string $branch): Response
+    {
         return $this->connector->send(new ReposRenameBranch($owner, $repo, $branch));
     }
 
@@ -778,7 +835,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  A branch, tag or commit name used to determine which version of the CODEOWNERS file to use. Default: the repository's default branch (e.g. `main`)
      */
-    public function codeownersErrors(string $owner, string $repo, ?string $ref): Response {
+    public function codeownersErrors(string $owner, string $repo, ?string $ref): Response
+    {
         return $this->connector->send(new ReposCodeownersErrors($owner, $repo, $ref));
     }
 
@@ -804,7 +862,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function checkCollaborator(string $owner, string $repo, string $username): Response {
+    public function checkCollaborator(string $owner, string $repo, string $username): Response
+    {
         return $this->connector->send(new ReposCheckCollaborator($owner, $repo, $username));
     }
 
@@ -813,7 +872,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function addCollaborator(string $owner, string $repo, string $username): Response {
+    public function addCollaborator(string $owner, string $repo, string $username): Response
+    {
         return $this->connector->send(new ReposAddCollaborator($owner, $repo, $username));
     }
 
@@ -822,7 +882,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function removeCollaborator(string $owner, string $repo, string $username): Response {
+    public function removeCollaborator(string $owner, string $repo, string $username): Response
+    {
         return $this->connector->send(new ReposRemoveCollaborator($owner, $repo, $username));
     }
 
@@ -831,7 +892,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getCollaboratorPermissionLevel(string $owner, string $repo, string $username): Response {
+    public function getCollaboratorPermissionLevel(string $owner, string $repo, string $username): Response
+    {
         return $this->connector->send(new ReposGetCollaboratorPermissionLevel($owner, $repo, $username));
     }
 
@@ -840,7 +902,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listCommitCommentsForRepo(string $owner, string $repo, ?int $page): Response {
+    public function listCommitCommentsForRepo(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListCommitCommentsForRepo($owner, $repo, $page));
     }
 
@@ -849,7 +912,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function getCommitComment(string $owner, string $repo, int $commentId): Response {
+    public function getCommitComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReposGetCommitComment($owner, $repo, $commentId));
     }
 
@@ -858,7 +922,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function deleteCommitComment(string $owner, string $repo, int $commentId): Response {
+    public function deleteCommitComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReposDeleteCommitComment($owner, $repo, $commentId));
     }
 
@@ -867,7 +932,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function updateCommitComment(string $owner, string $repo, int $commentId): Response {
+    public function updateCommitComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new ReposUpdateCommitComment($owner, $repo, $commentId));
     }
 
@@ -901,7 +967,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $commitSha  The SHA of the commit.
      */
-    public function listBranchesForHeadCommit(string $owner, string $repo, string $commitSha): Response {
+    public function listBranchesForHeadCommit(string $owner, string $repo, string $commitSha): Response
+    {
         return $this->connector->send(new ReposListBranchesForHeadCommit($owner, $repo, $commitSha));
     }
 
@@ -911,7 +978,8 @@ class Repos extends GitHubResource {
      * @param  string  $commitSha  The SHA of the commit.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listCommentsForCommit(string $owner, string $repo, string $commitSha, ?int $page): Response {
+    public function listCommentsForCommit(string $owner, string $repo, string $commitSha, ?int $page): Response
+    {
         return $this->connector->send(new ReposListCommentsForCommit($owner, $repo, $commitSha, $page));
     }
 
@@ -920,7 +988,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $commitSha  The SHA of the commit.
      */
-    public function createCommitComment(string $owner, string $repo, string $commitSha): Response {
+    public function createCommitComment(string $owner, string $repo, string $commitSha): Response
+    {
         return $this->connector->send(new ReposCreateCommitComment($owner, $repo, $commitSha));
     }
 
@@ -945,7 +1014,8 @@ class Repos extends GitHubResource {
      * @param  string  $ref  The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getCommit(string $owner, string $repo, string $ref, ?int $page): Response {
+    public function getCommit(string $owner, string $repo, string $ref, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetCommit($owner, $repo, $ref, $page));
     }
 
@@ -955,7 +1025,8 @@ class Repos extends GitHubResource {
      * @param  string  $ref  The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getCombinedStatusForRef(string $owner, string $repo, string $ref, ?int $page): Response {
+    public function getCombinedStatusForRef(string $owner, string $repo, string $ref, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetCombinedStatusForRef($owner, $repo, $ref, $page));
     }
 
@@ -965,7 +1036,8 @@ class Repos extends GitHubResource {
      * @param  string  $ref  The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listCommitStatusesForRef(string $owner, string $repo, string $ref, ?int $page): Response {
+    public function listCommitStatusesForRef(string $owner, string $repo, string $ref, ?int $page): Response
+    {
         return $this->connector->send(new ReposListCommitStatusesForRef($owner, $repo, $ref, $page));
     }
 
@@ -973,7 +1045,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getCommunityProfileMetrics(string $owner, string $repo): Response {
+    public function getCommunityProfileMetrics(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetCommunityProfileMetrics($owner, $repo));
     }
 
@@ -983,7 +1056,8 @@ class Repos extends GitHubResource {
      * @param  string  $basehead  The base branch and head branch to compare. This parameter expects the format `BASE...HEAD`. Both must be branch names in `repo`. To compare with a branch that exists in a different repository in the same network as `repo`, the `basehead` parameter expects the format `USERNAME:BASE...USERNAME:HEAD`.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function compareCommits(string $owner, string $repo, string $basehead, ?int $page): Response {
+    public function compareCommits(string $owner, string $repo, string $basehead, ?int $page): Response
+    {
         return $this->connector->send(new ReposCompareCommits($owner, $repo, $basehead, $page));
     }
 
@@ -993,7 +1067,8 @@ class Repos extends GitHubResource {
      * @param  string  $path  path parameter
      * @param  string  $ref  The name of the commit/branch/tag. Default: the repository’s default branch.
      */
-    public function getContent(string $owner, string $repo, string $path, ?string $ref): Response {
+    public function getContent(string $owner, string $repo, string $path, ?string $ref): Response
+    {
         return $this->connector->send(new ReposGetContent($owner, $repo, $path, $ref));
     }
 
@@ -1002,7 +1077,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $path  path parameter
      */
-    public function createOrUpdateFileContents(string $owner, string $repo, string $path): Response {
+    public function createOrUpdateFileContents(string $owner, string $repo, string $path): Response
+    {
         return $this->connector->send(new ReposCreateOrUpdateFileContents($owner, $repo, $path));
     }
 
@@ -1011,7 +1087,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $path  path parameter
      */
-    public function deleteFile(string $owner, string $repo, string $path): Response {
+    public function deleteFile(string $owner, string $repo, string $path): Response
+    {
         return $this->connector->send(new ReposDeleteFile($owner, $repo, $path));
     }
 
@@ -1021,7 +1098,8 @@ class Repos extends GitHubResource {
      * @param  string  $anon  Set to `1` or `true` to include anonymous contributors in results.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listContributors(string $owner, string $repo, ?string $anon, ?int $page): Response {
+    public function listContributors(string $owner, string $repo, ?string $anon, ?int $page): Response
+    {
         return $this->connector->send(new ReposListContributors($owner, $repo, $anon, $page));
     }
 
@@ -1050,7 +1128,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createDeployment(string $owner, string $repo): Response {
+    public function createDeployment(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateDeployment($owner, $repo));
     }
 
@@ -1059,7 +1138,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $deploymentId  deployment_id parameter
      */
-    public function getDeployment(string $owner, string $repo, int $deploymentId): Response {
+    public function getDeployment(string $owner, string $repo, int $deploymentId): Response
+    {
         return $this->connector->send(new ReposGetDeployment($owner, $repo, $deploymentId));
     }
 
@@ -1068,7 +1148,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $deploymentId  deployment_id parameter
      */
-    public function deleteDeployment(string $owner, string $repo, int $deploymentId): Response {
+    public function deleteDeployment(string $owner, string $repo, int $deploymentId): Response
+    {
         return $this->connector->send(new ReposDeleteDeployment($owner, $repo, $deploymentId));
     }
 
@@ -1078,7 +1159,8 @@ class Repos extends GitHubResource {
      * @param  int  $deploymentId  deployment_id parameter
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listDeploymentStatuses(string $owner, string $repo, int $deploymentId, ?int $page): Response {
+    public function listDeploymentStatuses(string $owner, string $repo, int $deploymentId, ?int $page): Response
+    {
         return $this->connector->send(new ReposListDeploymentStatuses($owner, $repo, $deploymentId, $page));
     }
 
@@ -1087,7 +1169,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $deploymentId  deployment_id parameter
      */
-    public function createDeploymentStatus(string $owner, string $repo, int $deploymentId): Response {
+    public function createDeploymentStatus(string $owner, string $repo, int $deploymentId): Response
+    {
         return $this->connector->send(new ReposCreateDeploymentStatus($owner, $repo, $deploymentId));
     }
 
@@ -1096,7 +1179,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $deploymentId  deployment_id parameter
      */
-    public function getDeploymentStatus(string $owner, string $repo, int $deploymentId, int $statusId): Response {
+    public function getDeploymentStatus(string $owner, string $repo, int $deploymentId, int $statusId): Response
+    {
         return $this->connector->send(new ReposGetDeploymentStatus($owner, $repo, $deploymentId, $statusId));
     }
 
@@ -1104,7 +1188,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createDispatchEvent(string $owner, string $repo): Response {
+    public function createDispatchEvent(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateDispatchEvent($owner, $repo));
     }
 
@@ -1113,7 +1198,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getAllEnvironments(string $owner, string $repo, ?int $page): Response {
+    public function getAllEnvironments(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetAllEnvironments($owner, $repo, $page));
     }
 
@@ -1122,7 +1208,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function getEnvironment(string $owner, string $repo, string $environmentName): Response {
+    public function getEnvironment(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ReposGetEnvironment($owner, $repo, $environmentName));
     }
 
@@ -1131,7 +1218,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function createOrUpdateEnvironment(string $owner, string $repo, string $environmentName): Response {
+    public function createOrUpdateEnvironment(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ReposCreateOrUpdateEnvironment($owner, $repo, $environmentName));
     }
 
@@ -1140,7 +1228,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function deleteAnEnvironment(string $owner, string $repo, string $environmentName): Response {
+    public function deleteAnEnvironment(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ReposDeleteAnEnvironment($owner, $repo, $environmentName));
     }
 
@@ -1164,7 +1253,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function createDeploymentBranchPolicy(string $owner, string $repo, string $environmentName): Response {
+    public function createDeploymentBranchPolicy(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ReposCreateDeploymentBranchPolicy($owner, $repo, $environmentName));
     }
 
@@ -1218,7 +1308,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      */
-    public function getAllDeploymentProtectionRules(string $environmentName, string $repo, string $owner): Response {
+    public function getAllDeploymentProtectionRules(string $environmentName, string $repo, string $owner): Response
+    {
         return $this->connector->send(new ReposGetAllDeploymentProtectionRules($environmentName, $repo, $owner));
     }
 
@@ -1227,7 +1318,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      */
-    public function createDeploymentProtectionRule(string $environmentName, string $repo, string $owner): Response {
+    public function createDeploymentProtectionRule(string $environmentName, string $repo, string $owner): Response
+    {
         return $this->connector->send(new ReposCreateDeploymentProtectionRule($environmentName, $repo, $owner));
     }
 
@@ -1282,7 +1374,8 @@ class Repos extends GitHubResource {
      * @param  string  $sort  The sort order. `stargazers` will sort by star count.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listForks(string $owner, string $repo, ?string $sort, ?int $page): Response {
+    public function listForks(string $owner, string $repo, ?string $sort, ?int $page): Response
+    {
         return $this->connector->send(new ReposListForks($owner, $repo, $sort, $page));
     }
 
@@ -1290,7 +1383,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createFork(string $owner, string $repo): Response {
+    public function createFork(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateFork($owner, $repo));
     }
 
@@ -1299,7 +1393,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listWebhooks(string $owner, string $repo, ?int $page): Response {
+    public function listWebhooks(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListWebhooks($owner, $repo, $page));
     }
 
@@ -1307,7 +1402,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createWebhook(string $owner, string $repo): Response {
+    public function createWebhook(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateWebhook($owner, $repo));
     }
 
@@ -1316,7 +1412,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhook(string $owner, string $repo, int $hookId): Response {
+    public function getWebhook(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposGetWebhook($owner, $repo, $hookId));
     }
 
@@ -1325,7 +1422,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function deleteWebhook(string $owner, string $repo, int $hookId): Response {
+    public function deleteWebhook(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposDeleteWebhook($owner, $repo, $hookId));
     }
 
@@ -1334,7 +1432,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function updateWebhook(string $owner, string $repo, int $hookId): Response {
+    public function updateWebhook(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposUpdateWebhook($owner, $repo, $hookId));
     }
 
@@ -1343,7 +1442,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhookConfigForRepo(string $owner, string $repo, int $hookId): Response {
+    public function getWebhookConfigForRepo(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposGetWebhookConfigForRepo($owner, $repo, $hookId));
     }
 
@@ -1352,7 +1452,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function updateWebhookConfigForRepo(string $owner, string $repo, int $hookId): Response {
+    public function updateWebhookConfigForRepo(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposUpdateWebhookConfigForRepo($owner, $repo, $hookId));
     }
 
@@ -1362,7 +1463,8 @@ class Repos extends GitHubResource {
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      * @param  string  $cursor  Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors.
      */
-    public function listWebhookDeliveries(string $owner, string $repo, int $hookId, ?string $cursor): Response {
+    public function listWebhookDeliveries(string $owner, string $repo, int $hookId, ?string $cursor): Response
+    {
         return $this->connector->send(new ReposListWebhookDeliveries($owner, $repo, $hookId, $cursor));
     }
 
@@ -1371,7 +1473,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhookDelivery(string $owner, string $repo, int $hookId, int $deliveryId): Response {
+    public function getWebhookDelivery(string $owner, string $repo, int $hookId, int $deliveryId): Response
+    {
         return $this->connector->send(new ReposGetWebhookDelivery($owner, $repo, $hookId, $deliveryId));
     }
 
@@ -1380,7 +1483,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function redeliverWebhookDelivery(string $owner, string $repo, int $hookId, int $deliveryId): Response {
+    public function redeliverWebhookDelivery(string $owner, string $repo, int $hookId, int $deliveryId): Response
+    {
         return $this->connector->send(new ReposRedeliverWebhookDelivery($owner, $repo, $hookId, $deliveryId));
     }
 
@@ -1389,7 +1493,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function pingWebhook(string $owner, string $repo, int $hookId): Response {
+    public function pingWebhook(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposPingWebhook($owner, $repo, $hookId));
     }
 
@@ -1398,7 +1503,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function testPushWebhook(string $owner, string $repo, int $hookId): Response {
+    public function testPushWebhook(string $owner, string $repo, int $hookId): Response
+    {
         return $this->connector->send(new ReposTestPushWebhook($owner, $repo, $hookId));
     }
 
@@ -1407,7 +1513,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listInvitations(string $owner, string $repo, ?int $page): Response {
+    public function listInvitations(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListInvitations($owner, $repo, $page));
     }
 
@@ -1416,7 +1523,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $invitationId  The unique identifier of the invitation.
      */
-    public function deleteInvitation(string $owner, string $repo, int $invitationId): Response {
+    public function deleteInvitation(string $owner, string $repo, int $invitationId): Response
+    {
         return $this->connector->send(new ReposDeleteInvitation($owner, $repo, $invitationId));
     }
 
@@ -1425,7 +1533,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $invitationId  The unique identifier of the invitation.
      */
-    public function updateInvitation(string $owner, string $repo, int $invitationId): Response {
+    public function updateInvitation(string $owner, string $repo, int $invitationId): Response
+    {
         return $this->connector->send(new ReposUpdateInvitation($owner, $repo, $invitationId));
     }
 
@@ -1434,7 +1543,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listDeployKeys(string $owner, string $repo, ?int $page): Response {
+    public function listDeployKeys(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListDeployKeys($owner, $repo, $page));
     }
 
@@ -1442,7 +1552,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createDeployKey(string $owner, string $repo): Response {
+    public function createDeployKey(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateDeployKey($owner, $repo));
     }
 
@@ -1451,7 +1562,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $keyId  The unique identifier of the key.
      */
-    public function getDeployKey(string $owner, string $repo, int $keyId): Response {
+    public function getDeployKey(string $owner, string $repo, int $keyId): Response
+    {
         return $this->connector->send(new ReposGetDeployKey($owner, $repo, $keyId));
     }
 
@@ -1460,7 +1572,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $keyId  The unique identifier of the key.
      */
-    public function deleteDeployKey(string $owner, string $repo, int $keyId): Response {
+    public function deleteDeployKey(string $owner, string $repo, int $keyId): Response
+    {
         return $this->connector->send(new ReposDeleteDeployKey($owner, $repo, $keyId));
     }
 
@@ -1468,7 +1581,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function listLanguages(string $owner, string $repo): Response {
+    public function listLanguages(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposListLanguages($owner, $repo));
     }
 
@@ -1476,7 +1590,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function mergeUpstream(string $owner, string $repo): Response {
+    public function mergeUpstream(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposMergeUpstream($owner, $repo));
     }
 
@@ -1484,7 +1599,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function merge(string $owner, string $repo): Response {
+    public function merge(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposMerge($owner, $repo));
     }
 
@@ -1492,7 +1608,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getPages(string $owner, string $repo): Response {
+    public function getPages(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetPages($owner, $repo));
     }
 
@@ -1500,7 +1617,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function updateInformationAboutPagesSite(string $owner, string $repo): Response {
+    public function updateInformationAboutPagesSite(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposUpdateInformationAboutPagesSite($owner, $repo));
     }
 
@@ -1508,7 +1626,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createPagesSite(string $owner, string $repo): Response {
+    public function createPagesSite(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreatePagesSite($owner, $repo));
     }
 
@@ -1516,7 +1635,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function deletePagesSite(string $owner, string $repo): Response {
+    public function deletePagesSite(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposDeletePagesSite($owner, $repo));
     }
 
@@ -1525,7 +1645,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listPagesBuilds(string $owner, string $repo, ?int $page): Response {
+    public function listPagesBuilds(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListPagesBuilds($owner, $repo, $page));
     }
 
@@ -1533,7 +1654,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function requestPagesBuild(string $owner, string $repo): Response {
+    public function requestPagesBuild(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposRequestPagesBuild($owner, $repo));
     }
 
@@ -1541,7 +1663,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getLatestPagesBuild(string $owner, string $repo): Response {
+    public function getLatestPagesBuild(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetLatestPagesBuild($owner, $repo));
     }
 
@@ -1549,7 +1672,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getPagesBuild(string $owner, string $repo, int $buildId): Response {
+    public function getPagesBuild(string $owner, string $repo, int $buildId): Response
+    {
         return $this->connector->send(new ReposGetPagesBuild($owner, $repo, $buildId));
     }
 
@@ -1557,7 +1681,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createPagesDeployment(string $owner, string $repo): Response {
+    public function createPagesDeployment(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreatePagesDeployment($owner, $repo));
     }
 
@@ -1566,7 +1691,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $pagesDeploymentId  The ID of the Pages deployment. You can also give the commit SHA of the deployment.
      */
-    public function getPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): Response {
+    public function getPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): Response
+    {
         return $this->connector->send(new ReposGetPagesDeployment($owner, $repo, $pagesDeploymentId));
     }
 
@@ -1575,7 +1701,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $pagesDeploymentId  The ID of the Pages deployment. You can also give the commit SHA of the deployment.
      */
-    public function cancelPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): Response {
+    public function cancelPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): Response
+    {
         return $this->connector->send(new ReposCancelPagesDeployment($owner, $repo, $pagesDeploymentId));
     }
 
@@ -1583,7 +1710,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getPagesHealthCheck(string $owner, string $repo): Response {
+    public function getPagesHealthCheck(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetPagesHealthCheck($owner, $repo));
     }
 
@@ -1591,7 +1719,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checkPrivateVulnerabilityReporting(string $owner, string $repo): Response {
+    public function checkPrivateVulnerabilityReporting(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCheckPrivateVulnerabilityReporting($owner, $repo));
     }
 
@@ -1599,7 +1728,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function enablePrivateVulnerabilityReporting(string $owner, string $repo): Response {
+    public function enablePrivateVulnerabilityReporting(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposEnablePrivateVulnerabilityReporting($owner, $repo));
     }
 
@@ -1607,7 +1737,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function disablePrivateVulnerabilityReporting(string $owner, string $repo): Response {
+    public function disablePrivateVulnerabilityReporting(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposDisablePrivateVulnerabilityReporting($owner, $repo));
     }
 
@@ -1615,7 +1746,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getCustomPropertiesValues(string $owner, string $repo): Response {
+    public function getCustomPropertiesValues(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetCustomPropertiesValues($owner, $repo));
     }
 
@@ -1623,7 +1755,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createOrUpdateCustomPropertiesValues(string $owner, string $repo): Response {
+    public function createOrUpdateCustomPropertiesValues(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateOrUpdateCustomPropertiesValues($owner, $repo));
     }
 
@@ -1632,7 +1765,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The name of the commit/branch/tag. Default: the repository’s default branch.
      */
-    public function getReadme(string $owner, string $repo, ?string $ref): Response {
+    public function getReadme(string $owner, string $repo, ?string $ref): Response
+    {
         return $this->connector->send(new ReposGetReadme($owner, $repo, $ref));
     }
 
@@ -1642,7 +1776,8 @@ class Repos extends GitHubResource {
      * @param  string  $dir  The alternate path to look for a README file
      * @param  string  $ref  The name of the commit/branch/tag. Default: the repository’s default branch.
      */
-    public function getReadmeInDirectory(string $owner, string $repo, string $dir, ?string $ref): Response {
+    public function getReadmeInDirectory(string $owner, string $repo, string $dir, ?string $ref): Response
+    {
         return $this->connector->send(new ReposGetReadmeInDirectory($owner, $repo, $dir, $ref));
     }
 
@@ -1651,7 +1786,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listReleases(string $owner, string $repo, ?int $page): Response {
+    public function listReleases(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListReleases($owner, $repo, $page));
     }
 
@@ -1659,7 +1795,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRelease(string $owner, string $repo): Response {
+    public function createRelease(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateRelease($owner, $repo));
     }
 
@@ -1668,7 +1805,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $assetId  The unique identifier of the asset.
      */
-    public function getReleaseAsset(string $owner, string $repo, int $assetId): Response {
+    public function getReleaseAsset(string $owner, string $repo, int $assetId): Response
+    {
         return $this->connector->send(new ReposGetReleaseAsset($owner, $repo, $assetId));
     }
 
@@ -1677,7 +1815,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $assetId  The unique identifier of the asset.
      */
-    public function deleteReleaseAsset(string $owner, string $repo, int $assetId): Response {
+    public function deleteReleaseAsset(string $owner, string $repo, int $assetId): Response
+    {
         return $this->connector->send(new ReposDeleteReleaseAsset($owner, $repo, $assetId));
     }
 
@@ -1686,7 +1825,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $assetId  The unique identifier of the asset.
      */
-    public function updateReleaseAsset(string $owner, string $repo, int $assetId): Response {
+    public function updateReleaseAsset(string $owner, string $repo, int $assetId): Response
+    {
         return $this->connector->send(new ReposUpdateReleaseAsset($owner, $repo, $assetId));
     }
 
@@ -1694,7 +1834,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function generateReleaseNotes(string $owner, string $repo): Response {
+    public function generateReleaseNotes(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGenerateReleaseNotes($owner, $repo));
     }
 
@@ -1702,7 +1843,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getLatestRelease(string $owner, string $repo): Response {
+    public function getLatestRelease(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetLatestRelease($owner, $repo));
     }
 
@@ -1711,7 +1853,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $tag  tag parameter
      */
-    public function getReleaseByTag(string $owner, string $repo, string $tag): Response {
+    public function getReleaseByTag(string $owner, string $repo, string $tag): Response
+    {
         return $this->connector->send(new ReposGetReleaseByTag($owner, $repo, $tag));
     }
 
@@ -1720,7 +1863,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $releaseId  The unique identifier of the release.
      */
-    public function getRelease(string $owner, string $repo, int $releaseId): Response {
+    public function getRelease(string $owner, string $repo, int $releaseId): Response
+    {
         return $this->connector->send(new ReposGetRelease($owner, $repo, $releaseId));
     }
 
@@ -1729,7 +1873,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $releaseId  The unique identifier of the release.
      */
-    public function deleteRelease(string $owner, string $repo, int $releaseId): Response {
+    public function deleteRelease(string $owner, string $repo, int $releaseId): Response
+    {
         return $this->connector->send(new ReposDeleteRelease($owner, $repo, $releaseId));
     }
 
@@ -1738,7 +1883,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $releaseId  The unique identifier of the release.
      */
-    public function updateRelease(string $owner, string $repo, int $releaseId): Response {
+    public function updateRelease(string $owner, string $repo, int $releaseId): Response
+    {
         return $this->connector->send(new ReposUpdateRelease($owner, $repo, $releaseId));
     }
 
@@ -1748,7 +1894,8 @@ class Repos extends GitHubResource {
      * @param  int  $releaseId  The unique identifier of the release.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listReleaseAssets(string $owner, string $repo, int $releaseId, ?int $page): Response {
+    public function listReleaseAssets(string $owner, string $repo, int $releaseId, ?int $page): Response
+    {
         return $this->connector->send(new ReposListReleaseAssets($owner, $repo, $releaseId, $page));
     }
 
@@ -1773,7 +1920,8 @@ class Repos extends GitHubResource {
      * @param  string  $branch  The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql).
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getBranchRules(string $owner, string $repo, string $branch, ?int $page): Response {
+    public function getBranchRules(string $owner, string $repo, string $branch, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetBranchRules($owner, $repo, $branch, $page));
     }
 
@@ -1800,7 +1948,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRepoRuleset(string $owner, string $repo): Response {
+    public function createRepoRuleset(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateRepoRuleset($owner, $repo));
     }
 
@@ -1835,7 +1984,8 @@ class Repos extends GitHubResource {
      *                            for repositories and [GET /orgs/{org}/rulesets/rule-suites](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites)
      *                            for organizations.
      */
-    public function getRepoRuleSuite(string $owner, string $repo, int $ruleSuiteId): Response {
+    public function getRepoRuleSuite(string $owner, string $repo, int $ruleSuiteId): Response
+    {
         return $this->connector->send(new ReposGetRepoRuleSuite($owner, $repo, $ruleSuiteId));
     }
 
@@ -1845,7 +1995,8 @@ class Repos extends GitHubResource {
      * @param  int  $rulesetId  The ID of the ruleset.
      * @param  bool  $includesParents  Include rulesets configured at higher levels that apply to this repository
      */
-    public function getRepoRuleset(string $owner, string $repo, int $rulesetId, ?bool $includesParents): Response {
+    public function getRepoRuleset(string $owner, string $repo, int $rulesetId, ?bool $includesParents): Response
+    {
         return $this->connector->send(new ReposGetRepoRuleset($owner, $repo, $rulesetId, $includesParents));
     }
 
@@ -1854,7 +2005,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $rulesetId  The ID of the ruleset.
      */
-    public function updateRepoRuleset(string $owner, string $repo, int $rulesetId): Response {
+    public function updateRepoRuleset(string $owner, string $repo, int $rulesetId): Response
+    {
         return $this->connector->send(new ReposUpdateRepoRuleset($owner, $repo, $rulesetId));
     }
 
@@ -1863,7 +2015,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $rulesetId  The ID of the ruleset.
      */
-    public function deleteRepoRuleset(string $owner, string $repo, int $rulesetId): Response {
+    public function deleteRepoRuleset(string $owner, string $repo, int $rulesetId): Response
+    {
         return $this->connector->send(new ReposDeleteRepoRuleset($owner, $repo, $rulesetId));
     }
 
@@ -1873,7 +2026,8 @@ class Repos extends GitHubResource {
      * @param  int  $rulesetId  The ID of the ruleset.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getRepoRulesetHistory(string $owner, string $repo, int $rulesetId, ?int $page): Response {
+    public function getRepoRulesetHistory(string $owner, string $repo, int $rulesetId, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetRepoRulesetHistory($owner, $repo, $rulesetId, $page));
     }
 
@@ -1883,7 +2037,8 @@ class Repos extends GitHubResource {
      * @param  int  $rulesetId  The ID of the ruleset.
      * @param  int  $versionId  The ID of the version
      */
-    public function getRepoRulesetVersion(string $owner, string $repo, int $rulesetId, int $versionId): Response {
+    public function getRepoRulesetVersion(string $owner, string $repo, int $rulesetId, int $versionId): Response
+    {
         return $this->connector->send(new ReposGetRepoRulesetVersion($owner, $repo, $rulesetId, $versionId));
     }
 
@@ -1891,7 +2046,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getCodeFrequencyStats(string $owner, string $repo): Response {
+    public function getCodeFrequencyStats(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetCodeFrequencyStats($owner, $repo));
     }
 
@@ -1899,7 +2055,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getCommitActivityStats(string $owner, string $repo): Response {
+    public function getCommitActivityStats(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetCommitActivityStats($owner, $repo));
     }
 
@@ -1907,7 +2064,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getContributorsStats(string $owner, string $repo): Response {
+    public function getContributorsStats(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetContributorsStats($owner, $repo));
     }
 
@@ -1915,7 +2073,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getParticipationStats(string $owner, string $repo): Response {
+    public function getParticipationStats(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetParticipationStats($owner, $repo));
     }
 
@@ -1923,7 +2082,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getPunchCardStats(string $owner, string $repo): Response {
+    public function getPunchCardStats(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetPunchCardStats($owner, $repo));
     }
 
@@ -1931,7 +2091,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createCommitStatus(string $owner, string $repo, string $sha): Response {
+    public function createCommitStatus(string $owner, string $repo, string $sha): Response
+    {
         return $this->connector->send(new ReposCreateCommitStatus($owner, $repo, $sha));
     }
 
@@ -1940,7 +2101,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listTags(string $owner, string $repo, ?int $page): Response {
+    public function listTags(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListTags($owner, $repo, $page));
     }
 
@@ -1948,7 +2110,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function listTagProtection(string $owner, string $repo): Response {
+    public function listTagProtection(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposListTagProtection($owner, $repo));
     }
 
@@ -1956,7 +2119,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createTagProtection(string $owner, string $repo): Response {
+    public function createTagProtection(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCreateTagProtection($owner, $repo));
     }
 
@@ -1965,7 +2129,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $tagProtectionId  The unique identifier of the tag protection.
      */
-    public function deleteTagProtection(string $owner, string $repo, int $tagProtectionId): Response {
+    public function deleteTagProtection(string $owner, string $repo, int $tagProtectionId): Response
+    {
         return $this->connector->send(new ReposDeleteTagProtection($owner, $repo, $tagProtectionId));
     }
 
@@ -1973,7 +2138,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function downloadTarballArchive(string $owner, string $repo, string $ref): Response {
+    public function downloadTarballArchive(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new ReposDownloadTarballArchive($owner, $repo, $ref));
     }
 
@@ -1982,7 +2148,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listTeams(string $owner, string $repo, ?int $page): Response {
+    public function listTeams(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposListTeams($owner, $repo, $page));
     }
 
@@ -1991,7 +2158,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getAllTopics(string $owner, string $repo, ?int $page): Response {
+    public function getAllTopics(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ReposGetAllTopics($owner, $repo, $page));
     }
 
@@ -1999,7 +2167,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function replaceAllTopics(string $owner, string $repo): Response {
+    public function replaceAllTopics(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposReplaceAllTopics($owner, $repo));
     }
 
@@ -2008,7 +2177,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $per  The time frame to display results for.
      */
-    public function getClones(string $owner, string $repo, ?string $per): Response {
+    public function getClones(string $owner, string $repo, ?string $per): Response
+    {
         return $this->connector->send(new ReposGetClones($owner, $repo, $per));
     }
 
@@ -2016,7 +2186,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getTopPaths(string $owner, string $repo): Response {
+    public function getTopPaths(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetTopPaths($owner, $repo));
     }
 
@@ -2024,7 +2195,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getTopReferrers(string $owner, string $repo): Response {
+    public function getTopReferrers(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposGetTopReferrers($owner, $repo));
     }
 
@@ -2033,7 +2205,8 @@ class Repos extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $per  The time frame to display results for.
      */
-    public function getViews(string $owner, string $repo, ?string $per): Response {
+    public function getViews(string $owner, string $repo, ?string $per): Response
+    {
         return $this->connector->send(new ReposGetViews($owner, $repo, $per));
     }
 
@@ -2041,7 +2214,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function transfer(string $owner, string $repo): Response {
+    public function transfer(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposTransfer($owner, $repo));
     }
 
@@ -2049,7 +2223,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function checkVulnerabilityAlerts(string $owner, string $repo): Response {
+    public function checkVulnerabilityAlerts(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposCheckVulnerabilityAlerts($owner, $repo));
     }
 
@@ -2057,7 +2232,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function enableVulnerabilityAlerts(string $owner, string $repo): Response {
+    public function enableVulnerabilityAlerts(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposEnableVulnerabilityAlerts($owner, $repo));
     }
 
@@ -2065,7 +2241,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function disableVulnerabilityAlerts(string $owner, string $repo): Response {
+    public function disableVulnerabilityAlerts(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ReposDisableVulnerabilityAlerts($owner, $repo));
     }
 
@@ -2073,7 +2250,8 @@ class Repos extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function downloadZipballArchive(string $owner, string $repo, string $ref): Response {
+    public function downloadZipballArchive(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new ReposDownloadZipballArchive($owner, $repo, $ref));
     }
 
@@ -2081,14 +2259,16 @@ class Repos extends GitHubResource {
      * @param  string  $templateOwner  The account owner of the template repository. The name is not case sensitive.
      * @param  string  $templateRepo  The name of the template repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createUsingTemplate(string $templateOwner, string $templateRepo): Response {
+    public function createUsingTemplate(string $templateOwner, string $templateRepo): Response
+    {
         return $this->connector->send(new ReposCreateUsingTemplate($templateOwner, $templateRepo));
     }
 
     /**
      * @param  int  $since  A repository ID. Only return repositories with an ID greater than this ID.
      */
-    public function listPublic(?int $since): Response {
+    public function listPublic(?int $since): Response
+    {
         return $this->connector->send(new ReposListPublic($since));
     }
 
@@ -2118,28 +2298,32 @@ class Repos extends GitHubResource {
         return $this->connector->send(new ReposListForAuthenticatedUser($visibility, $affiliation, $type, $sort, $direction, $page, $since, $before));
     }
 
-    public function createForAuthenticatedUser(): Response {
+    public function createForAuthenticatedUser(): Response
+    {
         return $this->connector->send(new ReposCreateForAuthenticatedUser);
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listInvitationsForAuthenticatedUser(?int $page): Response {
+    public function listInvitationsForAuthenticatedUser(?int $page): Response
+    {
         return $this->connector->send(new ReposListInvitationsForAuthenticatedUser($page));
     }
 
     /**
      * @param  int  $invitationId  The unique identifier of the invitation.
      */
-    public function declineInvitationForAuthenticatedUser(int $invitationId): Response {
+    public function declineInvitationForAuthenticatedUser(int $invitationId): Response
+    {
         return $this->connector->send(new ReposDeclineInvitationForAuthenticatedUser($invitationId));
     }
 
     /**
      * @param  int  $invitationId  The unique identifier of the invitation.
      */
-    public function acceptInvitationForAuthenticatedUser(int $invitationId): Response {
+    public function acceptInvitationForAuthenticatedUser(int $invitationId): Response
+    {
         return $this->connector->send(new ReposAcceptInvitationForAuthenticatedUser($invitationId));
     }
 

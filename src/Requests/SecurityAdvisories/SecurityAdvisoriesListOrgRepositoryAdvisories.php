@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access
  * tokens (classic) need the `repo` or `repository_advisories:write` scope to use this endpoint.
  */
-class SecurityAdvisoriesListOrgRepositoryAdvisories extends Request {
+class SecurityAdvisoriesListOrgRepositoryAdvisories extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/security-advisories";
     }
 
@@ -40,7 +42,8 @@ class SecurityAdvisoriesListOrgRepositoryAdvisories extends Request {
         protected ?string $state = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['direction' => $this->direction, 'sort' => $this->sort, 'before' => $this->before, 'state' => $this->state]);
     }
 }

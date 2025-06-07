@@ -29,7 +29,8 @@ use Oneduo\GitHubSdk\Requests\Dependabot\DependabotUpdateAlert;
 use Oneduo\GitHubSdk\Requests\Dependabot\DependabotUpdateRepositoryAccessForOrg;
 use Saloon\Http\Response;
 
-class Dependabot extends GitHubResource {
+class Dependabot extends GitHubResource
+{
     /**
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  string  $state  A comma-separated list of states. If specified, only alerts with these states will be returned.
@@ -85,21 +86,24 @@ class Dependabot extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function repositoryAccessForOrg(string $org): Response {
+    public function repositoryAccessForOrg(string $org): Response
+    {
         return $this->connector->send(new DependabotRepositoryAccessForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function updateRepositoryAccessForOrg(string $org): Response {
+    public function updateRepositoryAccessForOrg(string $org): Response
+    {
         return $this->connector->send(new DependabotUpdateRepositoryAccessForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function setRepositoryAccessDefaultLevel(string $org): Response {
+    public function setRepositoryAccessDefaultLevel(string $org): Response
+    {
         return $this->connector->send(new DependabotSetRepositoryAccessDefaultLevel($org));
     }
 
@@ -159,14 +163,16 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOrgSecrets(string $org, ?int $page): Response {
+    public function listOrgSecrets(string $org, ?int $page): Response
+    {
         return $this->connector->send(new DependabotListOrgSecrets($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getOrgPublicKey(string $org): Response {
+    public function getOrgPublicKey(string $org): Response
+    {
         return $this->connector->send(new DependabotGetOrgPublicKey($org));
     }
 
@@ -174,7 +180,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function getOrgSecret(string $org, string $secretName): Response {
+    public function getOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new DependabotGetOrgSecret($org, $secretName));
     }
 
@@ -182,7 +189,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function createOrUpdateOrgSecret(string $org, string $secretName): Response {
+    public function createOrUpdateOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new DependabotCreateOrUpdateOrgSecret($org, $secretName));
     }
 
@@ -190,7 +198,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function deleteOrgSecret(string $org, string $secretName): Response {
+    public function deleteOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new DependabotDeleteOrgSecret($org, $secretName));
     }
 
@@ -199,7 +208,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $secretName  The name of the secret.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response {
+    public function listSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response
+    {
         return $this->connector->send(new DependabotListSelectedReposForOrgSecret($org, $secretName, $page));
     }
 
@@ -207,7 +217,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function setSelectedReposForOrgSecret(string $org, string $secretName): Response {
+    public function setSelectedReposForOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new DependabotSetSelectedReposForOrgSecret($org, $secretName));
     }
 
@@ -215,7 +226,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response {
+    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response
+    {
         return $this->connector->send(new DependabotAddSelectedRepoToOrgSecret($org, $secretName, $repositoryId));
     }
 
@@ -297,7 +309,8 @@ class Dependabot extends GitHubResource {
      *                            or in `number` fields in the response from the
      *                            `GET /repos/{owner}/{repo}/dependabot/alerts` operation.
      */
-    public function getAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function getAlert(string $owner, string $repo, int $alertNumber): Response
+    {
         return $this->connector->send(new DependabotGetAlert($owner, $repo, $alertNumber));
     }
 
@@ -309,7 +322,8 @@ class Dependabot extends GitHubResource {
      *                            or in `number` fields in the response from the
      *                            `GET /repos/{owner}/{repo}/dependabot/alerts` operation.
      */
-    public function updateAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function updateAlert(string $owner, string $repo, int $alertNumber): Response
+    {
         return $this->connector->send(new DependabotUpdateAlert($owner, $repo, $alertNumber));
     }
 
@@ -318,7 +332,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoSecrets(string $owner, string $repo, ?int $page): Response {
+    public function listRepoSecrets(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new DependabotListRepoSecrets($owner, $repo, $page));
     }
 
@@ -326,7 +341,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getRepoPublicKey(string $owner, string $repo): Response {
+    public function getRepoPublicKey(string $owner, string $repo): Response
+    {
         return $this->connector->send(new DependabotGetRepoPublicKey($owner, $repo));
     }
 
@@ -335,7 +351,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function getRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function getRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new DependabotGetRepoSecret($owner, $repo, $secretName));
     }
 
@@ -344,7 +361,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new DependabotCreateOrUpdateRepoSecret($owner, $repo, $secretName));
     }
 
@@ -353,7 +371,8 @@ class Dependabot extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function deleteRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function deleteRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new DependabotDeleteRepoSecret($owner, $repo, $secretName));
     }
 }

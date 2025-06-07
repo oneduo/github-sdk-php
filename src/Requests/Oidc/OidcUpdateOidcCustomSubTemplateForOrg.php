@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth app
  * tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
  */
-class OidcUpdateOidcCustomSubTemplateForOrg extends Request {
+class OidcUpdateOidcCustomSubTemplateForOrg extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/oidc/customization/sub";
     }
 

@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Sets the visibility for your primary email addresses.
  */
-class UsersSetPrimaryEmailVisibilityForAuthenticatedUser extends Request implements HasBody {
+class UsersSetPrimaryEmailVisibilityForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/email/visibility';
     }
 

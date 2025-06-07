@@ -20,12 +20,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > Previously
  * `/repos/:owner/:repo/hooks/:hook_id/test`
  */
-class ReposTestPushWebhook extends Request implements HasBody {
+class ReposTestPushWebhook extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/tests";
     }
 

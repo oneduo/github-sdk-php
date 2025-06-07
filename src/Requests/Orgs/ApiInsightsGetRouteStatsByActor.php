@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get API request count statistics for an actor broken down by route within a specified time frame.
  */
-class ApiInsightsGetRouteStatsByActor extends Request {
+class ApiInsightsGetRouteStatsByActor extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/route-stats/{$this->actorType}/{$this->actorId}";
     }
 
@@ -44,7 +46,8 @@ class ApiInsightsGetRouteStatsByActor extends Request {
         protected ?string $apiRouteSubstring = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'min_timestamp' => $this->minTimestamp,
             'max_timestamp' => $this->maxTimestamp,

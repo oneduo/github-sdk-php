@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * To list the open or merged pull requests associated with a branch, you can set the
  * `commit_sha` parameter to the branch name.
  */
-class ReposListPullRequestsAssociatedWithCommit extends Request {
+class ReposListPullRequestsAssociatedWithCommit extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/commits/{$this->commitSha}/pulls";
     }
 
@@ -39,7 +41,8 @@ class ReposListPullRequestsAssociatedWithCommit extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Lists the people following the authenticated user.
  */
-class UsersListFollowersForAuthenticatedUser extends Request {
+class UsersListFollowersForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/followers';
     }
 
@@ -28,7 +30,8 @@ class UsersListFollowersForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

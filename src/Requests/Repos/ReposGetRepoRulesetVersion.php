@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get a version of a repository ruleset.
  */
-class ReposGetRepoRulesetVersion extends Request {
+class ReposGetRepoRulesetVersion extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/rulesets/{$this->rulesetId}/history/{$this->versionId}";
     }
 

@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * information, see "[About permissions for GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesListPackagesForAuthenticatedUser extends Request {
+class PackagesListPackagesForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/packages';
     }
 
@@ -40,7 +42,8 @@ class PackagesListPackagesForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['package_type' => $this->packageType, 'visibility' => $this->visibility, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

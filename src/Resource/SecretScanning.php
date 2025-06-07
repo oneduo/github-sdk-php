@@ -15,7 +15,8 @@ use Oneduo\GitHubSdk\Requests\SecretScanning\SecretScanningListLocationsForAlert
 use Oneduo\GitHubSdk\Requests\SecretScanning\SecretScanningUpdateAlert;
 use Saloon\Http\Response;
 
-class SecretScanning extends GitHubResource {
+class SecretScanning extends GitHubResource
+{
     /**
      * @param  string  $enterprise  The slug version of the enterprise name. You can also substitute this value with the enterprise id.
      * @param  string  $state  Set to `open` or `resolved` to only list secret scanning alerts in a specific state.
@@ -115,7 +116,8 @@ class SecretScanning extends GitHubResource {
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      * @param  bool  $hideSecret  A boolean value representing whether or not to hide literal secrets in the results.
      */
-    public function getAlert(string $owner, string $repo, int $alertNumber, ?bool $hideSecret): Response {
+    public function getAlert(string $owner, string $repo, int $alertNumber, ?bool $hideSecret): Response
+    {
         return $this->connector->send(new SecretScanningGetAlert($owner, $repo, $alertNumber, $hideSecret));
     }
 
@@ -124,7 +126,8 @@ class SecretScanning extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $alertNumber  The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.
      */
-    public function updateAlert(string $owner, string $repo, int $alertNumber): Response {
+    public function updateAlert(string $owner, string $repo, int $alertNumber): Response
+    {
         return $this->connector->send(new SecretScanningUpdateAlert($owner, $repo, $alertNumber));
     }
 
@@ -147,7 +150,8 @@ class SecretScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createPushProtectionBypass(string $owner, string $repo): Response {
+    public function createPushProtectionBypass(string $owner, string $repo): Response
+    {
         return $this->connector->send(new SecretScanningCreatePushProtectionBypass($owner, $repo));
     }
 
@@ -155,7 +159,8 @@ class SecretScanning extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getScanHistory(string $owner, string $repo): Response {
+    public function getScanHistory(string $owner, string $repo): Response
+    {
         return $this->connector->send(new SecretScanningGetScanHistory($owner, $repo));
     }
 }

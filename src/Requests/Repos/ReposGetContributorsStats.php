@@ -25,10 +25,12 @@ use Saloon\Http\Request;
  * > This endpoint will
  * return `0` values for all addition and deletion counts in repositories with 10,000 or more commits.
  */
-class ReposGetContributorsStats extends Request {
+class ReposGetContributorsStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/stats/contributors";
     }
 

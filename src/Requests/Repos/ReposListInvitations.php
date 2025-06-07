@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * When authenticating as a user with admin rights to a repository, this endpoint will list all
  * currently open repository invitations.
  */
-class ReposListInvitations extends Request {
+class ReposListInvitations extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/invitations";
     }
 
@@ -33,7 +35,8 @@ class ReposListInvitations extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

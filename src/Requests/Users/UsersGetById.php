@@ -32,10 +32,12 @@ use Saloon\Http\Request;
  * Emails API enables you to list all of your email addresses, and toggle a primary email to be visible
  * publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).
  */
-class UsersGetById extends Request {
+class UsersGetById extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/{$this->accountId}";
     }
 

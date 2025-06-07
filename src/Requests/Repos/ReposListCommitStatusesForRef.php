@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * This resource is also available via a legacy route: `GET
  * /repos/:owner/:repo/statuses/:ref`.
  */
-class ReposListCommitStatusesForRef extends Request {
+class ReposListCommitStatusesForRef extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/commits/{$this->ref}/statuses";
     }
 
@@ -39,7 +41,8 @@ class ReposListCommitStatusesForRef extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

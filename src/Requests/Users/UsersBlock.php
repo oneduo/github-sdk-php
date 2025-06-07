@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Blocks the given user and returns a 204. If the authenticated user cannot block the given user a 422
  * is returned.
  */
-class UsersBlock extends Request {
+class UsersBlock extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/blocks/{$this->username}";
     }
 

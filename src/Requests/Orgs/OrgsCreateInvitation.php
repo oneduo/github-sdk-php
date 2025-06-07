@@ -25,12 +25,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * "[Best practices for using the REST
  * API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api)."
  */
-class OrgsCreateInvitation extends Request implements HasBody {
+class OrgsCreateInvitation extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/invitations";
     }
 

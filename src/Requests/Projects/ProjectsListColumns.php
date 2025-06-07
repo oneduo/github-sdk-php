@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more
  * information.
  */
-class ProjectsListColumns extends Request {
+class ProjectsListColumns extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/projects/{$this->projectId}/columns";
     }
 
@@ -35,7 +37,8 @@ class ProjectsListColumns extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

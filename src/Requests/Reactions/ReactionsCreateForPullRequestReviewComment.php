@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * response with an HTTP `200` status means that you already added the reaction type to this pull
  * request review comment.
  */
-class ReactionsCreateForPullRequestReviewComment extends Request implements HasBody {
+class ReactionsCreateForPullRequestReviewComment extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/comments/{$this->commentId}/reactions";
     }
 

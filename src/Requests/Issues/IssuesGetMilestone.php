@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Gets a milestone using the given milestone number.
  */
-class IssuesGetMilestone extends Request {
+class IssuesGetMilestone extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/milestones/{$this->milestoneNumber}";
     }
 

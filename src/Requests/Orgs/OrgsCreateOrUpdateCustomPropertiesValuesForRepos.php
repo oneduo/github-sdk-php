@@ -29,12 +29,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *   - A user, or a user on a team, with the fine-grained
  * permission of `custom_properties_org_values_editor` in the organization.
  */
-class OrgsCreateOrUpdateCustomPropertiesValuesForRepos extends Request implements HasBody {
+class OrgsCreateOrUpdateCustomPropertiesValuesForRepos extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/properties/values";
     }
 

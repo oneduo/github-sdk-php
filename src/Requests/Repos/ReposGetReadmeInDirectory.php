@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * Markup languages are rendered to HTML using GitHub's open-source [Markup
  * library](https://github.com/github/markup).
  */
-class ReposGetReadmeInDirectory extends Request {
+class ReposGetReadmeInDirectory extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/readme/{$this->dir}";
     }
 
@@ -43,7 +45,8 @@ class ReposGetReadmeInDirectory extends Request {
         protected ?string $ref = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['ref' => $this->ref]);
     }
 }

@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Grants the specified teams push access for this branch. You can also give push
  * access to child teams.
  */
-class ReposAddTeamAccessRestrictions extends Request implements HasBody {
+class ReposAddTeamAccessRestrictions extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/teams";
     }
 

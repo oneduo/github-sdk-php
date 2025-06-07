@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Returns information about the specified GitHub code of conduct.
  */
-class CodesOfConductGetConductCode extends Request {
+class CodesOfConductGetConductCode extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/codes_of_conduct/{$this->key}";
     }
 

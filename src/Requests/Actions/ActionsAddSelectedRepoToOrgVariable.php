@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * need the `admin:org` scope to use this endpoint. If the repository is private, OAuth tokens and
  * personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsAddSelectedRepoToOrgVariable extends Request {
+class ActionsAddSelectedRepoToOrgVariable extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/variables/{$this->name}/repositories/{$this->repositoryId}";
     }
 

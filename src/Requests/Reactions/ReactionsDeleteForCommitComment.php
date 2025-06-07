@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * Delete a reaction to a
  * [commit comment](https://docs.github.com/rest/commits/comments#get-a-commit-comment).
  */
-class ReactionsDeleteForCommitComment extends Request {
+class ReactionsDeleteForCommitComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/comments/{$this->commentId}/reactions/{$this->reactionId}";
     }
 

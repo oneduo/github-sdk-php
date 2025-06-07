@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Fetches the URL to a migration archive.
  */
-class MigrationsDownloadArchiveForOrg extends Request {
+class MigrationsDownloadArchiveForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/migrations/{$this->migrationId}/archive";
     }
 

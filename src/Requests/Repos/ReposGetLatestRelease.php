@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * is the date of the commit used for the release, and not the date when the release was drafted or
  * published.
  */
-class ReposGetLatestRelease extends Request {
+class ReposGetLatestRelease extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/latest";
     }
 

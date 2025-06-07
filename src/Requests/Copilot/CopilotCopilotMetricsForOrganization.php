@@ -34,10 +34,12 @@ use Saloon\Http\Request;
  * personal access tokens (classic) need either the `manage_billing:copilot`, `read:org`, or
  * `read:enterprise` scopes to use this endpoint.
  */
-class CopilotCopilotMetricsForOrganization extends Request {
+class CopilotCopilotMetricsForOrganization extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/copilot/metrics";
     }
 
@@ -56,7 +58,8 @@ class CopilotCopilotMetricsForOrganization extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['since' => $this->since, 'until' => $this->until, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

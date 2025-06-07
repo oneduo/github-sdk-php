@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Lists the active subscriptions for the authenticated user.
  */
-class AppsListSubscriptionsForAuthenticatedUser extends Request {
+class AppsListSubscriptionsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/marketplace_purchases';
     }
 
@@ -28,7 +30,8 @@ class AppsListSubscriptionsForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

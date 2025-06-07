@@ -24,10 +24,12 @@ use Saloon\Http\Request;
  * scopes to use this endpoint. For more information, see "[About permissions for GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesDeletePackageForUser extends Request {
+class PackagesDeletePackageForUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/users/{$this->username}/packages/{$this->packageType}/{$this->packageName}";
     }
 

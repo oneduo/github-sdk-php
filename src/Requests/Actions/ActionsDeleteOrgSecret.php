@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * private, OAuth tokens and personal access tokens (classic) need the `repo` scope to use this
  * endpoint.
  */
-class ActionsDeleteOrgSecret extends Request {
+class ActionsDeleteOrgSecret extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/secrets/{$this->secretName}";
     }
 

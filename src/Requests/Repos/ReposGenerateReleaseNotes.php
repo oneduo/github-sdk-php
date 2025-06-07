@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * contributed. The generated release notes are not saved anywhere. They are intended to be generated
  * and used when creating a new release.
  */
-class ReposGenerateReleaseNotes extends Request implements HasBody {
+class ReposGenerateReleaseNotes extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/generate-notes";
     }
 

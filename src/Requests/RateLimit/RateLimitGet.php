@@ -56,10 +56,12 @@ use Saloon\Http\Request;
  * use the `core` object instead of the `rate` object. The `core` object contains the same information
  * that is present in the `rate` object.
  */
-class RateLimitGet extends Request {
+class RateLimitGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/rate_limit';
     }
 

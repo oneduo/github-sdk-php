@@ -30,10 +30,12 @@ use Saloon\Http\Request;
  * parallel, the concurrent requests will conflict and you will receive errors. You must use these
  * endpoints serially instead.
  */
-class ReposDeleteFile extends Request {
+class ReposDeleteFile extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/contents/{$this->path}";
     }
 

@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the
  * `admin:org` scope to use this endpoint.
  */
-class ActionsSetGithubActionsPermissionsOrganization extends Request {
+class ActionsSetGithubActionsPermissionsOrganization extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/permissions";
     }
 

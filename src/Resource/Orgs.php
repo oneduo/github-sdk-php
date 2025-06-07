@@ -95,32 +95,37 @@ use Oneduo\GitHubSdk\Requests\Orgs\OrgsUpdateWebhook;
 use Oneduo\GitHubSdk\Requests\Orgs\OrgsUpdateWebhookConfigForOrg;
 use Saloon\Http\Response;
 
-class Orgs extends GitHubResource {
+class Orgs extends GitHubResource
+{
     /**
      * @param  int  $since  An organization ID. Only return organizations with an ID greater than this ID.
      */
-    public function list(?int $since): Response {
+    public function list(?int $since): Response
+    {
         return $this->connector->send(new OrgsList($since));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function get(string $org): Response {
+    public function get(string $org): Response
+    {
         return $this->connector->send(new OrgsGet($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function delete(string $org): Response {
+    public function delete(string $org): Response
+    {
         return $this->connector->send(new OrgsDelete($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function update(string $org): Response {
+    public function update(string $org): Response
+    {
         return $this->connector->send(new OrgsUpdate($org));
     }
 
@@ -144,7 +149,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listBlockedUsers(string $org, ?int $page): Response {
+    public function listBlockedUsers(string $org, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListBlockedUsers($org, $page));
     }
 
@@ -152,7 +158,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function checkBlockedUser(string $org, string $username): Response {
+    public function checkBlockedUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsCheckBlockedUser($org, $username));
     }
 
@@ -160,7 +167,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function blockUser(string $org, string $username): Response {
+    public function blockUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsBlockUser($org, $username));
     }
 
@@ -168,7 +176,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function unblockUser(string $org, string $username): Response {
+    public function unblockUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsUnblockUser($org, $username));
     }
 
@@ -176,7 +185,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listFailedInvitations(string $org, ?int $page): Response {
+    public function listFailedInvitations(string $org, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListFailedInvitations($org, $page));
     }
 
@@ -184,14 +194,16 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listWebhooks(string $org, ?int $page): Response {
+    public function listWebhooks(string $org, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListWebhooks($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createWebhook(string $org): Response {
+    public function createWebhook(string $org): Response
+    {
         return $this->connector->send(new OrgsCreateWebhook($org));
     }
 
@@ -199,7 +211,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhook(string $org, int $hookId): Response {
+    public function getWebhook(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsGetWebhook($org, $hookId));
     }
 
@@ -207,7 +220,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function deleteWebhook(string $org, int $hookId): Response {
+    public function deleteWebhook(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsDeleteWebhook($org, $hookId));
     }
 
@@ -215,7 +229,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function updateWebhook(string $org, int $hookId): Response {
+    public function updateWebhook(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsUpdateWebhook($org, $hookId));
     }
 
@@ -223,7 +238,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhookConfigForOrg(string $org, int $hookId): Response {
+    public function getWebhookConfigForOrg(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsGetWebhookConfigForOrg($org, $hookId));
     }
 
@@ -231,7 +247,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function updateWebhookConfigForOrg(string $org, int $hookId): Response {
+    public function updateWebhookConfigForOrg(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsUpdateWebhookConfigForOrg($org, $hookId));
     }
 
@@ -240,7 +257,8 @@ class Orgs extends GitHubResource {
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      * @param  string  $cursor  Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors.
      */
-    public function listWebhookDeliveries(string $org, int $hookId, ?string $cursor): Response {
+    public function listWebhookDeliveries(string $org, int $hookId, ?string $cursor): Response
+    {
         return $this->connector->send(new OrgsListWebhookDeliveries($org, $hookId, $cursor));
     }
 
@@ -248,7 +266,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function getWebhookDelivery(string $org, int $hookId, int $deliveryId): Response {
+    public function getWebhookDelivery(string $org, int $hookId, int $deliveryId): Response
+    {
         return $this->connector->send(new OrgsGetWebhookDelivery($org, $hookId, $deliveryId));
     }
 
@@ -256,7 +275,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function redeliverWebhookDelivery(string $org, int $hookId, int $deliveryId): Response {
+    public function redeliverWebhookDelivery(string $org, int $hookId, int $deliveryId): Response
+    {
         return $this->connector->send(new OrgsRedeliverWebhookDelivery($org, $hookId, $deliveryId));
     }
 
@@ -264,7 +284,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hookId  The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.
      */
-    public function pingWebhook(string $org, int $hookId): Response {
+    public function pingWebhook(string $org, int $hookId): Response
+    {
         return $this->connector->send(new OrgsPingWebhook($org, $hookId));
     }
 
@@ -319,7 +340,8 @@ class Orgs extends GitHubResource {
      * @param  string  $minTimestamp  The minimum timestamp to query for stats. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * @param  string  $maxTimestamp  The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public function apiInsightsGetSummaryStats(string $org, string $minTimestamp, ?string $maxTimestamp): Response {
+    public function apiInsightsGetSummaryStats(string $org, string $minTimestamp, ?string $maxTimestamp): Response
+    {
         return $this->connector->send(new ApiInsightsGetSummaryStats($org, $minTimestamp, $maxTimestamp));
     }
 
@@ -433,7 +455,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listAppInstallations(string $org, ?int $page): Response {
+    public function listAppInstallations(string $org, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListAppInstallations($org, $page));
     }
 
@@ -455,7 +478,8 @@ class Orgs extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createInvitation(string $org): Response {
+    public function createInvitation(string $org): Response
+    {
         return $this->connector->send(new OrgsCreateInvitation($org));
     }
 
@@ -463,7 +487,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $invitationId  The unique identifier of the invitation.
      */
-    public function cancelInvitation(string $org, int $invitationId): Response {
+    public function cancelInvitation(string $org, int $invitationId): Response
+    {
         return $this->connector->send(new OrgsCancelInvitation($org, $invitationId));
     }
 
@@ -472,21 +497,24 @@ class Orgs extends GitHubResource {
      * @param  int  $invitationId  The unique identifier of the invitation.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listInvitationTeams(string $org, int $invitationId, ?int $page): Response {
+    public function listInvitationTeams(string $org, int $invitationId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListInvitationTeams($org, $invitationId, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function listIssueTypes(string $org): Response {
+    public function listIssueTypes(string $org): Response
+    {
         return $this->connector->send(new OrgsListIssueTypes($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createIssueType(string $org): Response {
+    public function createIssueType(string $org): Response
+    {
         return $this->connector->send(new OrgsCreateIssueType($org));
     }
 
@@ -494,7 +522,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $issueTypeId  The unique identifier of the issue type.
      */
-    public function updateIssueType(string $org, int $issueTypeId): Response {
+    public function updateIssueType(string $org, int $issueTypeId): Response
+    {
         return $this->connector->send(new OrgsUpdateIssueType($org, $issueTypeId));
     }
 
@@ -502,7 +531,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $issueTypeId  The unique identifier of the issue type.
      */
-    public function deleteIssueType(string $org, int $issueTypeId): Response {
+    public function deleteIssueType(string $org, int $issueTypeId): Response
+    {
         return $this->connector->send(new OrgsDeleteIssueType($org, $issueTypeId));
     }
 
@@ -512,7 +542,8 @@ class Orgs extends GitHubResource {
      * @param  string  $role  Filter members returned by their role.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listMembers(string $org, ?string $filter, ?string $role, ?int $page): Response {
+    public function listMembers(string $org, ?string $filter, ?string $role, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListMembers($org, $filter, $role, $page));
     }
 
@@ -520,7 +551,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function checkMembershipForUser(string $org, string $username): Response {
+    public function checkMembershipForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsCheckMembershipForUser($org, $username));
     }
 
@@ -528,7 +560,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function removeMember(string $org, string $username): Response {
+    public function removeMember(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsRemoveMember($org, $username));
     }
 
@@ -536,7 +569,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getMembershipForUser(string $org, string $username): Response {
+    public function getMembershipForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsGetMembershipForUser($org, $username));
     }
 
@@ -544,7 +578,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function setMembershipForUser(string $org, string $username): Response {
+    public function setMembershipForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsSetMembershipForUser($org, $username));
     }
 
@@ -552,14 +587,16 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function removeMembershipForUser(string $org, string $username): Response {
+    public function removeMembershipForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsRemoveMembershipForUser($org, $username));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function listOrgRoles(string $org): Response {
+    public function listOrgRoles(string $org): Response
+    {
         return $this->connector->send(new OrgsListOrgRoles($org));
     }
 
@@ -567,7 +604,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function revokeAllOrgRolesTeam(string $org, string $teamSlug): Response {
+    public function revokeAllOrgRolesTeam(string $org, string $teamSlug): Response
+    {
         return $this->connector->send(new OrgsRevokeAllOrgRolesTeam($org, $teamSlug));
     }
 
@@ -576,7 +614,8 @@ class Orgs extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $roleId  The unique identifier of the role.
      */
-    public function assignTeamToOrgRole(string $org, string $teamSlug, int $roleId): Response {
+    public function assignTeamToOrgRole(string $org, string $teamSlug, int $roleId): Response
+    {
         return $this->connector->send(new OrgsAssignTeamToOrgRole($org, $teamSlug, $roleId));
     }
 
@@ -585,7 +624,8 @@ class Orgs extends GitHubResource {
      * @param  string  $teamSlug  The slug of the team name.
      * @param  int  $roleId  The unique identifier of the role.
      */
-    public function revokeOrgRoleTeam(string $org, string $teamSlug, int $roleId): Response {
+    public function revokeOrgRoleTeam(string $org, string $teamSlug, int $roleId): Response
+    {
         return $this->connector->send(new OrgsRevokeOrgRoleTeam($org, $teamSlug, $roleId));
     }
 
@@ -593,7 +633,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function revokeAllOrgRolesUser(string $org, string $username): Response {
+    public function revokeAllOrgRolesUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsRevokeAllOrgRolesUser($org, $username));
     }
 
@@ -602,7 +643,8 @@ class Orgs extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $roleId  The unique identifier of the role.
      */
-    public function assignUserToOrgRole(string $org, string $username, int $roleId): Response {
+    public function assignUserToOrgRole(string $org, string $username, int $roleId): Response
+    {
         return $this->connector->send(new OrgsAssignUserToOrgRole($org, $username, $roleId));
     }
 
@@ -611,7 +653,8 @@ class Orgs extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $roleId  The unique identifier of the role.
      */
-    public function revokeOrgRoleUser(string $org, string $username, int $roleId): Response {
+    public function revokeOrgRoleUser(string $org, string $username, int $roleId): Response
+    {
         return $this->connector->send(new OrgsRevokeOrgRoleUser($org, $username, $roleId));
     }
 
@@ -619,7 +662,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $roleId  The unique identifier of the role.
      */
-    public function getOrgRole(string $org, int $roleId): Response {
+    public function getOrgRole(string $org, int $roleId): Response
+    {
         return $this->connector->send(new OrgsGetOrgRole($org, $roleId));
     }
 
@@ -628,7 +672,8 @@ class Orgs extends GitHubResource {
      * @param  int  $roleId  The unique identifier of the role.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOrgRoleTeams(string $org, int $roleId, ?int $page): Response {
+    public function listOrgRoleTeams(string $org, int $roleId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListOrgRoleTeams($org, $roleId, $page));
     }
 
@@ -637,7 +682,8 @@ class Orgs extends GitHubResource {
      * @param  int  $roleId  The unique identifier of the role.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOrgRoleUsers(string $org, int $roleId, ?int $page): Response {
+    public function listOrgRoleUsers(string $org, int $roleId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListOrgRoleUsers($org, $roleId, $page));
     }
 
@@ -646,7 +692,8 @@ class Orgs extends GitHubResource {
      * @param  string  $filter  Filter the list of outside collaborators. `2fa_disabled` means that only outside collaborators without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled will be returned. `2fa_insecure` means that only outside collaborators with [insecure 2FA methods](https://docs.github.com/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization#requiring-secure-methods-of-two-factor-authentication-in-your-organization) will be returned.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOutsideCollaborators(string $org, ?string $filter, ?int $page): Response {
+    public function listOutsideCollaborators(string $org, ?string $filter, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListOutsideCollaborators($org, $filter, $page));
     }
 
@@ -654,7 +701,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function convertMemberToOutsideCollaborator(string $org, string $username): Response {
+    public function convertMemberToOutsideCollaborator(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsConvertMemberToOutsideCollaborator($org, $username));
     }
 
@@ -662,7 +710,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function removeOutsideCollaborator(string $org, string $username): Response {
+    public function removeOutsideCollaborator(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsRemoveOutsideCollaborator($org, $username));
     }
 
@@ -696,7 +745,8 @@ class Orgs extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function reviewPatGrantRequestsInBulk(string $org): Response {
+    public function reviewPatGrantRequestsInBulk(string $org): Response
+    {
         return $this->connector->send(new OrgsReviewPatGrantRequestsInBulk($org));
     }
 
@@ -704,7 +754,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $patRequestId  Unique identifier of the request for access via fine-grained personal access token.
      */
-    public function reviewPatGrantRequest(string $org, int $patRequestId): Response {
+    public function reviewPatGrantRequest(string $org, int $patRequestId): Response
+    {
         return $this->connector->send(new OrgsReviewPatGrantRequest($org, $patRequestId));
     }
 
@@ -713,7 +764,8 @@ class Orgs extends GitHubResource {
      * @param  int  $patRequestId  Unique identifier of the request for access via fine-grained personal access token.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listPatGrantRequestRepositories(string $org, int $patRequestId, ?int $page): Response {
+    public function listPatGrantRequestRepositories(string $org, int $patRequestId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListPatGrantRequestRepositories($org, $patRequestId, $page));
     }
 
@@ -747,7 +799,8 @@ class Orgs extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function updatePatAccesses(string $org): Response {
+    public function updatePatAccesses(string $org): Response
+    {
         return $this->connector->send(new OrgsUpdatePatAccesses($org));
     }
 
@@ -755,7 +808,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $patId  The unique identifier of the fine-grained personal access token.
      */
-    public function updatePatAccess(string $org, int $patId): Response {
+    public function updatePatAccess(string $org, int $patId): Response
+    {
         return $this->connector->send(new OrgsUpdatePatAccess($org, $patId));
     }
 
@@ -764,21 +818,24 @@ class Orgs extends GitHubResource {
      * @param  int  $patId  Unique identifier of the fine-grained personal access token.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listPatGrantRepositories(string $org, int $patId, ?int $page): Response {
+    public function listPatGrantRepositories(string $org, int $patId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListPatGrantRepositories($org, $patId, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getAllCustomProperties(string $org): Response {
+    public function getAllCustomProperties(string $org): Response
+    {
         return $this->connector->send(new OrgsGetAllCustomProperties($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createOrUpdateCustomProperties(string $org): Response {
+    public function createOrUpdateCustomProperties(string $org): Response
+    {
         return $this->connector->send(new OrgsCreateOrUpdateCustomProperties($org));
     }
 
@@ -786,7 +843,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $customPropertyName  The custom property name
      */
-    public function getCustomProperty(string $org, string $customPropertyName): Response {
+    public function getCustomProperty(string $org, string $customPropertyName): Response
+    {
         return $this->connector->send(new OrgsGetCustomProperty($org, $customPropertyName));
     }
 
@@ -794,7 +852,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $customPropertyName  The custom property name
      */
-    public function createOrUpdateCustomProperty(string $org, string $customPropertyName): Response {
+    public function createOrUpdateCustomProperty(string $org, string $customPropertyName): Response
+    {
         return $this->connector->send(new OrgsCreateOrUpdateCustomProperty($org, $customPropertyName));
     }
 
@@ -802,7 +861,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $customPropertyName  The custom property name
      */
-    public function removeCustomProperty(string $org, string $customPropertyName): Response {
+    public function removeCustomProperty(string $org, string $customPropertyName): Response
+    {
         return $this->connector->send(new OrgsRemoveCustomProperty($org, $customPropertyName));
     }
 
@@ -811,14 +871,16 @@ class Orgs extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $repositoryQuery  Finds repositories in the organization with a query containing one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as the web interface for GitHub. To learn more about the format of the query, see [Constructing a search query](https://docs.github.com/rest/search/search#constructing-a-search-query). See "[Searching for repositories](https://docs.github.com/articles/searching-for-repositories/)" for a detailed list of qualifiers.
      */
-    public function listCustomPropertiesValuesForRepos(string $org, ?int $page, ?string $repositoryQuery): Response {
+    public function listCustomPropertiesValuesForRepos(string $org, ?int $page, ?string $repositoryQuery): Response
+    {
         return $this->connector->send(new OrgsListCustomPropertiesValuesForRepos($org, $page, $repositoryQuery));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createOrUpdateCustomPropertiesValuesForRepos(string $org): Response {
+    public function createOrUpdateCustomPropertiesValuesForRepos(string $org): Response
+    {
         return $this->connector->send(new OrgsCreateOrUpdateCustomPropertiesValuesForRepos($org));
     }
 
@@ -826,7 +888,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listPublicMembers(string $org, ?int $page): Response {
+    public function listPublicMembers(string $org, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListPublicMembers($org, $page));
     }
 
@@ -834,7 +897,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function checkPublicMembershipForUser(string $org, string $username): Response {
+    public function checkPublicMembershipForUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsCheckPublicMembershipForUser($org, $username));
     }
 
@@ -842,7 +906,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function setPublicMembershipForAuthenticatedUser(string $org, string $username): Response {
+    public function setPublicMembershipForAuthenticatedUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsSetPublicMembershipForAuthenticatedUser($org, $username));
     }
 
@@ -850,7 +915,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function removePublicMembershipForAuthenticatedUser(string $org, string $username): Response {
+    public function removePublicMembershipForAuthenticatedUser(string $org, string $username): Response
+    {
         return $this->connector->send(new OrgsRemovePublicMembershipForAuthenticatedUser($org, $username));
     }
 
@@ -859,7 +925,8 @@ class Orgs extends GitHubResource {
      * @param  int  $rulesetId  The ID of the ruleset.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getOrgRulesetHistory(string $org, int $rulesetId, ?int $page): Response {
+    public function getOrgRulesetHistory(string $org, int $rulesetId, ?int $page): Response
+    {
         return $this->connector->send(new OrgsGetOrgRulesetHistory($org, $rulesetId, $page));
     }
 
@@ -868,14 +935,16 @@ class Orgs extends GitHubResource {
      * @param  int  $rulesetId  The ID of the ruleset.
      * @param  int  $versionId  The ID of the version
      */
-    public function getOrgRulesetVersion(string $org, int $rulesetId, int $versionId): Response {
+    public function getOrgRulesetVersion(string $org, int $rulesetId, int $versionId): Response
+    {
         return $this->connector->send(new OrgsGetOrgRulesetVersion($org, $rulesetId, $versionId));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function listSecurityManagerTeams(string $org): Response {
+    public function listSecurityManagerTeams(string $org): Response
+    {
         return $this->connector->send(new OrgsListSecurityManagerTeams($org));
     }
 
@@ -883,7 +952,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function addSecurityManagerTeam(string $org, string $teamSlug): Response {
+    public function addSecurityManagerTeam(string $org, string $teamSlug): Response
+    {
         return $this->connector->send(new OrgsAddSecurityManagerTeam($org, $teamSlug));
     }
 
@@ -891,7 +961,8 @@ class Orgs extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $teamSlug  The slug of the team name.
      */
-    public function removeSecurityManagerTeam(string $org, string $teamSlug): Response {
+    public function removeSecurityManagerTeam(string $org, string $teamSlug): Response
+    {
         return $this->connector->send(new OrgsRemoveSecurityManagerTeam($org, $teamSlug));
     }
 
@@ -915,28 +986,32 @@ class Orgs extends GitHubResource {
      * @param  string  $state  Indicates the state of the memberships to return. If not specified, the API returns both active and pending memberships.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listMembershipsForAuthenticatedUser(?string $state, ?int $page): Response {
+    public function listMembershipsForAuthenticatedUser(?string $state, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListMembershipsForAuthenticatedUser($state, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getMembershipForAuthenticatedUser(string $org): Response {
+    public function getMembershipForAuthenticatedUser(string $org): Response
+    {
         return $this->connector->send(new OrgsGetMembershipForAuthenticatedUser($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function updateMembershipForAuthenticatedUser(string $org): Response {
+    public function updateMembershipForAuthenticatedUser(string $org): Response
+    {
         return $this->connector->send(new OrgsUpdateMembershipForAuthenticatedUser($org));
     }
 
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listForAuthenticatedUser(?int $page): Response {
+    public function listForAuthenticatedUser(?int $page): Response
+    {
         return $this->connector->send(new OrgsListForAuthenticatedUser($page));
     }
 
@@ -944,7 +1019,8 @@ class Orgs extends GitHubResource {
      * @param  string  $username  The handle for the GitHub user account.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listForUser(string $username, ?int $page): Response {
+    public function listForUser(string $username, ?int $page): Response
+    {
         return $this->connector->send(new OrgsListForUser($username, $page));
     }
 }

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Update a ruleset for an organization.
  */
-class ReposUpdateOrgRuleset extends Request {
+class ReposUpdateOrgRuleset extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets/{$this->rulesetId}";
     }
 

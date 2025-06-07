@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * returned by the [List reviews for a pull
  * request](https://docs.github.com/rest/pulls/reviews#list-reviews-for-a-pull-request) operation.
  */
-class PullsListRequestedReviewers extends Request {
+class PullsListRequestedReviewers extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/requested_reviewers";
     }
 

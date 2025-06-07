@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.
  */
-class DependencyGraphExportSbom extends Request {
+class DependencyGraphExportSbom extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/dependency-graph/sbom";
     }
 

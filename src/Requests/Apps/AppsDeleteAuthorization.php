@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * account and will no longer be listed on [the application authorizations settings screen within
  * GitHub](https://github.com/settings/applications#authorized).
  */
-class AppsDeleteAuthorization extends Request {
+class AppsDeleteAuthorization extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/applications/{$this->clientId}/grant";
     }
 

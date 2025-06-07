@@ -28,10 +28,12 @@ use Saloon\Http\Request;
  * | `array` | Usernames for people who can have push access. **Note**: The list of users, apps, and
  * teams in total is limited to 100 items. |
  */
-class ReposSetUserAccessRestrictions extends Request {
+class ReposSetUserAccessRestrictions extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/users";
     }
 

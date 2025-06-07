@@ -109,10 +109,12 @@ use Saloon\Http\Request;
  * | `valid` | None of the above errors applied, so the signature is
  * considered to be verified. |
  */
-class ReposCompareCommits extends Request {
+class ReposCompareCommits extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/compare/{$this->basehead}";
     }
 
@@ -131,7 +133,8 @@ class ReposCompareCommits extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

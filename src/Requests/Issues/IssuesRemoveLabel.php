@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Removes the specified label from the issue, and returns the remaining labels on the issue. This
  * endpoint returns a `404 Not Found` status if the label does not exist.
  */
-class IssuesRemoveLabel extends Request {
+class IssuesRemoveLabel extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/labels/{$this->name}";
     }
 

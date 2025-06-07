@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * the `repo` scope to use this endpoint. The `workflow` scope is also required in order to modify
  * files in the `.github/workflows` directory.
  */
-class ReposCreateOrUpdateFileContents extends Request {
+class ReposCreateOrUpdateFileContents extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/contents/{$this->path}";
     }
 

@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Users with push access to the repository can edit a release.
  */
-class ReposUpdateRelease extends Request implements HasBody {
+class ReposUpdateRelease extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/{$this->releaseId}";
     }
 

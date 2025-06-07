@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * and personal access tokens (classic) need the `codespace` or `codespace:secrets` scope to use this
  * endpoint.
  */
-class CodespacesRemoveRepositoryForSecretForAuthenticatedUser extends Request {
+class CodespacesRemoveRepositoryForSecretForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/codespaces/secrets/{$this->secretName}/repositories/{$this->repositoryId}";
     }
 

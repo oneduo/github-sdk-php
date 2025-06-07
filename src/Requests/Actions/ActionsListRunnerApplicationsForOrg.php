@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * tokens (classic) need the `admin:org` scope to use this endpoint.  If the repository is private, the
  * `repo` scope is also required.
  */
-class ActionsListRunnerApplicationsForOrg extends Request {
+class ActionsListRunnerApplicationsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/runners/downloads";
     }
 

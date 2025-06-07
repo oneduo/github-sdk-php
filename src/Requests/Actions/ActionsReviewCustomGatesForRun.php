@@ -26,12 +26,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a
  * private repository.
  */
-class ActionsReviewCustomGatesForRun extends Request implements HasBody {
+class ActionsReviewCustomGatesForRun extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/runs/{$this->runId}/deployment_protection_rule";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Update a ruleset for a repository.
  */
-class ReposUpdateRepoRuleset extends Request {
+class ReposUpdateRepoRuleset extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/rulesets/{$this->rulesetId}";
     }
 

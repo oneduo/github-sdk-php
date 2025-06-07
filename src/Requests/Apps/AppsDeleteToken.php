@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * OAuth  or GitHub application owners can revoke a single token for an OAuth application or a GitHub
  * application with an OAuth authorization.
  */
-class AppsDeleteToken extends Request {
+class AppsDeleteToken extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/applications/{$this->clientId}/token";
     }
 

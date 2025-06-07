@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Delete a ruleset for an organization.
  */
-class ReposDeleteOrgRuleset extends Request {
+class ReposDeleteOrgRuleset extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets/{$this->rulesetId}";
     }
 

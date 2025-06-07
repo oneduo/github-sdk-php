@@ -42,10 +42,12 @@ use Saloon\Http\Request;
  * private or public repositories, or the `public_repo` scope to use this endpoint with only public
  * repositories.
  */
-class CodeScanningGetAnalysis extends Request {
+class CodeScanningGetAnalysis extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/code-scanning/analyses/{$this->analysisId}";
     }
 

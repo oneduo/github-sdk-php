@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * rulesets for a
  * repository](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets)."
  */
-class ReposGetRepoRuleSuites extends Request {
+class ReposGetRepoRuleSuites extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/rulesets/rule-suites";
     }
 
@@ -45,7 +47,8 @@ class ReposGetRepoRuleSuites extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'ref' => $this->ref,
             'time_period' => $this->timePeriod,

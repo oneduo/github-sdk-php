@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Simple filtering of deployments is available via query parameters:
  */
-class ReposListDeployments extends Request {
+class ReposListDeployments extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/deployments";
     }
 
@@ -40,7 +42,8 @@ class ReposListDeployments extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'sha' => $this->sha,
             'ref' => $this->ref,

@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Shows which type of GitHub user can interact with this organization and when the restriction
  * expires. If there is no restrictions, you will see an empty response.
  */
-class InteractionsGetRestrictionsForOrg extends Request {
+class InteractionsGetRestrictionsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/interaction-limits";
     }
 

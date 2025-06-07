@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Adds labels to an issue. If you provide an empty array of labels, all labels are removed from the
  * issue.
  */
-class IssuesAddLabels extends Request implements HasBody {
+class IssuesAddLabels extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/labels";
     }
 

@@ -29,10 +29,12 @@ use Saloon\Http\Request;
  * limited to repositories where the primary language is assembly. The results are sorted by stars in
  * descending order, so that the most popular repositories appear first in the search results.
  */
-class SearchRepos extends Request {
+class SearchRepos extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/search/repositories';
     }
 
@@ -51,7 +53,8 @@ class SearchRepos extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['q' => $this->q, 'sort' => $this->sort, 'order' => $this->order, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

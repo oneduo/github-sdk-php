@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Lists the authenticated user's gists or if called anonymously, this endpoint returns all public
  * gists:
  */
-class GistsList extends Request {
+class GistsList extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/gists';
     }
 
@@ -31,7 +33,8 @@ class GistsList extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['since' => $this->since, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

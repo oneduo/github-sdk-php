@@ -31,10 +31,12 @@ use Saloon\Http\Request;
  * tokens and personal access tokens (classic) need the `repo` or `repo_deployment` scope to use this
  * endpoint.
  */
-class ReposDeleteDeployment extends Request {
+class ReposDeleteDeployment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/deployments/{$this->deploymentId}";
     }
 

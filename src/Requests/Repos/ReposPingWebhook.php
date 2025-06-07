@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * This will trigger a [ping event](https://docs.github.com/webhooks/#ping-event) to be sent to the
  * hook.
  */
-class ReposPingWebhook extends Request implements HasBody {
+class ReposPingWebhook extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/pings";
     }
 

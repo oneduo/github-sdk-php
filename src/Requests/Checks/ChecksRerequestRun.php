@@ -26,12 +26,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * "[Re-run a job from a workflow
  * run](https://docs.github.com/rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run)".
  */
-class ChecksRerequestRun extends Request implements HasBody {
+class ChecksRerequestRun extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/check-runs/{$this->checkRunId}/rerequest";
     }
 

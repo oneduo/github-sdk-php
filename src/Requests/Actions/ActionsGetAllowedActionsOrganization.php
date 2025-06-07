@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth tokens and personal
  * access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class ActionsGetAllowedActionsOrganization extends Request {
+class ActionsGetAllowedActionsOrganization extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/permissions/selected-actions";
     }
 

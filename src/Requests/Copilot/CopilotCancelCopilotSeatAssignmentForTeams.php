@@ -32,10 +32,12 @@ use Saloon\Http\Request;
  * tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this
  * endpoint.
  */
-class CopilotCancelCopilotSeatAssignmentForTeams extends Request {
+class CopilotCancelCopilotSeatAssignmentForTeams extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/copilot/billing/selected_teams";
     }
 

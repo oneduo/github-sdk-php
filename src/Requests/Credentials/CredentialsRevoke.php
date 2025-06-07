@@ -35,12 +35,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > Any
  * authenticated requests will return a 403.
  */
-class CredentialsRevoke extends Request implements HasBody {
+class CredentialsRevoke extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/credentials/revoke';
     }
 

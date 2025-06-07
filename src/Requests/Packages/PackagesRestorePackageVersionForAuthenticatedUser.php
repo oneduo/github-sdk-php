@@ -28,12 +28,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesRestorePackageVersionForAuthenticatedUser extends Request implements HasBody {
+class PackagesRestorePackageVersionForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/packages/{$this->packageType}/{$this->packageName}/versions/{$this->packageVersionId}/restore";
     }
 

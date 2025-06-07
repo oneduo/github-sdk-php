@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deletes a GitHub-hosted runner for an organization.
  */
-class ActionsDeleteHostedRunnerForOrg extends Request {
+class ActionsDeleteHostedRunnerForOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/{$this->hostedRunnerId}";
     }
 

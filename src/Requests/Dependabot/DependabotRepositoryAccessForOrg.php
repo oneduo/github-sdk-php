@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * Unauthorized
  * users will not see the existence of this endpoint.
  */
-class DependabotRepositoryAccessForOrg extends Request {
+class DependabotRepositoryAccessForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/organizations/{$this->org}/dependabot/repository-access";
     }
 

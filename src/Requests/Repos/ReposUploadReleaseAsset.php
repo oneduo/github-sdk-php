@@ -55,12 +55,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * an asset with the same filename as another uploaded asset, you'll receive an error and must delete
  * the old file before you can re-upload the new asset.
  */
-class ReposUploadReleaseAsset extends Request implements HasBody {
+class ReposUploadReleaseAsset extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/{$this->releaseId}/assets";
     }
 
@@ -77,7 +79,8 @@ class ReposUploadReleaseAsset extends Request implements HasBody {
         protected ?string $label = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['name' => $this->name, 'label' => $this->label]);
     }
 }

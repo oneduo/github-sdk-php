@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens
  * and personal access tokens (classic) need the `write:org` scope to use this endpoint.
  */
-class CodeSecurityGetConfigurationsForOrg extends Request {
+class CodeSecurityGetConfigurationsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/code-security/configurations";
     }
 
@@ -36,7 +38,8 @@ class CodeSecurityGetConfigurationsForOrg extends Request {
         protected ?string $before = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['target_type' => $this->targetType, 'before' => $this->before]);
     }
 }

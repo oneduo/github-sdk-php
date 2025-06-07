@@ -34,10 +34,12 @@ use Saloon\Http\Request;
  * > You can also specify a team by `org_id` and `team_id` using the route `DELETE
  * /organizations/{org_id}/team/{team_id}/memberships/{username}`.
  */
-class TeamsRemoveMembershipForUserInOrg extends Request {
+class TeamsRemoveMembershipForUserInOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/memberships/{$this->username}";
     }
 

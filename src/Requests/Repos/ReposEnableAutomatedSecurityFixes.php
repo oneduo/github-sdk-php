@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * to the repository. For more information, see "[Configuring Dependabot security
  * updates](https://docs.github.com/articles/configuring-automated-security-fixes)".
  */
-class ReposEnableAutomatedSecurityFixes extends Request {
+class ReposEnableAutomatedSecurityFixes extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/automated-security-fixes";
     }
 

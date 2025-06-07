@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more
  * information.
  */
-class TeamsAddOrUpdateProjectPermissionsInOrg extends Request {
+class TeamsAddOrUpdateProjectPermissionsInOrg extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/projects/{$this->projectId}";
     }
 

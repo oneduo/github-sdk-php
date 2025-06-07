@@ -41,10 +41,12 @@ use Saloon\Http\Request;
  * Auth](https://docs.github.com/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication)
  * since current feed URIs use the older, non revocable auth tokens.
  */
-class ActivityGetFeeds extends Request {
+class ActivityGetFeeds extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/feeds';
     }
 

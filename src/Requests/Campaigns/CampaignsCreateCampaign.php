@@ -24,12 +24,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * scanning alerts" repository permissions (read) on all repositories included
  * in the campaign.
  */
-class CampaignsCreateCampaign extends Request implements HasBody {
+class CampaignsCreateCampaign extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/campaigns";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get all the repository rulesets for an organization.
  */
-class ReposGetOrgRulesets extends Request {
+class ReposGetOrgRulesets extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets";
     }
 
@@ -34,7 +36,8 @@ class ReposGetOrgRulesets extends Request {
         protected ?string $targets = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'targets' => $this->targets]);
     }

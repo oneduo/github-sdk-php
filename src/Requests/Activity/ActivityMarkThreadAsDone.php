@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Marks a thread as "done." Marking a thread as "done" is equivalent to marking a notification in your
  * notification inbox on GitHub as done: https://github.com/notifications.
  */
-class ActivityMarkThreadAsDone extends Request {
+class ActivityMarkThreadAsDone extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}";
     }
 

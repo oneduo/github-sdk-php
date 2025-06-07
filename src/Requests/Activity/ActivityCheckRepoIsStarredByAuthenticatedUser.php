@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Whether the authenticated user has starred the repository.
  */
-class ActivityCheckRepoIsStarredByAuthenticatedUser extends Request {
+class ActivityCheckRepoIsStarredByAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/starred/{$this->owner}/{$this->repo}";
     }
 

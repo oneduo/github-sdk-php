@@ -29,10 +29,12 @@ use Saloon\Http\Request;
  * Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and
  * `body_html`.
  */
-class PullsDeletePendingReview extends Request {
+class PullsDeletePendingReview extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/reviews/{$this->reviewId}";
     }
 

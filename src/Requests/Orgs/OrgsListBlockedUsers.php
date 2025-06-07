@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List the users blocked by an organization.
  */
-class OrgsListBlockedUsers extends Request {
+class OrgsListBlockedUsers extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/blocks";
     }
 
@@ -30,7 +32,8 @@ class OrgsListBlockedUsers extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

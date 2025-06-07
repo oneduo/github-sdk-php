@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * OAuth tokens and
  * personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsDeleteActionsCacheByKey extends Request {
+class ActionsDeleteActionsCacheByKey extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/caches";
     }
 
@@ -37,7 +39,8 @@ class ActionsDeleteActionsCacheByKey extends Request {
         protected ?string $ref = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['key' => $this->key, 'ref' => $this->ref]);
     }
 }

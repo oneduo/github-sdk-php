@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * information, see "[About the enhanced billing
  * platform](https://docs.github.com/billing/using-the-new-billing-platform)."
  */
-class BillingGetGithubBillingUsageReportOrg extends Request {
+class BillingGetGithubBillingUsageReportOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/organizations/{$this->org}/settings/billing/usage";
     }
 
@@ -40,7 +42,8 @@ class BillingGetGithubBillingUsageReportOrg extends Request {
         protected ?int $hour = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['year' => $this->year, 'month' => $this->month, 'day' => $this->day, 'hour' => $this->hour]);
     }
 }

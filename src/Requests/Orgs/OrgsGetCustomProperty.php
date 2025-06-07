@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * Organization members can read these
  * properties.
  */
-class OrgsGetCustomProperty extends Request {
+class OrgsGetCustomProperty extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/properties/schema/{$this->customPropertyName}";
     }
 

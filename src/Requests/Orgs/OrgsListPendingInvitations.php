@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * the invitee is not a GitHub
  * member, the `login` field in the return hash will be `null`.
  */
-class OrgsListPendingInvitations extends Request {
+class OrgsListPendingInvitations extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/invitations";
     }
 
@@ -39,7 +41,8 @@ class OrgsListPendingInvitations extends Request {
         protected ?string $invitationSource = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'role' => $this->role, 'invitation_source' => $this->invitationSource]);
     }

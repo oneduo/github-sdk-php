@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * authentication](https://docs.github.com/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication)
  * with their client ID and client secret to access this endpoint.
  */
-class AppsGetSubscriptionPlanForAccountStubbed extends Request {
+class AppsGetSubscriptionPlanForAccountStubbed extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/marketplace_listing/stubbed/accounts/{$this->accountId}";
     }
 

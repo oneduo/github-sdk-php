@@ -93,10 +93,12 @@ use Saloon\Http\Request;
  * `large_files_count` - the total number of files larger than 100MB found in the originating
  * repository. To see a list of these files, make a "Get Large Files" request.
  */
-class MigrationsGetImportStatus extends Request {
+class MigrationsGetImportStatus extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import";
     }
 

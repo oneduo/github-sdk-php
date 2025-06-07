@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  *
  * Unauthorized users will not see the existence of this endpoint.
  */
-class DependabotSetRepositoryAccessDefaultLevel extends Request {
+class DependabotSetRepositoryAccessDefaultLevel extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/organizations/{$this->org}/dependabot/repository-access/default-level";
     }
 

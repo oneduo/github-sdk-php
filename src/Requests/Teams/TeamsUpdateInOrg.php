@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > You can also specify a team by `org_id` and `team_id` using the route `PATCH
  * /organizations/{org_id}/team/{team_id}`.
  */
-class TeamsUpdateInOrg extends Request implements HasBody {
+class TeamsUpdateInOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}";
     }
 

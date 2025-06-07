@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * information, see "[HTTP
  * method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method)."
  */
-class ActivityStarRepoForAuthenticatedUser extends Request {
+class ActivityStarRepoForAuthenticatedUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/starred/{$this->owner}/{$this->repo}";
     }
 

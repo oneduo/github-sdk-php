@@ -29,10 +29,12 @@ use Saloon\Http\Request;
  * **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will
  * include `body`, `body_text`, and `body_html`.
  */
-class IssuesGetComment extends Request {
+class IssuesGetComment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/comments/{$this->commentId}";
     }
 

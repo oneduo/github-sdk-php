@@ -34,12 +34,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * to use this endpoint. For more information, see "[About permissions for GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesRestorePackageVersionForOrg extends Request implements HasBody {
+class PackagesRestorePackageVersionForOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/packages/{$this->packageType}/{$this->packageName}/versions/{$this->packageVersionId}/restore";
     }
 

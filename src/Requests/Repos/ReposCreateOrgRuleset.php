@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Create a repository ruleset for an organization.
  */
-class ReposCreateOrgRuleset extends Request implements HasBody {
+class ReposCreateOrgRuleset extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets";
     }
 

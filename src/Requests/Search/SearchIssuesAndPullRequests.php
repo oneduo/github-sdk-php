@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * > You can read more about this change on [the GitHub
  * blog](https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/).
  */
-class SearchIssuesAndPullRequests extends Request {
+class SearchIssuesAndPullRequests extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/search/issues';
     }
 
@@ -41,7 +43,8 @@ class SearchIssuesAndPullRequests extends Request {
         protected ?string $advancedSearch = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'q' => $this->q,
             'sort' => $this->sort,

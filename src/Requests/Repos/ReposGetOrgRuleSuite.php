@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * information, see "[Managing rulesets for repositories in your
  * organization](https://docs.github.com/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#viewing-insights-for-rulesets)."
  */
-class ReposGetOrgRuleSuite extends Request {
+class ReposGetOrgRuleSuite extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets/rule-suites/{$this->ruleSuiteId}";
     }
 

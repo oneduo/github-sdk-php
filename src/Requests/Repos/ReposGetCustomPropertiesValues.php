@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * Users with read access to the
  * repository can use this endpoint.
  */
-class ReposGetCustomPropertiesValues extends Request {
+class ReposGetCustomPropertiesValues extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/properties/values";
     }
 

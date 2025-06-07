@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * making the API request has write access to the
  * ruleset.
  */
-class ReposGetRepoRuleset extends Request {
+class ReposGetRepoRuleset extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/rulesets/{$this->rulesetId}";
     }
 
@@ -37,7 +39,8 @@ class ReposGetRepoRuleset extends Request {
         protected ?bool $includesParents = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['includes_parents' => $this->includesParents]);
     }
 }

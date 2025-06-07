@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * **Note**: To edit a repository's topics, use the [Replace all repository
  * topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint.
  */
-class ReposUpdate extends Request implements HasBody {
+class ReposUpdate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}";
     }
 

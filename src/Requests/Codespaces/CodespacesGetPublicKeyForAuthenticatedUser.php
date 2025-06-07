@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `codespace` or
  * `codespace:secrets` scope to use this endpoint.
  */
-class CodespacesGetPublicKeyForAuthenticatedUser extends Request {
+class CodespacesGetPublicKeyForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/codespaces/secrets/public-key';
     }
 

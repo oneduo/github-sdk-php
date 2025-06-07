@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Lists webhooks for a repository. `last response` may return null if there have not been any
  * deliveries within 30 days.
  */
-class ReposListWebhooks extends Request {
+class ReposListWebhooks extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks";
     }
 
@@ -33,7 +35,8 @@ class ReposListWebhooks extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

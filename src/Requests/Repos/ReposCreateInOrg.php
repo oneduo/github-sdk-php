@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access tokens (classic) need the `public_repo` or
  * `repo` scope to create a public repository, and `repo` scope to create a private repository.
  */
-class ReposCreateInOrg extends Request implements HasBody {
+class ReposCreateInOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/repos";
     }
 

@@ -27,12 +27,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * In order to rename the default
  * branch, fine-grained access tokens also need the `administration:write` repository permission.
  */
-class ReposRenameBranch extends Request implements HasBody {
+class ReposRenameBranch extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/rename";
     }
 

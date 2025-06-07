@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  * longer be available from 00:00 UTC on April 12, 2024. For more details and alternatives, see the
  * [changelog](https://gh.io/source-imports-api-deprecation).
  */
-class MigrationsGetCommitAuthors extends Request {
+class MigrationsGetCommitAuthors extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import/authors";
     }
 
@@ -44,7 +46,8 @@ class MigrationsGetCommitAuthors extends Request {
         protected ?int $since = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['since' => $this->since]);
     }
 }

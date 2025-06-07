@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * users/check-person-is-followed-by-authenticated
  */
-class UsersCheckPersonIsFollowedByAuthenticated extends Request {
+class UsersCheckPersonIsFollowedByAuthenticated extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/following/{$this->username}";
     }
 

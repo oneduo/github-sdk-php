@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * authenticated user must have admin access to the repository and must be able to see the team. NOTE:
  * This does not delete the repository, it just removes it from the team.
  */
-class TeamsRemoveRepoLegacy extends Request {
+class TeamsRemoveRepoLegacy extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/repos/{$this->owner}/{$this->repo}";
     }
 

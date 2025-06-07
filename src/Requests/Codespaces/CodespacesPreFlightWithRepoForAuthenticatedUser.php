@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth app
  * tokens and personal access tokens (classic) need the `codespace` scope to use this endpoint.
  */
-class CodespacesPreFlightWithRepoForAuthenticatedUser extends Request {
+class CodespacesPreFlightWithRepoForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/codespaces/new";
     }
 
@@ -35,7 +37,8 @@ class CodespacesPreFlightWithRepoForAuthenticatedUser extends Request {
         protected ?string $clientIp = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['ref' => $this->ref, 'client_ip' => $this->clientIp]);
     }
 }

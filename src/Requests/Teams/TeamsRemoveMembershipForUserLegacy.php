@@ -35,10 +35,12 @@ use Saloon\Http\Request;
  * provider and
  * GitHub](https://docs.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
  */
-class TeamsRemoveMembershipForUserLegacy extends Request {
+class TeamsRemoveMembershipForUserLegacy extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/memberships/{$this->username}";
     }
 

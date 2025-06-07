@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Unblocks the given user and returns a 204.
  */
-class UsersUnblock extends Request {
+class UsersUnblock extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/blocks/{$this->username}";
     }
 

@@ -30,10 +30,12 @@ use Saloon\Http\Request;
  * organization invitations for an organization within a 24 hour period. If the organization is more
  * than one month old or on a paid plan, the limit is 500 invitations per 24 hour period.
  */
-class OrgsSetMembershipForUser extends Request {
+class OrgsSetMembershipForUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/memberships/{$this->username}";
     }
 

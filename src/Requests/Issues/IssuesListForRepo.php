@@ -36,10 +36,12 @@ use Saloon\Http\Request;
  * **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will
  * include `body`, `body_text`, and `body_html`.
  */
-class IssuesListForRepo extends Request {
+class IssuesListForRepo extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues";
     }
 
@@ -76,7 +78,8 @@ class IssuesListForRepo extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'milestone' => $this->milestone,
             'state' => $this->state,

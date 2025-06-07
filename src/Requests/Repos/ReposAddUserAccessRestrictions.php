@@ -29,12 +29,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * | `array` | Usernames for people who can have push access. **Note**: The list of users, apps, and
  * teams in total is limited to 100 items. |
  */
-class ReposAddUserAccessRestrictions extends Request implements HasBody {
+class ReposAddUserAccessRestrictions extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/users";
     }
 

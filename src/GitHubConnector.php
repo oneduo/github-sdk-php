@@ -52,170 +52,212 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
  *
  * GitHub's v3 REST API.
  */
-class GitHubConnector extends Connector {
+class GitHubConnector extends Connector
+{
     use AlwaysThrowOnErrors;
 
-    public function resolveBaseUrl(): string {
+    public function resolveBaseUrl(): string
+    {
         return 'https://api.github.com';
     }
 
-    public function actions(): Actions {
+    public function actions(): Actions
+    {
         return new Actions($this);
     }
 
-    public function activity(): Activity {
+    public function activity(): Activity
+    {
         return new Activity($this);
     }
 
-    public function apps(): Apps {
+    public function apps(): Apps
+    {
         return new Apps($this);
     }
 
-    public function billing(): Billing {
+    public function billing(): Billing
+    {
         return new Billing($this);
     }
 
-    public function campaigns(): Campaigns {
+    public function campaigns(): Campaigns
+    {
         return new Campaigns($this);
     }
 
-    public function checks(): Checks {
+    public function checks(): Checks
+    {
         return new Checks($this);
     }
 
-    public function classroom(): Classroom {
+    public function classroom(): Classroom
+    {
         return new Classroom($this);
     }
 
-    public function codeScanning(): CodeScanning {
+    public function codeScanning(): CodeScanning
+    {
         return new CodeScanning($this);
     }
 
-    public function codeSecurity(): CodeSecurity {
+    public function codeSecurity(): CodeSecurity
+    {
         return new CodeSecurity($this);
     }
 
-    public function codesOfConduct(): CodesOfConduct {
+    public function codesOfConduct(): CodesOfConduct
+    {
         return new CodesOfConduct($this);
     }
 
-    public function codespaces(): Codespaces {
+    public function codespaces(): Codespaces
+    {
         return new Codespaces($this);
     }
 
-    public function copilot(): Copilot {
+    public function copilot(): Copilot
+    {
         return new Copilot($this);
     }
 
-    public function credentials(): Credentials {
+    public function credentials(): Credentials
+    {
         return new Credentials($this);
     }
 
-    public function dependabot(): Dependabot {
+    public function dependabot(): Dependabot
+    {
         return new Dependabot($this);
     }
 
-    public function dependencyGraph(): DependencyGraph {
+    public function dependencyGraph(): DependencyGraph
+    {
         return new DependencyGraph($this);
     }
 
-    public function emojis(): Emojis {
+    public function emojis(): Emojis
+    {
         return new Emojis($this);
     }
 
-    public function gists(): Gists {
+    public function gists(): Gists
+    {
         return new Gists($this);
     }
 
-    public function git(): Git {
+    public function git(): Git
+    {
         return new Git($this);
     }
 
-    public function gitignore(): Gitignore {
+    public function gitignore(): Gitignore
+    {
         return new Gitignore($this);
     }
 
-    public function hostedCompute(): HostedCompute {
+    public function hostedCompute(): HostedCompute
+    {
         return new HostedCompute($this);
     }
 
-    public function interactions(): Interactions {
+    public function interactions(): Interactions
+    {
         return new Interactions($this);
     }
 
-    public function issues(): Issues {
+    public function issues(): Issues
+    {
         return new Issues($this);
     }
 
-    public function licenses(): Licenses {
+    public function licenses(): Licenses
+    {
         return new Licenses($this);
     }
 
-    public function markdown(): Markdown {
+    public function markdown(): Markdown
+    {
         return new Markdown($this);
     }
 
-    public function meta(): Meta {
+    public function meta(): Meta
+    {
         return new Meta($this);
     }
 
-    public function migrations(): Migrations {
+    public function migrations(): Migrations
+    {
         return new Migrations($this);
     }
 
-    public function oidc(): Oidc {
+    public function oidc(): Oidc
+    {
         return new Oidc($this);
     }
 
-    public function orgs(): Orgs {
+    public function orgs(): Orgs
+    {
         return new Orgs($this);
     }
 
-    public function packages(): Packages {
+    public function packages(): Packages
+    {
         return new Packages($this);
     }
 
-    public function privateRegistries(): PrivateRegistries {
+    public function privateRegistries(): PrivateRegistries
+    {
         return new PrivateRegistries($this);
     }
 
-    public function projects(): Projects {
+    public function projects(): Projects
+    {
         return new Projects($this);
     }
 
-    public function pulls(): Pulls {
+    public function pulls(): Pulls
+    {
         return new Pulls($this);
     }
 
-    public function rateLimit(): RateLimit {
+    public function rateLimit(): RateLimit
+    {
         return new RateLimit($this);
     }
 
-    public function reactions(): Reactions {
+    public function reactions(): Reactions
+    {
         return new Reactions($this);
     }
 
-    public function repos(): Repos {
+    public function repos(): Repos
+    {
         return new Repos($this);
     }
 
-    public function search(): Search {
+    public function search(): Search
+    {
         return new Search($this);
     }
 
-    public function secretScanning(): SecretScanning {
+    public function secretScanning(): SecretScanning
+    {
         return new SecretScanning($this);
     }
 
-    public function securityAdvisories(): SecurityAdvisories {
+    public function securityAdvisories(): SecurityAdvisories
+    {
         return new SecurityAdvisories($this);
     }
 
-    public function teams(): Teams {
+    public function teams(): Teams
+    {
         return new Teams($this);
     }
 
-    public function users(): Users {
+    public function users(): Users
+    {
         return new Users($this);
     }
 }

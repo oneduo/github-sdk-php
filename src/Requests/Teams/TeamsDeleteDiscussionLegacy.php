@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the
  * `write:discussion` scope to use this endpoint.
  */
-class TeamsDeleteDiscussionLegacy extends Request {
+class TeamsDeleteDiscussionLegacy extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/discussions/{$this->discussionNumber}";
     }
 

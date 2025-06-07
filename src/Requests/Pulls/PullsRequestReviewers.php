@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * and "[Best practices for using the REST
  * API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api)."
  */
-class PullsRequestReviewers extends Request implements HasBody {
+class PullsRequestReviewers extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/requested_reviewers";
     }
 

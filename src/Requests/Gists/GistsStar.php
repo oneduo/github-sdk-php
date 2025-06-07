@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * information, see "[HTTP
  * method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method)."
  */
-class GistsStar extends Request {
+class GistsStar extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/star";
     }
 

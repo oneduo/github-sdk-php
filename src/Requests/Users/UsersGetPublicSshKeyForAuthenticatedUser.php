@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens
  * (classic) need the `read:public_key` scope to use this endpoint.
  */
-class UsersGetPublicSshKeyForAuthenticatedUser extends Request {
+class UsersGetPublicSshKeyForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/keys/{$this->keyId}";
     }
 

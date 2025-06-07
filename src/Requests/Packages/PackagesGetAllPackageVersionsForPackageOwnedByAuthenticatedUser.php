@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * see "[About permissions for GitHub
  * Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
  */
-class PackagesGetAllPackageVersionsForPackageOwnedByAuthenticatedUser extends Request {
+class PackagesGetAllPackageVersionsForPackageOwnedByAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/packages/{$this->packageType}/{$this->packageName}/versions";
     }
 
@@ -39,7 +41,8 @@ class PackagesGetAllPackageVersionsForPackageOwnedByAuthenticatedUser extends Re
         protected ?string $state = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'state' => $this->state]);
     }

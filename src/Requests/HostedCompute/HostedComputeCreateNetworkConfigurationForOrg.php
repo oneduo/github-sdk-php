@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal
  * access tokens (classic) need the `write:network_configurations` scope to use this endpoint.
  */
-class HostedComputeCreateNetworkConfigurationForOrg extends Request implements HasBody {
+class HostedComputeCreateNetworkConfigurationForOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/settings/network-configurations";
     }
 

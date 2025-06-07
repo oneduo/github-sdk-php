@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access
  * tokens (classic) need the `write:repo_hook` or `repo` scope to use this endpoint.
  */
-class ReposUpdateWebhookConfigForRepo extends Request implements HasBody {
+class ReposUpdateWebhookConfigForRepo extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/config";
     }
 

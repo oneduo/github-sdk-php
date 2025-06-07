@@ -24,10 +24,12 @@ use Saloon\Http\Request;
  * tokens and personal access tokens (classic) need the `repo` scope or `security_events` scope to use
  * this endpoint.
  */
-class SecretScanningListAlertsForEnterprise extends Request {
+class SecretScanningListAlertsForEnterprise extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/enterprises/{$this->enterprise}/secret-scanning/alerts";
     }
 
@@ -58,7 +60,8 @@ class SecretScanningListAlertsForEnterprise extends Request {
         protected ?bool $hideSecret = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'state' => $this->state,
             'secret_type' => $this->secretType,

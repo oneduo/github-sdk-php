@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * gists/delete
  */
-class GistsDelete extends Request {
+class GistsDelete extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}";
     }
 

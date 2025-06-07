@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Get overall statistics of API requests made within an organization by all users and apps within a
  * specified time frame.
  */
-class ApiInsightsGetSummaryStats extends Request {
+class ApiInsightsGetSummaryStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/summary-stats";
     }
 
@@ -31,7 +33,8 @@ class ApiInsightsGetSummaryStats extends Request {
         protected ?string $maxTimestamp = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['min_timestamp' => $this->minTimestamp, 'max_timestamp' => $this->maxTimestamp]);
     }
 }

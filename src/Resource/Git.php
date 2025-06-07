@@ -20,12 +20,14 @@ use Oneduo\GitHubSdk\Requests\Git\GitListMatchingRefs;
 use Oneduo\GitHubSdk\Requests\Git\GitUpdateRef;
 use Saloon\Http\Response;
 
-class Git extends GitHubResource {
+class Git extends GitHubResource
+{
     /**
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createBlob(string $owner, string $repo): Response {
+    public function createBlob(string $owner, string $repo): Response
+    {
         return $this->connector->send(new GitCreateBlob($owner, $repo));
     }
 
@@ -33,7 +35,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getBlob(string $owner, string $repo, string $fileSha): Response {
+    public function getBlob(string $owner, string $repo, string $fileSha): Response
+    {
         return $this->connector->send(new GitGetBlob($owner, $repo, $fileSha));
     }
 
@@ -41,7 +44,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createCommit(string $owner, string $repo): Response {
+    public function createCommit(string $owner, string $repo): Response
+    {
         return $this->connector->send(new GitCreateCommit($owner, $repo));
     }
 
@@ -50,7 +54,8 @@ class Git extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $commitSha  The SHA of the commit.
      */
-    public function getCommit(string $owner, string $repo, string $commitSha): Response {
+    public function getCommit(string $owner, string $repo, string $commitSha): Response
+    {
         return $this->connector->send(new GitGetCommit($owner, $repo, $commitSha));
     }
 
@@ -59,7 +64,8 @@ class Git extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The Git reference. For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      */
-    public function listMatchingRefs(string $owner, string $repo, string $ref): Response {
+    public function listMatchingRefs(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new GitListMatchingRefs($owner, $repo, $ref));
     }
 
@@ -68,7 +74,8 @@ class Git extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The Git reference. For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      */
-    public function getRef(string $owner, string $repo, string $ref): Response {
+    public function getRef(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new GitGetRef($owner, $repo, $ref));
     }
 
@@ -76,7 +83,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRef(string $owner, string $repo): Response {
+    public function createRef(string $owner, string $repo): Response
+    {
         return $this->connector->send(new GitCreateRef($owner, $repo));
     }
 
@@ -85,7 +93,8 @@ class Git extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The Git reference. For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      */
-    public function deleteRef(string $owner, string $repo, string $ref): Response {
+    public function deleteRef(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new GitDeleteRef($owner, $repo, $ref));
     }
 
@@ -94,7 +103,8 @@ class Git extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The Git reference. For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
      */
-    public function updateRef(string $owner, string $repo, string $ref): Response {
+    public function updateRef(string $owner, string $repo, string $ref): Response
+    {
         return $this->connector->send(new GitUpdateRef($owner, $repo, $ref));
     }
 
@@ -102,7 +112,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createTag(string $owner, string $repo): Response {
+    public function createTag(string $owner, string $repo): Response
+    {
         return $this->connector->send(new GitCreateTag($owner, $repo));
     }
 
@@ -110,7 +121,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getTag(string $owner, string $repo, string $tagSha): Response {
+    public function getTag(string $owner, string $repo, string $tagSha): Response
+    {
         return $this->connector->send(new GitGetTag($owner, $repo, $tagSha));
     }
 
@@ -118,7 +130,8 @@ class Git extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createTree(string $owner, string $repo): Response {
+    public function createTree(string $owner, string $repo): Response
+    {
         return $this->connector->send(new GitCreateTree($owner, $repo));
     }
 
@@ -128,7 +141,8 @@ class Git extends GitHubResource {
      * @param  string  $treeSha  The SHA1 value or ref (branch or tag) name of the tree.
      * @param  string  $recursive  Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `"true"`, and `"false"`. Omit this parameter to prevent recursively returning objects or subtrees.
      */
-    public function getTree(string $owner, string $repo, string $treeSha, ?string $recursive): Response {
+    public function getTree(string $owner, string $repo, string $treeSha, ?string $recursive): Response
+    {
         return $this->connector->send(new GitGetTree($owner, $repo, $treeSha, $recursive));
     }
 }

@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Updates the provided reference to point to a new SHA. For more information, see "[Git
  * References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
  */
-class GitUpdateRef extends Request implements HasBody {
+class GitUpdateRef extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/refs/{$this->ref}";
     }
 

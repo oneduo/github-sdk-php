@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get a random sentence from the Zen of GitHub
  */
-class MetaGetZen extends Request {
+class MetaGetZen extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/zen';
     }
 

@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Initiates the generation of a user migration archive.
  */
-class MigrationsStartForAuthenticatedUser extends Request implements HasBody {
+class MigrationsStartForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/migrations';
     }
 

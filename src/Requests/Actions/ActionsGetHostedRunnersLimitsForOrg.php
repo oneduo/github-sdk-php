@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the GitHub-hosted runners limits for an organization.
  */
-class ActionsGetHostedRunnersLimitsForOrg extends Request {
+class ActionsGetHostedRunnersLimitsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/limits";
     }
 

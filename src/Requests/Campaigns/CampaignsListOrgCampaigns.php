@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need
  * the `security_events` scope to use this endpoint.
  */
-class CampaignsListOrgCampaigns extends Request {
+class CampaignsListOrgCampaigns extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/campaigns";
     }
 
@@ -42,7 +44,8 @@ class CampaignsListOrgCampaigns extends Request {
         protected ?string $sort = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'direction' => $this->direction, 'state' => $this->state, 'sort' => $this->sort]);
     }

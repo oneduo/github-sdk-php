@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/decline-invitation-for-authenticated-user
  */
-class ReposDeclineInvitationForAuthenticatedUser extends Request {
+class ReposDeclineInvitationForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/repository_invitations/{$this->invitationId}";
     }
 

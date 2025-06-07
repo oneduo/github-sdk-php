@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * removed from the Teams API. We recommend migrating your existing code to use the [Get a team by
  * name](https://docs.github.com/rest/teams/teams#get-a-team-by-name) endpoint.
  */
-class TeamsGetLegacy extends Request {
+class TeamsGetLegacy extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}";
     }
 

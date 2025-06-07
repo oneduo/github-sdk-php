@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the octocat as ASCII art
  */
-class MetaGetOctocat extends Request {
+class MetaGetOctocat extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/octocat';
     }
 
@@ -26,7 +28,8 @@ class MetaGetOctocat extends Request {
         protected ?string $s = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['s' => $this->s]);
     }
 }

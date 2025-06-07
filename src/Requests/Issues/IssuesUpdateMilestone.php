@@ -12,12 +12,14 @@ use Saloon\Traits\Body\HasJsonBody;
 /**
  * issues/update-milestone
  */
-class IssuesUpdateMilestone extends Request implements HasBody {
+class IssuesUpdateMilestone extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/milestones/{$this->milestoneNumber}";
     }
 

@@ -155,11 +155,13 @@ use Oneduo\GitHubSdk\Requests\Actions\ActionsUpdateRepoVariable;
 use Oneduo\GitHubSdk\Requests\Actions\ActionsUpdateSelfHostedRunnerGroupForOrg;
 use Saloon\Http\Response;
 
-class Actions extends GitHubResource {
+class Actions extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getActionsCacheUsageForOrg(string $org): Response {
+    public function getActionsCacheUsageForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetActionsCacheUsageForOrg($org));
     }
 
@@ -167,7 +169,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getActionsCacheUsageByRepoForOrg(string $org, ?int $page): Response {
+    public function getActionsCacheUsageByRepoForOrg(string $org, ?int $page): Response
+    {
         return $this->connector->send(new ActionsGetActionsCacheUsageByRepoForOrg($org, $page));
     }
 
@@ -175,49 +178,56 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listHostedRunnersForOrg(string $org, ?int $page): Response {
+    public function listHostedRunnersForOrg(string $org, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListHostedRunnersForOrg($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createHostedRunnerForOrg(string $org): Response {
+    public function createHostedRunnerForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsCreateHostedRunnerForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getHostedRunnersGithubOwnedImagesForOrg(string $org): Response {
+    public function getHostedRunnersGithubOwnedImagesForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnersGithubOwnedImagesForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getHostedRunnersPartnerImagesForOrg(string $org): Response {
+    public function getHostedRunnersPartnerImagesForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnersPartnerImagesForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getHostedRunnersLimitsForOrg(string $org): Response {
+    public function getHostedRunnersLimitsForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnersLimitsForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getHostedRunnersMachineSpecsForOrg(string $org): Response {
+    public function getHostedRunnersMachineSpecsForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnersMachineSpecsForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getHostedRunnersPlatformsForOrg(string $org): Response {
+    public function getHostedRunnersPlatformsForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnersPlatformsForOrg($org));
     }
 
@@ -225,7 +235,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hostedRunnerId  Unique identifier of the GitHub-hosted runner.
      */
-    public function getHostedRunnerForOrg(string $org, int $hostedRunnerId): Response {
+    public function getHostedRunnerForOrg(string $org, int $hostedRunnerId): Response
+    {
         return $this->connector->send(new ActionsGetHostedRunnerForOrg($org, $hostedRunnerId));
     }
 
@@ -233,7 +244,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hostedRunnerId  Unique identifier of the GitHub-hosted runner.
      */
-    public function deleteHostedRunnerForOrg(string $org, int $hostedRunnerId): Response {
+    public function deleteHostedRunnerForOrg(string $org, int $hostedRunnerId): Response
+    {
         return $this->connector->send(new ActionsDeleteHostedRunnerForOrg($org, $hostedRunnerId));
     }
 
@@ -241,21 +253,24 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $hostedRunnerId  Unique identifier of the GitHub-hosted runner.
      */
-    public function updateHostedRunnerForOrg(string $org, int $hostedRunnerId): Response {
+    public function updateHostedRunnerForOrg(string $org, int $hostedRunnerId): Response
+    {
         return $this->connector->send(new ActionsUpdateHostedRunnerForOrg($org, $hostedRunnerId));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getGithubActionsPermissionsOrganization(string $org): Response {
+    public function getGithubActionsPermissionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsGetGithubActionsPermissionsOrganization($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function setGithubActionsPermissionsOrganization(string $org): Response {
+    public function setGithubActionsPermissionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsSetGithubActionsPermissionsOrganization($org));
     }
 
@@ -263,14 +278,16 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelectedRepositoriesEnabledGithubActionsOrganization(string $org, ?int $page): Response {
+    public function listSelectedRepositoriesEnabledGithubActionsOrganization(string $org, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelectedRepositoriesEnabledGithubActionsOrganization($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function setSelectedRepositoriesEnabledGithubActionsOrganization(string $org): Response {
+    public function setSelectedRepositoriesEnabledGithubActionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsSetSelectedRepositoriesEnabledGithubActionsOrganization($org));
     }
 
@@ -278,7 +295,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $repositoryId  The unique identifier of the repository.
      */
-    public function enableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): Response {
+    public function enableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsEnableSelectedRepositoryGithubActionsOrganization($org, $repositoryId));
     }
 
@@ -286,35 +304,40 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $repositoryId  The unique identifier of the repository.
      */
-    public function disableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): Response {
+    public function disableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsDisableSelectedRepositoryGithubActionsOrganization($org, $repositoryId));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getAllowedActionsOrganization(string $org): Response {
+    public function getAllowedActionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsGetAllowedActionsOrganization($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function setAllowedActionsOrganization(string $org): Response {
+    public function setAllowedActionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsSetAllowedActionsOrganization($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getGithubActionsDefaultWorkflowPermissionsOrganization(string $org): Response {
+    public function getGithubActionsDefaultWorkflowPermissionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsGetGithubActionsDefaultWorkflowPermissionsOrganization($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function setGithubActionsDefaultWorkflowPermissionsOrganization(string $org): Response {
+    public function setGithubActionsDefaultWorkflowPermissionsOrganization(string $org): Response
+    {
         return $this->connector->send(new ActionsSetGithubActionsDefaultWorkflowPermissionsOrganization($org));
     }
 
@@ -334,7 +357,8 @@ class Actions extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createSelfHostedRunnerGroupForOrg(string $org): Response {
+    public function createSelfHostedRunnerGroupForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsCreateSelfHostedRunnerGroupForOrg($org));
     }
 
@@ -342,7 +366,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      */
-    public function getSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): Response {
+    public function getSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): Response
+    {
         return $this->connector->send(new ActionsGetSelfHostedRunnerGroupForOrg($org, $runnerGroupId));
     }
 
@@ -350,7 +375,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      */
-    public function deleteSelfHostedRunnerGroupFromOrg(string $org, int $runnerGroupId): Response {
+    public function deleteSelfHostedRunnerGroupFromOrg(string $org, int $runnerGroupId): Response
+    {
         return $this->connector->send(new ActionsDeleteSelfHostedRunnerGroupFromOrg($org, $runnerGroupId));
     }
 
@@ -358,7 +384,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      */
-    public function updateSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): Response {
+    public function updateSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): Response
+    {
         return $this->connector->send(new ActionsUpdateSelfHostedRunnerGroupForOrg($org, $runnerGroupId));
     }
 
@@ -367,7 +394,8 @@ class Actions extends GitHubResource {
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listGithubHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, ?int $page): Response {
+    public function listGithubHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListGithubHostedRunnersInGroupForOrg($org, $runnerGroupId, $page));
     }
 
@@ -388,7 +416,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      */
-    public function setRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId): Response {
+    public function setRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId): Response
+    {
         return $this->connector->send(new ActionsSetRepoAccessToSelfHostedRunnerGroupInOrg($org, $runnerGroupId));
     }
 
@@ -423,7 +452,8 @@ class Actions extends GitHubResource {
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, ?int $page): Response {
+    public function listSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelfHostedRunnersInGroupForOrg($org, $runnerGroupId, $page));
     }
 
@@ -431,7 +461,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      */
-    public function setSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId): Response {
+    public function setSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId): Response
+    {
         return $this->connector->send(new ActionsSetSelfHostedRunnersInGroupForOrg($org, $runnerGroupId));
     }
 
@@ -440,7 +471,8 @@ class Actions extends GitHubResource {
      * @param  int  $runnerGroupId  Unique identifier of the self-hosted runner group.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function addSelfHostedRunnerToGroupForOrg(string $org, int $runnerGroupId, int $runnerId): Response {
+    public function addSelfHostedRunnerToGroupForOrg(string $org, int $runnerGroupId, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsAddSelfHostedRunnerToGroupForOrg($org, $runnerGroupId, $runnerId));
     }
 
@@ -462,35 +494,40 @@ class Actions extends GitHubResource {
      * @param  string  $name  The name of a self-hosted runner.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelfHostedRunnersForOrg(string $org, ?string $name, ?int $page): Response {
+    public function listSelfHostedRunnersForOrg(string $org, ?string $name, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelfHostedRunnersForOrg($org, $name, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function listRunnerApplicationsForOrg(string $org): Response {
+    public function listRunnerApplicationsForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsListRunnerApplicationsForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function generateRunnerJitconfigForOrg(string $org): Response {
+    public function generateRunnerJitconfigForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsGenerateRunnerJitconfigForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createRegistrationTokenForOrg(string $org): Response {
+    public function createRegistrationTokenForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsCreateRegistrationTokenForOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createRemoveTokenForOrg(string $org): Response {
+    public function createRemoveTokenForOrg(string $org): Response
+    {
         return $this->connector->send(new ActionsCreateRemoveTokenForOrg($org));
     }
 
@@ -498,7 +535,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function getSelfHostedRunnerForOrg(string $org, int $runnerId): Response {
+    public function getSelfHostedRunnerForOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsGetSelfHostedRunnerForOrg($org, $runnerId));
     }
 
@@ -506,7 +544,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function deleteSelfHostedRunnerFromOrg(string $org, int $runnerId): Response {
+    public function deleteSelfHostedRunnerFromOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsDeleteSelfHostedRunnerFromOrg($org, $runnerId));
     }
 
@@ -514,7 +553,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function listLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): Response {
+    public function listLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsListLabelsForSelfHostedRunnerForOrg($org, $runnerId));
     }
 
@@ -522,7 +562,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function setCustomLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): Response {
+    public function setCustomLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsSetCustomLabelsForSelfHostedRunnerForOrg($org, $runnerId));
     }
 
@@ -530,7 +571,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function addCustomLabelsToSelfHostedRunnerForOrg(string $org, int $runnerId): Response {
+    public function addCustomLabelsToSelfHostedRunnerForOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsAddCustomLabelsToSelfHostedRunnerForOrg($org, $runnerId));
     }
 
@@ -538,7 +580,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(string $org, int $runnerId): Response {
+    public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(string $org, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsRemoveAllCustomLabelsFromSelfHostedRunnerForOrg($org, $runnerId));
     }
 
@@ -559,14 +602,16 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOrgSecrets(string $org, ?int $page): Response {
+    public function listOrgSecrets(string $org, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListOrgSecrets($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getOrgPublicKey(string $org): Response {
+    public function getOrgPublicKey(string $org): Response
+    {
         return $this->connector->send(new ActionsGetOrgPublicKey($org));
     }
 
@@ -574,7 +619,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function getOrgSecret(string $org, string $secretName): Response {
+    public function getOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new ActionsGetOrgSecret($org, $secretName));
     }
 
@@ -582,7 +628,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function createOrUpdateOrgSecret(string $org, string $secretName): Response {
+    public function createOrUpdateOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new ActionsCreateOrUpdateOrgSecret($org, $secretName));
     }
 
@@ -590,7 +637,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function deleteOrgSecret(string $org, string $secretName): Response {
+    public function deleteOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new ActionsDeleteOrgSecret($org, $secretName));
     }
 
@@ -599,7 +647,8 @@ class Actions extends GitHubResource {
      * @param  string  $secretName  The name of the secret.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response {
+    public function listSelectedReposForOrgSecret(string $org, string $secretName, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelectedReposForOrgSecret($org, $secretName, $page));
     }
 
@@ -607,7 +656,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function setSelectedReposForOrgSecret(string $org, string $secretName): Response {
+    public function setSelectedReposForOrgSecret(string $org, string $secretName): Response
+    {
         return $this->connector->send(new ActionsSetSelectedReposForOrgSecret($org, $secretName));
     }
 
@@ -615,7 +665,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response {
+    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsAddSelectedRepoToOrgSecret($org, $secretName, $repositoryId));
     }
 
@@ -623,7 +674,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function removeSelectedRepoFromOrgSecret(string $org, string $secretName, int $repositoryId): Response {
+    public function removeSelectedRepoFromOrgSecret(string $org, string $secretName, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsRemoveSelectedRepoFromOrgSecret($org, $secretName, $repositoryId));
     }
 
@@ -631,14 +683,16 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listOrgVariables(string $org, ?int $page): Response {
+    public function listOrgVariables(string $org, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListOrgVariables($org, $page));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function createOrgVariable(string $org): Response {
+    public function createOrgVariable(string $org): Response
+    {
         return $this->connector->send(new ActionsCreateOrgVariable($org));
     }
 
@@ -646,7 +700,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function getOrgVariable(string $org, string $name): Response {
+    public function getOrgVariable(string $org, string $name): Response
+    {
         return $this->connector->send(new ActionsGetOrgVariable($org, $name));
     }
 
@@ -654,7 +709,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function deleteOrgVariable(string $org, string $name): Response {
+    public function deleteOrgVariable(string $org, string $name): Response
+    {
         return $this->connector->send(new ActionsDeleteOrgVariable($org, $name));
     }
 
@@ -662,7 +718,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function updateOrgVariable(string $org, string $name): Response {
+    public function updateOrgVariable(string $org, string $name): Response
+    {
         return $this->connector->send(new ActionsUpdateOrgVariable($org, $name));
     }
 
@@ -671,7 +728,8 @@ class Actions extends GitHubResource {
      * @param  string  $name  The name of the variable.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelectedReposForOrgVariable(string $org, string $name, ?int $page): Response {
+    public function listSelectedReposForOrgVariable(string $org, string $name, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelectedReposForOrgVariable($org, $name, $page));
     }
 
@@ -679,7 +737,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function setSelectedReposForOrgVariable(string $org, string $name): Response {
+    public function setSelectedReposForOrgVariable(string $org, string $name): Response
+    {
         return $this->connector->send(new ActionsSetSelectedReposForOrgVariable($org, $name));
     }
 
@@ -687,7 +746,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function addSelectedRepoToOrgVariable(string $org, string $name, int $repositoryId): Response {
+    public function addSelectedRepoToOrgVariable(string $org, string $name, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsAddSelectedRepoToOrgVariable($org, $name, $repositoryId));
     }
 
@@ -695,7 +755,8 @@ class Actions extends GitHubResource {
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function removeSelectedRepoFromOrgVariable(string $org, string $name, int $repositoryId): Response {
+    public function removeSelectedRepoFromOrgVariable(string $org, string $name, int $repositoryId): Response
+    {
         return $this->connector->send(new ActionsRemoveSelectedRepoFromOrgVariable($org, $name, $repositoryId));
     }
 
@@ -705,7 +766,8 @@ class Actions extends GitHubResource {
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      * @param  string  $name  The name field of an artifact. When specified, only artifacts with this name will be returned.
      */
-    public function listArtifactsForRepo(string $owner, string $repo, ?int $page, ?string $name): Response {
+    public function listArtifactsForRepo(string $owner, string $repo, ?int $page, ?string $name): Response
+    {
         return $this->connector->send(new ActionsListArtifactsForRepo($owner, $repo, $page, $name));
     }
 
@@ -714,7 +776,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $artifactId  The unique identifier of the artifact.
      */
-    public function getArtifact(string $owner, string $repo, int $artifactId): Response {
+    public function getArtifact(string $owner, string $repo, int $artifactId): Response
+    {
         return $this->connector->send(new ActionsGetArtifact($owner, $repo, $artifactId));
     }
 
@@ -723,7 +786,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $artifactId  The unique identifier of the artifact.
      */
-    public function deleteArtifact(string $owner, string $repo, int $artifactId): Response {
+    public function deleteArtifact(string $owner, string $repo, int $artifactId): Response
+    {
         return $this->connector->send(new ActionsDeleteArtifact($owner, $repo, $artifactId));
     }
 
@@ -745,7 +809,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getActionsCacheUsage(string $owner, string $repo): Response {
+    public function getActionsCacheUsage(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetActionsCacheUsage($owner, $repo));
     }
 
@@ -776,7 +841,8 @@ class Actions extends GitHubResource {
      * @param  string  $key  A key for identifying the cache.
      * @param  string  $ref  The full Git reference for narrowing down the cache. The `ref` for a branch should be formatted as `refs/heads/<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.
      */
-    public function deleteActionsCacheByKey(string $owner, string $repo, string $key, ?string $ref): Response {
+    public function deleteActionsCacheByKey(string $owner, string $repo, string $key, ?string $ref): Response
+    {
         return $this->connector->send(new ActionsDeleteActionsCacheByKey($owner, $repo, $key, $ref));
     }
 
@@ -785,7 +851,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $cacheId  The unique identifier of the GitHub Actions cache.
      */
-    public function deleteActionsCacheById(string $owner, string $repo, int $cacheId): Response {
+    public function deleteActionsCacheById(string $owner, string $repo, int $cacheId): Response
+    {
         return $this->connector->send(new ActionsDeleteActionsCacheById($owner, $repo, $cacheId));
     }
 
@@ -794,7 +861,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $jobId  The unique identifier of the job.
      */
-    public function getJobForWorkflowRun(string $owner, string $repo, int $jobId): Response {
+    public function getJobForWorkflowRun(string $owner, string $repo, int $jobId): Response
+    {
         return $this->connector->send(new ActionsGetJobForWorkflowRun($owner, $repo, $jobId));
     }
 
@@ -803,7 +871,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $jobId  The unique identifier of the job.
      */
-    public function downloadJobLogsForWorkflowRun(string $owner, string $repo, int $jobId): Response {
+    public function downloadJobLogsForWorkflowRun(string $owner, string $repo, int $jobId): Response
+    {
         return $this->connector->send(new ActionsDownloadJobLogsForWorkflowRun($owner, $repo, $jobId));
     }
 
@@ -812,7 +881,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $jobId  The unique identifier of the job.
      */
-    public function reRunJobForWorkflowRun(string $owner, string $repo, int $jobId): Response {
+    public function reRunJobForWorkflowRun(string $owner, string $repo, int $jobId): Response
+    {
         return $this->connector->send(new ActionsReRunJobForWorkflowRun($owner, $repo, $jobId));
     }
 
@@ -820,7 +890,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getCustomOidcSubClaimForRepo(string $owner, string $repo): Response {
+    public function getCustomOidcSubClaimForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetCustomOidcSubClaimForRepo($owner, $repo));
     }
 
@@ -828,7 +899,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setCustomOidcSubClaimForRepo(string $owner, string $repo): Response {
+    public function setCustomOidcSubClaimForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsSetCustomOidcSubClaimForRepo($owner, $repo));
     }
 
@@ -837,7 +909,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoOrganizationSecrets(string $owner, string $repo, ?int $page): Response {
+    public function listRepoOrganizationSecrets(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListRepoOrganizationSecrets($owner, $repo, $page));
     }
 
@@ -846,7 +919,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoOrganizationVariables(string $owner, string $repo, ?int $page): Response {
+    public function listRepoOrganizationVariables(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListRepoOrganizationVariables($owner, $repo, $page));
     }
 
@@ -854,7 +928,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getGithubActionsPermissionsRepository(string $owner, string $repo): Response {
+    public function getGithubActionsPermissionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetGithubActionsPermissionsRepository($owner, $repo));
     }
 
@@ -862,7 +937,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setGithubActionsPermissionsRepository(string $owner, string $repo): Response {
+    public function setGithubActionsPermissionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsSetGithubActionsPermissionsRepository($owner, $repo));
     }
 
@@ -870,7 +946,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getWorkflowAccessToRepository(string $owner, string $repo): Response {
+    public function getWorkflowAccessToRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetWorkflowAccessToRepository($owner, $repo));
     }
 
@@ -878,7 +955,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setWorkflowAccessToRepository(string $owner, string $repo): Response {
+    public function setWorkflowAccessToRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsSetWorkflowAccessToRepository($owner, $repo));
     }
 
@@ -886,7 +964,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getAllowedActionsRepository(string $owner, string $repo): Response {
+    public function getAllowedActionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetAllowedActionsRepository($owner, $repo));
     }
 
@@ -894,7 +973,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setAllowedActionsRepository(string $owner, string $repo): Response {
+    public function setAllowedActionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsSetAllowedActionsRepository($owner, $repo));
     }
 
@@ -902,7 +982,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getGithubActionsDefaultWorkflowPermissionsRepository(string $owner, string $repo): Response {
+    public function getGithubActionsDefaultWorkflowPermissionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetGithubActionsDefaultWorkflowPermissionsRepository($owner, $repo));
     }
 
@@ -910,7 +991,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setGithubActionsDefaultWorkflowPermissionsRepository(string $owner, string $repo): Response {
+    public function setGithubActionsDefaultWorkflowPermissionsRepository(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsSetGithubActionsDefaultWorkflowPermissionsRepository($owner, $repo));
     }
 
@@ -920,7 +1002,8 @@ class Actions extends GitHubResource {
      * @param  string  $name  The name of a self-hosted runner.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listSelfHostedRunnersForRepo(string $owner, string $repo, ?string $name, ?int $page): Response {
+    public function listSelfHostedRunnersForRepo(string $owner, string $repo, ?string $name, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListSelfHostedRunnersForRepo($owner, $repo, $name, $page));
     }
 
@@ -928,7 +1011,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function listRunnerApplicationsForRepo(string $owner, string $repo): Response {
+    public function listRunnerApplicationsForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsListRunnerApplicationsForRepo($owner, $repo));
     }
 
@@ -936,7 +1020,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function generateRunnerJitconfigForRepo(string $owner, string $repo): Response {
+    public function generateRunnerJitconfigForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGenerateRunnerJitconfigForRepo($owner, $repo));
     }
 
@@ -944,7 +1029,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRegistrationTokenForRepo(string $owner, string $repo): Response {
+    public function createRegistrationTokenForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsCreateRegistrationTokenForRepo($owner, $repo));
     }
 
@@ -952,7 +1038,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRemoveTokenForRepo(string $owner, string $repo): Response {
+    public function createRemoveTokenForRepo(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsCreateRemoveTokenForRepo($owner, $repo));
     }
 
@@ -961,7 +1048,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function getSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response {
+    public function getSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsGetSelfHostedRunnerForRepo($owner, $repo, $runnerId));
     }
 
@@ -970,7 +1058,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function deleteSelfHostedRunnerFromRepo(string $owner, string $repo, int $runnerId): Response {
+    public function deleteSelfHostedRunnerFromRepo(string $owner, string $repo, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsDeleteSelfHostedRunnerFromRepo($owner, $repo, $runnerId));
     }
 
@@ -979,7 +1068,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function listLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response {
+    public function listLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsListLabelsForSelfHostedRunnerForRepo($owner, $repo, $runnerId));
     }
 
@@ -1001,7 +1091,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runnerId  Unique identifier of the self-hosted runner.
      */
-    public function addCustomLabelsToSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response {
+    public function addCustomLabelsToSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Response
+    {
         return $this->connector->send(new ActionsAddCustomLabelsToSelfHostedRunnerForRepo($owner, $repo, $runnerId));
     }
 
@@ -1068,7 +1159,8 @@ class Actions extends GitHubResource {
      * @param  int  $runId  The unique identifier of the workflow run.
      * @param  bool  $excludePullRequests  If `true` pull requests are omitted from the response (empty array).
      */
-    public function getWorkflowRun(string $owner, string $repo, int $runId, ?bool $excludePullRequests): Response {
+    public function getWorkflowRun(string $owner, string $repo, int $runId, ?bool $excludePullRequests): Response
+    {
         return $this->connector->send(new ActionsGetWorkflowRun($owner, $repo, $runId, $excludePullRequests));
     }
 
@@ -1077,7 +1169,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function deleteWorkflowRun(string $owner, string $repo, int $runId): Response {
+    public function deleteWorkflowRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsDeleteWorkflowRun($owner, $repo, $runId));
     }
 
@@ -1086,7 +1179,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function getReviewsForRun(string $owner, string $repo, int $runId): Response {
+    public function getReviewsForRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsGetReviewsForRun($owner, $repo, $runId));
     }
 
@@ -1095,7 +1189,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function approveWorkflowRun(string $owner, string $repo, int $runId): Response {
+    public function approveWorkflowRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsApproveWorkflowRun($owner, $repo, $runId));
     }
 
@@ -1170,7 +1265,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function cancelWorkflowRun(string $owner, string $repo, int $runId): Response {
+    public function cancelWorkflowRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsCancelWorkflowRun($owner, $repo, $runId));
     }
 
@@ -1179,7 +1275,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function reviewCustomGatesForRun(string $owner, string $repo, int $runId): Response {
+    public function reviewCustomGatesForRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsReviewCustomGatesForRun($owner, $repo, $runId));
     }
 
@@ -1188,7 +1285,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function forceCancelWorkflowRun(string $owner, string $repo, int $runId): Response {
+    public function forceCancelWorkflowRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsForceCancelWorkflowRun($owner, $repo, $runId));
     }
 
@@ -1214,7 +1312,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function downloadWorkflowRunLogs(string $owner, string $repo, int $runId): Response {
+    public function downloadWorkflowRunLogs(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsDownloadWorkflowRunLogs($owner, $repo, $runId));
     }
 
@@ -1223,7 +1322,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function deleteWorkflowRunLogs(string $owner, string $repo, int $runId): Response {
+    public function deleteWorkflowRunLogs(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsDeleteWorkflowRunLogs($owner, $repo, $runId));
     }
 
@@ -1232,7 +1332,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function getPendingDeploymentsForRun(string $owner, string $repo, int $runId): Response {
+    public function getPendingDeploymentsForRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsGetPendingDeploymentsForRun($owner, $repo, $runId));
     }
 
@@ -1241,7 +1342,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function reviewPendingDeploymentsForRun(string $owner, string $repo, int $runId): Response {
+    public function reviewPendingDeploymentsForRun(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsReviewPendingDeploymentsForRun($owner, $repo, $runId));
     }
 
@@ -1250,7 +1352,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function reRunWorkflow(string $owner, string $repo, int $runId): Response {
+    public function reRunWorkflow(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsReRunWorkflow($owner, $repo, $runId));
     }
 
@@ -1259,7 +1362,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function reRunWorkflowFailedJobs(string $owner, string $repo, int $runId): Response {
+    public function reRunWorkflowFailedJobs(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsReRunWorkflowFailedJobs($owner, $repo, $runId));
     }
 
@@ -1268,7 +1372,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $runId  The unique identifier of the workflow run.
      */
-    public function getWorkflowRunUsage(string $owner, string $repo, int $runId): Response {
+    public function getWorkflowRunUsage(string $owner, string $repo, int $runId): Response
+    {
         return $this->connector->send(new ActionsGetWorkflowRunUsage($owner, $repo, $runId));
     }
 
@@ -1277,7 +1382,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoSecrets(string $owner, string $repo, ?int $page): Response {
+    public function listRepoSecrets(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListRepoSecrets($owner, $repo, $page));
     }
 
@@ -1285,7 +1391,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function getRepoPublicKey(string $owner, string $repo): Response {
+    public function getRepoPublicKey(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsGetRepoPublicKey($owner, $repo));
     }
 
@@ -1294,7 +1401,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function getRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function getRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new ActionsGetRepoSecret($owner, $repo, $secretName));
     }
 
@@ -1303,7 +1411,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new ActionsCreateOrUpdateRepoSecret($owner, $repo, $secretName));
     }
 
@@ -1312,7 +1421,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $secretName  The name of the secret.
      */
-    public function deleteRepoSecret(string $owner, string $repo, string $secretName): Response {
+    public function deleteRepoSecret(string $owner, string $repo, string $secretName): Response
+    {
         return $this->connector->send(new ActionsDeleteRepoSecret($owner, $repo, $secretName));
     }
 
@@ -1321,7 +1431,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoVariables(string $owner, string $repo, ?int $page): Response {
+    public function listRepoVariables(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListRepoVariables($owner, $repo, $page));
     }
 
@@ -1329,7 +1440,8 @@ class Actions extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRepoVariable(string $owner, string $repo): Response {
+    public function createRepoVariable(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ActionsCreateRepoVariable($owner, $repo));
     }
 
@@ -1338,7 +1450,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function getRepoVariable(string $owner, string $repo, string $name): Response {
+    public function getRepoVariable(string $owner, string $repo, string $name): Response
+    {
         return $this->connector->send(new ActionsGetRepoVariable($owner, $repo, $name));
     }
 
@@ -1347,7 +1460,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function deleteRepoVariable(string $owner, string $repo, string $name): Response {
+    public function deleteRepoVariable(string $owner, string $repo, string $name): Response
+    {
         return $this->connector->send(new ActionsDeleteRepoVariable($owner, $repo, $name));
     }
 
@@ -1356,7 +1470,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $name  The name of the variable.
      */
-    public function updateRepoVariable(string $owner, string $repo, string $name): Response {
+    public function updateRepoVariable(string $owner, string $repo, string $name): Response
+    {
         return $this->connector->send(new ActionsUpdateRepoVariable($owner, $repo, $name));
     }
 
@@ -1365,7 +1480,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listRepoWorkflows(string $owner, string $repo, ?int $page): Response {
+    public function listRepoWorkflows(string $owner, string $repo, ?int $page): Response
+    {
         return $this->connector->send(new ActionsListRepoWorkflows($owner, $repo, $page));
     }
 
@@ -1374,7 +1490,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $workflowId  The ID of the workflow. You can also pass the workflow file name as a string.
      */
-    public function getWorkflow(string $owner, string $repo, mixed $workflowId): Response {
+    public function getWorkflow(string $owner, string $repo, mixed $workflowId): Response
+    {
         return $this->connector->send(new ActionsGetWorkflow($owner, $repo, $workflowId));
     }
 
@@ -1383,7 +1500,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $workflowId  The ID of the workflow. You can also pass the workflow file name as a string.
      */
-    public function disableWorkflow(string $owner, string $repo, mixed $workflowId): Response {
+    public function disableWorkflow(string $owner, string $repo, mixed $workflowId): Response
+    {
         return $this->connector->send(new ActionsDisableWorkflow($owner, $repo, $workflowId));
     }
 
@@ -1392,7 +1510,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $workflowId  The ID of the workflow. You can also pass the workflow file name as a string.
      */
-    public function createWorkflowDispatch(string $owner, string $repo, mixed $workflowId): Response {
+    public function createWorkflowDispatch(string $owner, string $repo, mixed $workflowId): Response
+    {
         return $this->connector->send(new ActionsCreateWorkflowDispatch($owner, $repo, $workflowId));
     }
 
@@ -1401,7 +1520,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $workflowId  The ID of the workflow. You can also pass the workflow file name as a string.
      */
-    public function enableWorkflow(string $owner, string $repo, mixed $workflowId): Response {
+    public function enableWorkflow(string $owner, string $repo, mixed $workflowId): Response
+    {
         return $this->connector->send(new ActionsEnableWorkflow($owner, $repo, $workflowId));
     }
 
@@ -1441,7 +1561,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  mixed  $workflowId  The ID of the workflow. You can also pass the workflow file name as a string.
      */
-    public function getWorkflowUsage(string $owner, string $repo, mixed $workflowId): Response {
+    public function getWorkflowUsage(string $owner, string $repo, mixed $workflowId): Response
+    {
         return $this->connector->send(new ActionsGetWorkflowUsage($owner, $repo, $workflowId));
     }
 
@@ -1465,7 +1586,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function getEnvironmentPublicKey(string $owner, string $repo, string $environmentName): Response {
+    public function getEnvironmentPublicKey(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ActionsGetEnvironmentPublicKey($owner, $repo, $environmentName));
     }
 
@@ -1534,7 +1656,8 @@ class Actions extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $environmentName  The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.
      */
-    public function createEnvironmentVariable(string $owner, string $repo, string $environmentName): Response {
+    public function createEnvironmentVariable(string $owner, string $repo, string $environmentName): Response
+    {
         return $this->connector->send(new ActionsCreateEnvironmentVariable($owner, $repo, $environmentName));
     }
 

@@ -28,10 +28,12 @@ use Saloon\Http\Request;
  * `maintainer`. For more information about `maintainer` roles, see [Create a
  * team](https://docs.github.com/rest/teams/teams#create-a-team).
  */
-class TeamsGetMembershipForUserInOrg extends Request {
+class TeamsGetMembershipForUserInOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/memberships/{$this->username}";
     }
 

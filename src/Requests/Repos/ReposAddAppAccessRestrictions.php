@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * are installed on the repository and that have been granted write access to the repository contents
  * can be added as authorized actors on a protected branch.
  */
-class ReposAddAppAccessRestrictions extends Request implements HasBody {
+class ReposAddAppAccessRestrictions extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/apps";
     }
 

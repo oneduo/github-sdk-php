@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal
  * access tokens (classic) need the `write:gpg_key` scope to use this endpoint.
  */
-class UsersCreatePublicSshKeyForAuthenticatedUser extends Request implements HasBody {
+class UsersCreatePublicSshKeyForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/keys';
     }
 

@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Removes all interaction restrictions from public repositories in the given organization. You must be
  * an organization owner to remove restrictions.
  */
-class InteractionsRemoveRestrictionsForOrg extends Request {
+class InteractionsRemoveRestrictionsForOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/interaction-limits";
     }
 

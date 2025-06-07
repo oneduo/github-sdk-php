@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * OAuth tokens and
  * personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsCreateOrUpdateRepoSecret extends Request {
+class ActionsCreateOrUpdateRepoSecret extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/secrets/{$this->secretName}";
     }
 

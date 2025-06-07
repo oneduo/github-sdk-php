@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more
  * information.
  */
-class ProjectsDelete extends Request {
+class ProjectsDelete extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/projects/{$this->projectId}";
     }
 

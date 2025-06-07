@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Unblocks the given user on behalf of the specified organization.
  */
-class OrgsUnblockUser extends Request {
+class OrgsUnblockUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/blocks/{$this->username}";
     }
 

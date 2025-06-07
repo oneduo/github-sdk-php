@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removes any interaction restrictions from your public repositories.
  */
-class InteractionsRemoveRestrictionsForAuthenticatedUser extends Request {
+class InteractionsRemoveRestrictionsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/interaction-limits';
     }
 

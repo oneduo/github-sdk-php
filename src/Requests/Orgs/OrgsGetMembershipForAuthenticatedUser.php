@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * `404` is returned. This endpoint will return a `403` if the request is made by a GitHub App that is
  * blocked by the organization.
  */
-class OrgsGetMembershipForAuthenticatedUser extends Request {
+class OrgsGetMembershipForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/memberships/orgs/{$this->org}";
     }
 

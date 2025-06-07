@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * You can use the REST API to reprioritize a sub-issue to a different position in the parent list.
  */
-class IssuesReprioritizeSubIssue extends Request implements HasBody {
+class IssuesReprioritizeSubIssue extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/sub_issues/priority";
     }
 

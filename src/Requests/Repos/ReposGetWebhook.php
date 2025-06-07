@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * a webhook configuration for a
  * repository](/rest/webhooks/repo-config#get-a-webhook-configuration-for-a-repository)."
  */
-class ReposGetWebhook extends Request {
+class ReposGetWebhook extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}";
     }
 

@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * To list members in a
  * team, the team must be visible to the authenticated user.
  */
-class TeamsGetMemberLegacy extends Request {
+class TeamsGetMemberLegacy extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/members/{$this->username}";
     }
 

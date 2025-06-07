@@ -34,10 +34,12 @@ use Saloon\Http\Request;
  * Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and
  * `body_html`.
  */
-class PullsDismissReview extends Request {
+class PullsDismissReview extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/reviews/{$this->reviewId}/dismissals";
     }
 

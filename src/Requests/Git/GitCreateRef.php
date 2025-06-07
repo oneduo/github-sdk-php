@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without
  * branches.
  */
-class GitCreateRef extends Request implements HasBody {
+class GitCreateRef extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/refs";
     }
 

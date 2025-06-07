@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * A list of `repositories` is only returned
  * for export migrations.
  */
-class MigrationsListForOrg extends Request {
+class MigrationsListForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/migrations";
     }
 
@@ -36,7 +38,8 @@ class MigrationsListForOrg extends Request {
         protected ?array $exclude = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page,
             'per_page' => $this->perPage, 'exclude' => $this->exclude]);
     }

@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  * > The
  * list of users, apps, and teams in total is limited to 100 items.
  */
-class ReposUpdateBranchProtection extends Request {
+class ReposUpdateBranchProtection extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection";
     }
 

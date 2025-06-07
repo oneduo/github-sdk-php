@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * personal access tokens (classic) need the `repo` scope to use this endpoint with a private
  * repository.
  */
-class ReposGetCustomDeploymentProtectionRule extends Request {
+class ReposGetCustomDeploymentProtectionRule extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/environments/{$this->environmentName}/deployment_protection_rules/{$this->protectionRuleId}";
     }
 

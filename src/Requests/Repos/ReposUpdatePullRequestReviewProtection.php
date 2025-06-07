@@ -25,12 +25,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * > Passing new arrays of `users` and
  * `teams` replaces their previous values.
  */
-class ReposUpdatePullRequestReviewProtection extends Request implements HasBody {
+class ReposUpdatePullRequestReviewProtection extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_pull_request_reviews";
     }
 

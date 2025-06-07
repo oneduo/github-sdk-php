@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * This information is only
  * available to repository administrators.
  */
-class ReposListTagProtection extends Request {
+class ReposListTagProtection extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/tags/protection";
     }
 

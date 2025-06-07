@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the
  * `conclusion` is cleared.
  */
-class ChecksRerequestSuite extends Request implements HasBody {
+class ChecksRerequestSuite extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/check-suites/{$this->checkSuiteId}/rerequest";
     }
 

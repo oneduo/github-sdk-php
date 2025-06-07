@@ -46,10 +46,12 @@ use Saloon\Http\Request;
  * this endpoint will update the role of the team member's role. To update the membership of a team
  * member, the authenticated user must be an organization owner or a team maintainer.
  */
-class TeamsAddOrUpdateMembershipForUserLegacy extends Request {
+class TeamsAddOrUpdateMembershipForUserLegacy extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/memberships/{$this->username}";
     }
 

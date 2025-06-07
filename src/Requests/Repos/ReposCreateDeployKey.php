@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * You can create a read-only deploy key.
  */
-class ReposCreateDeployKey extends Request implements HasBody {
+class ReposCreateDeployKey extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/keys";
     }
 

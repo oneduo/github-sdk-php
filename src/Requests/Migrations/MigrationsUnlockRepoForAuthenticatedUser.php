@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * repository](https://docs.github.com/rest/repos/repos#delete-a-repository) if you no longer need the
  * source data. Returns a status of `404 Not Found` if the repository is not locked.
  */
-class MigrationsUnlockRepoForAuthenticatedUser extends Request {
+class MigrationsUnlockRepoForAuthenticatedUser extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/migrations/{$this->migrationId}/repos/{$this->repoName}/lock";
     }
 

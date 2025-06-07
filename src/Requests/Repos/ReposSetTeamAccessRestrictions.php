@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * all teams that previously had push access and grants push access to the new list of teams. Team
  * restrictions include child teams.
  */
-class ReposSetTeamAccessRestrictions extends Request {
+class ReposSetTeamAccessRestrictions extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/teams";
     }
 

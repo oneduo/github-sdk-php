@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Lists all notifications for the current user in the specified repository.
  */
-class ActivityListRepoNotificationsForAuthenticatedUser extends Request {
+class ActivityListRepoNotificationsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/notifications";
     }
 
@@ -40,7 +42,8 @@ class ActivityListRepoNotificationsForAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'all' => $this->all,
             'participating' => $this->participating,

@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  *   API
  * clients should handle both a `200` or `302` response.
  */
-class ReposGetReleaseAsset extends Request {
+class ReposGetReleaseAsset extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/assets/{$this->assetId}";
     }
 

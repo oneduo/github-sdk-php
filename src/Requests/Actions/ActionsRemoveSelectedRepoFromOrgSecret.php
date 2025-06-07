@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the
  * repository is private, the `repo` scope is also required.
  */
-class ActionsRemoveSelectedRepoFromOrgSecret extends Request {
+class ActionsRemoveSelectedRepoFromOrgSecret extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/secrets/{$this->secretName}/repositories/{$this->repositoryId}";
     }
 

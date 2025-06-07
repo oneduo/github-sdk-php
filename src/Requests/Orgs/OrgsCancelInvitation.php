@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * This endpoint triggers
  * [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications).
  */
-class OrgsCancelInvitation extends Request {
+class OrgsCancelInvitation extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/invitations/{$this->invitationId}";
     }
 

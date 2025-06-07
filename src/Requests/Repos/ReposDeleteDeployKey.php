@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deploy keys are immutable. If you need to update a key, remove the key and create a new one instead.
  */
-class ReposDeleteDeployKey extends Request {
+class ReposDeleteDeployKey extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/keys/{$this->keyId}";
     }
 

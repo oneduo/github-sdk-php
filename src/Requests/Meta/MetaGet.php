@@ -25,10 +25,12 @@ use Saloon\Http\Request;
  * endpoint returns both IPv4 and IPv6 addresses. However, not all features support IPv6. You should
  * refer to the specific documentation for each feature to determine if IPv6 is supported.
  */
-class MetaGet extends Request {
+class MetaGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/meta';
     }
 

@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * making the API request has write access to
  * the ruleset.
  */
-class ReposGetOrgRuleset extends Request {
+class ReposGetOrgRuleset extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/rulesets/{$this->rulesetId}";
     }
 

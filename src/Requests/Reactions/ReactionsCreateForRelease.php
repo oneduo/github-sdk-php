@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Create a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release). A
  * response with a `Status: 200 OK` means that you already added the reaction type to this release.
  */
-class ReactionsCreateForRelease extends Request implements HasBody {
+class ReactionsCreateForRelease extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/{$this->releaseId}/reactions";
     }
 

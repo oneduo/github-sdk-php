@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than
  * 1000 statuses will result in a validation error.
  */
-class ReposCreateCommitStatus extends Request implements HasBody {
+class ReposCreateCommitStatus extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/statuses/{$this->sha}";
     }
 

@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * You can use the REST API to delete comments on issues and pull requests. Every pull request is an
  * issue, but not every issue is a pull request.
  */
-class IssuesDeleteComment extends Request {
+class IssuesDeleteComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/comments/{$this->commentId}";
     }
 

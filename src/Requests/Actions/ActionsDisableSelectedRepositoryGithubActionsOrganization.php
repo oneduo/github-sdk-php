@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * OAuth tokens and personal
  * access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class ActionsDisableSelectedRepositoryGithubActionsOrganization extends Request {
+class ActionsDisableSelectedRepositoryGithubActionsOrganization extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/permissions/repositories/{$this->repositoryId}";
     }
 

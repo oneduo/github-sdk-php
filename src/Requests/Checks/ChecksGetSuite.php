@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access tokens (classic) need the `repo` scope to use
  * this endpoint on a private repository.
  */
-class ChecksGetSuite extends Request {
+class ChecksGetSuite extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/check-suites/{$this->checkSuiteId}";
     }
 

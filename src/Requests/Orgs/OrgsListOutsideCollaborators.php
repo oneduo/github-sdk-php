@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * List all users who are outside collaborators of an organization.
  */
-class OrgsListOutsideCollaborators extends Request {
+class OrgsListOutsideCollaborators extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/outside_collaborators";
     }
 
@@ -32,7 +34,8 @@ class OrgsListOutsideCollaborators extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['filter' => $this->filter, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

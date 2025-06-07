@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * endpoint. If this endpoint is only used with public repositories, the token can use the
  * `public_repo` scope instead.
  */
-class DependabotGetAlert extends Request {
+class DependabotGetAlert extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/dependabot/alerts/{$this->alertNumber}";
     }
 

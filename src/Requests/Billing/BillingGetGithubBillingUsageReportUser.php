@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * **Note:** This endpoint is only available to users
  * with access to the enhanced billing platform.
  */
-class BillingGetGithubBillingUsageReportUser extends Request {
+class BillingGetGithubBillingUsageReportUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/users/{$this->username}/settings/billing/usage";
     }
 
@@ -37,7 +39,8 @@ class BillingGetGithubBillingUsageReportUser extends Request {
         protected ?int $hour = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['year' => $this->year, 'month' => $this->month, 'day' => $this->day, 'hour' => $this->hour]);
     }
 }

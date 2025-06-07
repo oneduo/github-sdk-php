@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/list-branches
  */
-class ReposListBranches extends Request {
+class ReposListBranches extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches";
     }
 
@@ -32,7 +34,8 @@ class ReposListBranches extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['protected' => $this->protected, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

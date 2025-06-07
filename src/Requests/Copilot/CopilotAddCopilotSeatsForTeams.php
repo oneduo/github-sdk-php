@@ -41,12 +41,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access tokens (classic) need either the
  * `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
  */
-class CopilotAddCopilotSeatsForTeams extends Request implements HasBody {
+class CopilotAddCopilotSeatsForTeams extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/copilot/billing/selected_teams";
     }
 

@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsListWebhookDeliveries extends Request {
+class AppsListWebhookDeliveries extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/app/hook/deliveries';
     }
 
@@ -30,7 +32,8 @@ class AppsListWebhookDeliveries extends Request {
         protected ?string $cursor = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['cursor' => $this->cursor]);
     }
 }

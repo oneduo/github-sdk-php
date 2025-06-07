@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * > This endpoint can only be used for repositories with fewer than 10,000 commits. If the
  * repository contains 10,000 or more commits, a 422 status code will be returned.
  */
-class ReposGetCodeFrequencyStats extends Request {
+class ReposGetCodeFrequencyStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/stats/code_frequency";
     }
 

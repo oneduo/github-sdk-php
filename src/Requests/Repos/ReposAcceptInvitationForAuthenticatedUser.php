@@ -12,12 +12,14 @@ use Saloon\Traits\Body\HasJsonBody;
 /**
  * repos/accept-invitation-for-authenticated-user
  */
-class ReposAcceptInvitationForAuthenticatedUser extends Request implements HasBody {
+class ReposAcceptInvitationForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/repository_invitations/{$this->invitationId}";
     }
 

@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Create a reaction to an [issue](https://docs.github.com/rest/issues/issues#get-an-issue). A response
  * with an HTTP `200` status means that you already added the reaction type to this issue.
  */
-class ReactionsCreateForIssue extends Request implements HasBody {
+class ReactionsCreateForIssue extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/reactions";
     }
 

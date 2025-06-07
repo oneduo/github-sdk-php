@@ -35,12 +35,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsCreateInstallationAccessToken extends Request implements HasBody {
+class AppsCreateInstallationAccessToken extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/app/installations/{$this->installationId}/access_tokens";
     }
 

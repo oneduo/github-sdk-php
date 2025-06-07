@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Returns the last year of commit activity grouped by week. The `days` array is a group of commits per
  * day, starting on `Sunday`.
  */
-class ReposGetCommitActivityStats extends Request {
+class ReposGetCommitActivityStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/stats/commit_activity";
     }
 

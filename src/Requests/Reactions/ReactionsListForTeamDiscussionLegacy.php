@@ -23,10 +23,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and
  * personal access tokens (classic) need the `read:discussion` scope to use this endpoint.
  */
-class ReactionsListForTeamDiscussionLegacy extends Request {
+class ReactionsListForTeamDiscussionLegacy extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/discussions/{$this->discussionNumber}/reactions";
     }
 
@@ -45,7 +47,8 @@ class ReactionsListForTeamDiscussionLegacy extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['content' => $this->content, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

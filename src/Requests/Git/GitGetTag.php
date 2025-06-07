@@ -61,10 +61,12 @@ use Saloon\Http\Request;
  * | `valid` | None
  * of the above errors applied, so the signature is considered to be verified. |
  */
-class GitGetTag extends Request {
+class GitGetTag extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/tags/{$this->tagSha}";
     }
 

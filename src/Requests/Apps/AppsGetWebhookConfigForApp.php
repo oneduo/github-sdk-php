@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsGetWebhookConfigForApp extends Request {
+class AppsGetWebhookConfigForApp extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/app/hook/config';
     }
 

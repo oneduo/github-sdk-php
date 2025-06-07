@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * addresses in the repository link to GitHub users. The rest will appear as anonymous contributors
  * without associated GitHub user information.
  */
-class ReposListContributors extends Request {
+class ReposListContributors extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/contributors";
     }
 
@@ -42,7 +44,8 @@ class ReposListContributors extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['anon' => $this->anon, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

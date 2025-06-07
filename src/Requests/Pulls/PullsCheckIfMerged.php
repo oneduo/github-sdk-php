@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Checks if a pull request has been merged into the base branch. The HTTP status of the response
  * indicates whether or not the pull request has been merged; the response body is empty.
  */
-class PullsCheckIfMerged extends Request {
+class PullsCheckIfMerged extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/merge";
     }
 

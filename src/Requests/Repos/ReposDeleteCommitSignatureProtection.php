@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * use this endpoint to disable required signed commits on a branch. You must enable branch protection
  * to require signed commits.
  */
-class ReposDeleteCommitSignatureProtection extends Request {
+class ReposDeleteCommitSignatureProtection extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_signatures";
     }
 

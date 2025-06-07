@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Blocks the given user on behalf of the specified organization and returns a 204. If the organization
  * cannot block the given user a 422 is returned.
  */
-class OrgsBlockUser extends Request {
+class OrgsBlockUser extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/blocks/{$this->username}";
     }
 

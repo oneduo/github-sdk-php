@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * thread subscription](https://docs.github.com/rest/activity/notifications#set-a-thread-subscription)
  * endpoint and set `ignore` to `true`.
  */
-class ActivityDeleteThreadSubscription extends Request {
+class ActivityDeleteThreadSubscription extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}/subscription";
     }
 

@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * to update your profile, your privacy settings are still enforced: the email address will not be
  * displayed on your public profile or via the API.
  */
-class UsersUpdateAuthenticated extends Request implements HasBody {
+class UsersUpdateAuthenticated extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user';
     }
 

@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * *
  * `failed`, which means the migration failed.
  */
-class MigrationsGetStatusForOrg extends Request {
+class MigrationsGetStatusForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/migrations/{$this->migrationId}";
     }
 
@@ -40,7 +42,8 @@ class MigrationsGetStatusForOrg extends Request {
         protected ?array $exclude = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['exclude' => $this->exclude]);
     }
 }

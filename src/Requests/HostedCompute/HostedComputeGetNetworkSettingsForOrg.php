@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * and personal access tokens (classic) need the `read:network_configurations` scope to use this
  * endpoint.
  */
-class HostedComputeGetNetworkSettingsForOrg extends Request {
+class HostedComputeGetNetworkSettingsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/settings/network-settings/{$this->networkSettingsId}";
     }
 

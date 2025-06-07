@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * with a numerical suffix. This is the format of the automatic naming scheme that Gist uses
  * internally.
  */
-class GistsCreate extends Request implements HasBody {
+class GistsCreate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/gists';
     }
 

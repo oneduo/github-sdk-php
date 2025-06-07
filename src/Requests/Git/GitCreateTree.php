@@ -24,12 +24,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Returns an
  * error if you try to delete a file that does not exist.
  */
-class GitCreateTree extends Request implements HasBody {
+class GitCreateTree extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/trees";
     }
 

@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
  * to access this endpoint.
  */
-class AppsGetInstallation extends Request {
+class AppsGetInstallation extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/app/installations/{$this->installationId}";
     }
 

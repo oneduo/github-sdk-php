@@ -14,12 +14,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Updates a label using the given label name.
  */
-class IssuesUpdateLabel extends Request implements HasBody {
+class IssuesUpdateLabel extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/labels/{$this->name}";
     }
 

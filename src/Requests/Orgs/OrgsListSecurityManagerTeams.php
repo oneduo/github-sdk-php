@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * January 1, 2026. Please use the "[Organization
  * Roles](https://docs.github.com/rest/orgs/organization-roles)" endpoints instead.
  */
-class OrgsListSecurityManagerTeams extends Request {
+class OrgsListSecurityManagerTeams extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/security-managers";
     }
 

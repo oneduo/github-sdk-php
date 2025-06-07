@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * the GitHub Advisory
  * database](https://docs.github.com/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database#about-types-of-security-advisories)."
  */
-class SecurityAdvisoriesListGlobalAdvisories extends Request {
+class SecurityAdvisoriesListGlobalAdvisories extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/advisories';
     }
 
@@ -77,7 +79,8 @@ class SecurityAdvisoriesListGlobalAdvisories extends Request {
         protected ?string $sort = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'ghsa_id' => $this->ghsaId,
             'type' => $this->type,

@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * This endpoint is only available to
  * repository administrators.
  */
-class ReposCreateTagProtection extends Request implements HasBody {
+class ReposCreateTagProtection extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/tags/protection";
     }
 

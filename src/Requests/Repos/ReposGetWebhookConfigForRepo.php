@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * OAuth app tokens and personal access
  * tokens (classic) need the `read:repo_hook` or `repo` scope to use this endpoint.
  */
-class ReposGetWebhookConfigForRepo extends Request {
+class ReposGetWebhookConfigForRepo extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/hooks/{$this->hookId}/config";
     }
 

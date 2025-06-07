@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * Note: If making a request on behalf of a GitHub App you must
  * also have permissions to write the contents of the head repository.
  */
-class PullsUpdateBranch extends Request {
+class PullsUpdateBranch extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/update-branch";
     }
 

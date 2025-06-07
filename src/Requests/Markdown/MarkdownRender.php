@@ -12,12 +12,14 @@ use Saloon\Traits\Body\HasJsonBody;
 /**
  * markdown/render
  */
-class MarkdownRender extends Request implements HasBody {
+class MarkdownRender extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/markdown';
     }
 

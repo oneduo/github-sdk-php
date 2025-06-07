@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * `security_events` scope to use this endpoint. If this endpoint is only used with public
  * repositories, the token can use the `public_repo` scope instead.
  */
-class SecretScanningListLocationsForAlert extends Request {
+class SecretScanningListLocationsForAlert extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/secret-scanning/alerts/{$this->alertNumber}/locations";
     }
 
@@ -42,7 +44,8 @@ class SecretScanningListLocationsForAlert extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

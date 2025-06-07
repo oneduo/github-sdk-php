@@ -21,12 +21,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * If you request a build while another is still in progress, the second request will be queued until
  * the first completes.
  */
-class ReposRequestPagesBuild extends Request implements HasBody {
+class ReposRequestPagesBuild extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pages/builds";
     }
 

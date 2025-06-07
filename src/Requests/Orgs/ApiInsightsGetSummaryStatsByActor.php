@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Get overall statistics of API requests within the organization made by a specific actor. Actors can
  * be GitHub App installations, OAuth apps or other tokens on behalf of a user.
  */
-class ApiInsightsGetSummaryStatsByActor extends Request {
+class ApiInsightsGetSummaryStatsByActor extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/summary-stats/{$this->actorType}/{$this->actorId}";
     }
 
@@ -35,7 +37,8 @@ class ApiInsightsGetSummaryStatsByActor extends Request {
         protected ?string $maxTimestamp = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['min_timestamp' => $this->minTimestamp, 'max_timestamp' => $this->maxTimestamp]);
     }
 }

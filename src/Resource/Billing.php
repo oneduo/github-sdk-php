@@ -15,7 +15,8 @@ use Oneduo\GitHubSdk\Requests\Billing\BillingGetSharedStorageBillingOrg;
 use Oneduo\GitHubSdk\Requests\Billing\BillingGetSharedStorageBillingUser;
 use Saloon\Http\Response;
 
-class Billing extends GitHubResource {
+class Billing extends GitHubResource
+{
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      * @param  int  $year  If specified, only return results for a single year. The value of `year` is an integer with four digits representing a year. For example, `2025`. Default value is the current year.
@@ -36,42 +37,48 @@ class Billing extends GitHubResource {
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getGithubActionsBillingOrg(string $org): Response {
+    public function getGithubActionsBillingOrg(string $org): Response
+    {
         return $this->connector->send(new BillingGetGithubActionsBillingOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getGithubPackagesBillingOrg(string $org): Response {
+    public function getGithubPackagesBillingOrg(string $org): Response
+    {
         return $this->connector->send(new BillingGetGithubPackagesBillingOrg($org));
     }
 
     /**
      * @param  string  $org  The organization name. The name is not case sensitive.
      */
-    public function getSharedStorageBillingOrg(string $org): Response {
+    public function getSharedStorageBillingOrg(string $org): Response
+    {
         return $this->connector->send(new BillingGetSharedStorageBillingOrg($org));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getGithubActionsBillingUser(string $username): Response {
+    public function getGithubActionsBillingUser(string $username): Response
+    {
         return $this->connector->send(new BillingGetGithubActionsBillingUser($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getGithubPackagesBillingUser(string $username): Response {
+    public function getGithubPackagesBillingUser(string $username): Response
+    {
         return $this->connector->send(new BillingGetGithubPackagesBillingUser($username));
     }
 
     /**
      * @param  string  $username  The handle for the GitHub user account.
      */
-    public function getSharedStorageBillingUser(string $username): Response {
+    public function getSharedStorageBillingUser(string $username): Response
+    {
         return $this->connector->send(new BillingGetSharedStorageBillingUser($username));
     }
 

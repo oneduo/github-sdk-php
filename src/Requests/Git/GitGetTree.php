@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * > The limit for the `tree` array is 100,000 entries with a maximum size of 7 MB
  * when using the `recursive` parameter.
  */
-class GitGetTree extends Request {
+class GitGetTree extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/git/trees/{$this->treeSha}";
     }
 
@@ -41,7 +43,8 @@ class GitGetTree extends Request {
         protected ?string $recursive = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['recursive' => $this->recursive]);
     }
 }

@@ -24,10 +24,12 @@ use Saloon\Http\Request;
  * [our guide on how to use artifact attestations to establish a build's
  * provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
  */
-class ReposListAttestations extends Request {
+class ReposListAttestations extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/attestations/{$this->subjectDigest}";
     }
 
@@ -47,7 +49,8 @@ class ReposListAttestations extends Request {
         protected ?string $predicateType = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['before' => $this->before, 'predicate_type' => $this->predicateType]);
     }
 }

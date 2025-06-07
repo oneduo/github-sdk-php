@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * administrators. For more information, see "[Enforcing repository management policies in your
  * enterprise](https://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
  */
-class OrgsConvertMemberToOutsideCollaborator extends Request {
+class OrgsConvertMemberToOutsideCollaborator extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/outside_collaborators/{$this->username}";
     }
 

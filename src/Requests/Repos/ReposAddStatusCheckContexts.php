@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub
  * Help documentation.
  */
-class ReposAddStatusCheckContexts extends Request implements HasBody {
+class ReposAddStatusCheckContexts extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_status_checks/contexts";
     }
 

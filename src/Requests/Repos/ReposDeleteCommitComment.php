@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/delete-commit-comment
  */
-class ReposDeleteCommitComment extends Request {
+class ReposDeleteCommitComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/comments/{$this->commentId}";
     }
 

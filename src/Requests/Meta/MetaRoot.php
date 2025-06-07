@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get Hypermedia links to resources accessible in GitHub's REST API
  */
-class MetaRoot extends Request {
+class MetaRoot extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/';
     }
 

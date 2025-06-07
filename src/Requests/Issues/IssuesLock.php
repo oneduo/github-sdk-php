@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * endpoint. For more information, see "[HTTP
  * method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method)."
  */
-class IssuesLock extends Request {
+class IssuesLock extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/lock";
     }
 

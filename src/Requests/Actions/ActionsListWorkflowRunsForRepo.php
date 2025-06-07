@@ -24,10 +24,12 @@ use Saloon\Http\Request;
  * endpoint will return up to 1,000 results for each search when using the following parameters:
  * `actor`, `branch`, `check_suite_id`, `created`, `event`, `head_sha`, `status`.
  */
-class ActionsListWorkflowRunsForRepo extends Request {
+class ActionsListWorkflowRunsForRepo extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/actions/runs";
     }
 
@@ -60,7 +62,8 @@ class ActionsListWorkflowRunsForRepo extends Request {
         protected ?string $headSha = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'actor' => $this->actor,
             'branch' => $this->branch,

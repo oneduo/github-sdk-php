@@ -34,7 +34,8 @@ use Oneduo\GitHubSdk\Requests\Pulls\PullsUpdateReview;
 use Oneduo\GitHubSdk\Requests\Pulls\PullsUpdateReviewComment;
 use Saloon\Http\Response;
 
-class Pulls extends GitHubResource {
+class Pulls extends GitHubResource
+{
     /**
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
@@ -62,7 +63,8 @@ class Pulls extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function create(string $owner, string $repo): Response {
+    public function create(string $owner, string $repo): Response
+    {
         return $this->connector->send(new PullsCreate($owner, $repo));
     }
 
@@ -89,7 +91,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function getReviewComment(string $owner, string $repo, int $commentId): Response {
+    public function getReviewComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new PullsGetReviewComment($owner, $repo, $commentId));
     }
 
@@ -98,7 +101,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function deleteReviewComment(string $owner, string $repo, int $commentId): Response {
+    public function deleteReviewComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new PullsDeleteReviewComment($owner, $repo, $commentId));
     }
 
@@ -107,7 +111,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $commentId  The unique identifier of the comment.
      */
-    public function updateReviewComment(string $owner, string $repo, int $commentId): Response {
+    public function updateReviewComment(string $owner, string $repo, int $commentId): Response
+    {
         return $this->connector->send(new PullsUpdateReviewComment($owner, $repo, $commentId));
     }
 
@@ -116,7 +121,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function get(string $owner, string $repo, int $pullNumber): Response {
+    public function get(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsGet($owner, $repo, $pullNumber));
     }
 
@@ -125,7 +131,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function update(string $owner, string $repo, int $pullNumber): Response {
+    public function update(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsUpdate($owner, $repo, $pullNumber));
     }
 
@@ -155,7 +162,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function createReviewComment(string $owner, string $repo, int $pullNumber): Response {
+    public function createReviewComment(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsCreateReviewComment($owner, $repo, $pullNumber));
     }
 
@@ -180,7 +188,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listCommits(string $owner, string $repo, int $pullNumber, ?int $page): Response {
+    public function listCommits(string $owner, string $repo, int $pullNumber, ?int $page): Response
+    {
         return $this->connector->send(new PullsListCommits($owner, $repo, $pullNumber, $page));
     }
 
@@ -190,7 +199,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listFiles(string $owner, string $repo, int $pullNumber, ?int $page): Response {
+    public function listFiles(string $owner, string $repo, int $pullNumber, ?int $page): Response
+    {
         return $this->connector->send(new PullsListFiles($owner, $repo, $pullNumber, $page));
     }
 
@@ -199,7 +209,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function checkIfMerged(string $owner, string $repo, int $pullNumber): Response {
+    public function checkIfMerged(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsCheckIfMerged($owner, $repo, $pullNumber));
     }
 
@@ -208,7 +219,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function merge(string $owner, string $repo, int $pullNumber): Response {
+    public function merge(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsMerge($owner, $repo, $pullNumber));
     }
 
@@ -217,7 +229,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function listRequestedReviewers(string $owner, string $repo, int $pullNumber): Response {
+    public function listRequestedReviewers(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsListRequestedReviewers($owner, $repo, $pullNumber));
     }
 
@@ -226,7 +239,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function requestReviewers(string $owner, string $repo, int $pullNumber): Response {
+    public function requestReviewers(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsRequestReviewers($owner, $repo, $pullNumber));
     }
 
@@ -235,7 +249,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function removeRequestedReviewers(string $owner, string $repo, int $pullNumber): Response {
+    public function removeRequestedReviewers(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsRemoveRequestedReviewers($owner, $repo, $pullNumber));
     }
 
@@ -245,7 +260,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listReviews(string $owner, string $repo, int $pullNumber, ?int $page): Response {
+    public function listReviews(string $owner, string $repo, int $pullNumber, ?int $page): Response
+    {
         return $this->connector->send(new PullsListReviews($owner, $repo, $pullNumber, $page));
     }
 
@@ -254,7 +270,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function createReview(string $owner, string $repo, int $pullNumber): Response {
+    public function createReview(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsCreateReview($owner, $repo, $pullNumber));
     }
 
@@ -264,7 +281,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $reviewId  The unique identifier of the review.
      */
-    public function getReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response {
+    public function getReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response
+    {
         return $this->connector->send(new PullsGetReview($owner, $repo, $pullNumber, $reviewId));
     }
 
@@ -274,7 +292,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $reviewId  The unique identifier of the review.
      */
-    public function updateReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response {
+    public function updateReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response
+    {
         return $this->connector->send(new PullsUpdateReview($owner, $repo, $pullNumber, $reviewId));
     }
 
@@ -284,7 +303,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $reviewId  The unique identifier of the review.
      */
-    public function deletePendingReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response {
+    public function deletePendingReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response
+    {
         return $this->connector->send(new PullsDeletePendingReview($owner, $repo, $pullNumber, $reviewId));
     }
 
@@ -311,7 +331,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $reviewId  The unique identifier of the review.
      */
-    public function dismissReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response {
+    public function dismissReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response
+    {
         return $this->connector->send(new PullsDismissReview($owner, $repo, $pullNumber, $reviewId));
     }
 
@@ -321,7 +342,8 @@ class Pulls extends GitHubResource {
      * @param  int  $pullNumber  The number that identifies the pull request.
      * @param  int  $reviewId  The unique identifier of the review.
      */
-    public function submitReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response {
+    public function submitReview(string $owner, string $repo, int $pullNumber, int $reviewId): Response
+    {
         return $this->connector->send(new PullsSubmitReview($owner, $repo, $pullNumber, $reviewId));
     }
 
@@ -330,7 +352,8 @@ class Pulls extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $pullNumber  The number that identifies the pull request.
      */
-    public function updateBranch(string $owner, string $repo, int $pullNumber): Response {
+    public function updateBranch(string $owner, string $repo, int $pullNumber): Response
+    {
         return $this->connector->send(new PullsUpdateBranch($owner, $repo, $pullNumber));
     }
 }

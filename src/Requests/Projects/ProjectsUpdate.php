@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more
  * information.
  */
-class ProjectsUpdate extends Request implements HasBody {
+class ProjectsUpdate extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/projects/{$this->projectId}";
     }
 

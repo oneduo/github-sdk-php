@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Removes one or more assignees from an issue.
  */
-class IssuesRemoveAssignees extends Request {
+class IssuesRemoveAssignees extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/{$this->issueNumber}/assignees";
     }
 

@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * comment](https://docs.github.com/rest/issues/comments#get-an-issue-comment). A response with an HTTP
  * `200` status means that you already added the reaction type to this issue comment.
  */
-class ReactionsCreateForIssueComment extends Request implements HasBody {
+class ReactionsCreateForIssueComment extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/issues/comments/{$this->commentId}/reactions";
     }
 

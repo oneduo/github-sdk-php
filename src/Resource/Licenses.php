@@ -10,15 +10,18 @@ use Oneduo\GitHubSdk\Requests\Licenses\LicensesGetAllCommonlyUsed;
 use Oneduo\GitHubSdk\Requests\Licenses\LicensesGetForRepo;
 use Saloon\Http\Response;
 
-class Licenses extends GitHubResource {
+class Licenses extends GitHubResource
+{
     /**
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function getAllCommonlyUsed(?bool $featured, ?int $page): Response {
+    public function getAllCommonlyUsed(?bool $featured, ?int $page): Response
+    {
         return $this->connector->send(new LicensesGetAllCommonlyUsed($featured, $page));
     }
 
-    public function get(string $license): Response {
+    public function get(string $license): Response
+    {
         return $this->connector->send(new LicensesGet($license));
     }
 
@@ -27,7 +30,8 @@ class Licenses extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ref  The Git reference for the results you want to list. The `ref` for a branch can be formatted either as `refs/heads/<branch name>` or simply `<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.
      */
-    public function getForRepo(string $owner, string $repo, ?string $ref): Response {
+    public function getForRepo(string $owner, string $repo, ?string $ref): Response
+    {
         return $this->connector->send(new LicensesGetForRepo($owner, $repo, $ref));
     }
 }

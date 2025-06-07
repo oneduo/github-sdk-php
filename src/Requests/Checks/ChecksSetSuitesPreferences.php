@@ -19,12 +19,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * You must have admin
  * permissions in the repository to set preferences for check suites.
  */
-class ChecksSetSuitesPreferences extends Request implements HasBody {
+class ChecksSetSuitesPreferences extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/check-suites/preferences";
     }
 

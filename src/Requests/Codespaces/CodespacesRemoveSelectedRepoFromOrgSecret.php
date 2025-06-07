@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * OAuth
  * app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
  */
-class CodespacesRemoveSelectedRepoFromOrgSecret extends Request {
+class CodespacesRemoveSelectedRepoFromOrgSecret extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/codespaces/secrets/{$this->secretName}/repositories/{$this->repositoryId}";
     }
 

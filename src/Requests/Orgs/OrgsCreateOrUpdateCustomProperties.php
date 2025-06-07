@@ -29,12 +29,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * on a team, with the fine-grained permission of `custom_properties_org_definitions_manager` in the
  * organization.
  */
-class OrgsCreateOrUpdateCustomProperties extends Request implements HasBody {
+class OrgsCreateOrUpdateCustomProperties extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/properties/schema";
     }
 

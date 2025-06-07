@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Gets information about a specific license. For more information, see "[Licensing a repository
  * ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
  */
-class LicensesGet extends Request {
+class LicensesGet extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/licenses/{$this->license}";
     }
 

@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * more information, see "[Getting started with the REST
  * API](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."
  */
-class ReposGetRelease extends Request {
+class ReposGetRelease extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/releases/{$this->releaseId}";
     }
 

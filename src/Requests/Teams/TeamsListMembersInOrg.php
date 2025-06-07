@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * To list members in a team, the team must be
  * visible to the authenticated user.
  */
-class TeamsListMembersInOrg extends Request {
+class TeamsListMembersInOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/members";
     }
 
@@ -37,7 +39,8 @@ class TeamsListMembersInOrg extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['role' => $this->role, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

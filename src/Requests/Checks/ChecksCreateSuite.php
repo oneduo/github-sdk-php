@@ -27,12 +27,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth apps and personal access tokens
  * (classic) cannot use this endpoint.
  */
-class ChecksCreateSuite extends Request implements HasBody {
+class ChecksCreateSuite extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/check-suites";
     }
 

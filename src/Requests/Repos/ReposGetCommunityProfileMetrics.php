@@ -29,10 +29,12 @@ use Saloon\Http\Request;
  * `content_reports_enabled`
  * is only returned for organization-owned repositories.
  */
-class ReposGetCommunityProfileMetrics extends Request {
+class ReposGetCommunityProfileMetrics extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/community/profile";
     }
 

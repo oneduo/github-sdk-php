@@ -19,12 +19,14 @@ use Oneduo\GitHubSdk\Requests\Checks\ChecksSetSuitesPreferences;
 use Oneduo\GitHubSdk\Requests\Checks\ChecksUpdate;
 use Saloon\Http\Response;
 
-class Checks extends GitHubResource {
+class Checks extends GitHubResource
+{
     /**
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function create(string $owner, string $repo): Response {
+    public function create(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ChecksCreate($owner, $repo));
     }
 
@@ -33,7 +35,8 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function get(string $owner, string $repo, int $checkRunId): Response {
+    public function get(string $owner, string $repo, int $checkRunId): Response
+    {
         return $this->connector->send(new ChecksGet($owner, $repo, $checkRunId));
     }
 
@@ -42,7 +45,8 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function update(string $owner, string $repo, int $checkRunId): Response {
+    public function update(string $owner, string $repo, int $checkRunId): Response
+    {
         return $this->connector->send(new ChecksUpdate($owner, $repo, $checkRunId));
     }
 
@@ -52,7 +56,8 @@ class Checks extends GitHubResource {
      * @param  int  $checkRunId  The unique identifier of the check run.
      * @param  int  $page  The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api)."
      */
-    public function listAnnotations(string $owner, string $repo, int $checkRunId, ?int $page): Response {
+    public function listAnnotations(string $owner, string $repo, int $checkRunId, ?int $page): Response
+    {
         return $this->connector->send(new ChecksListAnnotations($owner, $repo, $checkRunId, $page));
     }
 
@@ -61,7 +66,8 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkRunId  The unique identifier of the check run.
      */
-    public function rerequestRun(string $owner, string $repo, int $checkRunId): Response {
+    public function rerequestRun(string $owner, string $repo, int $checkRunId): Response
+    {
         return $this->connector->send(new ChecksRerequestRun($owner, $repo, $checkRunId));
     }
 
@@ -69,7 +75,8 @@ class Checks extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createSuite(string $owner, string $repo): Response {
+    public function createSuite(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ChecksCreateSuite($owner, $repo));
     }
 
@@ -77,7 +84,8 @@ class Checks extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function setSuitesPreferences(string $owner, string $repo): Response {
+    public function setSuitesPreferences(string $owner, string $repo): Response
+    {
         return $this->connector->send(new ChecksSetSuitesPreferences($owner, $repo));
     }
 
@@ -86,7 +94,8 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkSuiteId  The unique identifier of the check suite.
      */
-    public function getSuite(string $owner, string $repo, int $checkSuiteId): Response {
+    public function getSuite(string $owner, string $repo, int $checkSuiteId): Response
+    {
         return $this->connector->send(new ChecksGetSuite($owner, $repo, $checkSuiteId));
     }
 
@@ -116,7 +125,8 @@ class Checks extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  int  $checkSuiteId  The unique identifier of the check suite.
      */
-    public function rerequestSuite(string $owner, string $repo, int $checkSuiteId): Response {
+    public function rerequestSuite(string $owner, string $repo, int $checkSuiteId): Response
+    {
         return $this->connector->send(new ChecksRerequestSuite($owner, $repo, $checkSuiteId));
     }
 

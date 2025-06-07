@@ -33,12 +33,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and
  * `body_html`.
  */
-class PullsSubmitReview extends Request implements HasBody {
+class PullsSubmitReview extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/reviews/{$this->reviewId}/events";
     }
 

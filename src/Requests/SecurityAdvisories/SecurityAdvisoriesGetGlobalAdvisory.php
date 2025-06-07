@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Gets a global security advisory using its GitHub Security Advisory (GHSA) identifier.
  */
-class SecurityAdvisoriesGetGlobalAdvisory extends Request {
+class SecurityAdvisoriesGetGlobalAdvisory extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/advisories/{$this->ghsaId}";
     }
 

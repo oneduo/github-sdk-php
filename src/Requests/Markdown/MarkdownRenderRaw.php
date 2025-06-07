@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Markdown](https://github.github.com/gfm/) is not supported and Markdown will be rendered in plain
  * format like a README.md file. Markdown content must be 400 KB or less.
  */
-class MarkdownRenderRaw extends Request implements HasBody {
+class MarkdownRenderRaw extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/markdown/raw';
     }
 

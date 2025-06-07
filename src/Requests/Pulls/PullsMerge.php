@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * and "[Best practices for using the REST
  * API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api)."
  */
-class PullsMerge extends Request {
+class PullsMerge extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/{$this->pullNumber}/merge";
     }
 

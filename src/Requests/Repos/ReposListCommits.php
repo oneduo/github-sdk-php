@@ -61,10 +61,12 @@ use Saloon\Http\Request;
  * | `valid` | None
  * of the above errors applied, so the signature is considered to be verified. |
  */
-class ReposListCommits extends Request {
+class ReposListCommits extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/commits";
     }
 
@@ -93,7 +95,8 @@ class ReposListCommits extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'sha' => $this->sha,
             'path' => $this->path,

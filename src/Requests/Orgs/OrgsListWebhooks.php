@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  * webhooks that they did not create and users cannot list, view, or
  * edit webhooks that were created by OAuth apps.
  */
-class OrgsListWebhooks extends Request {
+class OrgsListWebhooks extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/hooks";
     }
 
@@ -38,7 +40,8 @@ class OrgsListWebhooks extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

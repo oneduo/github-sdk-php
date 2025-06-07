@@ -14,10 +14,12 @@ use Saloon\Http\Request;
  * to receive notifications from a repository, [set the repository's subscription
  * manually](https://docs.github.com/rest/activity/watching#set-a-repository-subscription).
  */
-class ActivityDeleteRepoSubscription extends Request {
+class ActivityDeleteRepoSubscription extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/subscription";
     }
 

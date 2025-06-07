@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Returns a 204 if the given user is blocked by the given organization. Returns a 404 if the
  * organization is not blocking the user, or if the user account has been identified as spam by GitHub.
  */
-class OrgsCheckBlockedUser extends Request {
+class OrgsCheckBlockedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/blocks/{$this->username}";
     }
 

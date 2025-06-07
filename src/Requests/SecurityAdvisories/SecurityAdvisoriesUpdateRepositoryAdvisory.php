@@ -23,12 +23,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * tokens and personal access tokens (classic) need the `repo` or `repository_advisories:write` scope
  * to use this endpoint.
  */
-class SecurityAdvisoriesUpdateRepositoryAdvisory extends Request implements HasBody {
+class SecurityAdvisoriesUpdateRepositoryAdvisory extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/security-advisories/{$this->ghsaId}";
     }
 

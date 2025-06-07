@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * Apps that are installed on the repository and that have been granted write access to the repository
  * contents can be added as authorized actors on a protected branch.
  */
-class ReposSetAppAccessRestrictions extends Request {
+class ReposSetAppAccessRestrictions extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/apps";
     }
 

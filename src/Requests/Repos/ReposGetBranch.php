@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * repos/get-branch
  */
-class ReposGetBranch extends Request {
+class ReposGetBranch extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}";
     }
 

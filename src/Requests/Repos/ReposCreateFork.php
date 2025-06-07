@@ -25,12 +25,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * endpoint works with GitHub Apps, the GitHub App must be installed on the destination account with
  * access to all repositories and on the source account with access to the source repository.
  */
-class ReposCreateFork extends Request implements HasBody {
+class ReposCreateFork extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/forks";
     }
 

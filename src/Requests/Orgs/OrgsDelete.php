@@ -20,10 +20,12 @@ use Saloon\Http\Request;
  *
  * https://docs.github.com/site-policy/github-terms/github-terms-of-service
  */
-class OrgsDelete extends Request {
+class OrgsDelete extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}";
     }
 

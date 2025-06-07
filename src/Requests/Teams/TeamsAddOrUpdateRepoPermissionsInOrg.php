@@ -27,10 +27,12 @@ use Saloon\Http\Request;
  * permission levels, see "[Repository permission levels for an
  * organization](https://docs.github.com/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
  */
-class TeamsAddOrUpdateRepoPermissionsInOrg extends Request {
+class TeamsAddOrUpdateRepoPermissionsInOrg extends Request
+{
     protected Method $method = Method::PUT;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/teams/{$this->teamSlug}/repos/{$this->owner}/{$this->repo}";
     }
 

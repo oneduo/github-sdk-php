@@ -21,10 +21,12 @@ use Saloon\Http\Request;
  * there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time
  * zone of individual commits.
  */
-class ReposGetPunchCardStats extends Request {
+class ReposGetPunchCardStats extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/stats/punch_card";
     }
 

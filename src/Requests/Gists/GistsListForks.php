@@ -10,10 +10,12 @@ use Saloon\Http\Request;
 /**
  * gists/list-forks
  */
-class GistsListForks extends Request {
+class GistsListForks extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/gists/{$this->gistId}/forks";
     }
 
@@ -28,7 +30,8 @@ class GistsListForks extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

@@ -15,12 +15,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * Converts the authenticated user to an active member of the organization, if that user has a pending
  * invitation from the organization.
  */
-class OrgsUpdateMembershipForAuthenticatedUser extends Request implements HasBody {
+class OrgsUpdateMembershipForAuthenticatedUser extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/user/memberships/orgs/{$this->org}";
     }
 

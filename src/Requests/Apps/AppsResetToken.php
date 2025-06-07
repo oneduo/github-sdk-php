@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * reset a valid OAuth token without end-user involvement. Applications must save the "token" property
  * in the response because changes take effect immediately. Invalid tokens will return `404 NOT FOUND`.
  */
-class AppsResetToken extends Request implements HasBody {
+class AppsResetToken extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/applications/{$this->clientId}/token";
     }
 

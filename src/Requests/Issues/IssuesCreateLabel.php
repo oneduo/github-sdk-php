@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * parameters are required. The color must be a valid [hexadecimal color
  * code](http://www.color-hex.com/).
  */
-class IssuesCreateLabel extends Request implements HasBody {
+class IssuesCreateLabel extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/labels";
     }
 

@@ -22,12 +22,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * longer be available from 00:00 UTC on April 12, 2024. For more details and alternatives, see the
  * [changelog](https://gh.io/source-imports-api-deprecation).
  */
-class MigrationsMapCommitAuthor extends Request implements HasBody {
+class MigrationsMapCommitAuthor extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/import/authors/{$this->authorId}";
     }
 

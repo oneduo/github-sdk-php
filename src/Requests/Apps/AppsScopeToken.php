@@ -20,12 +20,14 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Invalid tokens will return `404 NOT FOUND`.
  */
-class AppsScopeToken extends Request implements HasBody {
+class AppsScopeToken extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/applications/{$this->clientId}/token/scoped";
     }
 

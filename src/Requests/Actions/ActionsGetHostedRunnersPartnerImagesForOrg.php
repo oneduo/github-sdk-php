@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Get the list of partner images available for GitHub-hosted runners for an organization.
  */
-class ActionsGetHostedRunnersPartnerImagesForOrg extends Request {
+class ActionsGetHostedRunnersPartnerImagesForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/images/partner";
     }
 

@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * OAuth
  * app tokens and personal access tokens (classic) need the `user` scope to use this endpoint.
  */
-class BillingGetGithubPackagesBillingUser extends Request {
+class BillingGetGithubPackagesBillingUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/users/{$this->username}/settings/billing/packages";
     }
 

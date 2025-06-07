@@ -22,10 +22,12 @@ use Saloon\Http\Request;
  * repository. For more information, see "[Managing security managers in your
  * organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
  */
-class ReposGetById extends Request {
+class ReposGetById extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repositories/{$this->id}";
     }
 

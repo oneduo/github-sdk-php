@@ -15,10 +15,12 @@ use Saloon\Http\Request;
  * The authenticated user must have read
  * permission for the GitHub Pages site.
  */
-class ReposGetPagesDeployment extends Request {
+class ReposGetPagesDeployment extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pages/deployments/{$this->pagesDeploymentId}";
     }
 

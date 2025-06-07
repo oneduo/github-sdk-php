@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * (classic) need the`admin:org` scope to use this endpoint. If the repository is private, OAuth tokens
  * and personal access tokens (classic) need the `repo` scope to use this endpoint.
  */
-class ActionsGetOrgVariable extends Request {
+class ActionsGetOrgVariable extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/variables/{$this->name}";
     }
 

@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Gets information about a notification thread.
  */
-class ActivityGetThread extends Request {
+class ActivityGetThread extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/notifications/threads/{$this->threadId}";
     }
 

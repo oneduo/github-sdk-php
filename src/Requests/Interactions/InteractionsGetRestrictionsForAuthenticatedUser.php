@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Shows which type of GitHub user can interact with your public repositories and when the restriction
  * expires.
  */
-class InteractionsGetRestrictionsForAuthenticatedUser extends Request {
+class InteractionsGetRestrictionsForAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/interaction-limits';
     }
 

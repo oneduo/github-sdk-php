@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * products](https://docs.github.com/github/getting-started-with-github/githubs-products) in the GitHub
  * Help documentation.
  */
-class ReposRemoveStatusCheckContexts extends Request {
+class ReposRemoveStatusCheckContexts extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/required_status_checks/contexts";
     }
 

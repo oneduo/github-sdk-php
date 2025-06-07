@@ -16,10 +16,12 @@ use Saloon\Http\Request;
  * and personal access tokens (classic) need the `repo` scope to use this endpoint. The associated user
  * must be a repository admin.
  */
-class CodespacesDeleteRepoSecret extends Request {
+class CodespacesDeleteRepoSecret extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/codespaces/secrets/{$this->secretName}";
     }
 

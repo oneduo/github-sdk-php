@@ -12,10 +12,12 @@ use Saloon\Http\Request;
  *
  * Deletes a previous migration archive. Migration archives are automatically deleted after seven days.
  */
-class MigrationsDeleteArchiveForOrg extends Request {
+class MigrationsDeleteArchiveForOrg extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/migrations/{$this->migrationId}/archive";
     }
 

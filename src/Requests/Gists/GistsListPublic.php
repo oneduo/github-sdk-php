@@ -17,10 +17,12 @@ use Saloon\Http\Request;
  * to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100
  * gists per page.
  */
-class GistsListPublic extends Request {
+class GistsListPublic extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/gists/public';
     }
 
@@ -35,7 +37,8 @@ class GistsListPublic extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['since' => $this->since, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

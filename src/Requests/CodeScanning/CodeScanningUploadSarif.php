@@ -87,12 +87,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * This endpoint is limited to 1,000 requests per hour for each user or app installation
  * calling it.
  */
-class CodeScanningUploadSarif extends Request implements HasBody {
+class CodeScanningUploadSarif extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/code-scanning/sarifs";
     }
 

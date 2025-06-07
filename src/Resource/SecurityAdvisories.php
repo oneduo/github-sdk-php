@@ -17,7 +17,8 @@ use Oneduo\GitHubSdk\Requests\SecurityAdvisories\SecurityAdvisoriesListRepositor
 use Oneduo\GitHubSdk\Requests\SecurityAdvisories\SecurityAdvisoriesUpdateRepositoryAdvisory;
 use Saloon\Http\Response;
 
-class SecurityAdvisories extends GitHubResource {
+class SecurityAdvisories extends GitHubResource
+{
     /**
      * @param  string  $ghsaId  If specified, only advisories with this GHSA (GitHub Security Advisory) identifier will be returned.
      * @param  string  $type  If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.
@@ -73,7 +74,8 @@ class SecurityAdvisories extends GitHubResource {
     /**
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function getGlobalAdvisory(string $ghsaId): Response {
+    public function getGlobalAdvisory(string $ghsaId): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesGetGlobalAdvisory($ghsaId));
     }
 
@@ -117,7 +119,8 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createRepositoryAdvisory(string $owner, string $repo): Response {
+    public function createRepositoryAdvisory(string $owner, string $repo): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesCreateRepositoryAdvisory($owner, $repo));
     }
 
@@ -125,7 +128,8 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $owner  The account owner of the repository. The name is not case sensitive.
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      */
-    public function createPrivateVulnerabilityReport(string $owner, string $repo): Response {
+    public function createPrivateVulnerabilityReport(string $owner, string $repo): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesCreatePrivateVulnerabilityReport($owner, $repo));
     }
 
@@ -134,7 +138,8 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function getRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
+    public function getRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesGetRepositoryAdvisory($owner, $repo, $ghsaId));
     }
 
@@ -143,7 +148,8 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function updateRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response {
+    public function updateRepositoryAdvisory(string $owner, string $repo, string $ghsaId): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesUpdateRepositoryAdvisory($owner, $repo, $ghsaId));
     }
 
@@ -165,7 +171,8 @@ class SecurityAdvisories extends GitHubResource {
      * @param  string  $repo  The name of the repository without the `.git` extension. The name is not case sensitive.
      * @param  string  $ghsaId  The GHSA (GitHub Security Advisory) identifier of the advisory.
      */
-    public function createFork(string $owner, string $repo, string $ghsaId): Response {
+    public function createFork(string $owner, string $repo, string $ghsaId): Response
+    {
         return $this->connector->send(new SecurityAdvisoriesCreateFork($owner, $repo, $ghsaId));
     }
 }

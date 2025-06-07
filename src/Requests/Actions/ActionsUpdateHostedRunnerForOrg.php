@@ -16,12 +16,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * OAuth app tokens and personal access tokens
  * (classic) need the `manage_runners:org` scope to use this endpoint.
  */
-class ActionsUpdateHostedRunnerForOrg extends Request implements HasBody {
+class ActionsUpdateHostedRunnerForOrg extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::PATCH;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/actions/hosted-runners/{$this->hostedRunnerId}";
     }
 

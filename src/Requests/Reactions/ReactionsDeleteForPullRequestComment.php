@@ -18,10 +18,12 @@ use Saloon\Http\Request;
  * to a [pull request review
  * comment](https://docs.github.com/rest/pulls/comments#get-a-review-comment-for-a-pull-request).
  */
-class ReactionsDeleteForPullRequestComment extends Request {
+class ReactionsDeleteForPullRequestComment extends Request
+{
     protected Method $method = Method::DELETE;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/pulls/comments/{$this->commentId}/reactions/{$this->reactionId}";
     }
 

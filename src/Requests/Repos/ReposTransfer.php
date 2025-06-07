@@ -18,12 +18,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * repositories, see [about repository
  * transfers](https://docs.github.com/articles/about-repository-transfers/).
  */
-class ReposTransfer extends Request implements HasBody {
+class ReposTransfer extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/transfer";
     }
 

@@ -17,12 +17,14 @@ use Saloon\Traits\Body\HasJsonBody;
  * you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the
  * GitHub App's `id`, `pem` (private key), and `webhook_secret`.
  */
-class AppsCreateFromManifest extends Request implements HasBody {
+class AppsCreateFromManifest extends Request implements HasBody
+{
     use HasJsonBody;
 
     protected Method $method = Method::POST;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/app-manifests/{$this->code}/conversions";
     }
 

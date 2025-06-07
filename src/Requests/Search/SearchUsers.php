@@ -35,10 +35,12 @@ use Saloon\Http\Request;
  * private users, including Enterprise Managed Users (EMUs), that you are authorized to view. For more
  * information, see "[GraphQL Queries](https://docs.github.com/graphql/reference/queries#search)."
  */
-class SearchUsers extends Request {
+class SearchUsers extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/search/users';
     }
 
@@ -57,7 +59,8 @@ class SearchUsers extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['q' => $this->q, 'sort' => $this->sort, 'order' => $this->order, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

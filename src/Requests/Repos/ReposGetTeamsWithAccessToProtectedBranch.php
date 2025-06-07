@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * Lists the teams who have push access to this branch. The list includes child
  * teams.
  */
-class ReposGetTeamsWithAccessToProtectedBranch extends Request {
+class ReposGetTeamsWithAccessToProtectedBranch extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/repos/{$this->owner}/{$this->repo}/branches/{$this->branch}/protection/restrictions/teams";
     }
 

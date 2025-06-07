@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * (classic) need the `security_events` scope to use this endpoint. If this endpoint is only used with
  * public repositories, the token can use the `public_repo` scope instead.
  */
-class DependabotListAlertsForOrg extends Request {
+class DependabotListAlertsForOrg extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/dependabot/alerts";
     }
 
@@ -76,7 +78,8 @@ class DependabotListAlertsForOrg extends Request {
         protected ?int $last = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'state' => $this->state,
             'severity' => $this->severity,

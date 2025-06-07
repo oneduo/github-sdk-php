@@ -26,10 +26,12 @@ use Saloon\Http\Request;
  * type](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types/)
  * via the `Accept` header:
  */
-class TeamsCheckPermissionsForRepoLegacy extends Request {
+class TeamsCheckPermissionsForRepoLegacy extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/teams/{$this->teamId}/repos/{$this->owner}/{$this->repo}";
     }
 

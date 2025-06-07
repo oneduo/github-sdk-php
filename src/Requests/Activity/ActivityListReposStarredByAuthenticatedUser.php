@@ -19,10 +19,12 @@ use Saloon\Http\Request;
  * -
  * **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
  */
-class ActivityListReposStarredByAuthenticatedUser extends Request {
+class ActivityListReposStarredByAuthenticatedUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return '/user/starred';
     }
 
@@ -39,7 +41,8 @@ class ActivityListReposStarredByAuthenticatedUser extends Request {
         protected ?int $perPage = null,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter(['sort' => $this->sort, 'direction' => $this->direction, 'page' => $this->page, 'per_page' => $this->perPage]);
     }
 }

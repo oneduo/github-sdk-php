@@ -13,10 +13,12 @@ use Saloon\Http\Request;
  * Get the number of API requests and rate-limited requests made within an organization by a specific
  * user over a specified time period.
  */
-class ApiInsightsGetTimeStatsByUser extends Request {
+class ApiInsightsGetTimeStatsByUser extends Request
+{
     protected Method $method = Method::GET;
 
-    public function resolveEndpoint(): string {
+    public function resolveEndpoint(): string
+    {
         return "/orgs/{$this->org}/insights/api/time-stats/users/{$this->userId}";
     }
 
@@ -35,7 +37,8 @@ class ApiInsightsGetTimeStatsByUser extends Request {
         protected string $timestampIncrement,
     ) {}
 
-    public function defaultQuery(): array {
+    public function defaultQuery(): array
+    {
         return array_filter([
             'min_timestamp' => $this->minTimestamp,
             'max_timestamp' => $this->maxTimestamp,
