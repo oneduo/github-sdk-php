@@ -87,6 +87,7 @@ use Oneduo\GitHubSdk\Requests\Repos\ReposGetAutolink;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetBranch;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetBranchProtection;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetBranchRules;
+use Oneduo\GitHubSdk\Requests\Repos\ReposGetById;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetClones;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetCodeFrequencyStats;
 use Oneduo\GitHubSdk\Requests\Repos\ReposGetCollaboratorPermissionLevel;
@@ -309,6 +310,13 @@ class Repos extends GitHubResource {
      */
     public function get(string $owner, string $repo): Response {
         return $this->connector->send(new ReposGet($owner, $repo));
+    }
+
+    /**
+     * @param  int  $id  The unique identifier of the repository
+     */
+    public function getById(int $id): Response {
+        return $this->connector->send(new ReposGetById($id));
     }
 
     /**
